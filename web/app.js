@@ -755,7 +755,7 @@
           <section class="methods-section">
             <h2>Starting Framework</h2>
             <p>
-              The project starts with <em>The 2026 Core Content of Emergency Medical Services Medicine</em>, which is treated as the controlling map for what the question bank should cover. The outline was converted into a structured content map with 545 rows and 410 terminal topics. A separate audit compared the generated map back against the official Core Content PDF and found no drift issues in the working map.
+              The project starts with <em>The 2026 Core Content of Emergency Medical Services Medicine</em>, which is treated as the controlling map for what the question bank should cover.<sup>[1]</sup> The outline was converted into a structured content map with 545 rows and 410 terminal topics. A separate audit compared the generated map back against the official Core Content PDF and found no drift issues in the working map.
             </p>
           </section>
 
@@ -782,7 +782,7 @@
               A large language model is used as a drafting and revision engine, not as an unsupervised author. For each planned item, the generation index records the tested concept, concept summary, controlling source citation, source locator, distractor strategy, and stem-angle notes. The model uses that structured record to draft a board-style single-best-answer question, answer explanation, and distractors.
             </p>
             <p>
-              This design follows the emerging medical-education literature suggesting that LLMs can help generate multiple-choice or single-best-answer questions, but that quality is variable and requires human review, source boundaries, and quality assurance before learner use.<sup>[1-4]</sup>
+              This design follows the emerging medical-education literature suggesting that LLMs can help generate multiple-choice or single-best-answer questions, but that quality is variable and requires human review, source boundaries, and quality assurance before learner use.<sup>[2-5]</sup>
             </p>
           </section>
 
@@ -802,7 +802,7 @@
               The website is the next stage of the process. Reviewers are assigned anonymous user IDs. Their feedback is saved on the server by anonymous ID, not by email. Only reviewers who report that they have previously taken the board exam count toward question acceptance or rejection. A question can enter the learner pool after two qualified accept votes, can be rejected after two qualified reject votes, and requires a tiebreaker if the first two qualified votes conflict.
             </p>
             <p>
-              Accepted questions move into learner mode. Learner responses are tracked by question so the system can later review correct and incorrect rates, selected and ignored distractors, and learner flags for bad or outdated questions. That response data will be used to identify questions that are too easy, too difficult, misleading, or psychometrically weak. The broader medical-education literature supports the importance of practice questions and question-bank use for board preparation, but also highlights access and equity concerns that motivate a FOAMed approach.<sup>[5-7]</sup>
+              Accepted questions move into learner mode. Learner responses are tracked by question so the system can later review correct and incorrect rates, selected and ignored distractors, and learner flags for bad or outdated questions. That response data will be used to identify questions that are too easy, too difficult, misleading, or psychometrically weak. The broader medical-education literature supports the importance of practice questions and question-bank use for board preparation, but also highlights access and equity concerns that motivate a FOAMed approach.<sup>[6-8]</sup>
             </p>
           </section>
 
@@ -816,6 +816,7 @@
           <section class="methods-section">
             <h2>References</h2>
             <ol class="reference-list">
+              <li><em>The 2026 Core Content of Emergency Medical Services Medicine</em>. <em>Prehospital Emergency Care</em>. 2026. <a href="https://doi.org/10.1080/10903127.2026.2692037" target="_blank" rel="noopener noreferrer">doi:10.1080/10903127.2026.2692037</a>.</li>
               <li>Artsi Y, Sorin V, Konen E, Glicksberg BS, Nadkarni G, Klang E. Large language models for generating medical examinations: systematic review. <em>BMC Medical Education</em>. 2024;24:354. <a href="https://doi.org/10.1186/s12909-024-05239-y" target="_blank" rel="noopener noreferrer">doi:10.1186/s12909-024-05239-y</a>.</li>
               <li>Ahmed A, Kerr E, O'Malley A. Quality assurance and validity of AI-generated single best answer questions. <em>BMC Medical Education</em>. 2025;25:300. <a href="https://doi.org/10.1186/s12909-025-06881-w" target="_blank" rel="noopener noreferrer">doi:10.1186/s12909-025-06881-w</a>.</li>
               <li>Riehm L, Nanji K, Lakhani M, Pankiv E, Hasanee D, Pfeifer W. The use of large language models in generating multiple choice questions for health professions education: a systematic review and network meta-analysis. <em>PLoS One</em>. 2026;21(1):e0340277. <a href="https://doi.org/10.1371/journal.pone.0340277" target="_blank" rel="noopener noreferrer">doi:10.1371/journal.pone.0340277</a>.</li>
