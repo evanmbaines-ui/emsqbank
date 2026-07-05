@@ -33,6 +33,7 @@ DEFAULT_SOURCE = (
     / "ems_locked_priority_superset_100_items.json"
 )
 SEED_QUESTION_BANK_FILE = WEB_ROOT / "seed_data" / "question_bank.json"
+QUESTION_CONTENT_MIGRATION_DIR = WEB_ROOT / "migrations"
 
 USERS_FILE = DATA_ROOT / "users.json"
 SESSIONS_FILE = DATA_ROOT / "sessions.json"
@@ -44,6 +45,7 @@ PASSWORD_RESETS_FILE = DATA_ROOT / "password_resets.json"
 SECRET_FILE = DATA_ROOT / "server_secret.txt"
 ADMIN_TOKEN_FILE = DATA_ROOT / "admin_token.txt"
 RUNTIME_CONFIG_FILE = DATA_ROOT / "runtime_config.json"
+CONTENT_MIGRATION_LEDGER_FILE = DATA_ROOT / "content_migrations.json"
 AUDIT_LOG_FILE = DATA_ROOT / "lifecycle_audit_log.jsonl"
 INTAKE_MANIFEST_DIR = DATA_ROOT / "intake_manifests"
 
@@ -952,26 +954,185 @@ def protect_sandbox_decisions(actor: str = "system") -> dict:
     }
 
 
+def content_migration_files() -> list[Path]:
+    if not QUESTION_CONTENT_MIGRATION_DIR.exists():
+        return []
+    return sorted(QUESTION_CONTENT_MIGRATION_DIR.glob("*.json"))
+
+
+def target_record_for_content_update(bank: dict, update: dict) -> tuple[str, str]:
+    requested_record_id = str(update.get("record_id", "") or "").strip()
+    if requested_record_id and requested_record_id in bank.get("questions", {}):
+        return requested_record_id, ""
+    question_id = str(update.get("question_id", "") or "").strip()
+    if not question_id:
+        return "", "missing_question_id"
+    if question_id in bank.get("questions", {}):
+        return question_id, ""
+    candidates = [
+        (record_id, question)
+        for record_id, question in bank.get("questions", {}).items()
+        if str(question.get("question_id", "") or "") == question_id
+    ]
+    if not candidates:
+        return "", "not_found"
+    active_candidates = [
+        (record_id, question)
+        for record_id, question in candidates
+        if question.get("pool_state", "voting") in {"voting", "accepted", "paused"}
+    ]
+    candidates = active_candidates or candidates
+    if len(candidates) > 1:
+        return "", "ambiguous"
+    return candidates[0][0], ""
+
+
+def migration_content_hash(fields: dict) -> str:
+    return question_content_hash(
+        {
+            "stem": fields.get("stem", ""),
+            "options": fields.get("options", {}),
+            "answer": fields.get("answer", ""),
+            "rationale": fields.get("rationale", ""),
+        }
+    )
+
+
+def apply_question_content_migrations(bank: dict) -> dict:
+    ledger = load_json(CONTENT_MIGRATION_LEDGER_FILE, {"migrations": {}})
+    ledger.setdefault("migrations", {})
+    summary = {"applied": 0, "already_current": 0, "missing": 0, "ambiguous": 0}
+    bank_changed = False
+    ledger_changed = False
+
+    for migration_path in content_migration_files():
+        migration = load_json(migration_path, {})
+        migration_id = str(migration.get("migration_id", migration_path.stem)).strip() or migration_path.stem
+        source_sha = file_sha256(migration_path)
+        previous_entry = ledger["migrations"].get(migration_id, {})
+        if previous_entry.get("complete") and previous_entry.get("source_sha256") == source_sha:
+            continue
+        migration_entry = ledger["migrations"].setdefault(
+            migration_id,
+            {
+                "source_path": relative_project_path(migration_path),
+                "applied_records": {},
+                "pending_questions": [],
+                "last_checked_at": "",
+            },
+        )
+        migration_entry["source_path"] = relative_project_path(migration_path)
+        migration_entry["source_sha256"] = source_sha
+        applied_records = migration_entry.setdefault("applied_records", {})
+        pending_questions = []
+
+        for update in migration.get("updates", []):
+            record_id, target_error = target_record_for_content_update(bank, update)
+            question_id = str(update.get("question_id", "") or "")
+            if target_error:
+                pending_questions.append({"question_id": question_id, "reason": target_error})
+                summary["ambiguous" if target_error == "ambiguous" else "missing"] += 1
+                continue
+
+            question = bank["questions"][record_id]
+            fields = dict(update.get("fields", {}))
+            new_hash = migration_content_hash({**question, **fields})
+            applied_record = applied_records.get(record_id, {})
+            if applied_record.get("content_hash") == new_hash and question.get("content_hash") == new_hash:
+                summary["already_current"] += 1
+                continue
+
+            old_hash = question.get("content_hash", "")
+            changed_fields = []
+            for field, value in fields.items():
+                if question.get(field) != value:
+                    question[field] = value
+                    changed_fields.append(field)
+            if not changed_fields and old_hash == new_hash:
+                applied_records[record_id] = {
+                    "question_id": question.get("question_id", question_id),
+                    "content_hash": new_hash,
+                    "applied_at": applied_record.get("applied_at") or utc_now(),
+                    "changed_fields": [],
+                }
+                summary["already_current"] += 1
+                ledger_changed = True
+                continue
+
+            applied_at = utc_now()
+            question["content_hash"] = new_hash
+            question["topic_group_code"] = topic_group_code_for_question(question)
+            question["topic_group"] = topic_group_for_question(question)
+            revision_entry = {
+                "event": "content_migrated",
+                "migration_id": migration_id,
+                "applied_at": applied_at,
+                "reason": update.get("reason", migration.get("description", "")),
+                "source_path": relative_project_path(migration_path),
+                "previous_content_hash": old_hash,
+                "new_content_hash": new_hash,
+                "changed_fields": changed_fields,
+            }
+            question.setdefault("content_revision_history", []).append(revision_entry)
+            applied_records[record_id] = {
+                "question_id": question.get("question_id", question_id),
+                "content_hash": new_hash,
+                "applied_at": applied_at,
+                "changed_fields": changed_fields,
+            }
+            append_audit_event(
+                "question_content_migrated",
+                actor="system",
+                migration_id=migration_id,
+                record_id=record_id,
+                question_id=question.get("question_id", question_id),
+                previous_content_hash=old_hash,
+                new_content_hash=new_hash,
+                changed_fields=changed_fields,
+                source_path=relative_project_path(migration_path),
+            )
+            summary["applied"] += 1
+            bank_changed = True
+            ledger_changed = True
+
+        migration_entry["pending_questions"] = pending_questions
+        migration_entry["last_checked_at"] = utc_now()
+        migration_entry["complete"] = not pending_questions
+        ledger_changed = True
+
+    if bank_changed:
+        save_json(QUESTION_BANK_FILE, bank)
+    if ledger_changed:
+        save_json(CONTENT_MIGRATION_LEDGER_FILE, ledger)
+    return summary
+
+
 def ensure_question_bank() -> None:
     ensure_data_root()
     with DATA_LOCK:
         bank = load_json(QUESTION_BANK_FILE, {"questions": {}, "sources": []})
-        if bank.get("questions"):
-            return
-        if SEED_QUESTION_BANK_FILE.exists():
-            seeded_bank = load_json(SEED_QUESTION_BANK_FILE, {"questions": {}, "sources": []})
-            save_json(QUESTION_BANK_FILE, seeded_bank)
+        if not bank.get("questions"):
+            if SEED_QUESTION_BANK_FILE.exists():
+                bank = load_json(SEED_QUESTION_BANK_FILE, {"questions": {}, "sources": []})
+                save_json(QUESTION_BANK_FILE, bank)
+                append_audit_event(
+                    "question_bank_seeded",
+                    actor="system",
+                    seed_source=relative_project_path(SEED_QUESTION_BANK_FILE),
+                    question_count=len(bank.get("questions", {})),
+                )
+            elif DEFAULT_SOURCE.exists():
+                import_questions_from_file(DEFAULT_SOURCE, "locked_priority_superset_100", activate=True)
+                bank = load_json(QUESTION_BANK_FILE, {"questions": {}, "sources": []})
+            else:
+                save_json(QUESTION_BANK_FILE, bank)
+        migration_summary = apply_question_content_migrations(bank)
+        if migration_summary.get("applied"):
             append_audit_event(
-                "question_bank_seeded",
+                "question_content_migrations_checked",
                 actor="system",
-                seed_source=relative_project_path(SEED_QUESTION_BANK_FILE),
-                question_count=len(seeded_bank.get("questions", {})),
+                **migration_summary,
             )
-            return
-        if DEFAULT_SOURCE.exists():
-            import_questions_from_file(DEFAULT_SOURCE, "locked_priority_superset_100", activate=True)
-        else:
-            save_json(QUESTION_BANK_FILE, bank)
 
 
 def user_from_token(token: str | None) -> tuple[str, dict] | tuple[None, None]:

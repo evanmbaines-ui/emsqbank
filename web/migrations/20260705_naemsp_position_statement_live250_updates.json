@@ -1,0 +1,690 @@
+{
+  "created_at": "2026-07-05",
+  "description": "Apply NAEMSP/current position-statement audit improvements to 27 existing live 250 question records in place while preserving record IDs, pool states, reviews, and learner history.",
+  "migration_id": "20260705_naemsp_position_statement_live250_updates",
+  "source_package": "outputs/ems_live250_naemsp_position_statement_audit_20260705",
+  "update_count": 27,
+  "updates": [
+    {
+      "change_type": "substantive_source_detail_hardening",
+      "fields": {
+        "answer": "C",
+        "citation": "Breyre AM, George N, Nelson AR, et al. Prehospital Trauma Compendium: Prehospital Management of Adults with Traumatic Out-of-Hospital Circulatory Arrest - A Joint Position Statement and Resource Document of NAEMSP, ACS-COT, and ACEP. Prehosp Emerg Care. Published online March 11, 2025. doi:10.1080/10903127.2024.2428668.",
+        "concept_key": "JOB-1-1-2-3-03",
+        "content_id": "1.1.2.3",
+        "core_content_code": "1.1.2.3",
+        "domain": "MEDICAL OVERSIGHT OF EMS",
+        "job_id": "JOB-1-1-2-3-03",
+        "options": {
+          "A": "Withhold resuscitation for injuries incompatible with life, evidence of prolonged circulatory arrest, or valid do-not-resuscitate/do-not-attempt-resuscitation medical orders.",
+          "B": "If arrest etiology is unclear and there are no clear signs of life-threatening trauma, use standard basic and advanced cardiac life support treatment for medical cardiac arrest.",
+          "C": "Place the cardiac monitor and use point-of-care ultrasound for prognostication before indicated hemorrhage control, airway or ventilation management, or chest decompression.",
+          "D": "For discontinuation decisions, do not use mechanism, electrical rhythm, resuscitation duration, or transport time as the sole determinant."
+        },
+        "rationale": "C should be revised. The joint position statement emphasizes identifying reversible causes and performing indicated lifesaving interventions before monitor placement or point-of-care ultrasound prognostication. A is consistent with listed withholding conditions. B is consistent with treating unclear arrests without clear life-threatening trauma as medical cardiac arrest. D is consistent with the warning not to use mechanism, electrical rhythm, resuscitation duration, or transport time as a sole discontinuation determinant.",
+        "source_question_number": 78,
+        "stem": "An emergency medical services (EMS) medical director reviews a draft adult traumatic out-of-hospital circulatory arrest (TOHCA) protocol. Which draft clause should be revised before approval?",
+        "title": "Adult TOHCA Protocol Clause Needing Revision",
+        "topic": "Determination and/or pronouncement of death"
+      },
+      "position_statement": "Prehospital Management of Adults with Traumatic Out-of-Hospital Circulatory Arrest",
+      "question_id": "EMS2026-1-1-2-3-03",
+      "reason": "Rewritten after expert feedback because prior versions only tested the generic need for a TOR policy. The revised item mines the TOHCA position statement for specific policy clauses and tests the sequencing rule that indicated lifesaving interventions should precede monitor/POCUS prognostication."
+    },
+    {
+      "change_type": "citation_and_rationale_update",
+      "fields": {
+        "answer": "A",
+        "citation": "Breyre AM, Wang DH, Brooten JK, et al. EMS Care of Adult Hospice Patients - a Position Statement and Resource Document of NAEMSP and AAHPM. Prehosp Emerg Care. 2023;27(5):560-565. doi:10.1080/10903127.2023.2193978.",
+        "concept_key": "JOB-1-1-2-3-06",
+        "content_id": "1.1.2.3",
+        "core_content_code": "1.1.2.3",
+        "domain": "MEDICAL OVERSIGHT OF EMS",
+        "job_id": "JOB-1-1-2-3-06",
+        "options": {
+          "A": "POLST is a medical order designed to guide treatment intensity across settings, including EMS.",
+          "B": "POLST is only a living will summary and has no EMS relevance.",
+          "C": "POLST becomes active only after a hospital physician countersigns it during this encounter.",
+          "D": "POLST applies only to cardiopulmonary resuscitation and says nothing about transport or treatment intensity."
+        },
+        "rationale": "POLST forms are portable medical orders that guide treatment intensity across settings, including EMS encounters, and may address more than cardiopulmonary resuscitation status. The hospice statement also emphasizes goal-concordant symptom management and transport decisions. B treats the form as nonactionable, C invents an encounter-specific countersignature requirement, and D wrongly limits POLST to cardiopulmonary resuscitation.",
+        "source_question_number": 89,
+        "stem": "A hospice patient at home has a Physician Orders for Life-Sustaining Treatment (POLST) indicating comfort-focused care and no transport unless symptoms cannot be controlled. The family hands it to EMS. What is the key operational meaning?",
+        "title": "POLST Across Settings",
+        "topic": "Determination and/or pronouncement of death"
+      },
+      "position_statement": "EMS Care of Adult Hospice Patients",
+      "question_id": "EMS2026-1-1-2-3-06",
+      "reason": "Citation updated to the 2023 NAEMSP/AAHPM hospice statement."
+    },
+    {
+      "change_type": "citation_and_rationale_update",
+      "fields": {
+        "answer": "B",
+        "citation": "Kupas DF, Zavadsky M, Burton B, et al. Joint Statement on Lights & Siren Vehicle Operations on Emergency Medical Services Responses. Prehosp Emerg Care. 2022;26(3):459-461. doi:10.1080/10903127.2022.2044417.",
+        "concept_key": "JOB-1-2-3-07",
+        "content_id": "1.2.3",
+        "core_content_code": "1.2.3",
+        "domain": "MEDICAL OVERSIGHT OF EMS",
+        "job_id": "JOB-1-2-3-07",
+        "options": {
+          "A": "Keep the current hot-response policy for Charlie-level calls but require crews to document perceived time savings and traffic density after each response.",
+          "B": "Use medical dispatch rules with documented upgrade/downgrade authority and periodic review of time savings, crashes, wake-effect events, and patient outcomes.",
+          "C": "Use billing-level review to set hot-response policy because advanced life support billing is an objective acuity marker after transport.",
+          "D": "Create a crew-discretion policy for response mode after dispatch, with chart documentation of traffic, weather, and patient-care rationale."
+        },
+        "rationale": "Lights-and-siren policy should be medically governed, allow dispatch/crew upgrade and downgrade through documented rules, and monitor time saved, crashes, wake-effect events, and patient outcomes. The joint statement emphasizes that average time savings are modest and safety risks include both EMS crashes and wake-effect crashes. A documents risk without changing the risky default, C uses billing as a retrospective acuity proxy, and D creates inconsistent crew-dependent response mode decisions.",
+        "stem": "A review shows hot responses for many \u201cCharlie-level\u201d dispatches, median time savings under two minutes, two ambulance near-crashes, and one civilian crash caused by vehicles yielding to an ambulance. Dispatchers also report no clear downgrade authority. What policy revision best addresses the documented risk?",
+        "title": "Lights-And-Siren Reassessment With Wake-Effect Risk",
+        "topic": "Use of Lights and Siren"
+      },
+      "position_statement": "Joint Statement on Lights & Siren Vehicle Operations on Emergency Medical Services Responses",
+      "question_id": "EMS2026-1-2-3-07",
+      "reason": "Citation updated to the 2022 joint lights-and-siren statement."
+    },
+    {
+      "change_type": "citation_and_rationale_update",
+      "fields": {
+        "answer": "D",
+        "citation": "Farcas AM, Crowe RP, Kennel J, et al. Achieving Equity in EMS Care and Patient Outcomes Through Quality Management Systems: A Position Statement. Prehosp Emerg Care. 2024;28(6):871-881. doi:10.1080/10903127.2024.2352582.",
+        "content_id": "1.3.7",
+        "core_content_code": "1.3.7",
+        "domain": "MEDICAL OVERSIGHT OF EMS",
+        "job_id": "JOB-1-3-7-08",
+        "options": {
+          "A": "Treat race as a biologic medication-response variable while separately tracking clinician implicit-bias training.",
+          "B": "Race and ethnicity should be excluded from analysis because measuring them may worsen bias.",
+          "C": "Race should be replaced by insurance status because structural factors cannot be evaluated in EMS datasets.",
+          "D": "Treat race and ethnicity as social determinants, not biologic explanations."
+        },
+        "rationale": "Race and ethnicity should be treated as social and structural variables when evaluating EMS care differences, not as biologic medication-response explanations. The equity quality-management statement supports stratifying care measures to identify inequities. A medicalizes inequity, B prevents measurement of disparities, and C substitutes one social variable while denying the need to examine race and ethnicity.",
+        "source_question_number": 16,
+        "stem": "An EMS quality committee finds differences in pain-medication administration by recorded race and ethnicity. One member proposes adding \"biologic race\" as a risk-adjustment variable before changing practice. Which framing is most appropriate?",
+        "title": "Race, Ethnicity, And EMS Care Differences",
+        "topic": "Diverse and Inclusive Workforce"
+      },
+      "position_statement": "Achieving Equity in EMS Care and Patient Outcomes Through Quality Management Systems",
+      "question_id": "EMS2026-1-3-7-08",
+      "reason": "Citation updated from a workforce-equity statement to the newer patient-care equity/QM statement because the item tests analysis of care differences by race and ethnicity, not workforce recruitment."
+    },
+    {
+      "change_type": "citation_and_rationale_update",
+      "fields": {
+        "answer": "C",
+        "citation": "Kupas DF, Zavadsky M, Burton B, et al. Joint Position Statement on EMS Performance Measures Beyond Response Times. Prehosp Emerg Care. 2024;28(8):1068-1069. doi:10.1080/10903127.2024.2375739.",
+        "content_id": "1.4.5",
+        "core_content_code": "1.4.5",
+        "domain": "MEDICAL OVERSIGHT OF EMS",
+        "job_id": "JOB-1-4-5-05",
+        "options": {
+          "A": "Average response time is sufficient because system status management is designed to optimize aggregate performance.",
+          "B": "Unit-hour utilization is sufficient because keeping ambulances busy shows that resources are deployed efficiently.",
+          "C": "System status management must balance high- and low-volume coverage, peak and off-peak demand, workforce health, and economic stability.",
+          "D": "Rural coverage should be excluded from deployment modeling because low call volume makes performance unstable."
+        },
+        "rationale": "System status management should not be judged only by an average or 90th-percentile response-time gain. The newer performance-measures statement supports a broad, balanced set of clinical, safety, experiential, equity, operational, and financial measures. A and B are incomplete single-axis measures, and D excludes a real coverage obligation.",
+        "source_question_number": 83,
+        "stem": "A system status management (SSM) posting algorithm improves 90th-percentile urban response time but increases rural uncovered hours, crew moves per shift, and late meal breaks. Leadership calls the model successful because the average response time improved. What should the medical director emphasize?",
+        "title": "System Status Management Tradeoff",
+        "topic": "System Status Management"
+      },
+      "position_statement": "Joint Position Statement on EMS Performance Measures Beyond Response Times",
+      "question_id": "EMS2026-1-4-5-05",
+      "reason": "Citation updated to the 2024 joint performance-measures statement, which directly supports using broad balanced measures rather than response-time improvement alone."
+    },
+    {
+      "change_type": "citation_and_rationale_update",
+      "fields": {
+        "answer": "D",
+        "citation": "Ulintz AJ, O'Connor LC, Heffern TM, et al. Mobile Integrated Health Care and Community Paramedicine: A Position Statement and Resource Document of NAEMSP. Prehosp Emerg Care. Published online August 21, 2025. doi:10.1080/10903127.2025.2541899.",
+        "concept_key": "JOB-1-4-6-1-02",
+        "content_id": "1.4.6.1",
+        "core_content_code": "1.4.6.1",
+        "domain": "MEDICAL OVERSIGHT OF EMS",
+        "job_id": "JOB-1-4-6-1-02",
+        "options": {
+          "A": "Start the program under medical-director authority because alternative destinations are clinical rather than legal decisions.",
+          "B": "Use the neighboring state's statute as the operating standard until local law catches up.",
+          "C": "Avoid all alternative destinations because only emergency departments can receive EMS patients.",
+          "D": "Confirm state legal authority and regulatory limits before building protocols, training, and quality measures."
+        },
+        "rationale": "Alternative destination and treatment-in-place programs must fit state legal authority, regulatory limits, role definition, training, and quality measurement before protocols are deployed. The MIH/CP statement supports seeking regulatory guidance without letting regulation unnecessarily block data-informed innovation. A overstates medical-director authority, B imports another state law, and C is too categorical because alternative destinations may be allowed in some systems.",
+        "stem": "A state EMS office asks a medical director to start direct transport to a sobering center and urgent-care clinic. Neighboring states allow similar programs, but local regulations are unclear. What should happen first?",
+        "title": "Alternative Destination Legal Check",
+        "topic": "Alternative destinations"
+      },
+      "position_statement": "Mobile Integrated Health Care and Community Paramedicine",
+      "question_id": "EMS2026-1-4-6-1-02",
+      "reason": "Citation updated to the 2025 NAEMSP MIH/CP statement, which directly addresses state regulatory guidance and innovation in MIH/CP practice."
+    },
+    {
+      "change_type": "substantive_currentness_update",
+      "fields": {
+        "answer": "A",
+        "citation": "Ulintz AJ, O'Connor LC, Heffern TM, et al. Mobile Integrated Health Care and Community Paramedicine: A Position Statement and Resource Document of NAEMSP. Prehosp Emerg Care. Published online August 21, 2025. doi:10.1080/10903127.2025.2541899.",
+        "content_id": "1.4.6.1",
+        "core_content_code": "1.4.6.1",
+        "domain": "MEDICAL OVERSIGHT OF EMS",
+        "job_id": "JOB-1-4-6-1-03",
+        "options": {
+          "A": "A Center for Medicare and Medicaid Innovation model that allowed alternative destinations and treatment in place with a qualified health care partner or telehealth, but did not create a permanent EMS payment rule.",
+          "B": "A permanent federal rule requiring low-acuity 911 patients to use urgent care, sobering centers, or primary care whenever local alternatives exist.",
+          "C": "A state licensure pathway allowing community paramedics to bill independently when they document care navigation and outcome measures.",
+          "D": "A hospital diversion policy that pays EMS only when patients refuse transport after online medical consultation."
+        },
+        "rationale": "ET3 was a Center for Medicare and Medicaid Innovation model that decoupled some EMS reimbursement from emergency department transport by allowing alternative destinations and treatment in place with a qualified health care partner, including telehealth. It was intended to run for five years but ended early on December 31, 2023. B turns a model into a permanent mandate, C substitutes a state licensure/billing pathway, and D misstates the care and payment pathways.",
+        "source_question_number": 63,
+        "stem": "A payer asks why an EMS agency's treatment-in-place pilot cannot be evaluated only by reduced transports. The medical director uses the Emergency Triage, Treat, and Transport (ET3) model as an example of EMS reimbursement reform. Which description is most accurate?",
+        "title": "Emergency Triage, Treat, And Transport Model",
+        "topic": "Alternative destinations"
+      },
+      "position_statement": "Mobile Integrated Health Care and Community Paramedicine",
+      "question_id": "EMS2026-1-4-6-1-03",
+      "reason": "Substantive currentness update: the 2025 MIH/CP statement notes that ET3 was intended as a five-year model but ended early on December 31, 2023; the question now avoids implying an ongoing/permanent pathway."
+    },
+    {
+      "change_type": "citation_and_rationale_update",
+      "fields": {
+        "answer": "D",
+        "citation": "Ulintz AJ, O'Connor LC, Heffern TM, et al. Mobile Integrated Health Care and Community Paramedicine: A Position Statement and Resource Document of NAEMSP. Prehosp Emerg Care. Published online August 21, 2025. doi:10.1080/10903127.2025.2541899.",
+        "content_id": "1.4.6.2",
+        "core_content_code": "1.4.6.2",
+        "domain": "MEDICAL OVERSIGHT OF EMS",
+        "job_id": "JOB-1-4-6-2-03",
+        "options": {
+          "A": "Schedule home visits for all discharged patients, replace routine clinic follow-up, provide teleconsultation, and use transport only for unstable findings.",
+          "B": "Send postdischarge symptoms back to the emergency department, track readmission rate, add nurse callbacks, and avoid nonconveyance decisions.",
+          "C": "Limit community paramedics to medication inventory, social-needs screening, and referral lists generated by home health.",
+          "D": "Use risk-selected in-home visits, teleconsultation, scheduled reassessment, and nonconveyance pathways under medical oversight."
+        },
+        "rationale": "Mobile integrated health/community paramedicine programs are needs-based, patient-centered models designed around community needs, care gaps, stakeholder collaboration, and medical oversight. Risk-selected in-home visits, teleconsultation, scheduled reassessment, and nonconveyance pathways under medical oversight fit that model. A overreplaces usual care, B preserves the readmission cycle, and C narrows EMS to checklists.",
+        "source_question_number": 91,
+        "stem": "A health system asks EMS to help reduce readmissions among patients with heart failure, chronic obstructive pulmonary disease, and poor access to follow-up. The proposed EMS role is a once-monthly phone reminder after discharge. Which program design better reflects mobile integrated health treatment-in-place capability?",
+        "title": "MIH Treatment-in-Place Design",
+        "topic": "Treatment in place"
+      },
+      "position_statement": "Mobile Integrated Health Care and Community Paramedicine",
+      "question_id": "EMS2026-1-4-6-2-03",
+      "reason": "Citation updated to the 2025 NAEMSP MIH/CP statement, which directly supports needs-based, patient-centered community care, local gap assessment, multidisciplinary collaboration, and physician medical direction."
+    },
+    {
+      "change_type": "citation_and_rationale_update",
+      "fields": {
+        "answer": "C",
+        "citation": "Ulintz AJ, O'Connor LC, Heffern TM, et al. Mobile Integrated Health Care and Community Paramedicine: A Position Statement and Resource Document of NAEMSP. Prehosp Emerg Care. Published online August 21, 2025. doi:10.1080/10903127.2025.2541899.",
+        "concept_key": "JOB-1-4-7-07",
+        "content_id": "1.4.7",
+        "core_content_code": "1.4.7",
+        "domain": "MEDICAL OVERSIGHT OF EMS",
+        "job_id": "JOB-1-4-7-07",
+        "options": {
+          "A": "Build an in-home urgent-care policy focused on on-demand procedures, imaging, and lab testing, because recurring senior-housing contact can substitute for emergency department care.",
+          "B": "Structure the program only as an Emergency Triage, Treat, and Transport payment policy, because treatment-in-place reimbursement is required before community paramedicine activity is legitimate.",
+          "C": "Use a health-maintenance/community paramedicine model with cardiovascular, diabetes, and fall-risk screening, counseling, local-resource referral, outcome tracking, legal/scope review, and sustainability planning.",
+          "D": "Write a readmission-reduction policy only, because community paramedics should not perform wellness screening unless a hospital admission occurred first."
+        },
+        "rationale": "The MIH/CP statement supports programs tailored to community needs and designed to bridge local gaps without duplicating existing services. A senior-housing health-maintenance/community paramedicine model with screening, counseling, referral, outcome tracking, legal/scope review, and sustainability planning fits that framework. A describes a different in-home urgent-care model requiring capabilities the agency lacks, B overstates one payment model as a prerequisite, and D narrows community paramedicine to readmission work.",
+        "stem": "A senior housing complex has frequent 9-1-1 use for falls, diabetes concerns, blood-pressure problems, medication confusion, and food insecurity. The EMS agency can place community paramedics in the building\u2019s common area for recurring screening, counseling, and referral, but it cannot provide point-of-care labs, imaging, laceration repair, or Foley catheter services. Funding is tied to public-health outcomes and senior-center partners rather than emergency department substitution payment. Which program design best fits the source-described model?",
+        "title": "Choosing The MIH Model For Senior Housing",
+        "topic": "Navigation to Healthcare Resources"
+      },
+      "position_statement": "Mobile Integrated Health Care and Community Paramedicine",
+      "question_id": "EMS2026-1-4-7-07",
+      "reason": "Citation updated to the 2025 NAEMSP MIH/CP statement."
+    },
+    {
+      "change_type": "citation_and_rationale_update",
+      "fields": {
+        "answer": "B",
+        "citation": "Breyre AM, Wang DH, Brooten JK, et al. EMS Care of Adult Hospice Patients - a Position Statement and Resource Document of NAEMSP and AAHPM. Prehosp Emerg Care. 2023;27(5):560-565. doi:10.1080/10903127.2023.2193978.",
+        "concept_key": "JOB-2-1-1-6-03",
+        "content_id": "2.1.1.6",
+        "core_content_code": "2.1.1.6",
+        "domain": "CLINICAL ASPECTS OF EMS MEDICINE",
+        "job_id": "JOB-2-1-1-6-03",
+        "options": {
+          "A": "It is a patient education handout that helps families discuss preferences but does not guide EMS actions.",
+          "B": "It converts end-of-life preferences into medical orders intended to guide care across settings, including EMS.",
+          "C": "It applies only after hospital admission because EMS cannot act on medical orders from long-term care.",
+          "D": "It is valid only if the patient verbally repeats every preference during the EMS encounter."
+        },
+        "rationale": "A Physician Orders for Life-Sustaining Treatment form converts care preferences into portable medical orders meant to guide treatment across settings, including EMS. The hospice statement highlights that POLST is especially relevant when treatment limitations and transport goals must be interpreted outside cardiopulmonary arrest. A treats it as education only, C wrongly excludes EMS, and D invents a real-time verbal repetition requirement.",
+        "source_question_number": 54,
+        "stem": "A frail nursing-home resident has respiratory distress and a Physician Orders for Life-Sustaining Treatment (POLST) form indicating no intubation and limited transport goals. Family members disagree at the bedside. Why is the POLST especially relevant?",
+        "title": "POLST As Actionable Orders",
+        "topic": "Withholding resuscitation (including determination of death and applying advanced directives)"
+      },
+      "position_statement": "EMS Care of Adult Hospice Patients",
+      "question_id": "EMS2026-2-1-1-6-03",
+      "reason": "Citation updated to the 2023 NAEMSP/AAHPM hospice statement."
+    },
+    {
+      "change_type": "citation_standardization",
+      "fields": {
+        "answer": "D",
+        "citation": "Vithalani V, Sondheim S, Cornelius A, et al. Quality Management of Prehospital Airway Programs: An NAEMSP Position Statement and Resource Document. Prehosp Emerg Care. 2022;26(sup1):14-22. doi:10.1080/10903127.2021.1989530.",
+        "concept_key": "JOB-2-1-2-2-2-04",
+        "content_id": "2.1.2.2.2",
+        "core_content_code": "2.1.2.2.2",
+        "domain": "CLINICAL ASPECTS OF EMS MEDICINE",
+        "job_id": "JOB-2-1-2-2-2-04",
+        "options": {
+          "A": "Use uniform definitions for overall success, first-pass success, waveform capnography confirmation, operator case volume, and remedial education after unsuccessful attempts.",
+          "B": "Use uniform definitions for indication, device choice, number of attempts, rescue-airway use, oxygen saturation nadir, and postintubation ventilation rate.",
+          "C": "Use uniform definitions for attempt count, first-pass success, overall success, hypoxemia, hypotension, scene time, and receiving-hospital confirmation.",
+          "D": "Use uniform definitions for attempts, first-pass and overall success, rescue attempts, hypoxemia, hypotension, bradycardia, and balancing measures."
+        },
+        "rationale": "D is best because airway quality programs need uniform definitions for attempts and success while also tracking rescue attempts, physiologic complications, and balancing measures. A emphasizes technical success, confirmation, operator volume, and remediation but does not measure the desaturation and hypotension that triggered the review. B captures several process and ventilation elements but does not define success denominators or the hemodynamic complications needed for safety review. C includes success and two physiologic complications, but scene time and receiving-hospital confirmation do not substitute for rescue attempts, bradycardia, and balancing measures.",
+        "stem": "A service reports 92% overall intubation success, but several cases involved peri-intubation oxygen desaturation and hypotension. The medical director is revising the airway quality dashboard. Which measure set is most useful?",
+        "title": "Airway Quality Measures Beyond Success",
+        "topic": "Airway management adjuncts"
+      },
+      "position_statement": "Quality Management of Prehospital Airway Programs",
+      "question_id": "EMS2026-2-1-2-2-2-04",
+      "reason": "Citation standardized to include the full NAEMSP airway-quality statement citation and DOI; question content already matches the statement."
+    },
+    {
+      "change_type": "citation_and_rationale_update",
+      "fields": {
+        "answer": "A",
+        "citation": "Berry C, Gallagher JM, Goodloe JM, Dorlac WC, Dodd J, Fischer PE. Prehospital Hemorrhage Control and Treatment by Clinicians: A Joint Position Statement. Prehosp Emerg Care. 2023;27(5):544-551. doi:10.1080/10903127.2023.2195487.",
+        "concept_key": "JOB-2-2-1-1-02",
+        "content_id": "2.2.1.1",
+        "core_content_code": "2.2.1.1",
+        "domain": "CLINICAL ASPECTS OF EMS MEDICINE",
+        "job_id": "JOB-2-2-1-1-02",
+        "options": {
+          "A": "Move toward transport while controlling external bleeding and give limited resuscitation en route if needed.",
+          "B": "Place two large-bore intravenous lines during packaging, but do not leave scene until a liter of crystalloid has infused.",
+          "C": "Complete a head-to-toe secondary survey and detailed abdominal exam before departure to better localize hemorrhage.",
+          "D": "Defer vascular access entirely during transport because any preoperative fluid worsens outcome in penetrating trauma."
+        },
+        "rationale": "Unstable penetrating trauma should move toward definitive hemorrhage control, while external bleeding control and limited resuscitation occur without delaying transport. Current hemorrhage guidance supports minimizing crystalloid, using blood products when available, and permissive hypotension when locally protocolized for non-brain-injured patients. B delays transport for crystalloid, C postpones departure for a low-yield survey, and D is too absolute because access and limited resuscitation may still be appropriate.",
+        "stem": "A patient with a stab wound to the upper abdomen is pale, confused, and has a weak radial pulse. The ambulance is ready and the trauma center is 11 minutes away. What should the crew prioritize?",
+        "title": "Penetrating Trauma Fluid Timing",
+        "topic": "Goal of minimizing scene time for severe trauma"
+      },
+      "position_statement": "Prehospital Hemorrhage Control and Treatment by Clinicians",
+      "question_id": "EMS2026-2-2-1-1-02",
+      "reason": "Citation updated to the 2023 hemorrhage-control statement."
+    },
+    {
+      "change_type": "citation_and_rationale_update",
+      "fields": {
+        "answer": "A",
+        "citation": "Berry C, Gallagher JM, Goodloe JM, Dorlac WC, Dodd J, Fischer PE. Prehospital Hemorrhage Control and Treatment by Clinicians: A Joint Position Statement. Prehosp Emerg Care. 2023;27(5):544-551. doi:10.1080/10903127.2023.2195487.",
+        "content_id": "2.2.1.1",
+        "core_content_code": "2.2.1.1",
+        "domain": "CLINICAL ASPECTS OF EMS MEDICINE",
+        "job_id": "JOB-2-2-1-1-04",
+        "options": {
+          "A": "Convert to durable hemorrhage control, such as a tourniquet or pressure dressing, then move immediately to transport.",
+          "B": "Load now while the firefighter maintains manual pressure because every on-scene intervention worsens severe-trauma time goals.",
+          "C": "Start vascular access and give tranexamic acid before movement because shock treatment should precede transport.",
+          "D": "Perform a full secondary survey before movement because proximal extremity trauma can hide pelvic and abdominal injury."
+        },
+        "rationale": "Minimizing scene time does not mean transporting with uncontrolled or hand-dependent life-threatening bleeding. Current hemorrhage guidance emphasizes immediate direct pressure and, when ineffective or impractical, durable control such as tourniquet or wound packing. A creates durable hemorrhage control before movement. B risks loss of control, while C and D delay the immediate preventable-death intervention.",
+        "source_question_number": 22,
+        "stem": "A trauma crew is 9 minutes from the trauma center with a patient who has a mangled thigh, systolic blood pressure of 76 mm Hg, and heavy arterial bleeding controlled only while a firefighter maintains direct pressure. The stretcher is at the patient's side. What should the crew do first?",
+        "title": "Scene Time Versus Hemorrhage Control",
+        "topic": "Goal of minimizing scene time for severe trauma"
+      },
+      "position_statement": "Prehospital Hemorrhage Control and Treatment; Tranexamic Acid in Trauma",
+      "question_id": "EMS2026-2-2-1-1-04",
+      "reason": "Citation updated to the current hemorrhage-control position statement; rationale sharpened to emphasize lifesaving hemorrhage control before adjuncts or other delays."
+    },
+    {
+      "change_type": "citation_and_rationale_update",
+      "fields": {
+        "answer": "A",
+        "citation": "Berry C, Gallagher JM, Goodloe JM, Dorlac WC, Dodd J, Fischer PE. Prehospital Hemorrhage Control and Treatment by Clinicians: A Joint Position Statement. Prehosp Emerg Care. 2023;27(5):544-551. doi:10.1080/10903127.2023.2195487.",
+        "concept_key": "JOB-2-2-1-2-05",
+        "content_id": "2.2.1.2",
+        "core_content_code": "2.2.1.2",
+        "domain": "CLINICAL ASPECTS OF EMS MEDICINE",
+        "job_id": "JOB-2-2-1-2-05",
+        "options": {
+          "A": "Use limited resuscitation aimed at maintaining perfusion rather than normalizing blood pressure before surgical control.",
+          "B": "Give repeated crystalloid boluses until blood pressure is 120/80 mm Hg before surgical hemorrhage control.",
+          "C": "Withhold all resuscitation even if the radial pulse disappears and mental status worsens.",
+          "D": "Delay departure until blood pressure has normalized because transport hypotension is the dominant preventable risk."
+        },
+        "rationale": "In selected non-brain-injured penetrating trauma before definitive hemorrhage control, current hemorrhage guidance supports limited resuscitation/permissive hypotension when defined in local protocols, with minimization of crystalloid volume. A preserves perfusion without chasing normal blood pressure. B overnormalizes blood pressure before surgical control, C withholds resuscitation despite worsening perfusion, and D delays needed transport for a nondefinitive endpoint.",
+        "stem": "A young adult has a penetrating abdominal wound, no head injury signs, a palpable radial pulse, and a 15-minute transport to surgery. Which resuscitation target is most appropriate before hemorrhage control?",
+        "title": "Permissive Hypotension Boundary",
+        "topic": "Management and resuscitation of multi-trauma patient"
+      },
+      "position_statement": "Prehospital Hemorrhage Control and Treatment by Clinicians",
+      "question_id": "EMS2026-2-2-1-2-05",
+      "reason": "Citation updated to the 2023 hemorrhage-control statement."
+    },
+    {
+      "change_type": "substantive_currentness_update",
+      "fields": {
+        "answer": "B",
+        "citation": "Lyng JW, Corsa JG, Raetzke BD, et al. Prehospital Trauma Compendium: Evaluation and Management of Suspected Pelvis Fractures - An NAEMSP Position Statement and Resource Document. Prehosp Emerg Care. Published online August 11, 2025. doi:10.1080/10903127.2025.2540420.",
+        "content_id": "2.2.1.3",
+        "core_content_code": "2.2.1.3",
+        "domain": "CLINICAL ASPECTS OF EMS MEDICINE",
+        "job_id": "JOB-2-2-1-3-03",
+        "options": {
+          "A": "Perform one careful manual stability test; if instability is felt, apply a pelvic device and treat the pelvis as the sole shock source.",
+          "B": "Avoid manual stability testing, assess for other shock sources, and if protocol uses a pelvic device place it over the trochanters with the legs secured while transporting based on trauma-triage criteria.",
+          "C": "Defer trauma-center transport until hospital imaging confirms a pelvic fracture because field pelvic diagnosis is unreliable.",
+          "D": "Apply the pelvic device high over the iliac crests for any pelvic pain because prehospital pelvic compression has proven mortality benefit."
+        },
+        "rationale": "The 2025 NAEMSP pelvis statement emphasizes that field identification of pelvic fracture is difficult, manual stability testing is neither sensitive nor specific and may cause harm, and shock in suspected pelvic fracture often has concomitant sources. If a pelvic circumferential compression device is used, placement should be anatomically correct over the trochanters with the legs internally rotated/feet secured, and destination should follow trauma-triage criteria. A relies on harmful testing and tunnel vision, C delays appropriate triage, and D overstates benefit and uses incorrect placement.",
+        "source_question_number": 73,
+        "stem": "After a motorcycle crash, a 35-year-old has severe pelvic pain, abdominal tenderness, systolic blood pressure of 86 mm Hg, and a deformed femur. A crew member suggests manually springing the pelvis to prove instability before deciding on a pelvic circumferential compression device and trauma-center destination. Which interpretation best matches current guidance?",
+        "title": "Unstable Pelvis Field Triage",
+        "topic": "Field trauma triage criteria"
+      },
+      "position_statement": "Prehospital Trauma Compendium: Evaluation and Management of Suspected Pelvis Fractures",
+      "question_id": "EMS2026-2-2-1-3-03",
+      "reason": "Substantive hardening/currentness update: the 2025 pelvic fracture statement cautions against manual pelvic stability testing, notes field diagnostic uncertainty, recommends evaluating other shock sources, and is more cautious about PCCDs than older binder-forward teaching."
+    },
+    {
+      "change_type": "citation_and_rationale_update",
+      "fields": {
+        "answer": "B",
+        "citation": "Millin MG, Innes JC, King GD, et al. Prehospital Trauma Compendium: Prehospital Management of Spinal Cord Injuries - A NAEMSP Comprehensive Review and Analysis of the Literature. Prehosp Emerg Care. Published online August 7, 2025. doi:10.1080/10903127.2025.2541258.",
+        "content_id": "2.2.1.4.2",
+        "core_content_code": "2.2.1.4.2",
+        "domain": "CLINICAL ASPECTS OF EMS MEDICINE",
+        "job_id": "JOB-2-2-1-4-2-04",
+        "options": {
+          "A": "Apply routine rigid spinal motion restriction for torso gunshot wounds when the crew cannot complete a neurologic assessment.",
+          "B": "No routine spinal restriction unless neurologic deficit, obtundation, or another concern exists.",
+          "C": "Apply a cervical collar but not a board when neck trajectory, neurologic symptoms, or examination limits raise concern.",
+          "D": "Prioritize spinal packaging after hemorrhage control when blunt mechanism or neurologic findings create a separate indication."
+        },
+        "rationale": "The updated NAEMSP spinal cord injury review does not support routine spinal immobilization for most penetrating torso trauma and highlights potential harm from delays and missed life threats. No routine spinal restriction is appropriate unless neurologic deficit, obtundation/high suspicion, neck trajectory, examination limits, or another specific concern exists. A and C make penetration itself the indication, while D reverses trauma priorities.",
+        "source_question_number": 1,
+        "stem": "A patient has an isolated gunshot wound to the lateral chest, is awake, moves all extremities, has no neurologic deficit, and needs rapid hemorrhage and respiratory assessment. Which spinal-motion approach is best?",
+        "title": "Spinal Restriction In Gunshot Wounds",
+        "topic": "Gunshot wounds and ballistics"
+      },
+      "position_statement": "Prehospital Management of Spinal Cord Injuries",
+      "question_id": "EMS2026-2-2-1-4-2-04",
+      "reason": "Citation updated to the 2025 NAEMSP spinal cord injury review, which directly addresses lack of benefit and possible harm from routine immobilization in penetrating trauma."
+    },
+    {
+      "change_type": "citation_and_rationale_update",
+      "fields": {
+        "answer": "B",
+        "citation": "Berry C, Gallagher JM, Goodloe JM, Dorlac WC, Dodd J, Fischer PE. Prehospital Hemorrhage Control and Treatment by Clinicians: A Joint Position Statement. Prehosp Emerg Care. 2023;27(5):544-551. doi:10.1080/10903127.2023.2195487.",
+        "content_id": "2.2.1.5",
+        "core_content_code": "2.2.1.5",
+        "domain": "CLINICAL ASPECTS OF EMS MEDICINE",
+        "job_id": "JOB-2-2-1-5-05",
+        "options": {
+          "A": "Delay tourniquet placement until the last dose and international normalized ratio are known because anticoagulant status changes bleeding-control thresholds.",
+          "B": "Continue hemorrhage control with pressure or tourniquet as needed while identifying anticoagulant use for handoff.",
+          "C": "Avoid tourniquet use because anticoagulated patients have a higher risk of limb ischemia.",
+          "D": "Focus on reversal-agent availability because field hemorrhage control is unlikely to work in anticoagulated patients."
+        },
+        "rationale": "Anticoagulant history matters for handoff and later reversal decisions, but it does not replace immediate external hemorrhage control. Current hemorrhage guidance still prioritizes direct pressure and, when ineffective, wound packing, hemostatic dressing, or tourniquet use based on bleeding location. A delays control, C is inaccurate, and D overemphasizes reversal before field hemorrhage control.",
+        "source_question_number": 75,
+        "stem": "A patient on warfarin has a deep laceration with brisk bleeding. Direct pressure slows but does not stop bleeding, and the hospital asks about last dose and indication. What should the crew prioritize?",
+        "title": "Anticoagulants Without Losing Hemorrhage Priorities",
+        "topic": "Control of life-threatening hemorrhage"
+      },
+      "position_statement": "Prehospital Hemorrhage Control and Treatment by Clinicians",
+      "question_id": "EMS2026-2-2-1-5-05",
+      "reason": "Citation updated to the 2023 joint hemorrhage-control statement."
+    },
+    {
+      "change_type": "citation_and_rationale_update",
+      "fields": {
+        "answer": "A",
+        "citation": "Millin MG, Innes JC, King GD, et al. Prehospital Trauma Compendium: Prehospital Management of Spinal Cord Injuries - A NAEMSP Comprehensive Review and Analysis of the Literature. Prehosp Emerg Care. Published online August 7, 2025. doi:10.1080/10903127.2025.2541258.",
+        "concept_key": "JOB-2-2-3-1-01",
+        "content_id": "2.2.3.1",
+        "core_content_code": "2.2.3.1",
+        "domain": "CLINICAL ASPECTS OF EMS MEDICINE",
+        "job_id": "JOB-2-2-3-1-01",
+        "options": {
+          "A": "Restrict motion because symptoms and unreliable clearance from intoxication and distracting injury create concern for spinal column injury.",
+          "B": "No restriction is needed because the mechanism was a fall rather than a motor vehicle crash.",
+          "C": "Restrict motion only if neurologic deficit appears, because pain alone is not relevant.",
+          "D": "Use a long backboard for all transport because every fall patient requires full immobilization."
+        },
+        "rationale": "Spinal motion restriction is appropriate when symptoms and unreliable clearance from intoxication or distracting injury raise concern for spinal injury, but the current review favors selective restriction and minimizing rigid-board harms rather than indiscriminate immobilization. B dismisses a concerning fall scenario, C ignores pain and unreliable examination, and D returns to routine long-board transport.",
+        "source_question_number": 61,
+        "stem": "A fall patient is intoxicated, has neck pain, and a painful femur deformity. He repeatedly tries to sit up. Which spinal motion restriction decision is most appropriate?",
+        "title": "Spinal Motion Restriction Indication",
+        "topic": "Spinal motion restriction"
+      },
+      "position_statement": "Prehospital Management of Spinal Cord Injuries",
+      "question_id": "EMS2026-2-2-3-1-01",
+      "reason": "Citation updated to the 2025 NAEMSP spinal cord injury review."
+    },
+    {
+      "change_type": "citation_and_rationale_update",
+      "fields": {
+        "answer": "C",
+        "citation": "Levy MK, Tan DK, McArdle DQ, et al. Consensus Statement of the National Association of EMS Physicians International Association of Fire Chiefs and the International Association of Chiefs of Police: Best Practices for Collaboration Between Law Enforcement and Emergency Medical Services During Acute Behavioral Emergencies. Prehosp Emerg Care. 2024;28(8):1058-1062. doi:10.1080/10903127.2024.2402530.",
+        "concept_key": "JOB-2-3-12-1-2-04",
+        "content_id": "2.3.12.1.2",
+        "core_content_code": "2.3.12.1.2",
+        "domain": "CLINICAL ASPECTS OF EMS MEDICINE",
+        "job_id": "JOB-2-3-12-1-2-04",
+        "options": {
+          "A": "Ask police to restrain immediately because any fixed delusion makes verbal engagement unsafe.",
+          "B": "Explain repeatedly that the transmitter is impossible, because correcting the delusion is necessary before transport refusal can be assessed.",
+          "C": "Use calm, simple de-escalation without arguing about the belief, reduce stimulation, and keep a withdrawal plan if weapons or extreme agitation emerge.",
+          "D": "Leave unless he requests transport, because discussing a delusional belief is inherently coercive."
+        },
+        "rationale": "When a behavioral-emergency patient is unarmed, following directions, and not extremely agitated, supportive de-escalation with low stimulation is preferred while maintaining a withdrawal plan if scene safety changes. The consensus statement emphasizes early EMS/LE communication, EMS taking over patient communication when appropriate, and ongoing scene-threat awareness. A is premature, B is likely to escalate, and D abandons a patient who may still need assessment and transport planning.",
+        "stem": "EMS is called for a man who says neighbors implanted a transmitter in his walls. He is pacing and frightened but unarmed, follows simple directions, and becomes louder whenever responders challenge the belief. A police officer asks whether EMS wants him restrained immediately. What is the best first approach?",
+        "title": "Psychosis De-Escalation With Safety Boundary",
+        "topic": "Psychosis"
+      },
+      "position_statement": "Best Practices for Collaboration Between Law Enforcement and EMS During Acute Behavioral Emergencies",
+      "question_id": "EMS2026-2-3-12-1-2-04",
+      "reason": "Citation updated to the 2024 law-enforcement/EMS behavioral emergencies consensus statement."
+    },
+    {
+      "change_type": "citation_and_rationale_update",
+      "fields": {
+        "answer": "A",
+        "citation": "Mandt M, Harris M, Lyng J, et al. Quality Management of Prehospital Pediatric Respiratory Distress and Airway Programs: An NAEMSP Position Statement and Resource Document. Prehosp Emerg Care. 2022;26(sup1):111-117. doi:10.1080/10903127.2021.1986184.",
+        "content_id": "2.4.5.1",
+        "core_content_code": "2.4.5.1",
+        "domain": "CLINICAL ASPECTS OF EMS MEDICINE",
+        "job_id": "JOB-2-4-5-1-04",
+        "options": {
+          "A": "Excellent pediatric bag-mask ventilation, with pediatric-specific training and a rescue plan before any advanced airway remains in scope.",
+          "B": "Use pediatric endotracheal intubation as the primary airway endpoint and train around first-pass tube placement.",
+          "C": "Use pediatric surgical-airway rescue training and early cricothyrotomy as the main backup for failed ventilation.",
+          "D": "Adult airway sequencing with pediatric dose cards and chart review, because pediatric differences are mainly size and medication dose."
+        },
+        "rationale": "Pediatric airway management is low-frequency and high-risk, and the pediatric airway quality statement emphasizes pediatric-specific medical oversight, competency assessment, skills maintenance, and quality review. Excellent bag-mask ventilation remains foundational regardless of whether pediatric intubation stays in scope. B overprioritizes intubation, C is rarely the first pediatric rescue option, and D understates pediatric-specific training needs.",
+        "source_question_number": 81,
+        "stem": "A rural EMS agency has almost no pediatric intubation attempts. The medical director is deciding whether to keep pediatric endotracheal intubation in scope. Which capability must be excellent regardless of that decision?",
+        "title": "Pediatric Airway Program Threshold",
+        "topic": "Pediatric airway management"
+      },
+      "position_statement": "Quality Management of Prehospital Pediatric Respiratory Distress and Airway Programs",
+      "question_id": "EMS2026-2-4-5-1-04",
+      "reason": "Citation updated to the 2022 NAEMSP pediatric airway quality-management statement."
+    },
+    {
+      "change_type": "citation_standardization",
+      "fields": {
+        "answer": "D",
+        "citation": "Mandt M, Harris M, Lyng J, et al. Quality Management of Prehospital Pediatric Respiratory Distress and Airway Programs: An NAEMSP Position Statement and Resource Document. Prehosp Emerg Care. 2022;26(sup1):111-117. doi:10.1080/10903127.2021.1986184.",
+        "concept_key": "JOB-2-4-5-1-05",
+        "content_id": "2.4.5.1",
+        "core_content_code": "2.4.5.1",
+        "domain": "CLINICAL ASPECTS OF EMS MEDICINE",
+        "job_id": "JOB-2-4-5-1-05",
+        "options": {
+          "A": "Adult first-pass success and annual equipment checks, because pediatric events are too rare for separate review.",
+          "B": "A yearly skills signoff only, because airway competence is primarily a training issue.",
+          "C": "Number of pediatric airways attempted, because procedure volume alone is the best competence measure.",
+          "D": "Pediatric-specific case review tracking selection, attempts, oxygenation, capnography, complications, and outcomes."
+        },
+        "rationale": "Pediatric airway programs need pediatric-specific safety review, skill selection, and outcome monitoring. A treats adult success metrics as interchangeable. B makes neonatal and pediatric airways an unmonitored exception. C focuses on equipment count without evaluating patient outcomes or skill performance.",
+        "stem": "A service permits pediatric endotracheal intubation and supraglottic airway placement. After a hypoxic event, the medical director reviews the quality program. Which metric set is most appropriate?",
+        "title": "Pediatric Airway Program Metrics",
+        "topic": "Pediatric airway management"
+      },
+      "position_statement": "Quality Management of Prehospital Pediatric Respiratory Distress and Airway Programs",
+      "question_id": "EMS2026-2-4-5-1-05",
+      "reason": "Citation standardized to include DOI for the pediatric airway quality-management statement; question content already matches the statement."
+    },
+    {
+      "change_type": "citation_and_rationale_update",
+      "fields": {
+        "answer": "A",
+        "citation": "Haussner WK, Breyre AM, Bascombe K, et al. Prehospital Trauma Compendium: Management of Geriatric Trauma Patients - A Position Statement and Resource Document of NAEMSP. Prehosp Emerg Care. Published online September 25, 2025. doi:10.1080/10903127.2025.2557006.",
+        "content_id": "2.4.6.1",
+        "core_content_code": "2.4.6.1",
+        "domain": "CLINICAL ASPECTS OF EMS MEDICINE",
+        "job_id": "JOB-2-4-6-1-05",
+        "options": {
+          "A": "Pad kyphosis, minimize backboard time, protect skin, and prevent hypothermia.",
+          "B": "Place the patient on a padded long board with kyphosis support and keep it for the entire transport.",
+          "C": "Avoid blankets until the trauma center examination because warming can hide skin tears and pressure injury.",
+          "D": "Use a rigid board for the entire transport because age alone makes occult spinal instability likely."
+        },
+        "rationale": "The geriatric trauma statement emphasizes that older adults are at higher risk for spinal injuries but traditional spinal motion restriction may not fit age-related alignment and pressure-injury risk. Padding kyphosis, minimizing rigid-board time, protecting skin, and preventing hypothermia anticipate these harms. B forces prolonged board use, C ignores warming and skin protection, and D makes age alone the reason for prolonged rigid immobilization.",
+        "source_question_number": 66,
+        "stem": "An 86-year-old with kyphosis falls down three stairs and has hip pain but no neurologic deficit. The crew plans transport on the ambulance cot after brief extrication. Which packaging approach best anticipates geriatric harms?",
+        "title": "Geriatric Trauma Packaging",
+        "topic": "Geriatric trauma (e.g., falls)"
+      },
+      "position_statement": "Prehospital Trauma Compendium: Management of Geriatric Trauma Patients",
+      "question_id": "EMS2026-2-4-6-1-05",
+      "reason": "Citation updated to the 2025 NAEMSP geriatric trauma statement; rationale updated for age-related anatomy and pressure-injury concerns."
+    },
+    {
+      "change_type": "citation_and_rationale_update",
+      "fields": {
+        "answer": "C",
+        "citation": "Margolis AM, Leung AK, Friedman MS, McMullen SP, Guyette FX, Woltman N. Position Statement: Mass Gathering Medical Care. Prehosp Emerg Care. 2021;25(4):593-595. doi:10.1080/10903127.2021.1903632.",
+        "content_id": "4.2.1.5",
+        "core_content_code": "4.2.1.5",
+        "domain": "DISASTER MANAGEMENT AND SPECIAL OPERATIONS",
+        "job_id": "JOB-4-2-1-5-01",
+        "options": {
+          "A": "Historical patient volume is sufficient if the onsite medical team can request ambulances after routine demand rises.",
+          "B": "Mass-gathering plans should avoid outside resource requests until onsite treatment areas are fully saturated.",
+          "C": "Escalation tools are needed because routine event demand can saturate resources before a mass-casualty incident.",
+          "D": "Multi-patient incidents at mass gatherings should be managed separately from the event medical plan."
+        },
+        "rationale": "Mass-gathering planning is resource-focused, not just head-count or historical patient-volume planning. Routine event demand can saturate onsite and community resources before a superimposed mass-casualty incident, so escalation tools and external-resource triggers must be built into the event plan. A and B wait too long, while D separates escalation from the plan that must absorb it.",
+        "source_question_number": 46,
+        "stem": "A stadium concert medical plan is based on prior years' routine patient volume. During the event, heat illness and intoxication already occupy most onsite teams when a partial bleacher collapse creates multiple trauma patients. What planning lesson is most important?",
+        "title": "Mass Gathering Escalation Risk",
+        "topic": "MCI preparedness within mass gathering"
+      },
+      "position_statement": "Position Statement: Mass Gathering Medical Care",
+      "question_id": "EMS2026-4-2-1-5-01",
+      "reason": "Citation updated from the 2015 textbook to the NAEMSP mass-gathering position statement."
+    },
+    {
+      "change_type": "citation_and_rationale_update",
+      "fields": {
+        "answer": "D",
+        "citation": "Margolis AM, Leung AK, Friedman MS, McMullen SP, Guyette FX, Woltman N. Position Statement: Mass Gathering Medical Care. Prehosp Emerg Care. 2021;25(4):593-595. doi:10.1080/10903127.2021.1903632.",
+        "concept_key": "JOB-4-2-1-5-05",
+        "content_id": "4.2.1.5",
+        "core_content_code": "4.2.1.5",
+        "domain": "DISASTER MANAGEMENT AND SPECIAL OPERATIONS",
+        "job_id": "JOB-4-2-1-5-05",
+        "options": {
+          "A": "About 25 injured patients; media staging is near the west entrance; the grandstand was inspected last month; send the event manager to command.",
+          "B": "Blocked access from the east gate and extrication needed; venue capacity is 14,000; weather is clear; notify the mayor.",
+          "C": "Possible electrical hazards and need for transport units; social media reports are spreading; reimbursement contacts may be needed later.",
+          "D": "About 25 injured patients, blocked east-gate access, possible electrical hazards, and need for extrication and transport units."
+        },
+        "rationale": "The most useful early report in a mass-gathering incident includes estimated casualty load, access limitations, hazards, and specific resource needs so dispatch and command can scale response before exact counts are known. A includes a casualty estimate but omits hazards, access, and resource needs while adding nonessential details. B includes access and one resource need but omits casualty estimate and hazards. C includes hazards and transport need but omits casualty estimate, access, and extrication need while adding later administrative concerns.",
+        "stem": "A grandstand collapses at a planned event. The first medical supervisor must give an initial report to dispatch before the exact injury count is known. Which report is most useful at this stage?",
+        "title": "Mass Gathering Initial Resource Report",
+        "topic": "MCI preparedness within mass gathering"
+      },
+      "position_statement": "Position Statement: Mass Gathering Medical Care",
+      "question_id": "EMS2026-4-2-1-5-05",
+      "reason": "Citation updated to the NAEMSP mass-gathering position statement, which includes communication, PSAP interface, MCI channel, hazards, access, and resource planning."
+    },
+    {
+      "change_type": "citation_and_rationale_update",
+      "fields": {
+        "answer": "B",
+        "citation": "Ulintz AJ, O'Connor LC, Heffern TM, et al. Mobile Integrated Health Care and Community Paramedicine: A Position Statement and Resource Document of NAEMSP. Prehosp Emerg Care. Published online August 21, 2025. doi:10.1080/10903127.2025.2541899.",
+        "concept_key": "JOB-4-7-2-06",
+        "content_id": "4.7.2",
+        "core_content_code": "4.7.2",
+        "domain": "DISASTER MANAGEMENT AND SPECIAL OPERATIONS",
+        "job_id": "JOB-4-7-2-06",
+        "options": {
+          "A": "Use the same brief task checklist because vaccination visits and longitudinal heart-failure care both occur outside the hospital.",
+          "B": "Require broader preparation in assessment, decision-making, care coordination, communication, and longitudinal follow-up beyond narrow task training.",
+          "C": "Emphasize advanced cardiovascular physiology, including Frank-Starling curves and electrophysiology, as the main added curriculum.",
+          "D": "Focus added training on acute heart-failure rescue care, including inotrope selection, intravenous diuretics, and escalation during decompensation."
+        },
+        "rationale": "Longitudinal MIH/CP work requires specialized education beyond a narrow task checklist, including assessment, decision-making, communication, care coordination, patient education, and follow-up within the defined program role. A undertrains the new role. C and D include clinically relevant heart-failure knowledge, but they miss the MIH-specific longitudinal and coordination functions.",
+        "source_question_number": 82,
+        "stem": "A mobile integrated health (MIH) program expands from one-time vaccination support to longitudinal care for high-risk heart-failure patients, including medication reconciliation, symptom tracking, home safety review, and care navigation. What education change is most appropriate?",
+        "title": "MIH Heart-Failure Education Need",
+        "topic": "Expanded role/scope of practice"
+      },
+      "position_statement": "Mobile Integrated Health Care and Community Paramedicine",
+      "question_id": "EMS2026-4-7-2-06",
+      "reason": "Citation updated to the 2025 NAEMSP MIH/CP statement."
+    },
+    {
+      "change_type": "citation_and_rationale_update",
+      "fields": {
+        "answer": "D",
+        "citation": "Ulintz AJ, O'Connor LC, Heffern TM, et al. Mobile Integrated Health Care and Community Paramedicine: A Position Statement and Resource Document of NAEMSP. Prehosp Emerg Care. Published online August 21, 2025. doi:10.1080/10903127.2025.2541899.",
+        "content_id": "4.7.4",
+        "core_content_code": "4.7.4",
+        "domain": "DISASTER MANAGEMENT AND SPECIAL OPERATIONS",
+        "job_id": "JOB-4-7-4-05",
+        "options": {
+          "A": "Contract approval, ambulance deployment, billing compliance, referral marketing, and payer negotiations for enrolled patients.",
+          "B": "Patient satisfaction review, clinic scheduling, equipment purchasing, transport billing, and social-media communication.",
+          "C": "Discipline decisions, dispatch staffing, home-health licensure, hospital bed management, and paramedic hiring.",
+          "D": "Needs assessment, care goals, stakeholder coordination, regulatory compliance, safety, documentation, and education."
+        },
+        "rationale": "The MIH/CP position statement places engaged EMS physician medical directors in program development and delivery, including needs assessment, care goals, stakeholder coordination, regulatory compliance, safety and quality, documentation/reporting, training, and continuous quality improvement. A, B, and C contain operational or administrative pieces but omit several core medical-oversight duties.",
+        "source_question_number": 6,
+        "stem": "A health system is building a mobile integrated health (MIH) program. The draft assigns the medical director to approve protocols once and review charts quarterly. Which added responsibilities best complete the oversight role?",
+        "title": "Mobile Integrated Health Medical Direction",
+        "topic": "Medical oversight models"
+      },
+      "position_statement": "Mobile Integrated Health Care and Community Paramedicine",
+      "question_id": "EMS2026-4-7-4-05",
+      "reason": "Citation updated to the 2025 NAEMSP MIH/CP statement."
+    },
+    {
+      "change_type": "citation_and_rationale_update",
+      "fields": {
+        "answer": "C",
+        "citation": "Ulintz AJ, O'Connor LC, Heffern TM, et al. Mobile Integrated Health Care and Community Paramedicine: A Position Statement and Resource Document of NAEMSP. Prehosp Emerg Care. Published online August 21, 2025. doi:10.1080/10903127.2025.2541899.",
+        "concept_key": "JOB-4-7-6-2-06",
+        "content_id": "4.7.6.2",
+        "core_content_code": "4.7.6.2",
+        "domain": "DISASTER MANAGEMENT AND SPECIAL OPERATIONS",
+        "job_id": "JOB-4-7-6-2-06",
+        "options": {
+          "A": "Transport to the emergency department because in-home mobile integrated health evaluations should not affect disposition.",
+          "B": "Leave the patient at home without scheduled follow-up because the program goal is reducing ambulance use.",
+          "C": "Keep the patient at home after evaluation and care coordination when criteria are met and transport remains available if needed.",
+          "D": "Send the patient to urgent care by private vehicle because mobile integrated health should avoid longitudinal coordination."
+        },
+        "rationale": "Selected patients may remain at home after MIH/CP evaluation when criteria, care coordination, follow-up, and transport backup are in place. The MIH/CP statement supports needs-based, patient-centered community care that bridges access gaps under physician medical direction. A ignores the program model, B removes the safety net, and D substitutes an uncoordinated destination for longitudinal care planning.",
+        "source_question_number": 59,
+        "stem": "A mobile integrated health/community paramedicine team evaluates a heart-failure patient at home. The patient is stable, has a clear care plan, same-day clinician follow-up, and transport remains available if deterioration occurs. Which disposition best fits the mobile integrated health model?",
+        "title": "In-Home MIH With Transport Backup",
+        "topic": "Patient care navigation"
+      },
+      "position_statement": "Mobile Integrated Health Care and Community Paramedicine",
+      "question_id": "EMS2026-4-7-6-2-06",
+      "reason": "Citation updated to the 2025 NAEMSP MIH/CP statement."
+    }
+  ]
+}
