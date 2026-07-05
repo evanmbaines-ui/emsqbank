@@ -655,9 +655,22 @@ button.subtle,
   align-items: flex-end;
 }
 
+.two-col .field .field-label-row label {
+  min-height: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
 .field {
   display: grid;
   gap: 6px;
+}
+
+.field-label-row {
+  min-height: 2.35rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 7px;
 }
 
 .field label,
@@ -666,6 +679,27 @@ button.subtle,
   color: #303b4d;
   font-size: 0.9rem;
   font-weight: 700;
+}
+
+.rating-help-button {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 19px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--accent-strong);
+  padding: 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.rating-help-button:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
 }
 
 input,
@@ -767,6 +801,22 @@ button:focus-visible {
 .instruction-grid > div {
   padding: 18px 18px 16px 0;
   border-bottom: 1px solid var(--line);
+}
+
+.rating-help-modal {
+  width: min(560px, 100%);
+}
+
+.rating-help-body {
+  display: grid;
+  gap: 12px;
+  padding: 22px;
+}
+
+.rating-help-body p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
 }
 
 .instruction-grid > div:nth-child(2n) {
@@ -1918,6 +1968,14 @@ button:focus-visible {
   .two-col .field label {
     min-height: 0;
     display: block;
+  }
+
+  .field-label-row {
+    min-height: 0;
+  }
+
+  .two-col .field .field-label-row label {
+    display: inline-flex;
   }
 
   .question-picker {

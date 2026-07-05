@@ -32,6 +32,42 @@
     ["reject", "Reject"]
   ];
 
+  const EVALUATOR_FIELD_HELP = {
+    verdict: {
+      title: "Vote",
+      kicker: "Question disposition",
+      body: [
+        "Use this as your bottom-line recommendation for whether the item should move toward the learner pool.",
+        "Accept as is and accept with revisions count as accept votes. Major revisions needed and reject count as reject votes.",
+        "Accept with revisions is for a fundamentally sound question that needs smaller edits. Major revisions needed is for a question that may be salvageable but needs substantial rewriting, source work, or distractor repair."
+      ]
+    },
+    difficulty: {
+      title: "Difficulty",
+      kicker: "Target learner calibration",
+      body: [
+        "Rate difficulty against an expected EMS fellow preparing to take the EMS Medicine board exam, not against your own personal ease with the topic.",
+        "Appropriate means the item is a fair board-preparation challenge. Easy and difficult are acceptable when the question still teaches useful core content. Too easy or too hard means the question probably needs revision for the intended learner level."
+      ]
+    },
+    quality: {
+      title: "Overall quality",
+      kicker: "Holistic item quality",
+      body: [
+        "Use this as an overall judgment of whether the question is accurate, clinically current, source-supported, clearly worded, and educationally useful.",
+        "Also consider whether the distractors are plausible, whether the stem is fair, and whether the explanation would help a learner understand the tested concept."
+      ]
+    },
+    confidence: {
+      title: "Evaluator confidence",
+      kicker: "Your confidence in this review",
+      body: [
+        "This asks how confident you are in your evaluation of the question, not how confident a learner would be answering it.",
+        "High means the content is in your wheelhouse or the source support is very clear. Moderate means you are comfortable with your judgment but there is some uncertainty. Low means your feedback is still useful, but another reviewer with more specific expertise should weigh in."
+      ]
+    }
+  };
+
   const DISPLAY_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
   const TOPIC_GROUP_LABELS = {
@@ -89,7 +125,8 @@
     evaluatorTopic: "all",
     evaluatorOrder: "sequential",
     evaluatorQid: "",
-    evaluatorHelpOpen: false
+    evaluatorHelpOpen: false,
+    evaluatorFieldHelpKey: ""
   };
 
   document.addEventListener("DOMContentLoaded", init);
@@ -353,6 +390,7 @@
       ${state.user.qualifiedVoter || state.view === "methods" ? "" : renderQualificationNotice()}
       ${content}
       ${state.evaluatorHelpOpen ? renderEvaluatorInstructionsModal() : ""}
+      ${state.evaluatorFieldHelpKey ? renderEvaluatorFieldHelpModal(state.evaluatorFieldHelpKey) : ""}
       ${renderDisclaimer()}
     `;
   }
@@ -1162,6 +1200,38 @@
     `;
   }
 
+  function renderEvaluatorFieldHelpModal(helpKey) {
+    const help = EVALUATOR_FIELD_HELP[helpKey];
+    if (!help) {
+      return "";
+    }
+    return `
+      <div class="modal-backdrop" data-action="close-evaluator-field-help">
+        <section class="modal-card rating-help-modal" role="dialog" aria-modal="true" aria-labelledby="rating-help-title">
+          <div class="modal-header">
+            <div>
+              <p class="landing-kicker">${escapeHTML(help.kicker)}</p>
+              <h2 id="rating-help-title">${escapeHTML(help.title)}</h2>
+            </div>
+            <button class="button ghost modal-close" type="button" data-action="close-evaluator-field-help" aria-label="Close help">Close</button>
+          </div>
+          <div class="rating-help-body">
+            ${help.body.map((paragraph) => `<p>${escapeHTML(paragraph)}</p>`).join("")}
+          </div>
+        </section>
+      </div>
+    `;
+  }
+
+  function ratingHelpLabel(fieldId, label, helpKey) {
+    return `
+      <div class="field-label-row">
+        <label for="${escapeAttr(fieldId)}">${escapeHTML(label)}</label>
+        <button class="rating-help-button" type="button" data-rating-help="${escapeAttr(helpKey)}" aria-label="Explain ${escapeAttr(label)}">?</button>
+      </div>
+    `;
+  }
+
   function renderEvaluator() {
     const questions = filteredEvaluatorQuestions();
     const q = ensureCurrentQuestion("evaluator", questions);
@@ -1237,14 +1307,14 @@
             <input type="hidden" name="recordId" value="${escapeAttr(q.id)}">
             <div class="two-col">
               <div class="field">
-                <label for="verdict">Vote</label>
+                ${ratingHelpLabel("verdict", "Vote", "verdict")}
                 <select id="verdict" name="disposition" required ${isClosed ? "disabled" : ""}>
                   ${selectOption("", "Select one", reviewDisposition(record))}
                   ${REVIEW_DISPOSITIONS.map(([value, label]) => selectOption(value, label, reviewDisposition(record))).join("")}
                 </select>
               </div>
               <div class="field">
-                <label for="difficulty">Difficulty</label>
+                ${ratingHelpLabel("difficulty", "Difficulty", "difficulty")}
                 <select id="difficulty" name="difficulty" required ${isClosed ? "disabled" : ""}>
                   ${selectOption("", "Select one", record.difficulty || "")}
                   ${selectOption("too_easy", "Too easy", record.difficulty || "")}
@@ -1258,7 +1328,7 @@
             </div>
             <div class="two-col">
               <div class="field">
-                <label for="quality">Overall quality</label>
+                ${ratingHelpLabel("quality", "Overall quality", "quality")}
                 <select id="quality" name="quality" required ${isClosed ? "disabled" : ""}>
                   ${selectOption("", "Select one", String(record.quality || ""))}
                   ${selectOption("5", "5 - excellent", String(record.quality || ""))}
@@ -1269,7 +1339,7 @@
                 </select>
               </div>
               <div class="field">
-                <label for="confidence">Evaluator confidence</label>
+                ${ratingHelpLabel("confidence", "Evaluator confidence", "confidence")}
                 <select id="confidence" name="confidence" ${isClosed ? "disabled" : ""}>
                   ${selectOption("", "Select one", record.confidence || "")}
                   ${selectOption("high", "High", record.confidence || "")}
@@ -1956,6 +2026,12 @@
       render();
       return;
     }
+    const ratingHelp = event.target.closest("[data-rating-help]")?.dataset.ratingHelp;
+    if (ratingHelp && EVALUATOR_FIELD_HELP[ratingHelp]) {
+      state.evaluatorFieldHelpKey = ratingHelp;
+      render();
+      return;
+    }
     const actionElement = event.target.closest("[data-action]");
     if (modalCard && actionElement?.classList.contains("modal-backdrop")) {
       return;
@@ -1967,8 +2043,9 @@
   }
 
   function handleKeyDown(event) {
-    if (event.key === "Escape" && state.evaluatorHelpOpen) {
+    if (event.key === "Escape" && (state.evaluatorHelpOpen || state.evaluatorFieldHelpKey)) {
       state.evaluatorHelpOpen = false;
+      state.evaluatorFieldHelpKey = "";
       render();
     }
   }
@@ -2324,6 +2401,11 @@
     }
     if (action === "close-evaluator-instructions") {
       state.evaluatorHelpOpen = false;
+      render();
+      return;
+    }
+    if (action === "close-evaluator-field-help") {
+      state.evaluatorFieldHelpKey = "";
       render();
       return;
     }
