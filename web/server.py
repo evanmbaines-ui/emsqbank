@@ -166,9 +166,9 @@ def current_evaluation_payload() -> dict:
     evaluation_env, evaluation_mode, source = current_evaluation_environment()
     live_evaluation = evaluation_mode == "live"
     notes = {
-        "live": "Live mode is active. Qualified decision-eligible votes can change accepted/rejected status.",
-        "beta": "Beta test mode is active. Evaluator votes are recorded as beta votes but do not change accepted/rejected status.",
-        "sandbox": "Sandbox mode is active. Evaluator votes are recorded as sandbox votes but do not change accepted/rejected status.",
+        "live": "Live mode is active. Qualified decision-eligible votes can change accepted/rejected status. Beta and sandbox reviews remain exportable but are hidden from live dashboards and evaluator queues.",
+        "beta": "Beta test mode is active. Evaluator votes are recorded as beta votes but do not change accepted/rejected status. Live dashboards and queues start clean when live mode is enabled.",
+        "sandbox": "Sandbox mode is active. Evaluator votes are recorded as sandbox votes but do not change accepted/rejected status. Live dashboards and queues start clean when live mode is enabled.",
     }
     return {
         "evaluation_env": evaluation_env,
@@ -910,6 +910,31 @@ def review_counts_toward_decision(review: dict) -> bool:
     return review_evaluation_mode(review) == "live"
 
 
+def review_storage_key(anonymous_id: str, evaluation_mode: str) -> str:
+    evaluation_mode = str(evaluation_mode or "sandbox").strip().lower()
+    if evaluation_mode == "live":
+        return anonymous_id
+    return f"{anonymous_id}__{evaluation_mode}"
+
+
+def review_owner_id(storage_key: str, review: dict) -> str:
+    owner = str(review.get("anonymousUserId", "") or "").strip()
+    if owner:
+        return owner
+    for suffix in ("__sandbox", "__beta"):
+        if str(storage_key).endswith(suffix):
+            return str(storage_key)[: -len(suffix)]
+    return str(storage_key)
+
+
+def review_matches_mode(review: dict, mode: str) -> bool:
+    return review_evaluation_mode(review) == str(mode or "").strip().lower()
+
+
+def active_review_filter(review: dict) -> bool:
+    return review_matches_mode(review, evaluation_environment_payload().get("evaluation_mode", "sandbox"))
+
+
 def evaluation_environment_payload() -> dict:
     return current_evaluation_payload()
 
@@ -935,7 +960,12 @@ def normalize_disposition(value: str) -> str:
     return value
 
 
-def tally_for_question(record_id: str, reviews: dict | None = None, qualified_ids: set[str] | None = None) -> dict:
+def tally_for_question(
+    record_id: str,
+    reviews: dict | None = None,
+    qualified_ids: set[str] | None = None,
+    include_review=None,
+) -> dict:
     reviews = reviews or load_json(REVIEWS_FILE, {"reviews": {}})
     if qualified_ids is None:
         qualified_ids = qualified_reviewer_ids()
@@ -950,7 +980,10 @@ def tally_for_question(record_id: str, reviews: dict | None = None, qualified_id
     beta_reviews = 0
     nondecision_reviews = 0
 
-    for anonymous_id, review in question_reviews.items():
+    for storage_key, review in question_reviews.items():
+        if include_review and not include_review(review):
+            continue
+        anonymous_id = review_owner_id(storage_key, review)
         verdict = vote_bucket_for_review(review)
         if verdict not in {"accept", "reject"}:
             continue
@@ -1070,7 +1103,7 @@ def question_payload(anonymous_id: str | None = None) -> list[dict]:
 def public_question_counts(anonymous_id: str) -> dict:
     ensure_question_bank()
     bank = load_json(QUESTION_BANK_FILE, {"questions": {}, "sources": []})
-    reviewed = set(reviews_for_user(anonymous_id))
+    reviewed = set(reviews_for_user(anonymous_id, evaluation_environment_payload().get("evaluation_mode", "sandbox")))
     counts = {
         "voting": 0,
         "accepted": 0,
@@ -1106,12 +1139,18 @@ def profile_from_payload(payload: dict) -> dict:
     }
 
 
-def reviews_for_user(anonymous_id: str) -> dict:
+def reviews_for_user(anonymous_id: str, mode: str | None = None) -> dict:
     reviews = load_json(REVIEWS_FILE, {"reviews": {}})
+    mode = mode or evaluation_environment_payload().get("evaluation_mode", "sandbox")
     mine = {}
     for record_id, review_map in reviews.get("reviews", {}).items():
-        if anonymous_id in review_map:
-            mine[record_id] = review_map[anonymous_id]
+        matching_reviews = [
+            review
+            for storage_key, review in review_map.items()
+            if review_owner_id(storage_key, review) == anonymous_id and review_matches_mode(review, mode)
+        ]
+        if matching_reviews:
+            mine[record_id] = sorted(matching_reviews, key=lambda review: review.get("updatedAt", ""))[-1]
     return mine
 
 
@@ -1311,7 +1350,8 @@ def generation_feedback_export() -> dict:
     for record_id, review_map in reviews.get("reviews", {}).items():
         question = bank.get("questions", {}).get(record_id, {})
         tally = tally_for_question(record_id, reviews, qualified_ids)
-        for anonymous_id, review in review_map.items():
+        for storage_key, review in review_map.items():
+            anonymous_id = review_owner_id(storage_key, review)
             profile_at_submission = review.get("profileAtSubmission") if isinstance(review.get("profileAtSubmission"), dict) else {}
             rows.append(
                 {
@@ -1470,6 +1510,7 @@ def admin_summary() -> dict:
     learner_tallies = learner_answer_tallies(bank, progress)
     qualified_ids = qualified_reviewer_ids()
     concept_registry = concept_registry_summary(bank, reviews, learner_tallies, qualified_ids)
+    include_active_review = active_review_filter
 
     pool_counts = {"voting": 0, "accepted": 0, "rejected": 0, "paused": 0, "retired": 0, "tiebreaker": 0}
     issue_counts: dict[str, int] = {}
@@ -1477,7 +1518,7 @@ def admin_summary() -> dict:
     rows = []
 
     for record_id, question in bank.get("questions", {}).items():
-        tally = tally_for_question(record_id, reviews, qualified_ids)
+        tally = tally_for_question(record_id, reviews, qualified_ids, include_active_review)
         pool_state = question.get("pool_state", "voting")
         pool_counts[pool_state] = pool_counts.get(pool_state, 0) + 1
         if pool_state == "voting" and tally["reviewStage"] == "tiebreaker":
@@ -1486,6 +1527,8 @@ def admin_summary() -> dict:
         question_issue_counts: dict[str, int] = {}
         question_disposition_counts: dict[str, int] = {}
         for review in reviews.get("reviews", {}).get(record_id, {}).values():
+            if not include_active_review(review):
+                continue
             for flag in review.get("generationIssueFlags", []):
                 issue_counts[flag] = issue_counts.get(flag, 0) + 1
                 question_issue_counts[flag] = question_issue_counts.get(flag, 0) + 1
@@ -1535,7 +1578,12 @@ def admin_summary() -> dict:
     learner_answered_questions = sum(1 for tally in learner_tallies.values() if tally.get("total_attempts", 0))
     learner_correct_attempts = sum(tally.get("correct_attempts", 0) for tally in learner_tallies.values())
     learner_incorrect_attempts = sum(tally.get("incorrect_attempts", 0) for tally in learner_tallies.values())
-    total_reviews = sum(len(review_map) for review_map in reviews.get("reviews", {}).values())
+    total_reviews = sum(
+        1
+        for review_map in reviews.get("reviews", {}).values()
+        for review in review_map.values()
+        if include_active_review(review)
+    )
 
     return {
         "generated_at": utc_now(),
@@ -1669,7 +1717,8 @@ def llm_feedback_export() -> dict:
         issue_counts: dict[str, int] = {}
         feedback = []
         learner_feedback, learner_issue_counts = learner_flag_feedback_for_question(record_id, learner_flags)
-        for anonymous_id, review in reviews.get("reviews", {}).get(record_id, {}).items():
+        for storage_key, review in reviews.get("reviews", {}).get(record_id, {}).items():
+            anonymous_id = review_owner_id(storage_key, review)
             disposition = normalize_disposition(review.get("disposition") or review.get("verdict", ""))
             if disposition:
                 disposition_counts[disposition] = disposition_counts.get(disposition, 0) + 1
@@ -2114,13 +2163,30 @@ class RequestHandler(BaseHTTPRequestHandler):
             reviews = load_json(REVIEWS_FILE, {"reviews": {}})
             reviews.setdefault("reviews", {}).setdefault(record_id, {})
             anonymous_id = user["anonymous_user_id"]
-            if anonymous_id in reviews["reviews"][record_id]:
-                self.send_json({"error": "This reviewer has already voted on this question."}, status=409)
-                return
             profile_at_submission = reviewer_profile_snapshot(user)
             environment = evaluation_environment_payload()
+            evaluation_mode = environment.get("evaluation_mode", "sandbox")
             live_evaluation = bool(environment.get("live_evaluation"))
-            reviews["reviews"][record_id][anonymous_id] = {
+            review_map = reviews["reviews"][record_id]
+            existing_unscoped = review_map.get(anonymous_id)
+            if existing_unscoped and not review_matches_mode(existing_unscoped, "live"):
+                legacy_mode = review_evaluation_mode(existing_unscoped)
+                legacy_key = review_storage_key(anonymous_id, legacy_mode)
+                existing_unscoped["anonymousUserId"] = anonymous_id
+                if legacy_key not in review_map:
+                    review_map[legacy_key] = existing_unscoped
+                del review_map[anonymous_id]
+            if any(
+                review_owner_id(storage_key, review) == anonymous_id and review_matches_mode(review, evaluation_mode)
+                for storage_key, review in review_map.items()
+            ):
+                self.send_json({"error": "This reviewer has already voted on this question in the current evaluation mode."}, status=409)
+                return
+            storage_key = review_storage_key(anonymous_id, evaluation_mode)
+            if storage_key in review_map:
+                storage_key = f"{storage_key}__{secrets.token_hex(4)}"
+            review_map[storage_key] = {
+                "anonymousUserId": anonymous_id,
                 "verdict": verdict,
                 "disposition": disposition,
                 "difficulty": str(payload.get("difficulty", "")),
@@ -2132,7 +2198,7 @@ class RequestHandler(BaseHTTPRequestHandler):
                 "profileLastUpdatedAtSubmission": user.get("profile_updated_at", ""),
                 "qualifiedAtSubmission": profile_at_submission.get("previousBoard") == "yes",
                 "evaluationEnvironment": environment.get("evaluation_env", "sandbox"),
-                "evaluationMode": environment.get("evaluation_mode", "sandbox"),
+                "evaluationMode": evaluation_mode,
                 "countsTowardDecision": live_evaluation,
                 "updatedAt": utc_now(),
             }
@@ -2160,7 +2226,7 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.send_json(
             {
                 "ok": True,
-                "review": reviews["reviews"][record_id][anonymous_id],
+                "review": review_map[storage_key],
             }
         )
 
