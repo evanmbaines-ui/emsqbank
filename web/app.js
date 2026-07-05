@@ -310,6 +310,7 @@
           <button class="button" type="button" data-action="export-lifecycle-json">Export lifecycle</button>
           <button class="button" type="button" data-action="export-llm-feedback-json">Export LLM feedback</button>
           <button class="button" type="button" data-action="export-generation-feedback-json">Export generation feedback</button>
+          <button class="button" type="button" data-action="export-publication-json">Export publication data</button>
           <button class="button ghost" type="button" data-action="logout">Log out</button>
         </nav>
       </header>
@@ -1818,6 +1819,10 @@
       exportGenerationFeedbackJSON();
       return;
     }
+    if (action === "export-publication-json") {
+      exportPublicationJSON();
+      return;
+    }
     if (action === "learner-prev" || action === "learner-next") {
       moveQuestion("learner", action.endsWith("next") ? 1 : -1);
       render();
@@ -2161,6 +2166,16 @@
       downloadText(`ems_generation_feedback_${dateStamp()}.json`, JSON.stringify(response, null, 2), "application/json");
     } catch (error) {
       setMessage("error", error.message || "Could not export generation feedback.");
+      render();
+    }
+  }
+
+  async function exportPublicationJSON() {
+    try {
+      const response = await adminGet("/api/admin/export-publication");
+      downloadText(`ems_publication_state_analysis_${dateStamp()}.json`, JSON.stringify(response, null, 2), "application/json");
+    } catch (error) {
+      setMessage("error", error.message || "Could not export publication data.");
       render();
     }
   }

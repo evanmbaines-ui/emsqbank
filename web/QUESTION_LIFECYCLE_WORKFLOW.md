@@ -129,6 +129,17 @@ The feedback packet intentionally includes both qualified and non-qualified eval
 
 Use `counts_toward_decision` and `evaluation_mode` to distinguish official live decision-eligible votes from beta or sandbox testing reviews. Learner flags are exported separately under `learner_flags` and `learner_issue_counts`; they should prompt admin review of accepted learner-pool questions and can be used as revision signals for future generated batches.
 
+## Export Publication Data
+
+Use the publication export for de-identified analysis of reviewer geography and state-specific response patterns:
+
+```bash
+python3 web/server.py export-publication \
+  --out outputs/web_feedback/ems_publication_state_analysis_YYYYMMDD.json
+```
+
+This export includes anonymous response rows and aggregate tables by practice state, training state, state pair, question, and topic group. It does not include raw email addresses. Suppress or combine small state-level cells before publication when needed.
+
 Use the lifecycle registry for durable record keeping:
 
 ```bash

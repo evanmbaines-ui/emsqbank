@@ -1403,6 +1403,132 @@ def generation_feedback_export() -> dict:
     }
 
 
+def increment_count(counts: dict, key: str, amount: int = 1):
+    key = str(key or "Unspecified")
+    counts[key] = counts.get(key, 0) + amount
+
+
+def publication_response_rows() -> list[dict]:
+    bank = load_json(QUESTION_BANK_FILE, {"questions": {}, "sources": []})
+    reviews = load_json(REVIEWS_FILE, {"reviews": {}})
+    qualified_ids = qualified_reviewer_ids()
+    rows = []
+    for record_id, review_map in reviews.get("reviews", {}).items():
+        question = bank.get("questions", {}).get(record_id, {})
+        for storage_key, review in review_map.items():
+            anonymous_id = review_owner_id(storage_key, review)
+            profile_at_submission = review.get("profileAtSubmission") if isinstance(review.get("profileAtSubmission"), dict) else {}
+            rows.append(
+                {
+                    "anonymous_user_id": anonymous_id,
+                    "qualified_vote": review_qualified_at_submission(anonymous_id, review, qualified_ids),
+                    "counts_toward_decision": review_counts_toward_decision(review),
+                    "evaluation_mode": review_evaluation_mode(review),
+                    "training_status_at_submission": profile_at_submission.get("trainingStatus", ""),
+                    "previous_board_at_submission": profile_at_submission.get("previousBoard", ""),
+                    "training_state_at_submission": profile_at_submission.get("trainingState", ""),
+                    "practice_state_at_submission": profile_at_submission.get("practiceState", ""),
+                    "record_id": record_id,
+                    "question_id": question.get("question_id", ""),
+                    "concept_key": question.get("concept_key") or concept_key_for_question(question),
+                    "domain": question.get("domain", ""),
+                    "topic_group": topic_group_for_question(question),
+                    "topic": question.get("topic", ""),
+                    "pool_state": question.get("pool_state", ""),
+                    "vote_bucket": vote_bucket_for_review(review),
+                    "disposition": normalize_disposition(review.get("disposition") or review.get("verdict", "")),
+                    "difficulty": review.get("difficulty", ""),
+                    "quality": review.get("quality", ""),
+                    "confidence": review.get("confidence", ""),
+                    "generation_issue_flags": review.get("generationIssueFlags", []),
+                    "has_comments": bool(str(review.get("comments", "")).strip()),
+                    "updated_at": review.get("updatedAt", ""),
+                }
+            )
+    return sorted(
+        rows,
+        key=lambda row: (
+            row["evaluation_mode"],
+            row["practice_state_at_submission"],
+            row["training_state_at_submission"],
+            row["record_id"],
+            row["anonymous_user_id"],
+        ),
+    )
+
+
+def publication_group_rows(rows: list[dict], group_fields: list[str]) -> list[dict]:
+    groups: dict[str, dict] = {}
+    for row in rows:
+        values = {field: str(row.get(field, "") or "Unspecified") for field in group_fields}
+        group_key = " | ".join(values.values())
+        group = groups.setdefault(
+            group_key,
+            {
+                "group_key": group_key,
+                "group_fields": values,
+                "total_responses": 0,
+                "unique_reviewers": 0,
+                "_reviewer_ids": set(),
+                "qualified_responses": 0,
+                "nonqualified_responses": 0,
+                "decision_eligible_responses": 0,
+                "evaluation_mode_counts": {},
+                "vote_bucket_counts": {},
+                "disposition_counts": {},
+                "difficulty_counts": {},
+                "quality_counts": {},
+                "confidence_counts": {},
+                "issue_counts": {},
+                "responses_with_comments": 0,
+            },
+        )
+        group["total_responses"] += 1
+        group["_reviewer_ids"].add(row.get("anonymous_user_id", ""))
+        if row.get("qualified_vote"):
+            group["qualified_responses"] += 1
+        else:
+            group["nonqualified_responses"] += 1
+        if row.get("counts_toward_decision"):
+            group["decision_eligible_responses"] += 1
+        if row.get("has_comments"):
+            group["responses_with_comments"] += 1
+        increment_count(group["evaluation_mode_counts"], row.get("evaluation_mode", ""))
+        increment_count(group["vote_bucket_counts"], row.get("vote_bucket", ""))
+        increment_count(group["disposition_counts"], row.get("disposition", ""))
+        increment_count(group["difficulty_counts"], row.get("difficulty", ""))
+        increment_count(group["quality_counts"], row.get("quality", ""))
+        increment_count(group["confidence_counts"], row.get("confidence", ""))
+        for flag in row.get("generation_issue_flags", []) or []:
+            increment_count(group["issue_counts"], flag)
+
+    output = []
+    for group in groups.values():
+        group["unique_reviewers"] = len({reviewer for reviewer in group.pop("_reviewer_ids") if reviewer})
+        output.append(group)
+    return sorted(output, key=lambda row: (-row["total_responses"], row["group_key"]))
+
+
+def publication_state_export() -> dict:
+    rows = publication_response_rows()
+    return {
+        "exported_at": utc_now(),
+        "schema": "ems_qbank_publication_state_analysis_v1",
+        "environment": evaluation_environment_payload(),
+        "privacy_note": "This export is de-identified. It includes anonymous reviewer IDs and submission-time profile states, but never raw email addresses. Small state-level cells should be suppressed or combined before publication when needed.",
+        "instructions": "Use evaluation_mode and counts_toward_decision to separate beta/sandbox testing from live decision-eligible responses. Use practice_state_at_submission and training_state_at_submission for geographic subgroup analyses.",
+        **response_scope_counts(rows),
+        "state_patterns": {
+            "by_practice_state": publication_group_rows(rows, ["practice_state_at_submission"]),
+            "by_training_state": publication_group_rows(rows, ["training_state_at_submission"]),
+            "by_training_and_practice_state": publication_group_rows(rows, ["training_state_at_submission", "practice_state_at_submission"]),
+            "by_practice_state_and_question": publication_group_rows(rows, ["practice_state_at_submission", "question_id"]),
+            "by_practice_state_and_topic_group": publication_group_rows(rows, ["practice_state_at_submission", "topic_group"]),
+        },
+        "response_rows": rows,
+    }
+
+
 def concept_lifecycle_status(state_counts: dict[str, int]) -> str:
     if state_counts.get("accepted", 0):
         return "accepted_on_site"
@@ -1823,6 +1949,11 @@ class RequestHandler(BaseHTTPRequestHandler):
             if not self.require_admin():
                 return
             self.send_json(generation_feedback_export())
+            return
+        if path == "/api/admin/export-publication":
+            if not self.require_admin():
+                return
+            self.send_json(publication_state_export())
             return
         if path == "/api/admin/export-concepts":
             if not self.require_admin():
@@ -2430,6 +2561,10 @@ def export_llm_feedback_command(args):
     write_or_print_json(llm_feedback_export(), args.out)
 
 
+def export_publication_command(args):
+    write_or_print_json(publication_state_export(), args.out)
+
+
 def export_concepts_command(args):
     write_or_print_json(concept_registry_summary(), args.out)
 
@@ -2477,6 +2612,9 @@ def main():
     feedback_parser = subparsers.add_parser("export-llm-feedback", help="export LLM-ready website feedback")
     feedback_parser.add_argument("--out", default="")
 
+    publication_parser = subparsers.add_parser("export-publication", help="export de-identified publication analysis data")
+    publication_parser.add_argument("--out", default="")
+
     concepts_parser = subparsers.add_parser("export-concepts", help="export concept-level website lifecycle registry")
     concepts_parser.add_argument("--out", default="")
 
@@ -2499,6 +2637,8 @@ def main():
         export_lifecycle_command(args)
     elif args.command == "export-llm-feedback":
         export_llm_feedback_command(args)
+    elif args.command == "export-publication":
+        export_publication_command(args)
     elif args.command == "export-concepts":
         export_concepts_command(args)
     elif args.command == "set-state":
