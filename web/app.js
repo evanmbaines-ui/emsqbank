@@ -32,6 +32,8 @@
     ["reject", "Reject"]
   ];
 
+  const DISPLAY_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
   const TOPIC_GROUP_LABELS = {
     "1.1": "Medical Oversight",
     "1.2": "EMS Systems",
@@ -65,6 +67,7 @@
     poolCounts: null,
     reviews: {},
     progress: {},
+    learnerSessions: {},
     learnerFlags: {},
     view: "auth",
     authMode: "login",
@@ -76,6 +79,9 @@
     learnerTopicGroup: "all",
     learnerTopic: "all",
     learnerQid: "",
+    learnerQuizCount: 10,
+    learnerSession: null,
+    learnerFlagOpenQid: "",
     evaluatorFilter: "voting",
     evaluatorDomain: "all",
     evaluatorTopicGroup: "all",
@@ -155,16 +161,20 @@
   }
 
   async function refreshData() {
-    const [questionData, reviewData, progressData, learnerFlagData] = await Promise.all([
+    const [questionData, reviewData, progressData, learnerSessionData, learnerFlagData] = await Promise.all([
       apiGet("/api/questions"),
       apiGet("/api/my-reviews"),
       apiGet("/api/my-progress"),
+      apiGet("/api/my-learner-sessions"),
       apiGet("/api/my-learner-flags")
     ]);
     state.questions = questionData.questions.map(normalizeQuestion);
     state.poolCounts = questionData.counts || null;
     state.reviews = reviewData.reviews || {};
     state.progress = progressData.progress || {};
+    state.learnerSessions = Object.fromEntries(
+      Object.entries(learnerSessionData.sessions || {}).map(([sessionId, session]) => [sessionId, normalizeLearnerSession(session)])
+    );
     state.learnerFlags = learnerFlagData.learnerFlags || {};
   }
 
@@ -217,6 +227,29 @@
       return label;
     }
     return displayDomain(q.domain);
+  }
+
+  function normalizeLearnerSession(session = {}) {
+    const criteria = session.criteria || {};
+    const id = session.id || session.quizSessionId || "";
+    return {
+      id,
+      quizSessionId: id,
+      createdAt: session.createdAt || "",
+      updatedAt: session.updatedAt || "",
+      status: session.status || "active",
+      requestedCount: Number(session.requestedCount || criteria.requestedCount || 0),
+      filter: session.filter || criteria.filter || "all",
+      domain: session.domain || criteria.domain || "all",
+      topicGroup: session.topicGroup || criteria.topicGroup || "all",
+      topic: session.topic || criteria.topic || "all",
+      questionIds: Array.isArray(session.questionIds) ? session.questionIds : [],
+      answerOrders: session.answerOrders || {},
+      answeredCount: Number(session.answeredCount || 0),
+      correctCount: Number(session.correctCount || 0),
+      incorrectCount: Number(session.incorrectCount || 0),
+      unansweredCount: Number(session.unansweredCount || 0)
+    };
   }
 
   async function apiGet(path) {
@@ -306,8 +339,8 @@
         </div>
         <nav class="nav" aria-label="Main menu">
           ${navButton("menu", "Menu")}
-          ${navButton("evaluator", "Evaluator")}
           ${navButton("learner", "Learner")}
+          ${navButton("evaluator", "Evaluator")}
           ${navButton("report", "Progress")}
           ${navButton("profile", "Profile")}
           ${navButton("methods", "Methods")}
@@ -489,6 +522,7 @@
     const contactable = Number(reviewers.qualified_contactable || 0);
     const qualified = Number(reviewers.qualified || 0);
     const missing = Number(reviewers.qualified_missing_contact || Math.max(0, qualified - contactable));
+    const availableCount = Number(pool.voting || 0);
     const smtpReady = Boolean(environment.password_reset_email_configured);
     const disabled = !smtpReady || contactable < 1;
     const disabledReason = !smtpReady
@@ -506,14 +540,22 @@
             </div>
             <span class="pill">${escapeHTML(String(contactable))}/${escapeHTML(String(qualified))} contactable</span>
           </div>
+          <div class="notification-default">
+            <strong>Default email</strong>
+            <span>Requests help reviewing newly added draft questions, includes the live sign-in link, and states both the newly added count and the current total evaluator-pool count.</span>
+          </div>
           <form class="notification-form" data-form="notify-qualified-reviewers">
             <div class="field">
-              <label for="notify-question-count">New question count</label>
-              <input id="notify-question-count" name="questionCount" type="number" min="0" step="1" value="${escapeAttr(pool.voting || 0)}">
+              <label for="notify-question-count">Newly added questions</label>
+              <input id="notify-question-count" name="questionCount" type="number" min="0" step="1" value="${escapeAttr(availableCount)}">
+            </div>
+            <div class="field">
+              <label for="notify-total-count">Total in evaluator pool</label>
+              <input id="notify-total-count" name="availableQuestionCount" type="number" value="${escapeAttr(availableCount)}" readonly>
             </div>
             <div class="field notification-note-field">
               <label for="notify-note">Optional note</label>
-              <textarea id="notify-note" name="note" placeholder="Optional short note to include in the email."></textarea>
+              <textarea id="notify-note" name="note" placeholder="Leave blank to send only the standard reviewer request. Anything entered here is appended below the default message."></textarea>
             </div>
             <button class="primary" type="submit" ${disabled ? "disabled" : ""}>Send alert</button>
           </form>
@@ -1052,21 +1094,6 @@
       <section class="menu-grid">
         <div class="panel mode-panel">
           <div class="mode-copy">
-            <h2>Evaluator Mode</h2>
-            <p>Evaluate candidate questions, cast anonymous votes, and capture structured generation feedback. Questions are randomly fed, and completed items leave your queue.</p>
-            <button class="link-button evaluator-help-link" type="button" data-action="open-evaluator-instructions">How should I evaluate questions?</button>
-          </div>
-          <div class="stat-grid">
-            ${stat(available, "Available")}
-            ${stat(evaluator.reviewed, "My votes")}
-            ${stat(`${pool.accepted}/${pool.rejected}`, "Accepted / rejected")}
-          </div>
-          <div class="mode-actions">
-            <button class="primary" type="button" data-view="evaluator">Open evaluator</button>
-          </div>
-        </div>
-        <div class="panel mode-panel">
-          <div class="mode-copy">
             <h2>Learner Mode</h2>
             <p>Practice accepted questions and save right/wrong history on the server.</p>
           </div>
@@ -1078,6 +1105,21 @@
           <div class="mode-actions">
             <button class="primary" type="button" data-view="learner">Open learner</button>
             <button class="button" type="button" data-view="report">Progress report</button>
+          </div>
+        </div>
+        <div class="panel mode-panel">
+          <div class="mode-copy">
+            <h2>Evaluator Mode</h2>
+            <p>Evaluate candidate questions, cast anonymous votes, and capture structured generation feedback. Questions are randomly fed, and completed items leave your queue.</p>
+            <button class="link-button evaluator-help-link" type="button" data-action="open-evaluator-instructions">How should I evaluate questions?</button>
+          </div>
+          <div class="stat-grid">
+            ${stat(available, "Available")}
+            ${stat(evaluator.reviewed, "My votes")}
+            ${stat(`${pool.accepted}/${pool.rejected}`, "Accepted / rejected")}
+          </div>
+          <div class="mode-actions">
+            <button class="primary" type="button" data-view="evaluator">Open evaluator</button>
           </div>
         </div>
       </section>
@@ -1246,77 +1288,170 @@
   }
 
   function renderLearner() {
-    const questions = filteredLearnerQuestions();
+    if (!state.learnerSession) {
+      return renderLearnerSetup();
+    }
+    const questions = learnerSessionQuestions();
+    if (!questions.length) {
+      state.learnerSession = null;
+      state.learnerQid = "";
+      return renderLearnerSetup("This quiz no longer has available accepted questions. Build a new quiz to continue.");
+    }
     const q = ensureCurrentQuestion("learner", questions);
     return `
       <section class="workbench">
         ${renderLearnerSidePanel(questions)}
-        ${q ? renderLearnerQuestion(q, state.progress[q.id]) : renderEmptyQuestion("No accepted learner-pool questions match the current filters.")}
+        ${q ? renderLearnerQuestion(q) : renderEmptyQuestion("No accepted learner-pool questions match the current filters.")}
+      </section>
+    `;
+  }
+
+  function renderLearnerSetup(notice = "") {
+    const stats = learnerStats();
+    const questions = filteredLearnerQuestions();
+    const available = questions.length;
+    const requested = Math.min(Math.max(1, Number(state.learnerQuizCount || 10)), Math.max(1, available || 1));
+    const resumableSessions = resumableLearnerSessions();
+    return `
+      <section class="panel learner-setup">
+        <div class="panel-body">
+          <div class="learner-setup-header">
+            <div>
+              <p class="landing-kicker">Learner mode</p>
+              <h2 class="section-title">Build a practice quiz</h2>
+              <p class="muted">Accepted questions only. Each quiz gets its own shuffled answer order and records session-level results while preserving your overall progress.</p>
+            </div>
+            <span class="pill accepted">${escapeHTML(String(stats.totalAvailable))} accepted</span>
+          </div>
+          ${notice ? `<div class="alert error">${escapeHTML(notice)}</div>` : ""}
+          <div class="stat-grid learner-setup-stats">
+            ${stat(stats.answered, "Answered")}
+            ${stat(`${stats.percent}%`, "Correct")}
+            ${stat(stats.remaining, "Unseen")}
+          </div>
+          ${resumableSessions.length ? renderResumableLearnerSessions(resumableSessions) : ""}
+          <form class="quiz-setup-form" data-form="learner-session">
+            <div class="quiz-setup-grid">
+              <div class="field">
+                <label for="learner-question-count">Questions in this set</label>
+                <input id="learner-question-count" name="questionCount" type="number" min="1" max="${escapeAttr(Math.max(1, available))}" step="1" value="${escapeAttr(requested)}" ${available ? "" : "disabled"}>
+              </div>
+              <div class="field">
+                <label for="learner-filter">Question status</label>
+                <select id="learner-filter" data-filter="learnerFilter">
+                  ${selectOption("all", "All questions", state.learnerFilter)}
+                  ${selectOption("unanswered", "Unseen questions", state.learnerFilter)}
+                  ${selectOption("missed", "Previously incorrect", state.learnerFilter)}
+                  ${selectOption("correct", "Previously correct", state.learnerFilter)}
+                </select>
+              </div>
+              <div class="field">
+                <label for="learner-domain">Domain</label>
+                <select id="learner-domain" data-filter="learnerDomain">${domainOptions(state.learnerDomain)}</select>
+              </div>
+              <div class="field">
+                <label for="learner-topic-group">Topic group</label>
+                <select id="learner-topic-group" data-filter="learnerTopicGroup">${topicGroupOptions(state.learnerTopicGroup, "learner")}</select>
+              </div>
+              <div class="field">
+                <label for="learner-topic">Topic</label>
+                <select id="learner-topic" data-filter="learnerTopic">${topicOptions(state.learnerTopic, "learner")}</select>
+              </div>
+            </div>
+            <div class="quiz-availability">
+              <strong>${escapeHTML(String(available))}</strong>
+              <span>${available === 1 ? "accepted question matches" : "accepted questions match"} these settings.</span>
+            </div>
+            <div class="toolbar">
+              <div class="toolbar-left">
+                <button class="primary" type="submit" ${available ? "" : "disabled"}>Generate quiz</button>
+              </div>
+            </div>
+          </form>
+        </div>
       </section>
     `;
   }
 
   function renderLearnerSidePanel(questions) {
-    const stats = learnerStats();
+    const stats = learnerSessionStats(questions);
+    const session = state.learnerSession || {};
     return `
       <aside class="panel side-panel">
-        <h2>Learner Progress</h2>
+        <h2>Quiz Session</h2>
         <div class="stat-grid">
           ${stat(stats.answered, "Done")}
           ${stat(stats.correct, "Right")}
-          ${stat(stats.incorrect, "Wrong")}
+          ${stat(stats.remaining, "Left")}
         </div>
-        <div class="filter-stack">
-          <div class="field">
-            <label for="learner-filter">Status</label>
-            <select id="learner-filter" data-filter="learnerFilter">
-              ${selectOption("all", "All questions", state.learnerFilter)}
-              ${selectOption("unanswered", "New questions", state.learnerFilter)}
-              ${selectOption("missed", "Previously incorrect", state.learnerFilter)}
-              ${selectOption("correct", "Previously correct", state.learnerFilter)}
-            </select>
-          </div>
-          <div class="field">
-            <label for="learner-domain">Domain</label>
-            <select id="learner-domain" data-filter="learnerDomain">${domainOptions(state.learnerDomain)}</select>
-          </div>
-          <div class="field">
-            <label for="learner-topic-group">Topic group</label>
-            <select id="learner-topic-group" data-filter="learnerTopicGroup">${topicGroupOptions(state.learnerTopicGroup, "learner")}</select>
-          </div>
-          <div class="field">
-            <label for="learner-topic">Topic</label>
-            <select id="learner-topic" data-filter="learnerTopic">${topicOptions(state.learnerTopic, "learner")}</select>
-          </div>
-        </div>
+        <p class="session-summary">${escapeHTML(sessionSummaryText(session, questions.length))}</p>
         <div class="question-picker" aria-label="Learner question picker">
-          ${questions.map((question) => learnerQuestionButton(question, state.progress[question.id])).join("")}
+          ${questions.map((question, index) => learnerQuestionButton(question, currentLearnerAttempt(question.id), index + 1)).join("")}
+        </div>
+        <div class="side-actions">
+          <button class="button" type="button" data-action="learner-pause-session">Pause quiz</button>
+          <button class="button" type="button" data-action="learner-finish-session">Finish early</button>
         </div>
       </aside>
     `;
   }
 
-  function learnerQuestionButton(q, record) {
-    const active = q.id === state.learnerQid ? " active" : "";
-    const status = record ? (record.correct ? " correct" : " incorrect") : "";
-    return `<button class="question-button${active}${status}" type="button" data-learner-qid="${escapeAttr(q.id)}">${escapeHTML(String(q.number))}</button>`;
+  function renderResumableLearnerSessions(sessions) {
+    return `
+      <section class="resumable-quiz-panel">
+        <h3>Paused quizzes</h3>
+        <div class="resumable-quiz-list">
+          ${sessions.map((session) => {
+            const total = session.questionIds.length;
+            const answered = sessionAnsweredCount(session);
+            return `
+              <div class="resumable-quiz-row">
+                <div>
+                  <strong>${escapeHTML(sessionSummaryText(session, total))}</strong>
+                  <span>${escapeHTML(String(answered))} of ${escapeHTML(String(total))} answered${session.updatedAt ? ` | updated ${escapeHTML(formatDateTime(session.updatedAt))}` : ""}</span>
+                </div>
+                <div class="resumable-actions">
+                  <button class="primary" type="button" data-learner-resume-session="${escapeAttr(session.id)}">Resume</button>
+                  <button class="button" type="button" data-learner-finish-session="${escapeAttr(session.id)}">Finish</button>
+                </div>
+              </div>
+            `;
+          }).join("")}
+        </div>
+      </section>
+    `;
   }
 
-  function renderLearnerQuestion(q, record) {
+  function learnerQuestionButton(q, record, label) {
+    const active = q.id === state.learnerQid ? " active" : "";
+    const status = record ? (record.correct ? " correct" : " incorrect") : "";
+    return `<button class="question-button${active}${status}" type="button" data-learner-qid="${escapeAttr(q.id)}">${escapeHTML(String(label || q.number))}</button>`;
+  }
+
+  function renderLearnerQuestion(q) {
+    const record = currentLearnerAttempt(q.id);
     const answered = Boolean(record);
     const selected = record ? record.selected : "";
+    const options = learnerDisplayOptions(q);
+    const answerLabel = displayLetterForOriginal(q.answer, options);
+    const selectedLabel = displayLetterForOriginal(selected, options);
+    const sessionQuestions = learnerSessionQuestions();
+    const position = Math.max(1, sessionQuestions.findIndex((question) => question.id === q.id) + 1);
+    const total = Math.max(position, sessionQuestions.length);
     return `
       <article class="panel question-panel">
-        ${renderQuestionHeader(q)}
+        ${renderQuestionHeader(q, { showMeta: false, showCode: false, title: `Question ${position} of ${total}` })}
         <div class="question-body">
-          ${answered ? renderResultBanner(record) : ""}
+          ${answered ? renderResultBanner(record, selectedLabel) : ""}
           <p class="stem">${escapeHTML(q.stem)}</p>
           <form data-form="learner-answer">
             <input type="hidden" name="recordId" value="${escapeAttr(q.id)}">
+            <input type="hidden" name="quizSessionId" value="${escapeAttr(state.learnerSession?.id || "")}">
+            <input type="hidden" name="displayOrder" value="${escapeAttr(options.map((option) => option.letter).join(","))}">
             <div class="option-list">
-              ${q.options.map((option) => renderLearnerOption(option, q.answer, selected, answered)).join("")}
+              ${options.map((option) => renderLearnerOption(option, q.answer, selected, answered)).join("")}
             </div>
-            ${answered ? renderAnswerPanel(q) : `<button class="primary" type="submit">Submit answer</button>`}
+            ${answered ? renderAnswerPanel(q, answerLabel) : `<button class="primary" type="submit">Submit answer</button>`}
           </form>
           <div class="toolbar">
             <div class="toolbar-left">
@@ -1324,7 +1459,8 @@
               <button class="button" type="button" data-action="learner-next">Next</button>
             </div>
             <div class="toolbar-right">
-              <button class="button" type="button" data-view="report">Progress report</button>
+              <button class="button" type="button" data-action="learner-pause-session">Pause quiz</button>
+              <button class="button" type="button" data-action="learner-finish-session">Finish early</button>
             </div>
           </div>
           ${renderLearnerFlagPanel(q, state.learnerFlags[q.id] || {})}
@@ -1335,10 +1471,30 @@
 
   function renderLearnerFlagPanel(q, flag) {
     const selected = flag.generationIssueFlags || [];
+    const isOpen = state.learnerFlagOpenQid === q.id;
+    const toggleText = isOpen ? "Hide flag form" : (flag.updatedAt ? "Edit flag" : "Flag this question");
+    if (!isOpen) {
+      return `
+        <section class="flag-panel collapsed">
+          <div class="flag-panel-header">
+            <div>
+              <h3>Flag this question</h3>
+              ${flag.updatedAt ? `<p class="small muted">Flag saved ${formatDateTime(flag.updatedAt)}</p>` : ""}
+            </div>
+            <button class="button" type="button" data-learner-flag-toggle="${escapeAttr(q.id)}" aria-expanded="false">${escapeHTML(toggleText)}</button>
+          </div>
+        </section>
+      `;
+    }
     return `
       <section class="flag-panel">
-        <h3>Flag this question</h3>
-        ${flag.updatedAt ? `<p class="small muted">Flag saved ${formatDateTime(flag.updatedAt)}</p>` : ""}
+        <div class="flag-panel-header">
+          <div>
+            <h3>Flag this question</h3>
+            ${flag.updatedAt ? `<p class="small muted">Flag saved ${formatDateTime(flag.updatedAt)}</p>` : ""}
+          </div>
+          <button class="button" type="button" data-learner-flag-toggle="${escapeAttr(q.id)}" aria-expanded="true">${escapeHTML(toggleText)}</button>
+        </div>
         <form class="form-grid" data-form="learner-flag">
           <input type="hidden" name="recordId" value="${escapeAttr(q.id)}">
           <fieldset class="checkbox-grid">
@@ -1506,19 +1662,22 @@
     `;
   }
 
-  function renderQuestionHeader(q) {
+  function renderQuestionHeader(q, options = {}) {
+    const showMeta = options.showMeta !== false;
+    const showCode = options.showCode !== false;
+    const title = options.title || `${String(q.number)}. ${q.title}`;
     return `
       <header class="question-header">
         <div>
-          <h2>${escapeHTML(String(q.number))}. ${escapeHTML(q.title)}</h2>
-          <div class="question-meta">
+          <h2>${escapeHTML(title)}</h2>
+          ${showMeta ? `<div class="question-meta">
             <span class="pill">${escapeHTML(displayDomain(q.domain))}</span>
             <span class="pill">${escapeHTML(q.topicGroup)}</span>
             <span class="pill">Core ${escapeHTML(q.coreContentCode || "n/a")}</span>
             ${q.topic && q.topic !== q.topicGroup ? `<span class="pill">${escapeHTML(q.topic)}</span>` : ""}
-          </div>
+          </div>` : ""}
         </div>
-        <span class="question-code">${escapeHTML(q.questionId)}</span>
+        ${showCode ? `<span class="question-code">${escapeHTML(q.questionId)}</span>` : ""}
       </header>
     `;
   }
@@ -1539,27 +1698,28 @@
     const rowClass = isCorrect ? " correct" : isIncorrect ? " incorrect" : "";
     const checked = option.letter === selected ? " checked" : "";
     const disabled = answered ? " disabled" : "";
+    const displayLetter = option.displayLetter || option.letter;
     return `
       <label class="option-row${rowClass}">
         <input type="radio" name="selected" value="${escapeAttr(option.letter)}"${checked}${disabled} required>
-        <span><span class="option-letter">${escapeHTML(option.letter)}.</span>${escapeHTML(option.text)}</span>
+        <span><span class="option-letter">${escapeHTML(displayLetter)}.</span>${escapeHTML(option.text)}</span>
       </label>
     `;
   }
 
-  function renderAnswerPanel(q) {
+  function renderAnswerPanel(q, answerLabel = "") {
     return `
       <section class="answer-panel">
-        <h3>Answer: ${escapeHTML(q.answer)}</h3>
+        <h3>Answer: ${escapeHTML(answerLabel || q.answer)}</h3>
         <p>${escapeHTML(q.rationale)}</p>
         <p class="citation">${escapeHTML(q.citation)}</p>
       </section>
     `;
   }
 
-  function renderResultBanner(record) {
+  function renderResultBanner(record, selectedLabel = "") {
     const cls = record.correct ? "correct" : "incorrect";
-    const text = record.correct ? "Correct" : `Incorrect. You selected ${record.selected}.`;
+    const text = record.correct ? "Correct" : `Incorrect. You selected ${selectedLabel || record.selected}.`;
     return `<div class="result-banner ${cls}">${escapeHTML(text)}</div>`;
   }
 
@@ -1611,6 +1771,8 @@
         await notifyQualifiedReviewers(data);
       } else if (formType === "review") {
         await saveReview(data);
+      } else if (formType === "learner-session") {
+        await startLearnerSession(data);
       } else if (formType === "learner-answer") {
         await saveLearnerAnswer(data);
       } else if (formType === "learner-flag") {
@@ -1653,8 +1815,26 @@
     const learnerQid = event.target.closest("[data-learner-qid]")?.dataset.learnerQid;
     if (learnerQid) {
       state.learnerQid = learnerQid;
+      state.learnerFlagOpenQid = "";
       clearMessage();
       render();
+      return;
+    }
+    const learnerFlagQid = event.target.closest("[data-learner-flag-toggle]")?.dataset.learnerFlagToggle;
+    if (learnerFlagQid) {
+      state.learnerFlagOpenQid = state.learnerFlagOpenQid === learnerFlagQid ? "" : learnerFlagQid;
+      clearMessage();
+      render();
+      return;
+    }
+    const resumeSessionId = event.target.closest("[data-learner-resume-session]")?.dataset.learnerResumeSession;
+    if (resumeSessionId) {
+      resumeLearnerSession(resumeSessionId);
+      return;
+    }
+    const finishSessionId = event.target.closest("[data-learner-finish-session]")?.dataset.learnerFinishSession;
+    if (finishSessionId) {
+      finishLearnerSession(finishSessionId);
       return;
     }
     const evaluatorQid = event.target.closest("[data-evaluator-qid]")?.dataset.evaluatorQid;
@@ -1727,6 +1907,9 @@
     localStorage.setItem(STORAGE.token, state.token);
     state.user = response.user;
     await refreshData();
+    state.learnerSession = null;
+    state.learnerQid = "";
+    state.learnerFlagOpenQid = "";
     state.view = "menu";
     setMessage("success", `Anonymous account created: ${state.user.anonymousUserId}`);
     render();
@@ -1738,6 +1921,9 @@
     localStorage.setItem(STORAGE.token, state.token);
     state.user = response.user;
     await refreshData();
+    state.learnerSession = null;
+    state.learnerQid = "";
+    state.learnerFlagOpenQid = "";
     state.view = "menu";
     setMessage("success", `Logged in as ${state.user.anonymousUserId}`);
     render();
@@ -1763,6 +1949,9 @@
     state.user = response.user;
     state.pendingResetCode = "";
     await refreshData();
+    state.learnerSession = null;
+    state.learnerQid = "";
+    state.learnerFlagOpenQid = "";
     state.view = "menu";
     state.authMode = "login";
     setMessage("success", "Password reset. You are logged in.");
@@ -1802,24 +1991,158 @@
     render();
   }
 
+  async function startLearnerSession(data) {
+    const questions = filteredLearnerQuestions();
+    if (!questions.length) {
+      setMessage("error", "No accepted learner-pool questions match those settings.");
+      render();
+      return;
+    }
+    const requested = Math.max(1, Math.floor(Number(data.get("questionCount") || state.learnerQuizCount || 10)));
+    const count = Math.min(requested, questions.length);
+    const sessionId = newLearnerSessionId();
+    const selectedQuestions = shuffleWithSeed(questions, sessionId).slice(0, count);
+    const answerOrders = {};
+    selectedQuestions.forEach((question) => {
+      answerOrders[question.id] = shuffleWithSeed(question.options.map((option) => option.letter), `${sessionId}:${question.id}`);
+    });
+    state.learnerQuizCount = requested;
+    const session = {
+      id: sessionId,
+      quizSessionId: sessionId,
+      createdAt: new Date().toISOString(),
+      status: "active",
+      requestedCount: requested,
+      filter: state.learnerFilter,
+      domain: state.learnerDomain,
+      topicGroup: state.learnerTopicGroup,
+      topic: state.learnerTopic,
+      questionIds: selectedQuestions.map((question) => question.id),
+      answerOrders
+    };
+    const response = await apiPost("/api/learner-session", { action: "create", session });
+    state.learnerSession = normalizeLearnerSession(response.session || session);
+    state.learnerSessions[state.learnerSession.id] = state.learnerSession;
+    state.learnerQid = selectedQuestions[0]?.id || "";
+    state.learnerFlagOpenQid = "";
+    setMessage("success", `Quiz generated with ${count} question${count === 1 ? "" : "s"}.`);
+    render();
+  }
+
   async function saveLearnerAnswer(data) {
+    const recordId = String(data.get("recordId") || "");
+    const selected = String(data.get("selected") || "");
+    const displayOrder = String(data.get("displayOrder") || "")
+      .split(",")
+      .map((letter) => letter.trim())
+      .filter(Boolean);
+    const displaySelected = displayLetterForOriginal(selected, learnerDisplayOptions(state.questions.find((q) => q.id === recordId) || {}));
     await apiPost("/api/learner-answer", {
-      recordId: String(data.get("recordId") || ""),
-      selected: String(data.get("selected") || "")
+      recordId,
+      selected,
+      quizSessionId: String(data.get("quizSessionId") || state.learnerSession?.id || ""),
+      quizQuestionIds: state.learnerSession?.questionIds || [],
+      quizCriteria: state.learnerSession ? {
+        requestedCount: state.learnerSession.requestedCount,
+        filter: state.learnerSession.filter,
+        domain: state.learnerSession.domain,
+        topicGroup: state.learnerSession.topicGroup,
+        topic: state.learnerSession.topic
+      } : {},
+      displayOrder,
+      displaySelected
     });
     await refreshData();
-    const record = state.progress[String(data.get("recordId") || "")];
+    const record = currentLearnerAttempt(recordId) || state.progress[recordId];
     setMessage(record?.correct ? "success" : "error", record?.correct ? "Correct." : "Incorrect.");
     render();
   }
 
+  async function pauseLearnerSession() {
+    const sessionId = state.learnerSession?.id || "";
+    if (!sessionId) {
+      setMessage("error", "No active quiz to pause.");
+      render();
+      return;
+    }
+    try {
+      const response = await apiPost("/api/learner-session", { action: "pause", quizSessionId: sessionId });
+      const session = normalizeLearnerSession(response.session || {});
+      if (session.id) {
+        state.learnerSessions[session.id] = session;
+      }
+      state.learnerSession = null;
+      state.learnerQid = "";
+      state.learnerFlagOpenQid = "";
+      setMessage("success", "Quiz paused. You can resume it from learner mode.");
+      render();
+    } catch (error) {
+      setMessage("error", error.message || "Could not pause quiz.");
+      render();
+    }
+  }
+
+  async function resumeLearnerSession(sessionId) {
+    const existing = state.learnerSessions[sessionId];
+    if (!existing) {
+      setMessage("error", "That paused quiz was not found.");
+      render();
+      return;
+    }
+    try {
+      const response = await apiPost("/api/learner-session", { action: "resume", quizSessionId: sessionId });
+      const session = normalizeLearnerSession(response.session || existing);
+      state.learnerSessions[session.id] = session;
+      state.learnerSession = session;
+      state.learnerQid = firstUnansweredQuestionId(session) || session.questionIds[0] || "";
+      state.learnerFlagOpenQid = "";
+      setMessage("success", "Quiz resumed.");
+      render();
+    } catch (error) {
+      setMessage("error", error.message || "Could not resume quiz.");
+      render();
+    }
+  }
+
+  async function finishLearnerSession(sessionId) {
+    sessionId = sessionId || state.learnerSession?.id || "";
+    if (!sessionId) {
+      setMessage("error", "No quiz session was selected.");
+      render();
+      return;
+    }
+    try {
+      const response = await apiPost("/api/learner-session", { action: "finish", quizSessionId: sessionId });
+      const session = normalizeLearnerSession(response.session || {});
+      if (session.id) {
+        state.learnerSessions[session.id] = session;
+      }
+      if (state.learnerSession?.id === sessionId) {
+        state.learnerSession = null;
+        state.learnerQid = "";
+        state.learnerFlagOpenQid = "";
+      }
+      const unanswered = Number(session.unansweredCount || Math.max(0, (session.questionIds || []).length - sessionAnsweredCount(session)));
+      const suffix = unanswered
+        ? ` ${unanswered} unanswered question${unanswered === 1 ? "" : "s"} returned to the learner pool.`
+        : "";
+      setMessage("success", `Quiz finished. Your completed answers remain in your learner progress.${suffix}`);
+      render();
+    } catch (error) {
+      setMessage("error", error.message || "Could not finish quiz.");
+      render();
+    }
+  }
+
   async function saveLearnerFlag(data) {
+    const recordId = String(data.get("recordId") || "");
     await apiPost("/api/learner-flag", {
-      recordId: String(data.get("recordId") || ""),
+      recordId,
       generationIssueFlags: data.getAll("learnerIssueFlags").map(String),
       comments: String(data.get("comments") || "")
     });
     await refreshData();
+    state.learnerFlagOpenQid = "";
     setMessage("success", "Question flag saved for admin review.");
     render();
   }
@@ -1843,6 +2166,7 @@
   async function notifyQualifiedReviewers(data) {
     const response = await adminPost("/api/admin/notify-qualified-reviewers", {
       questionCount: Number(data.get("questionCount") || 0),
+      availableQuestionCount: Number(data.get("availableQuestionCount") || 0),
       note: String(data.get("note") || "")
     });
     state.adminSummary = response.summary;
@@ -1892,7 +2216,11 @@
       state.questions = [];
       state.reviews = {};
       state.progress = {};
+      state.learnerSessions = {};
       state.learnerFlags = {};
+      state.learnerSession = null;
+      state.learnerQid = "";
+      state.learnerFlagOpenQid = "";
       clearMessage();
       render();
       return;
@@ -1925,6 +2253,22 @@
       exportPublicationJSON();
       return;
     }
+    if (action === "learner-new-session") {
+      state.learnerSession = null;
+      state.learnerQid = "";
+      state.learnerFlagOpenQid = "";
+      clearMessage();
+      render();
+      return;
+    }
+    if (action === "learner-pause-session") {
+      pauseLearnerSession();
+      return;
+    }
+    if (action === "learner-finish-session") {
+      finishLearnerSession(state.learnerSession?.id || "");
+      return;
+    }
     if (action === "learner-prev" || action === "learner-next") {
       moveQuestion("learner", action.endsWith("next") ? 1 : -1);
       render();
@@ -1938,13 +2282,16 @@
   }
 
   function moveQuestion(mode, direction) {
-    const questions = mode === "learner" ? filteredLearnerQuestions() : filteredEvaluatorQuestions();
+    const questions = mode === "learner" ? learnerSessionQuestions() : filteredEvaluatorQuestions();
     if (!questions.length) {
       return;
     }
     const key = mode === "learner" ? "learnerQid" : "evaluatorQid";
     const current = Math.max(0, questions.findIndex((q) => q.id === state[key]));
     state[key] = questions[(current + direction + questions.length) % questions.length].id;
+    if (mode === "learner") {
+      state.learnerFlagOpenQid = "";
+    }
     clearMessage();
   }
 
@@ -2006,6 +2353,173 @@
       }
       return true;
     });
+  }
+
+  function learnerSessionQuestions() {
+    const session = state.learnerSession;
+    if (!session || !Array.isArray(session.questionIds)) {
+      return [];
+    }
+    const byId = new Map(state.questions.map((question) => [question.id, question]));
+    return session.questionIds
+      .map((recordId) => byId.get(recordId))
+      .filter((question) => question && question.learnAvailable);
+  }
+
+  function resumableLearnerSessions() {
+    return Object.values(state.learnerSessions || {})
+      .filter((session) => session && ["active", "paused"].includes(session.status))
+      .filter((session) => Array.isArray(session.questionIds) && session.questionIds.some((recordId) => {
+        const question = state.questions.find((q) => q.id === recordId);
+        return question && question.learnAvailable;
+      }))
+      .sort((a, b) => String(b.updatedAt || b.createdAt).localeCompare(String(a.updatedAt || a.createdAt)));
+  }
+
+  function sessionAnsweredCount(session) {
+    return (session.questionIds || []).filter((recordId) => {
+      const record = state.progress[recordId];
+      const history = Array.isArray(record?.history) ? record.history : [];
+      return history.some((attempt) => attempt?.quizSessionId === session.id);
+    }).length;
+  }
+
+  function firstUnansweredQuestionId(session) {
+    return (session.questionIds || []).find((recordId) => {
+      const question = state.questions.find((q) => q.id === recordId);
+      if (!question || !question.learnAvailable) {
+        return false;
+      }
+      const record = state.progress[recordId];
+      const history = Array.isArray(record?.history) ? record.history : [];
+      return !history.some((attempt) => attempt?.quizSessionId === session.id);
+    });
+  }
+
+  function learnerDisplayOptions(q) {
+    const options = Array.isArray(q.options) ? q.options : [];
+    const session = state.learnerSession || {};
+    const storedOrder = session.answerOrders?.[q.id];
+    const order = Array.isArray(storedOrder) && storedOrder.length
+      ? storedOrder
+      : options.map((option) => option.letter);
+    const byLetter = new Map(options.map((option) => [option.letter, option]));
+    const ordered = order
+      .map((letter) => byLetter.get(letter))
+      .filter(Boolean);
+    options.forEach((option) => {
+      if (!ordered.some((orderedOption) => orderedOption.letter === option.letter)) {
+        ordered.push(option);
+      }
+    });
+    return ordered.map((option, index) => ({
+      ...option,
+      displayLetter: DISPLAY_LETTERS[index] || String(index + 1)
+    }));
+  }
+
+  function displayLetterForOriginal(originalLetter, displayOptions) {
+    const match = displayOptions.find((option) => option.letter === originalLetter);
+    return match ? match.displayLetter : originalLetter;
+  }
+
+  function currentLearnerAttempt(recordId) {
+    const sessionId = state.learnerSession?.id;
+    if (!sessionId) {
+      return null;
+    }
+    const record = state.progress[recordId];
+    const history = Array.isArray(record?.history) ? record.history : [];
+    for (let index = history.length - 1; index >= 0; index -= 1) {
+      const attempt = history[index];
+      if (attempt && attempt.quizSessionId === sessionId) {
+        return {
+          selected: attempt.selected || "",
+          correctAnswer: record.correctAnswer || attempt.correctAnswer || "",
+          correct: Boolean(attempt.correct),
+          answeredAt: attempt.answeredAt || "",
+          quizSessionId: sessionId
+        };
+      }
+    }
+    return null;
+  }
+
+  function learnerSessionStats(questions) {
+    const attempts = questions.map((question) => currentLearnerAttempt(question.id)).filter(Boolean);
+    const correct = attempts.filter((attempt) => attempt.correct).length;
+    return {
+      total: questions.length,
+      answered: attempts.length,
+      correct,
+      incorrect: attempts.length - correct,
+      remaining: Math.max(0, questions.length - attempts.length)
+    };
+  }
+
+  function sessionSummaryText(session, questionCount) {
+    if (!session) {
+      return "";
+    }
+    const parts = [
+      learnerFilterLabel(session.filter),
+      session.domain === "all" ? "all domains" : displayDomain(session.domain),
+      session.topicGroup === "all" ? "" : topicGroupLabelForKey(session.topicGroup),
+      session.topic === "all" ? "" : session.topic
+    ].filter(Boolean);
+    return `${questionCount} question${questionCount === 1 ? "" : "s"} from ${parts.join(" / ")}.`;
+  }
+
+  function learnerFilterLabel(value) {
+    if (value === "unanswered") {
+      return "unseen";
+    }
+    if (value === "missed") {
+      return "previously incorrect";
+    }
+    if (value === "correct") {
+      return "previously correct";
+    }
+    return "all questions";
+  }
+
+  function topicGroupLabelForKey(key) {
+    if (!key || key === "all") {
+      return "";
+    }
+    const match = state.questions.find((question) => topicGroupFilterKey(question) === key);
+    return match?.topicGroup || TOPIC_GROUP_LABELS[key] || key;
+  }
+
+  function newLearnerSessionId() {
+    return `learn-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 9)}`;
+  }
+
+  function hashString(value) {
+    let hash = 2166136261;
+    String(value).split("").forEach((char) => {
+      hash ^= char.charCodeAt(0);
+      hash = Math.imul(hash, 16777619);
+    });
+    return hash >>> 0;
+  }
+
+  function seededRandom(seed) {
+    let value = hashString(seed) || 1;
+    return function nextRandom() {
+      value = (Math.imul(value, 1664525) + 1013904223) >>> 0;
+      return value / 4294967296;
+    };
+  }
+
+  function shuffleWithSeed(items, seed) {
+    const shuffled = items.slice();
+    const random = seededRandom(seed);
+    for (let index = shuffled.length - 1; index > 0; index -= 1) {
+      const swapIndex = Math.floor(random() * (index + 1));
+      [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
+    }
+    return shuffled;
   }
 
   function learnerStats() {

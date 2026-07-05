@@ -418,15 +418,19 @@ def send_password_reset_email(email: str, reset_code: str) -> bool:
 
 
 def reviewer_alert_email_body(question_count: int, available_count: int, note: str = "") -> str:
-    question_phrase = f"{question_count} new question{'s' if question_count != 1 else ''}" if question_count else "New questions"
+    question_phrase = (
+        f"{question_count} newly added question{'s' if question_count != 1 else ''}"
+        if question_count
+        else "Newly added questions"
+    )
+    available_phrase = f"{available_count} total question{'s' if available_count != 1 else ''}"
     lines = [
-        f"{question_phrase} have been added to EMSqbank for review.",
+        f"{question_phrase} are ready for review in EMSqbank.",
+        f"There are currently {available_phrase} in the evaluator pool.",
         "",
         "If you have a few minutes, please log in and help review the new draft EMS board-style questions.",
         "Your review helps decide which questions are accurate, current, appropriately difficult, and useful for board preparation.",
     ]
-    if available_count:
-        lines.extend(["", f"There are currently {available_count} question{'s' if available_count != 1 else ''} in the evaluator pool."])
     if note.strip():
         lines.extend(["", note.strip()])
     lines.extend(["", site_base_url(), "", "Thank you for helping build EMSqbank."])
@@ -1291,6 +1295,12 @@ def learner_for_user(anonymous_id: str) -> dict:
     return progress.get("progress", {}).get(anonymous_id, {})
 
 
+def learner_sessions_for_user(anonymous_id: str) -> dict:
+    progress = load_json(LEARNER_FILE, {"progress": {}, "sessions": {}})
+    sessions = progress.get("sessions", {}).get(anonymous_id, {})
+    return sessions if isinstance(sessions, dict) else {}
+
+
 def empty_learner_answer_tally(question: dict) -> dict:
     options = question.get("options", {}) if isinstance(question.get("options"), dict) else {}
     answer = str(question.get("answer", ""))
@@ -2134,6 +2144,9 @@ class RequestHandler(BaseHTTPRequestHandler):
         if path == "/api/my-progress":
             self.send_json({"progress": learner_for_user(user["anonymous_user_id"])})
             return
+        if path == "/api/my-learner-sessions":
+            self.send_json({"sessions": learner_sessions_for_user(user["anonymous_user_id"])})
+            return
         if path == "/api/my-learner-flags":
             self.send_json({"learnerFlags": learner_flags_for_user(user["anonymous_user_id"])})
             return
@@ -2222,6 +2235,9 @@ class RequestHandler(BaseHTTPRequestHandler):
             return
         if path == "/api/learner-answer":
             self.save_learner_answer(user, payload)
+            return
+        if path == "/api/learner-session":
+            self.save_learner_session(user, payload)
             return
         if path == "/api/learner-flag":
             self.save_learner_flag(user, payload)
@@ -2574,9 +2590,121 @@ class RequestHandler(BaseHTTPRequestHandler):
             }
         )
 
+    def save_learner_session(self, user: dict, payload: dict):
+        action = str(payload.get("action", "")).strip().lower()
+        if action not in {"create", "pause", "resume", "finish"}:
+            self.send_json({"error": "Quiz session action must be create, pause, resume, or finish."}, status=400)
+            return
+        session_payload = payload.get("session", {})
+        if not isinstance(session_payload, dict):
+            session_payload = {}
+        session_id = str(
+            payload.get("quizSessionId")
+            or session_payload.get("quizSessionId")
+            or session_payload.get("id")
+            or ""
+        ).strip()
+        if not session_id:
+            self.send_json({"error": "Quiz session ID is required."}, status=400)
+            return
+
+        with DATA_LOCK:
+            progress = load_json(LEARNER_FILE, {"progress": {}, "sessions": {}})
+            anonymous_id = user["anonymous_user_id"]
+            user_sessions = progress.setdefault("sessions", {}).setdefault(anonymous_id, {})
+            now = utc_now()
+
+            if action == "create":
+                raw_question_ids = session_payload.get("questionIds", [])
+                if not isinstance(raw_question_ids, list):
+                    self.send_json({"error": "Quiz session question list is invalid."}, status=400)
+                    return
+                question_ids = [str(record_id).strip() for record_id in raw_question_ids if str(record_id).strip()]
+                if not question_ids:
+                    self.send_json({"error": "Quiz session must include at least one question."}, status=400)
+                    return
+                bank = load_json(QUESTION_BANK_FILE, {"questions": {}, "sources": []})
+                answer_orders = {}
+                raw_answer_orders = session_payload.get("answerOrders", {})
+                if not isinstance(raw_answer_orders, dict):
+                    raw_answer_orders = {}
+                for record_id in question_ids:
+                    question = bank.get("questions", {}).get(record_id)
+                    if not question:
+                        self.send_json({"error": f"Question not found: {record_id}."}, status=404)
+                        return
+                    if question.get("pool_state") != "accepted":
+                        self.send_json({"error": "Learner quizzes may only include accepted questions."}, status=409)
+                        return
+                    raw_order = raw_answer_orders.get(record_id, [])
+                    if raw_order:
+                        order = [str(letter).strip() for letter in raw_order if str(letter).strip()]
+                        option_letters = set(question.get("options", {}).keys())
+                        if set(order) != option_letters or len(order) != len(option_letters):
+                            self.send_json({"error": f"Answer order is invalid for {record_id}."}, status=400)
+                            return
+                        answer_orders[record_id] = order
+                criteria = {
+                    "requestedCount": int(session_payload.get("requestedCount") or len(question_ids)),
+                    "filter": str(session_payload.get("filter", "all")),
+                    "domain": str(session_payload.get("domain", "all")),
+                    "topicGroup": str(session_payload.get("topicGroup", "all")),
+                    "topic": str(session_payload.get("topic", "all")),
+                }
+                existing = user_sessions.get(session_id, {})
+                answers = existing.get("answers", {}) if isinstance(existing.get("answers", {}), dict) else {}
+                session = {
+                    "quizSessionId": session_id,
+                    "createdAt": existing.get("createdAt") or str(session_payload.get("createdAt") or now),
+                    "updatedAt": now,
+                    "status": "active",
+                    "requestedCount": criteria["requestedCount"],
+                    "criteria": criteria,
+                    "questionIds": question_ids,
+                    "answerOrders": answer_orders,
+                    "answers": answers,
+                }
+                user_sessions[session_id] = session
+            else:
+                session = user_sessions.get(session_id)
+                if not isinstance(session, dict):
+                    self.send_json({"error": "Quiz session not found."}, status=404)
+                    return
+                status_by_action = {"pause": "paused", "resume": "active", "finish": "finished"}
+                session["status"] = status_by_action[action]
+                session["updatedAt"] = now
+
+            answers = [answer for answer in session.get("answers", {}).values() if isinstance(answer, dict)]
+            session["answeredCount"] = len(answers)
+            session["correctCount"] = sum(1 for answer in answers if answer.get("correct"))
+            session["incorrectCount"] = session["answeredCount"] - session["correctCount"]
+            session["unansweredCount"] = max(0, len(session.get("questionIds", [])) - session["answeredCount"])
+            save_json(LEARNER_FILE, progress)
+
+        self.send_json({"ok": True, "session": session})
+
     def save_learner_answer(self, user: dict, payload: dict):
         record_id = str(payload.get("recordId", ""))
         selected = str(payload.get("selected", ""))
+        quiz_session_id = str(payload.get("quizSessionId", "")).strip()
+        raw_display_order = payload.get("displayOrder", [])
+        if isinstance(raw_display_order, str):
+            display_order = [letter.strip() for letter in raw_display_order.split(",") if letter.strip()]
+        elif isinstance(raw_display_order, list):
+            display_order = [str(letter).strip() for letter in raw_display_order if str(letter).strip()]
+        else:
+            display_order = []
+        raw_question_ids = payload.get("quizQuestionIds", [])
+        if isinstance(raw_question_ids, str):
+            quiz_question_ids = [item.strip() for item in raw_question_ids.split(",") if item.strip()]
+        elif isinstance(raw_question_ids, list):
+            quiz_question_ids = [str(item).strip() for item in raw_question_ids if str(item).strip()]
+        else:
+            quiz_question_ids = []
+        quiz_criteria = payload.get("quizCriteria", {})
+        if not isinstance(quiz_criteria, dict):
+            quiz_criteria = {}
+        display_selected = str(payload.get("displaySelected", "")).strip()
         with DATA_LOCK:
             bank = load_json(QUESTION_BANK_FILE, {"questions": {}, "sources": []})
             question = bank.get("questions", {}).get(record_id)
@@ -2586,10 +2714,14 @@ class RequestHandler(BaseHTTPRequestHandler):
             if question.get("pool_state") != "accepted":
                 self.send_json({"error": "Learner mode only includes accepted questions."}, status=409)
                 return
-            if selected not in set(question.get("options", {}).keys()):
+            option_letters = set(question.get("options", {}).keys())
+            if selected not in option_letters:
                 self.send_json({"error": "Selected answer is invalid."}, status=400)
                 return
-            progress = load_json(LEARNER_FILE, {"progress": {}})
+            if display_order and (set(display_order) != option_letters or len(display_order) != len(option_letters)):
+                self.send_json({"error": "Displayed answer order does not match this question."}, status=400)
+                return
+            progress = load_json(LEARNER_FILE, {"progress": {}, "sessions": {}})
             anonymous_id = user["anonymous_user_id"]
             user_progress = progress.setdefault("progress", {}).setdefault(anonymous_id, {})
             previous = user_progress.get(record_id, {})
@@ -2597,15 +2729,64 @@ class RequestHandler(BaseHTTPRequestHandler):
             if not isinstance(history, list):
                 history = []
             correct = selected == question.get("answer")
-            attempt = {"selected": selected, "correct": correct, "answeredAt": utc_now()}
+            answered_at = utc_now()
+            display_correct = ""
+            if display_order and question.get("answer") in display_order:
+                display_correct = chr(ord("A") + display_order.index(question.get("answer")))
+            attempt = {
+                "selected": selected,
+                "correct": correct,
+                "answeredAt": answered_at,
+            }
+            if quiz_session_id:
+                attempt.update(
+                    {
+                        "quizSessionId": quiz_session_id,
+                        "displayOrder": display_order,
+                        "displaySelected": display_selected,
+                        "displayCorrect": display_correct,
+                    }
+                )
             user_progress[record_id] = {
                 "selected": selected,
                 "correctAnswer": question.get("answer"),
                 "correct": correct,
                 "attempts": int(previous.get("attempts", 0)) + 1,
-                "answeredAt": attempt["answeredAt"],
+                "answeredAt": answered_at,
                 "history": history + [attempt],
             }
+            if quiz_session_id:
+                user_sessions = progress.setdefault("sessions", {}).setdefault(anonymous_id, {})
+                session = user_sessions.setdefault(
+                    quiz_session_id,
+                    {
+                        "quizSessionId": quiz_session_id,
+                        "createdAt": answered_at,
+                        "updatedAt": answered_at,
+                        "status": "active",
+                        "questionIds": quiz_question_ids,
+                        "criteria": quiz_criteria,
+                        "answerOrders": {},
+                        "answers": {},
+                    },
+                )
+                if session.get("status") != "finished":
+                    session["status"] = "active"
+                if quiz_question_ids:
+                    session["questionIds"] = quiz_question_ids
+                if quiz_criteria:
+                    session["criteria"] = quiz_criteria
+                if display_order:
+                    session.setdefault("answerOrders", {})[record_id] = display_order
+                if record_id not in session.setdefault("questionIds", []):
+                    session["questionIds"].append(record_id)
+                session.setdefault("answers", {})[record_id] = attempt
+                answers = [answer for answer in session.get("answers", {}).values() if isinstance(answer, dict)]
+                session["updatedAt"] = answered_at
+                session["answeredCount"] = len(answers)
+                session["correctCount"] = sum(1 for answer in answers if answer.get("correct"))
+                session["incorrectCount"] = session["answeredCount"] - session["correctCount"]
+                session["unansweredCount"] = max(0, len(session.get("questionIds", [])) - session["answeredCount"])
             save_json(LEARNER_FILE, progress)
         self.send_json({"ok": True, "record": user_progress[record_id]})
 
