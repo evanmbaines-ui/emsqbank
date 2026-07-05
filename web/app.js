@@ -1371,9 +1371,7 @@
             ${q.topic && q.topic !== q.topicGroup ? `<span class="pill">${escapeHTML(q.topic)}</span>` : ""}
           </div>
         </div>
-        <div class="question-meta">
-          <span class="pill">${escapeHTML(q.questionId)}</span>
-        </div>
+        <span class="question-code">${escapeHTML(q.questionId)}</span>
       </header>
     `;
   }

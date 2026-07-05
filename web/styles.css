@@ -1001,10 +1001,27 @@ button:focus-visible {
   font-size: 1.15rem;
 }
 
+.question-header > div {
+  min-width: 0;
+}
+
 .question-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+.question-code {
+  flex: 0 0 auto;
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .pill {
