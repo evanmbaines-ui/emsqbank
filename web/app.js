@@ -879,7 +879,6 @@
               ${selectOption("", "Select one", "")}
               ${selectOption("yes", "Yes", "")}
               ${selectOption("no", "No", "")}
-              ${selectOption("prefer_not", "Prefer not to answer", "")}
             </select>
           </div>
         </div>
@@ -1331,7 +1330,6 @@
                   <select id="profile-previous-board" name="previousBoard" required>
                     ${selectOption("yes", "Yes", profile.previousBoard || "")}
                     ${selectOption("no", "No", profile.previousBoard || "")}
-                    ${selectOption("prefer_not", "Prefer not to answer", profile.previousBoard || "")}
                   </select>
                 </div>
               </div>
