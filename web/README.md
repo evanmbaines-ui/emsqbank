@@ -90,6 +90,7 @@ EMS_QBANK_PASSWORD_RESET_BASE_URL=https://your-site.example.com/
 ## Question Pool Maintenance
 
 See `web/QUESTION_LIFECYCLE_WORKFLOW.md` for the full LLM-to-website round-trip.
+Use `web/QUESTION_GENERATOR_OUTPUT_CONTRACT.md` and `web/templates/question_generator_import_template.json` as the required output format for generated batches.
 
 Import a newly generated JSON question file into the voting pool:
 

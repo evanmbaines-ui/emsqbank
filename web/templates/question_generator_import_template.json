@@ -1,0 +1,25 @@
+[
+  {
+    "question_id": "EMS2026-CORE-CODE-BATCH-001",
+    "job_id": "JOB-CORE-CODE-001",
+    "concept_key": "JOB-CORE-CODE-001",
+    "map_row_id": "MAP-CORE-CODE",
+    "question_number": 1,
+    "content_id": "1.1.1.1",
+    "core_content_code": "1.1.1.1",
+    "domain": "Medical Oversight of EMS",
+    "topic_group": "Medical Oversight",
+    "topic": "Terminal topic or tested concept",
+    "title": "Short Descriptive Question Title",
+    "stem": "Write a focused single-best-answer clinical or systems question stem here. Include only the information needed to answer the question.",
+    "options": {
+      "A": "Plausible distractor.",
+      "B": "Plausible distractor.",
+      "C": "Correct answer.",
+      "D": "Plausible distractor."
+    },
+    "answer": "C",
+    "rationale": "Explain why the correct answer is best. Briefly explain why each distractor is less appropriate. Keep this source-grounded and useful for learner remediation.",
+    "citation": "Author or organization. Source title. Year; page/table/section/URL/DOI locator."
+  }
+]

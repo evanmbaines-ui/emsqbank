@@ -38,6 +38,8 @@ python3 web/server.py protect-sandbox-decisions --actor local_cleanup
 
 ## Add A New Generated Batch
 
+Use `web/QUESTION_GENERATOR_OUTPUT_CONTRACT.md` as the generator prompt contract and `web/templates/question_generator_import_template.json` as the exact JSON upload shape.
+
 Generated question files must be JSON lists. Each item should have:
 
 - stable `question_id`
