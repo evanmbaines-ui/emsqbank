@@ -1226,13 +1226,13 @@
     const isClosed = !q.reviewAvailable;
     return `
       <article class="panel question-panel">
-        ${renderQuestionHeader(q)}
+        ${renderQuestionHeader(q, { showMeta: false, title: "Question for review" })}
         <div class="question-body">
           ${record.updatedAt ? `<div class="alert success">Review saved ${formatDateTime(record.updatedAt)}</div>` : ""}
           ${isClosed ? `<div class="alert">This question is not currently accepting evaluator submissions.</div>` : ""}
           <p class="stem">${escapeHTML(q.stem)}</p>
           <div class="option-list">${q.options.map((option) => renderStaticOption(option, q.answer)).join("")}</div>
-          ${renderAnswerPanel(q)}
+          ${renderAnswerPanel(q, "", { showQuestionContext: true })}
           <form class="form-grid" data-form="review">
             <input type="hidden" name="recordId" value="${escapeAttr(q.id)}">
             <div class="two-col">
@@ -1791,13 +1791,28 @@
     `;
   }
 
-  function renderAnswerPanel(q, answerLabel = "") {
+  function renderAnswerPanel(q, answerLabel = "", options = {}) {
     return `
       <section class="answer-panel">
         <h3>Answer: ${escapeHTML(answerLabel || q.answer)}</h3>
         <p>${escapeHTML(q.rationale)}</p>
+        ${options.showQuestionContext ? renderQuestionContext(q) : ""}
         <p class="citation">${escapeHTML(q.citation)}</p>
       </section>
+    `;
+  }
+
+  function renderQuestionContext(q) {
+    return `
+      <div class="answer-context" aria-label="Question context">
+        <strong>${escapeHTML(q.title)}</strong>
+        <div class="question-meta">
+          <span class="pill">${escapeHTML(displayDomain(q.domain))}</span>
+          <span class="pill">${escapeHTML(q.topicGroup)}</span>
+          <span class="pill">Core ${escapeHTML(q.coreContentCode || "n/a")}</span>
+          ${q.topic && q.topic !== q.topicGroup ? `<span class="pill">${escapeHTML(q.topic)}</span>` : ""}
+        </div>
+      </div>
     `;
   }
 

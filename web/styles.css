@@ -1371,6 +1371,20 @@ button:focus-visible {
   line-height: 1.55;
 }
 
+.answer-context {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin: 12px 0 10px;
+  padding: 12px 0;
+}
+
+.answer-context strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #303b4d;
+  font-size: 0.94rem;
+}
+
 .citation {
   color: var(--muted);
   font-size: 0.91rem;
