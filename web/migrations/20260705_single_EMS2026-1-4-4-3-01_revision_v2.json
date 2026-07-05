@@ -1,0 +1,37 @@
+{
+  "created_at": "2026-07-05",
+  "description": "Apply a follow-up CARES/PAD stem and rationale revision to one existing live question record in place while preserving record ID, pool state, reviews, and learner history.",
+  "migration_id": "20260705_single_EMS2026_1_4_4_3_01_revision_v2",
+  "source_package": "outputs/ems_single_question_exports/EMS2026-1-4-4-3-01_revised_20260705.json",
+  "update_count": 1,
+  "updates": [
+    {
+      "change_type": "single_question_revision_v2",
+      "fields": {
+        "answer": "B",
+        "citation": "Dezfulian C, Caba\u00f1as JG, Buckley JR, et al. Part 4: Systems of Care: 2025 American Heart Association Guidelines for Cardiopulmonary Resuscitation and Emergency Cardiovascular Care. Circulation. 2025;152(suppl 2):S353-S384. doi:10.1161/CIR.0000000000001378. See community CPR, telecommunicator CPR, and public access defibrillation recommendations at S364-S367 and S375.",
+        "concept_key": "JOB-1-4-4-3-01",
+        "content_id": "1.4.4.3",
+        "core_content_code": "1.4.4.3",
+        "domain": "MEDICAL OVERSIGHT OF EMS",
+        "job_id": "JOB-1-4-4-3-01",
+        "map_row_id": "EMS2026-1-4-4-3-01",
+        "options": {
+          "A": "Increase epinephrine protocol compliance through medication checklists and post-call feedback for every cardiac arrest.",
+          "B": "Build community cardiopulmonary resuscitation training, dispatcher-assisted cardiopulmonary resuscitation, and public automated external defibrillator access before ambulance arrival.",
+          "C": "Buy mechanical cardiopulmonary resuscitation devices for all ambulances and track device deployment time as the main outcome.",
+          "D": "Prioritize early advanced airway placement in all arrests and report first-pass success as the main system measure."
+        },
+        "rationale": "CARES gives EMS systems a way to benchmark cardiac arrest outcomes and identify opportunities for system improvement. For patient-oriented outcomes after out-of-hospital cardiac arrest, the strongest broad system lever among these choices is strengthening the early Chain of Survival before ambulance arrival: community cardiopulmonary resuscitation training, dispatcher-assisted cardiopulmonary resuscitation, and public automated external defibrillator access. A may improve medication-process reliability but is less likely to drive neurologically favorable survival at the system level. C and D may be reasonable operational projects in selected settings, but mechanical cardiopulmonary resuscitation deployment time and first-pass airway success are narrower process measures rather than the highest-yield community outcome strategy.",
+        "source_question_number": 26,
+        "stem": "A jurisdiction participates in the Cardiac Arrest Registry to Enhance Survival (CARES) and, after comparing its cardiac arrest outcomes with peer systems, concludes that its overall performance should improve. Which initiative is most likely to improve patient-oriented outcomes?",
+        "title": "Community Intervention For CARES Outcomes",
+        "topic": "Public access defibrillation (PAD)",
+        "topic_group": "EMS System Management"
+      },
+      "position_statement": "2025 American Heart Association systems-of-care guidance for community CPR, telecommunicator CPR, and public access defibrillation",
+      "question_id": "EMS2026-1-4-4-3-01",
+      "reason": "Follow-up single-question revision supplied 2026-07-05: clarify the CARES benchmarking scenario and strengthen the patient-oriented systems-of-care rationale."
+    }
+  ]
+}
