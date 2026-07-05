@@ -17,7 +17,7 @@ from datetime import datetime, timedelta, timezone
 from email.message import EmailMessage
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import parse_qs, urlparse
+from urllib.parse import parse_qs, quote, urlparse
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -177,6 +177,7 @@ def current_evaluation_payload() -> dict:
         "live_evaluation": live_evaluation,
         "beta_evaluation": evaluation_mode == "beta",
         "counts_toward_decision": live_evaluation,
+        "password_reset_email_configured": smtp_configured(),
         "decision_note": notes.get(evaluation_mode, notes["sandbox"]),
     }
 
@@ -289,16 +290,31 @@ def smtp_configured() -> bool:
     return bool(os.environ.get("EMS_QBANK_SMTP_HOST") and os.environ.get("EMS_QBANK_MAIL_FROM"))
 
 
+def password_reset_base_url() -> str:
+    base_url = os.environ.get("EMS_QBANK_PASSWORD_RESET_BASE_URL", "").strip() or "http://localhost:8000/web/"
+    parsed = urlparse(base_url)
+    if parsed.netloc and parsed.path in {"", "/"}:
+        base_url = base_url.rstrip("/") + "/web/"
+    return base_url
+
+
+def password_reset_link(reset_code: str) -> str:
+    base_url = password_reset_base_url()
+    separator = "&" if "#" in base_url else "#"
+    return f"{base_url}{separator}reset_code={quote(reset_code, safe='')}"
+
+
 def send_password_reset_email(email: str, reset_code: str) -> bool:
     if not smtp_configured():
         return False
-    base_url = os.environ.get("EMS_QBANK_PASSWORD_RESET_BASE_URL", "").strip()
-    if not base_url:
-        base_url = "http://localhost:8000/web/"
+    reset_url = password_reset_link(reset_code)
     message = EmailMessage()
     message["From"] = os.environ["EMS_QBANK_MAIL_FROM"]
     message["To"] = email
     message["Subject"] = "EMSqbank password reset code"
+    reply_to = os.environ.get("EMS_QBANK_MAIL_REPLY_TO", "").strip()
+    if reply_to:
+        message["Reply-To"] = reply_to
     message.set_content(
         "\n".join(
             [
@@ -307,7 +323,10 @@ def send_password_reset_email(email: str, reset_code: str) -> bool:
                 f"Reset code: {reset_code}",
                 f"This code expires in {PASSWORD_RESET_MINUTES} minutes.",
                 "",
-                f"Open {base_url} and choose Reset password to set a new password.",
+                "Use this link to set a new password:",
+                reset_url,
+                "",
+                "You can also open EMSqbank, choose Reset password, and paste the code above.",
                 "",
                 "If you did not request this, you can ignore this message.",
             ]
@@ -317,9 +336,13 @@ def send_password_reset_email(email: str, reset_code: str) -> bool:
     port = int(os.environ.get("EMS_QBANK_SMTP_PORT", "587"))
     username = os.environ.get("EMS_QBANK_SMTP_USER", "")
     password = os.environ.get("EMS_QBANK_SMTP_PASSWORD", "")
-    use_starttls = os.environ.get("EMS_QBANK_SMTP_STARTTLS", "1").strip().lower() not in {"0", "false", "no"}
-    with smtplib.SMTP(host, port, timeout=20) as smtp:
-        if use_starttls:
+    use_ssl = os.environ.get("EMS_QBANK_SMTP_SSL", "").strip().lower() in {"1", "true", "yes"} or port == 465
+    default_starttls = "0" if use_ssl else "1"
+    use_starttls = os.environ.get("EMS_QBANK_SMTP_STARTTLS", default_starttls).strip().lower() not in {"0", "false", "no"}
+    timeout = int(os.environ.get("EMS_QBANK_SMTP_TIMEOUT", "20"))
+    smtp_class = smtplib.SMTP_SSL if use_ssl else smtplib.SMTP
+    with smtp_class(host, port, timeout=timeout) as smtp:
+        if use_starttls and not use_ssl:
             smtp.starttls()
         if username:
             smtp.login(username, password)

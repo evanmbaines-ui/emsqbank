@@ -91,6 +91,10 @@
   document.addEventListener("keydown", handleKeyDown);
 
   async function init() {
+    if (consumePasswordResetCodeFromUrl()) {
+      render();
+      return;
+    }
     try {
       if (state.token) {
         await loadSession();
@@ -109,6 +113,34 @@
       setMessage("error", "Session expired. Please log in again.");
     }
     render();
+  }
+
+  function consumePasswordResetCodeFromUrl() {
+    const url = new URL(window.location.href);
+    let resetCode = url.searchParams.get("reset_code") || url.searchParams.get("resetCode") || "";
+    if (!resetCode && url.hash) {
+      const hashValue = url.hash.replace(/^#/, "");
+      const hashParams = new URLSearchParams(hashValue.includes("=") ? hashValue : `reset_code=${hashValue}`);
+      resetCode = hashParams.get("reset_code") || hashParams.get("resetCode") || "";
+    }
+    if (!resetCode) {
+      return false;
+    }
+    state.pendingResetCode = resetCode;
+    state.authMode = "reset";
+    state.view = "auth";
+    state.token = "";
+    state.adminToken = "";
+    state.user = null;
+    state.isAdmin = false;
+    localStorage.removeItem(STORAGE.token);
+    localStorage.removeItem(STORAGE.adminToken);
+    url.searchParams.delete("reset_code");
+    url.searchParams.delete("resetCode");
+    url.hash = "";
+    window.history.replaceState({}, document.title, url.pathname + url.search);
+    setMessage("success", "Enter a new password to complete the reset.");
+    return true;
   }
 
   async function loadAdmin() {
@@ -462,6 +494,12 @@
       alerts.push({
         type: "",
         text: "Sandbox mode is active. Evaluator votes are recorded but do not change accepted/rejected status."
+      });
+    }
+    if (environment.evaluation_mode !== "sandbox" && !environment.password_reset_email_configured) {
+      alerts.push({
+        type: "error",
+        text: "Password reset email is not configured. Forgot-password requests will not work until SMTP settings are added in Render."
       });
     }
     if ((learnerFlags.open || 0) > 0) {

@@ -11,9 +11,22 @@ services:
       - key: EMS_QBANK_EVALUATION_ENV
         value: beta
       - key: EMS_QBANK_PASSWORD_RESET_BASE_URL
-        value: https://emsqbank.com/
+        value: https://emsqbank.com/web/
+      - key: EMS_QBANK_SMTP_HOST
+        sync: false
+      - key: EMS_QBANK_SMTP_PORT
+        value: 587
+      - key: EMS_QBANK_SMTP_USER
+        sync: false
+      - key: EMS_QBANK_SMTP_PASSWORD
+        sync: false
+      - key: EMS_QBANK_MAIL_FROM
+        sync: false
+      - key: EMS_QBANK_SMTP_STARTTLS
+        value: 1
+      - key: EMS_QBANK_SMTP_SSL
+        value: 0
     disk:
       name: emsqbank-data
       mountPath: /var/data
       sizeGB: 1
-

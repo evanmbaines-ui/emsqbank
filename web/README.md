@@ -84,8 +84,12 @@ EMS_QBANK_SMTP_PORT=587
 EMS_QBANK_SMTP_USER=...
 EMS_QBANK_SMTP_PASSWORD=...
 EMS_QBANK_MAIL_FROM=no-reply@example.com
-EMS_QBANK_PASSWORD_RESET_BASE_URL=https://your-site.example.com/
+EMS_QBANK_SMTP_STARTTLS=1
+EMS_QBANK_SMTP_SSL=0
+EMS_QBANK_PASSWORD_RESET_BASE_URL=https://your-site.example.com/web/
 ```
+
+For cPanel email, use the mailbox's outgoing SMTP settings. Many cPanel hosts use port `587` with `EMS_QBANK_SMTP_STARTTLS=1`; some use port `465` with `EMS_QBANK_SMTP_SSL=1` and `EMS_QBANK_SMTP_STARTTLS=0`.
 
 ## Question Pool Maintenance
 
@@ -183,7 +187,9 @@ EMS_QBANK_SMTP_PORT=587
 EMS_QBANK_SMTP_USER=...
 EMS_QBANK_SMTP_PASSWORD=...
 EMS_QBANK_MAIL_FROM=no-reply@emsqbank.com
-EMS_QBANK_PASSWORD_RESET_BASE_URL=https://emsqbank.com/
+EMS_QBANK_SMTP_STARTTLS=1
+EMS_QBANK_SMTP_SSL=0
+EMS_QBANK_PASSWORD_RESET_BASE_URL=https://emsqbank.com/web/
 ```
 
 The admin token on Render is created inside the persistent disk:
