@@ -1,0 +1,205 @@
+{
+  "batch_id": "uncovered50_v3_source_hardened_20260705",
+  "updated_date": "2026-07-05",
+  "purpose": "Source-detail hardening of the uncovered-content 50-question packet, including first-pass hardening of 25 estimated easier items and second-pass hardening of 10 remaining easy-looking items. The packet also includes v1.19.1/v1.19.2 audit-driven cleanup of Q35 for restrictive-distractor and defect-signpost cueing.",
+  "question_count": 50,
+  "source_hardened_question_count_first_pass": 25,
+  "source_hardened_question_numbers_first_pass": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    12,
+    14,
+    15,
+    16,
+    17,
+    19,
+    21,
+    22,
+    23,
+    28,
+    29,
+    30,
+    36,
+    38,
+    43,
+    47
+  ],
+  "source_hardened_question_count_second_pass": 10,
+  "source_hardened_question_numbers_second_pass": [
+    15,
+    16,
+    19,
+    22,
+    28,
+    29,
+    38,
+    45,
+    46,
+    48
+  ],
+  "answer_counts": {
+    "A": 13,
+    "B": 13,
+    "C": 12,
+    "D": 12
+  },
+  "domain_counts": {
+    "DISASTER MANAGEMENT AND SPECIAL OPERATIONS": 10,
+    "MEDICAL OVERSIGHT OF EMS": 15,
+    "QUALITY MANAGEMENT AND RESEARCH": 5,
+    "CLINICAL ASPECTS OF EMS MEDICINE": 20
+  },
+  "topic_group_counts": {
+    "DISASTER MANAGEMENT": 10,
+    "EMS SYSTEMS": 6,
+    "QUALITY MANAGEMENT": 5,
+    "EMS SYSTEM MANAGEMENT": 3,
+    "MEDICAL OVERSIGHT": 6,
+    "MEDICAL EMERGENCIES": 6,
+    "TRAUMA": 3,
+    "RESUSCITATION": 10,
+    "SPECIAL CLINICAL CONSIDERATIONS": 1
+  },
+  "question_structure_counts": {
+    "medical_oversight_recommendation": 25,
+    "quality_or_patient_safety_analysis": 5,
+    "clinical_vignette_next_action": 9,
+    "clinical_vignette_intermediate_inference": 11
+  },
+  "cognitive_level_counts": {
+    "second_order_reasoning": 50
+  },
+  "source_status_counts": {
+    "clear": 39,
+    "sparse": 11
+  },
+  "spinal_source_update": {
+    "updated_at": "2026-07-05",
+    "content_ids": [
+      "2.2.3.1",
+      "2.2.3.2"
+    ],
+    "preferred_source_id": "MILLIN_2025_NAEMSP_SPINAL_CORD_INJURY_COMPENDIUM",
+    "citation": "Millin MG, Innes JC, King GD, et al. Prehospital Trauma Compendium: Prehospital Management of Spinal Cord Injuries - A NAEMSP Comprehensive Review and Analysis of the Literature. Prehosp Emerg Care. Published online August 7, 2025. doi:10.1080/10903127.2025.2541258.",
+    "locator": "Primary Source Materials/Gap Fill Sources/NAEMSP/Millin_2025_Prehospital_Management_of_Spinal_Cord_Injuries_NAEMSP.pdf; pp 1-8, PDF pp 1-8.",
+    "files_updated": [
+      "outputs/ems_content_source_map_2026/content_source_map.csv",
+      "outputs/ems_content_source_map_2026/content_source_map_with_textbook_locations.csv",
+      "outputs/ems_question_production_plan_2026/item_jobs.jsonl",
+      "outputs/ems_question_generation_index_2026/concept_seed_2_2_2_to_2_2_8_trauma_procedures.json"
+    ],
+    "backup_dir": "outputs/ems_spinal_source_update_20260705/pre_update_backups",
+    "item_jobs_rows_updated": 13,
+    "concept_seed_concepts_updated": 13,
+    "content_map_rows_updated_per_csv": 2,
+    "note": "Textbook sources retained as supporting context; NAEMSP 2025 compendium promoted for current spinal-motion/backboard source control."
+  },
+  "audit_summary": {
+    "required_counts": {
+      "questions": 50,
+      "answers": 50,
+      "citations": 50,
+      "core_content_codes": 50,
+      "answer_counts": {
+        "A": 13,
+        "B": 13,
+        "C": 12,
+        "D": 12
+      },
+      "forbidden_learner_terms": [],
+      "possible_unexpanded_acronym_flag_count": 0,
+      "structure_pivot_trigger_count": 0
+    },
+    "raw_length_complexity_note": "Raw combined audit flags any unique maximum and expects 100-question packets, so the calibrated material audit is the operative release gate for this 50-question packet.",
+    "calibrated_material_length": {
+      "questions": 50,
+      "calibrated_length_complexity_thresholds": {
+        "word_margin": 5,
+        "char_margin": 35,
+        "complexity_margin": 15
+      },
+      "material_correct_answer_length_complexity_count": 9,
+      "material_correct_answer_length_complexity_rate": 0.18,
+      "target_max_rate": 0.2,
+      "flagged_items": [
+        6,
+        13,
+        16,
+        19,
+        28,
+        38,
+        45,
+        46,
+        48
+      ],
+      "audit_passed": true,
+      "note": "Calibrated cueing audit ignores microscopic one-character or one-complexity-point differences and flags only material cueing margins."
+    },
+    "distractor_authenticity": {
+      "question_count": 50,
+      "distractor_count": 150,
+      "failed_item_count": 0,
+      "failed_item_rate": 0.0,
+      "option_only_solvable_count": 0,
+      "restrictive_distractor_cue_count": 0,
+      "defect_signpost_cue_count": 0,
+      "implausible_distractor_count": 0,
+      "items_with_0_high_quality_distractors": 0,
+      "items_with_1_high_quality_distractor": 0,
+      "items_with_2_high_quality_distractors": 9,
+      "items_with_3_high_quality_distractors": 41,
+      "pass_rule": "pass if no score-0 distractors, at least 2 heuristic score-2 distractors, and no option-only solvability flag",
+      "note": "Heuristic scores are deterministic triage. Final release still requires human or expert-model nearby-correct-scenario notes for each distractor."
+    },
+    "website_contract_and_overlap": {
+      "packet": "outputs/ems_uncovered_50q_set_20260705_v3_source_hardened/uncovered50_v3_source_hardened_website_ready_20260705.json",
+      "question_count": 50,
+      "required_field_issue_count": 0,
+      "required_field_issues": [],
+      "answer_counts": {
+        "A": 13,
+        "B": 13,
+        "C": 12,
+        "D": 12
+      },
+      "unique_question_ids": 50,
+      "unique_job_ids": 50,
+      "unique_concept_keys": 50,
+      "site_records_compared": 100,
+      "concept_overlap_count": 0,
+      "concept_overlap": [],
+      "question_id_overlap_count": 0,
+      "question_id_overlap": [],
+      "sha256": "d6ef4d6d8ab179659e7d1271686d443d6e007e2829495e5f7845f601a1ef4ac2",
+      "contract_passed": true
+    }
+  },
+  "files": {
+    "website_ready_json": "outputs/ems_uncovered_50q_set_20260705_v3_source_hardened/uncovered50_v3_source_hardened_website_ready_20260705.json",
+    "review_markdown": "outputs/ems_uncovered_50q_set_20260705_v3_source_hardened/uncovered50_v3_source_hardened_combined_20260705.md",
+    "first_pass_source_detail_hardening_log": "outputs/ems_uncovered_50q_set_20260705_v3_source_hardened/uncovered50_v3_source_detail_hardening_log.csv",
+    "second_pass_easy_hardening_log": "outputs/ems_uncovered_50q_set_20260705_v3_source_hardened/uncovered50_v3_secondpass_10_easy_hardening_log.csv",
+    "manifest_json": "outputs/ems_uncovered_50q_set_20260705_v3_source_hardened/uncovered50_v3_final_manifest.json",
+    "readme": "outputs/ems_uncovered_50q_set_20260705_v3_source_hardened/README.md",
+    "contract_overlap_summary": "outputs/ems_uncovered_50q_set_20260705_v3_source_hardened/uncovered50_v3_contract_and_overlap_summary.json",
+    "spinal_source_update_summary": "outputs/ems_spinal_source_update_20260705/spinal_naemsp_source_update_summary.json"
+  },
+  "doctrine_cleanup": {
+    "doctrine_version": "v1.19.2",
+    "question_numbers": [
+      35
+    ],
+    "failure_modes": [
+      "restrictive_distractor_cueing",
+      "defect_signpost_cueing"
+    ],
+    "note": "Q35 options were revised from narrow/signposted distractors into parallel affirmative measure sets with source-grounded omissions or wrong emphasis explained in the rationale."
+  }
+}

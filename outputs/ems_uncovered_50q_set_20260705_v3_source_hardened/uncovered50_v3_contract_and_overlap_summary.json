@@ -1,0 +1,22 @@
+{
+  "packet": "outputs/ems_uncovered_50q_set_20260705_v3_source_hardened/uncovered50_v3_source_hardened_website_ready_20260705.json",
+  "question_count": 50,
+  "required_field_issue_count": 0,
+  "required_field_issues": [],
+  "answer_counts": {
+    "A": 13,
+    "B": 13,
+    "C": 12,
+    "D": 12
+  },
+  "unique_question_ids": 50,
+  "unique_job_ids": 50,
+  "unique_concept_keys": 50,
+  "site_records_compared": 100,
+  "concept_overlap_count": 0,
+  "concept_overlap": [],
+  "question_id_overlap_count": 0,
+  "question_id_overlap": [],
+  "sha256": "d6ef4d6d8ab179659e7d1271686d443d6e007e2829495e5f7845f601a1ef4ac2",
+  "contract_passed": true
+}
