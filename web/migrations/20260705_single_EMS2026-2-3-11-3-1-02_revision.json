@@ -1,0 +1,37 @@
+{
+  "created_at": "2026-07-05",
+  "description": "Apply a single VHF PPE revision to one existing live question record in place while preserving record ID, pool state, reviews, and learner history.",
+  "migration_id": "20260705_single_EMS2026_2_3_11_3_1_02_revision",
+  "source_package": "outputs/ems_single_question_exports/EMS2026-2-3-11-3-1-02_revised_20260705.json",
+  "update_count": 1,
+  "updates": [
+    {
+      "change_type": "single_question_revision",
+      "fields": {
+        "answer": "D",
+        "citation": "Centers for Disease Control and Prevention. PPE: Clinically Stable Patients Suspected to have VHF. Updated May 3, 2024. Accessed July 5, 2026. https://www.cdc.gov/viral-hemorrhagic-fevers/hcp/guidance/ppe-clinically-stable-puis.html; Centers for Disease Control and Prevention. Interim Guidance for EMS Systems and 9-1-1 Answering Points. Updated May 3, 2024. Accessed July 5, 2026. https://www.cdc.gov/viral-hemorrhagic-fevers/hcp/emergency-guidance/ems-911.html",
+        "concept_key": "JOB-2-3-11-3-1-02",
+        "content_id": "2.3.11.3.1",
+        "core_content_code": "2.3.11.3.1",
+        "domain": "CLINICAL ASPECTS OF EMS MEDICINE",
+        "job_id": "JOB-2-3-11-3-1-02",
+        "map_row_id": "EMS2026-2-3-11-3-1-02",
+        "options": {
+          "A": "Standard precautions with disposable gloves, hand hygiene, eye protection only if splashes are expected, routine cleaning, and standard destination workflow.",
+          "B": "Airborne precautions with N95 or powered air-purifying respirator, negative-pressure destination planning, routine gown/gloves, and respiratory isolation.",
+          "C": "Droplet precautions with surgical masks for crew and patient, eye protection, routine gown/gloves, cough-distance separation, and standard doffing.",
+          "D": "Special-pathogen barrier PPE with fluid-resistant gown/coverall, face shield, facemask, double gloves, limited contacts, and careful doffing."
+        },
+        "rationale": "Recent travel from an endemic or outbreak region plus fever and compatible systemic symptoms should trigger concern for a selected viral hemorrhagic fever without naming it in the stem. Because this patient is clinically stable and has no bleeding, vomiting, diarrhea, respiratory distress, or need for an aerosol-generating procedure, CDC guidance recommends VHF-specific barrier PPE for the stable suspected-patient pathway: fluid-resistant gown or coverall, full face shield, facemask, and double gloves with extended cuffs, along with careful doffing and limited contacts. A under-protects because standard precautions alone do not address the suspected special pathogen. B incorrectly treats the condition as airborne; N95 or powered air-purifying respirator use is not the key requirement for this stable presentation. C over-focuses on droplet spread and does not provide the full body-fluid barrier approach recommended for suspected VHF.",
+        "source_question_number": 10,
+        "stem": "An emergency medical services (EMS) crew is called for a 34-year-old traveler who returned 6 days ago from West Africa. He has fever to 39.1 C, severe fatigue, headache, myalgias, anorexia, and abdominal discomfort. He is alert, normotensive, and not in respiratory distress. He denies vomiting, diarrhea, bleeding, and cough. Before close contact and transport, which personal protective equipment and isolation approach is most appropriate?",
+        "title": "Stable Returned Traveler With Suspected VHF PPE",
+        "topic": "Viral hemorrhagic fevers",
+        "topic_group": "Medical Emergencies"
+      },
+      "position_statement": "CDC viral hemorrhagic fever PPE and EMS/911 guidance",
+      "question_id": "EMS2026-2-3-11-3-1-02",
+      "reason": "Single-question revision supplied 2026-07-05: update the suspected viral hemorrhagic fever PPE stem, options, rationale, and source citation."
+    }
+  ]
+}
