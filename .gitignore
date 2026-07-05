@@ -1,0 +1,10 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Runtime data must live on the server's persistent disk, not in Git.
+web/server_data/*
+!web/server_data/.gitignore
+

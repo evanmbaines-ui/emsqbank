@@ -1,0 +1,2 @@
+# EMSqbank currently uses only the Python standard library.
+
