@@ -91,6 +91,8 @@ EMS_QBANK_PASSWORD_RESET_BASE_URL=https://your-site.example.com/web/
 
 For cPanel email, use the mailbox's outgoing SMTP settings. Many cPanel hosts use port `587` with `EMS_QBANK_SMTP_STARTTLS=1`; some use port `465` with `EMS_QBANK_SMTP_SSL=1` and `EMS_QBANK_SMTP_STARTTLS=0`.
 
+The same SMTP settings power the admin reviewer-alert button. That button sends individual emails only to qualified reviewers whose server-side contact email has been captured from registration, login, or password reset. Contact emails are not shown in the admin dashboard or exports.
+
 ## Question Pool Maintenance
 
 See `web/QUESTION_LIFECYCLE_WORKFLOW.md` for the full LLM-to-website round-trip.

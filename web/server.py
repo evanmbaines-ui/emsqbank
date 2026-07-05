@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import base64
 import hashlib
 import hmac
 import json
@@ -260,6 +261,60 @@ def token_digest(token: str) -> str:
     return hmac.new(secret().encode("utf-8"), str(token or "").strip().encode("utf-8"), hashlib.sha256).hexdigest()
 
 
+def contact_email_keystream(nonce: bytes, length: int) -> bytes:
+    chunks = []
+    counter = 0
+    key = secret().encode("utf-8")
+    while sum(len(chunk) for chunk in chunks) < length:
+        chunks.append(hmac.new(key, nonce + counter.to_bytes(4, "big"), hashlib.sha256).digest())
+        counter += 1
+    return b"".join(chunks)[:length]
+
+
+def encrypt_contact_email(email: str) -> str:
+    normalized = normalize_email(email)
+    if not normalized:
+        return ""
+    nonce = secrets.token_bytes(16)
+    data = normalized.encode("utf-8")
+    stream = contact_email_keystream(nonce, len(data))
+    encrypted = bytes(left ^ right for left, right in zip(data, stream))
+    return f"v1:{nonce.hex()}:{base64.urlsafe_b64encode(encrypted).decode('ascii')}"
+
+
+def decrypt_contact_email(value: str) -> str:
+    value = str(value or "")
+    if not value:
+        return ""
+    if value.startswith("plain:"):
+        return normalize_email(value.removeprefix("plain:"))
+    try:
+        version, nonce_hex, encoded = value.split(":", 2)
+        if version != "v1":
+            return ""
+        nonce = bytes.fromhex(nonce_hex)
+        encrypted = base64.urlsafe_b64decode(encoded.encode("ascii"))
+        stream = contact_email_keystream(nonce, len(encrypted))
+        return normalize_email(bytes(left ^ right for left, right in zip(encrypted, stream)).decode("utf-8"))
+    except Exception:  # noqa: BLE001
+        return ""
+
+
+def set_user_contact_email(user: dict, email: str) -> bool:
+    email = normalize_email(email)
+    if not email or "@" not in email:
+        return False
+    if decrypt_contact_email(user.get("contact_email_encrypted", "")) == email:
+        return False
+    user["contact_email_encrypted"] = encrypt_contact_email(email)
+    user["contact_email_updated_at"] = utc_now()
+    return True
+
+
+def contact_email_for_user(user: dict) -> str:
+    return decrypt_contact_email(user.get("contact_email_encrypted", ""))
+
+
 def parse_utc(value: str) -> datetime | None:
     try:
         parsed = datetime.fromisoformat(str(value or ""))
@@ -304,6 +359,33 @@ def password_reset_link(reset_code: str) -> str:
     return f"{base_url}{separator}reset_code={quote(reset_code, safe='')}"
 
 
+def site_base_url() -> str:
+    base_url = os.environ.get("EMS_QBANK_SITE_URL", "").strip() or password_reset_base_url()
+    parsed = urlparse(base_url)
+    if parsed.netloc and parsed.path in {"", "/"}:
+        base_url = base_url.rstrip("/") + "/web/"
+    return base_url
+
+
+def send_email_message(message: EmailMessage) -> bool:
+    host = os.environ["EMS_QBANK_SMTP_HOST"]
+    port = int(os.environ.get("EMS_QBANK_SMTP_PORT", "587"))
+    username = os.environ.get("EMS_QBANK_SMTP_USER", "")
+    password = os.environ.get("EMS_QBANK_SMTP_PASSWORD", "")
+    use_ssl = os.environ.get("EMS_QBANK_SMTP_SSL", "").strip().lower() in {"1", "true", "yes"} or port == 465
+    default_starttls = "0" if use_ssl else "1"
+    use_starttls = os.environ.get("EMS_QBANK_SMTP_STARTTLS", default_starttls).strip().lower() not in {"0", "false", "no"}
+    timeout = int(os.environ.get("EMS_QBANK_SMTP_TIMEOUT", "20"))
+    smtp_class = smtplib.SMTP_SSL if use_ssl else smtplib.SMTP
+    with smtp_class(host, port, timeout=timeout) as smtp:
+        if use_starttls and not use_ssl:
+            smtp.starttls()
+        if username:
+            smtp.login(username, password)
+        smtp.send_message(message)
+    return True
+
+
 def send_password_reset_email(email: str, reset_code: str) -> bool:
     if not smtp_configured():
         return False
@@ -332,22 +414,37 @@ def send_password_reset_email(email: str, reset_code: str) -> bool:
             ]
         )
     )
-    host = os.environ["EMS_QBANK_SMTP_HOST"]
-    port = int(os.environ.get("EMS_QBANK_SMTP_PORT", "587"))
-    username = os.environ.get("EMS_QBANK_SMTP_USER", "")
-    password = os.environ.get("EMS_QBANK_SMTP_PASSWORD", "")
-    use_ssl = os.environ.get("EMS_QBANK_SMTP_SSL", "").strip().lower() in {"1", "true", "yes"} or port == 465
-    default_starttls = "0" if use_ssl else "1"
-    use_starttls = os.environ.get("EMS_QBANK_SMTP_STARTTLS", default_starttls).strip().lower() not in {"0", "false", "no"}
-    timeout = int(os.environ.get("EMS_QBANK_SMTP_TIMEOUT", "20"))
-    smtp_class = smtplib.SMTP_SSL if use_ssl else smtplib.SMTP
-    with smtp_class(host, port, timeout=timeout) as smtp:
-        if use_starttls and not use_ssl:
-            smtp.starttls()
-        if username:
-            smtp.login(username, password)
-        smtp.send_message(message)
-    return True
+    return send_email_message(message)
+
+
+def reviewer_alert_email_body(question_count: int, available_count: int, note: str = "") -> str:
+    question_phrase = f"{question_count} new question{'s' if question_count != 1 else ''}" if question_count else "New questions"
+    lines = [
+        f"{question_phrase} have been added to EMSqbank for review.",
+        "",
+        "If you have a few minutes, please log in and help review the new draft EMS board-style questions.",
+        "Your review helps decide which questions are accurate, current, appropriately difficult, and useful for board preparation.",
+    ]
+    if available_count:
+        lines.extend(["", f"There are currently {available_count} question{'s' if available_count != 1 else ''} in the evaluator pool."])
+    if note.strip():
+        lines.extend(["", note.strip()])
+    lines.extend(["", site_base_url(), "", "Thank you for helping build EMSqbank."])
+    return "\n".join(lines)
+
+
+def send_reviewer_alert_email(email: str, question_count: int, available_count: int, note: str = "") -> bool:
+    if not smtp_configured():
+        return False
+    message = EmailMessage()
+    message["From"] = os.environ["EMS_QBANK_MAIL_FROM"]
+    message["To"] = email
+    message["Subject"] = "New EMSqbank questions are ready for review"
+    reply_to = os.environ.get("EMS_QBANK_MAIL_REPLY_TO", "").strip()
+    if reply_to:
+        message["Reply-To"] = reply_to
+    message.set_content(reviewer_alert_email_body(question_count, available_count, note))
+    return send_email_message(message)
 
 
 def new_anonymous_id(users: dict) -> str:
@@ -905,6 +1002,18 @@ def qualified_reviewer_ids() -> set[str]:
         if user.get("profile", {}).get("previousBoard") == "yes":
             qualified.add(user.get("anonymous_user_id"))
     return qualified
+
+
+def qualified_contactable_reviewers(users: dict | None = None) -> list[dict]:
+    users = users or load_json(USERS_FILE, {"users": {}})
+    reviewers = []
+    for email_hash, user in users.get("users", {}).items():
+        if user.get("profile", {}).get("previousBoard") != "yes":
+            continue
+        email = contact_email_for_user(user)
+        if email:
+            reviewers.append({"email_hash": email_hash, "user": user, "email": email})
+    return reviewers
 
 
 def reviewer_profile_snapshot(user: dict) -> dict:
@@ -1727,6 +1836,7 @@ def admin_summary() -> dict:
     qualified_reviewer_count = sum(
         1 for user in users.get("users", {}).values() if user.get("profile", {}).get("previousBoard") == "yes"
     )
+    contactable_qualified_count = len(qualified_contactable_reviewers(users))
     learner_total_attempts = sum(tally.get("total_attempts", 0) for tally in learner_tallies.values())
     learner_answered_questions = sum(1 for tally in learner_tallies.values() if tally.get("total_attempts", 0))
     learner_correct_attempts = sum(tally.get("correct_attempts", 0) for tally in learner_tallies.values())
@@ -1745,6 +1855,8 @@ def admin_summary() -> dict:
         "reviewer_counts": {
             "total": reviewer_count,
             "qualified": qualified_reviewer_count,
+            "qualified_contactable": contactable_qualified_count,
+            "qualified_missing_contact": qualified_reviewer_count - contactable_qualified_count,
             "feedback_only": reviewer_count - qualified_reviewer_count,
         },
         "activity": {
@@ -2071,6 +2183,12 @@ class RequestHandler(BaseHTTPRequestHandler):
             self.send_json({"ok": True, "environment": environment, "summary": admin_summary()})
             return
 
+        if path == "/api/admin/notify-qualified-reviewers":
+            if not self.require_admin():
+                return
+            self.notify_qualified_reviewers(payload)
+            return
+
         if path == "/api/admin/set-question-state":
             if not self.require_admin():
                 return
@@ -2111,6 +2229,60 @@ class RequestHandler(BaseHTTPRequestHandler):
 
         self.send_json({"error": "Not found"}, status=404)
 
+    def notify_qualified_reviewers(self, payload: dict):
+        if not smtp_configured():
+            self.send_json({"error": "SMTP email delivery is not configured yet."}, status=503)
+            return
+        note = str(payload.get("note", "")).strip()
+        try:
+            question_count = int(payload.get("questionCount") or 0)
+        except (TypeError, ValueError):
+            question_count = 0
+        bank = load_json(QUESTION_BANK_FILE, {"questions": {}, "sources": []})
+        available_count = sum(1 for question in bank.get("questions", {}).values() if question.get("pool_state", "voting") == "voting")
+        if question_count <= 0:
+            question_count = available_count
+        users = load_json(USERS_FILE, {"users": {}})
+        qualified_total = sum(1 for user in users.get("users", {}).values() if user.get("profile", {}).get("previousBoard") == "yes")
+        contactable = qualified_contactable_reviewers(users)
+        sent = 0
+        failed = 0
+        for reviewer in contactable:
+            try:
+                send_reviewer_alert_email(reviewer["email"], question_count, available_count, note)
+                sent += 1
+            except Exception as exc:  # noqa: BLE001
+                failed += 1
+                append_audit_event(
+                    "qualified_reviewer_notification_failed",
+                    actor="admin",
+                    anonymous_user_id=reviewer["user"].get("anonymous_user_id", ""),
+                    error=str(exc),
+                )
+        result = {
+            "ok": failed == 0,
+            "qualified_reviewers": qualified_total,
+            "contactable_qualified_reviewers": len(contactable),
+            "missing_contact": max(0, qualified_total - len(contactable)),
+            "sent": sent,
+            "failed": failed,
+            "available_questions": available_count,
+            "question_count": question_count,
+            "summary": admin_summary(),
+        }
+        append_audit_event(
+            "qualified_reviewer_notification_sent",
+            actor="admin",
+            qualified_reviewers=qualified_total,
+            contactable_qualified_reviewers=len(contactable),
+            missing_contact=result["missing_contact"],
+            sent=sent,
+            failed=failed,
+            available_questions=available_count,
+            question_count=question_count,
+        )
+        self.send_json(result, status=200 if failed == 0 else 207)
+
     def register(self, payload: dict):
         email = normalize_email(str(payload.get("email", "")))
         password = str(payload.get("password", ""))
@@ -2138,6 +2310,7 @@ class RequestHandler(BaseHTTPRequestHandler):
                 "profile": profile_from_payload(payload),
                 "created_at": utc_now(),
             }
+            set_user_contact_email(user, email)
             users["users"][digest] = user
             save_json(USERS_FILE, users)
             token = self.create_session(digest)
@@ -2155,6 +2328,9 @@ class RequestHandler(BaseHTTPRequestHandler):
         if password_hash(password, user["password_salt"]) != user["password_hash"]:
             self.send_json({"error": "Email or password did not match."}, status=401)
             return
+        if set_user_contact_email(user, email):
+            users["users"][digest] = user
+            save_json(USERS_FILE, users)
         token = self.create_session(digest)
         self.send_json({"token": token, "user": safe_user(user)})
 
@@ -2180,6 +2356,9 @@ class RequestHandler(BaseHTTPRequestHandler):
             append_audit_event("password_reset_requested", actor="public", account_found=False)
             self.send_json(response)
             return
+        if set_user_contact_email(user, email):
+            users["users"][digest] = user
+            save_json(USERS_FILE, users)
 
         reset_code = secrets.token_urlsafe(18)
         reset_hash = token_digest(reset_code)

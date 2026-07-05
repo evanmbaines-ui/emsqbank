@@ -360,6 +360,7 @@
     return `
       ${renderAdminAlerts(summary)}
       ${renderEvaluationModeControl(summary.environment || {})}
+      ${renderReviewerNotificationPanel(summary)}
       <section class="menu-grid">
         <div class="panel mode-panel">
           <h2>Pool Status</h2>
@@ -479,6 +480,49 @@
       return "Beta";
     }
     return "Sandbox";
+  }
+
+  function renderReviewerNotificationPanel(summary) {
+    const reviewers = summary.reviewer_counts || {};
+    const pool = summary.pool_counts || {};
+    const environment = summary.environment || {};
+    const contactable = Number(reviewers.qualified_contactable || 0);
+    const qualified = Number(reviewers.qualified || 0);
+    const missing = Number(reviewers.qualified_missing_contact || Math.max(0, qualified - contactable));
+    const smtpReady = Boolean(environment.password_reset_email_configured);
+    const disabled = !smtpReady || contactable < 1;
+    const disabledReason = !smtpReady
+      ? "SMTP email is not configured in Render yet."
+      : contactable < 1
+        ? "No qualified reviewers have a server-side contact email on file yet."
+        : "";
+    return `
+      <section class="panel admin-notification-panel">
+        <div class="panel-body">
+          <div class="admin-mode-header">
+            <div>
+              <h2 class="section-title">Reviewer Email Alert</h2>
+              <p class="muted">Send a blinded batch email to qualified reviewers with contact emails on file.</p>
+            </div>
+            <span class="pill">${escapeHTML(String(contactable))}/${escapeHTML(String(qualified))} contactable</span>
+          </div>
+          <form class="notification-form" data-form="notify-qualified-reviewers">
+            <div class="field">
+              <label for="notify-question-count">New question count</label>
+              <input id="notify-question-count" name="questionCount" type="number" min="0" step="1" value="${escapeAttr(pool.voting || 0)}">
+            </div>
+            <div class="field notification-note-field">
+              <label for="notify-note">Optional note</label>
+              <textarea id="notify-note" name="note" placeholder="Optional short note to include in the email."></textarea>
+            </div>
+            <button class="primary" type="submit" ${disabled ? "disabled" : ""}>Send alert</button>
+          </form>
+          <p class="footer-note">
+            ${escapeHTML(disabledReason || `${missing} qualified reviewer${missing === 1 ? "" : "s"} missing contact email. Emails are sent individually and addresses are not shown in admin.`)}
+          </p>
+        </div>
+      </section>
+    `;
   }
 
   function renderAdminAlerts(summary) {
@@ -1563,6 +1607,8 @@
         await adminLogin(data);
       } else if (formType === "evaluation-mode") {
         await saveEvaluationMode(data);
+      } else if (formType === "notify-qualified-reviewers") {
+        await notifyQualifiedReviewers(data);
       } else if (formType === "review") {
         await saveReview(data);
       } else if (formType === "learner-answer") {
@@ -1791,6 +1837,21 @@
     const response = await adminPost("/api/admin/set-evaluation-mode", { evaluationMode });
     state.adminSummary = response.summary;
     setMessage("success", `Evaluation mode set to ${evaluationModeLabel(response.environment?.evaluation_mode || evaluationMode)}.`);
+    render();
+  }
+
+  async function notifyQualifiedReviewers(data) {
+    const response = await adminPost("/api/admin/notify-qualified-reviewers", {
+      questionCount: Number(data.get("questionCount") || 0),
+      note: String(data.get("note") || "")
+    });
+    state.adminSummary = response.summary;
+    const missing = Number(response.missing_contact || 0);
+    const failed = Number(response.failed || 0);
+    const detail = failed
+      ? `${response.sent} sent, ${failed} failed, ${missing} missing contact email.`
+      : `${response.sent} sent. ${missing} qualified reviewer${missing === 1 ? "" : "s"} missing contact email.`;
+    setMessage(failed ? "error" : "success", `Reviewer alert complete: ${detail}`);
     render();
   }
 

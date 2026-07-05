@@ -844,6 +844,26 @@ button:focus-visible {
   align-self: stretch;
 }
 
+.admin-notification-panel {
+  margin-bottom: 16px;
+}
+
+.notification-form {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.45fr) minmax(240px, 1fr) auto;
+  gap: 10px;
+  align-items: end;
+}
+
+.notification-form textarea {
+  min-height: 44px;
+}
+
+.notification-form button {
+  min-width: 120px;
+  align-self: end;
+}
+
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1361,6 +1381,7 @@ button:focus-visible {
 
   .menu-grid,
   .evaluation-mode-form,
+  .notification-form,
   .workbench,
   .profile-grid,
   .pool-row,
