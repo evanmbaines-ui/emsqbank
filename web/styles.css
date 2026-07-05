@@ -543,6 +543,15 @@ button:disabled {
   gap: 8px;
 }
 
+.evaluator-order-toggle {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.evaluator-order-toggle button {
+  width: 100%;
+}
+
 .tabs {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1112,6 +1121,10 @@ button:focus-visible {
   margin-bottom: 14px;
 }
 
+.side-panel .stat-grid + .filter-stack {
+  margin-top: 18px;
+}
+
 .question-picker {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -1124,11 +1137,17 @@ button:focus-visible {
 .question-button {
   min-width: 0;
   min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid var(--line);
   border-radius: 7px;
   background: #fff;
   color: var(--ink);
   font-weight: 700;
+  line-height: 1.1;
+  padding: 6px;
+  text-align: center;
 }
 
 .question-button.active {
@@ -1503,6 +1522,100 @@ button:focus-visible {
   gap: 16px;
 }
 
+.progress-breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.recent-tests-panel {
+  border-color: rgba(12, 90, 166, 0.22);
+}
+
+.recent-tests-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.recent-tests-header .section-title {
+  margin-bottom: 4px;
+}
+
+.recent-tests-header p {
+  margin: 0;
+}
+
+.recent-test-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.recent-test-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.7fr) auto;
+  gap: 14px;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  padding: 14px;
+}
+
+.recent-test-main p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.recent-test-title {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: center;
+}
+
+.recent-test-title span {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.recent-test-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.recent-test-stats span {
+  min-height: 52px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+  color: var(--muted);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-size: 0.82rem;
+  line-height: 1.25;
+  padding: 6px;
+}
+
+.recent-test-stats strong {
+  display: block;
+  color: var(--ink);
+  font-size: 1.02rem;
+}
+
+.recent-test-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  min-width: 132px;
+}
+
 .pool-table {
   display: grid;
   gap: 0;
@@ -1533,6 +1646,20 @@ button:focus-visible {
 
 .pool-row.report-row {
   grid-template-columns: minmax(180px, 1fr) 120px 100px 100px;
+}
+
+.pool-row.progress-breakdown-row {
+  grid-template-columns: minmax(0, 1fr) 92px 76px 86px;
+  gap: 10px;
+}
+
+.pool-row.progress-breakdown-row span:first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.progress-table {
+  margin-top: 12px;
 }
 
 .pool-row:first-child {
@@ -1578,6 +1705,8 @@ button:focus-visible {
   .menu-grid,
   .evaluation-mode-form,
   .notification-form,
+  .progress-breakdown-grid,
+  .recent-test-row,
   .quiz-setup-grid,
   .resumable-quiz-row,
   .workbench,
@@ -1588,6 +1717,19 @@ button:focus-visible {
   .pool-row.report-row,
   .methods-facts {
     grid-template-columns: 1fr;
+  }
+
+  .recent-tests-header {
+    display: grid;
+  }
+
+  .recent-test-actions {
+    justify-content: flex-start;
+    min-width: 0;
+  }
+
+  .recent-test-stats {
+    grid-template-columns: repeat(3, minmax(84px, 1fr));
   }
 
   .methods-facts > div {

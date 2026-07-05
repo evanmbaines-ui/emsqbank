@@ -81,11 +81,13 @@
     learnerQid: "",
     learnerQuizCount: 10,
     learnerSession: null,
+    learnerReviewMode: false,
     learnerFlagOpenQid: "",
     evaluatorFilter: "voting",
     evaluatorDomain: "all",
     evaluatorTopicGroup: "all",
     evaluatorTopic: "all",
+    evaluatorOrder: "sequential",
     evaluatorQid: "",
     evaluatorHelpOpen: false
   };
@@ -1110,7 +1112,7 @@
         <div class="panel mode-panel">
           <div class="mode-copy">
             <h2>Evaluator Mode</h2>
-            <p>Evaluate candidate questions, cast anonymous votes, and capture structured generation feedback. Questions are randomly fed, and completed items leave your queue.</p>
+            <p>Evaluate candidate questions, cast anonymous votes, and capture structured generation feedback. Questions default to sequential order, and completed items leave your queue.</p>
             <button class="link-button evaluator-help-link" type="button" data-action="open-evaluator-instructions">How should I evaluate questions?</button>
           </div>
           <div class="stat-grid">
@@ -1183,6 +1185,13 @@
         </div>
         <div class="filter-stack">
           <div class="field">
+            <span class="field-label">Question order</span>
+            <div class="segmented evaluator-order-toggle" role="group" aria-label="Evaluator question order">
+              <button class="${state.evaluatorOrder === "sequential" ? "active" : ""}" type="button" data-evaluator-order="sequential">Sequential</button>
+              <button class="${state.evaluatorOrder === "random" ? "active" : ""}" type="button" data-evaluator-order="random">Random</button>
+            </div>
+          </div>
+          <div class="field">
             <label for="evaluator-domain">Domain</label>
             <select id="evaluator-domain" data-filter="evaluatorDomain">${domainOptions(state.evaluatorDomain)}</select>
           </div>
@@ -1196,16 +1205,21 @@
           </div>
         </div>
         <div class="question-picker" aria-label="Evaluator question picker">
-          ${questions.map((question) => evaluatorQuestionButton(question, state.reviews[question.id])).join("")}
+          ${questions.map((question, index) => evaluatorQuestionButton(question, state.reviews[question.id], index + 1, questions.length)).join("")}
         </div>
       </aside>
     `;
   }
 
-  function evaluatorQuestionButton(q, record) {
+  function evaluatorQuestionButton(q, record, label, total) {
     const active = q.id === state.evaluatorQid ? " active" : "";
     const reviewed = record ? " reviewed" : "";
-    return `<button class="question-button${active}${reviewed}" type="button" data-evaluator-qid="${escapeAttr(q.id)}">${escapeHTML(String(q.number))}</button>`;
+    const sourceParts = [
+      `Queue position ${label} of ${total}`,
+      q.questionId ? `Question ID ${q.questionId}` : "",
+      q.number ? `Source number ${q.number}` : ""
+    ].filter(Boolean);
+    return `<button class="question-button${active}${reviewed}" type="button" data-evaluator-qid="${escapeAttr(q.id)}" title="${escapeAttr(sourceParts.join(" | "))}" aria-label="${escapeAttr(sourceParts.join(", "))}">${escapeHTML(String(label))}</button>`;
   }
 
   function renderEvaluatorQuestion(q, record = {}) {
@@ -1289,11 +1303,13 @@
 
   function renderLearner() {
     if (!state.learnerSession) {
+      state.learnerReviewMode = false;
       return renderLearnerSetup();
     }
     const questions = learnerSessionQuestions();
     if (!questions.length) {
       state.learnerSession = null;
+      state.learnerReviewMode = false;
       state.learnerQid = "";
       return renderLearnerSetup("This quiz no longer has available accepted questions. Build a new quiz to continue.");
     }
@@ -1376,9 +1392,10 @@
   function renderLearnerSidePanel(questions) {
     const stats = learnerSessionStats(questions);
     const session = state.learnerSession || {};
+    const reviewMode = Boolean(state.learnerReviewMode);
     return `
       <aside class="panel side-panel">
-        <h2>Quiz Session</h2>
+        <h2>${reviewMode ? "Test Review" : "Quiz Session"}</h2>
         <div class="stat-grid">
           ${stat(stats.answered, "Done")}
           ${stat(stats.correct, "Right")}
@@ -1388,10 +1405,17 @@
         <div class="question-picker" aria-label="Learner question picker">
           ${questions.map((question, index) => learnerQuestionButton(question, currentLearnerAttempt(question.id), index + 1)).join("")}
         </div>
-        <div class="side-actions">
-          <button class="button" type="button" data-action="learner-pause-session">Pause quiz</button>
-          <button class="button" type="button" data-action="learner-finish-session">Finish early</button>
-        </div>
+        ${reviewMode ? `
+          <div class="side-actions">
+            <button class="button" type="button" data-view="report">Back to progress</button>
+            <button class="button" type="button" data-action="learner-new-session">Build new quiz</button>
+          </div>
+        ` : `
+          <div class="side-actions">
+            <button class="button" type="button" data-action="learner-pause-session">Pause quiz</button>
+            <button class="button" type="button" data-action="learner-finish-session">Finish early</button>
+          </div>
+        `}
       </aside>
     `;
   }
@@ -1431,6 +1455,7 @@
   function renderLearnerQuestion(q) {
     const record = currentLearnerAttempt(q.id);
     const answered = Boolean(record);
+    const reviewMode = Boolean(state.learnerReviewMode);
     const selected = record ? record.selected : "";
     const options = learnerDisplayOptions(q);
     const answerLabel = displayLetterForOriginal(q.answer, options);
@@ -1443,15 +1468,16 @@
         ${renderQuestionHeader(q, { showMeta: false, showCode: false, title: `Question ${position} of ${total}` })}
         <div class="question-body">
           ${answered ? renderResultBanner(record, selectedLabel) : ""}
+          ${reviewMode && !answered ? `<div class="alert">No answer was recorded for this question in this test.</div>` : ""}
           <p class="stem">${escapeHTML(q.stem)}</p>
           <form data-form="learner-answer">
             <input type="hidden" name="recordId" value="${escapeAttr(q.id)}">
             <input type="hidden" name="quizSessionId" value="${escapeAttr(state.learnerSession?.id || "")}">
             <input type="hidden" name="displayOrder" value="${escapeAttr(options.map((option) => option.letter).join(","))}">
             <div class="option-list">
-              ${options.map((option) => renderLearnerOption(option, q.answer, selected, answered)).join("")}
+              ${options.map((option) => renderLearnerOption(option, q.answer, selected, answered, reviewMode)).join("")}
             </div>
-            ${answered ? renderAnswerPanel(q, answerLabel) : `<button class="primary" type="submit">Submit answer</button>`}
+            ${answered ? renderAnswerPanel(q, answerLabel) : (reviewMode ? "" : `<button class="primary" type="submit">Submit answer</button>`)}
           </form>
           <div class="toolbar">
             <div class="toolbar-left">
@@ -1459,8 +1485,13 @@
               <button class="button" type="button" data-action="learner-next">Next</button>
             </div>
             <div class="toolbar-right">
-              <button class="button" type="button" data-action="learner-pause-session">Pause quiz</button>
-              <button class="button" type="button" data-action="learner-finish-session">Finish early</button>
+              ${reviewMode ? `
+                <button class="button" type="button" data-view="report">Back to progress</button>
+                <button class="button" type="button" data-action="learner-new-session">Build new quiz</button>
+              ` : `
+                <button class="button" type="button" data-action="learner-pause-session">Pause quiz</button>
+                <button class="button" type="button" data-action="learner-finish-session">Finish early</button>
+              `}
             </div>
           </div>
           ${renderLearnerFlagPanel(q, state.learnerFlags[q.id] || {})}
@@ -1517,6 +1548,7 @@
 
   function renderProgressReport() {
     const stats = learnerStats();
+    const recentTests = recentLearnerSessions();
     const domainRows = progressBreakdown("domain");
     const topicGroupRows = progressBreakdown("topicGroup");
     const missed = state.questions
@@ -1538,7 +1570,8 @@
           </div>
         </div>
       </section>
-      <section class="profile-grid">
+      ${renderRecentTestsPanel(recentTests)}
+      <section class="progress-breakdown-grid">
         <div class="panel">
           <div class="panel-body">
             <h2 class="section-title">By Domain</h2>
@@ -1561,20 +1594,71 @@
     `;
   }
 
+  function renderRecentTestsPanel(sessions) {
+    return `
+      <section class="panel recent-tests-panel">
+        <div class="panel-body">
+          <div class="recent-tests-header">
+            <div>
+              <h2 class="section-title">Recent Tests</h2>
+              <p class="muted">Review completed tests, or resume paused tests from the same question set and answer order.</p>
+            </div>
+            <span class="pill">${escapeHTML(String(sessions.length))} shown</span>
+          </div>
+          ${sessions.length ? `
+            <div class="recent-test-list">
+              ${sessions.map(renderRecentTestRow).join("")}
+            </div>
+          ` : `<p class="muted">No quiz sessions recorded yet.</p>`}
+        </div>
+      </section>
+    `;
+  }
+
+  function renderRecentTestRow(session) {
+    const stats = sessionComputedStats(session);
+    const percent = stats.answered ? Math.round((stats.correct / stats.answered) * 100) : 0;
+    const status = sessionStatusLabel(session.status);
+    const timestamp = formatSessionTimestamp(session.updatedAt || session.createdAt);
+    const canResume = ["active", "paused"].includes(session.status);
+    const canReview = session.status === "finished" && stats.answered > 0;
+    return `
+      <div class="recent-test-row">
+        <div class="recent-test-main">
+          <div class="recent-test-title">
+            <strong>${escapeHTML(status)}</strong>
+            ${timestamp ? `<span>${escapeHTML(timestamp)}</span>` : ""}
+          </div>
+          <p>${escapeHTML(sessionSummaryText(session, stats.total))}</p>
+        </div>
+        <div class="recent-test-stats" aria-label="Test result">
+          <span><strong>${escapeHTML(String(stats.answered))}</strong> done</span>
+          <span><strong>${escapeHTML(String(stats.correct))}</strong> right</span>
+          <span><strong>${escapeHTML(String(percent))}%</strong></span>
+        </div>
+        <div class="recent-test-actions">
+          ${canReview ? `<button class="primary" type="button" data-learner-review-session="${escapeAttr(session.id)}">Review test</button>` : ""}
+          ${canResume ? `<button class="button" type="button" data-learner-resume-session="${escapeAttr(session.id)}">Resume</button>` : ""}
+          ${!canReview && !canResume ? `<span class="small muted">No answers recorded</span>` : ""}
+        </div>
+      </div>
+    `;
+  }
+
   function renderProgressTable(rows) {
     if (!rows.length) {
       return `<p class="muted">No progress recorded yet.</p>`;
     }
     return `
-      <div class="pool-table" role="table" aria-label="Progress breakdown">
-        <div class="pool-row report-row pool-head" role="row">
+      <div class="pool-table progress-table" role="table" aria-label="Progress breakdown">
+        <div class="pool-row report-row progress-breakdown-row pool-head" role="row">
           <span>Set</span>
           <span>Answered</span>
           <span>Correct</span>
           <span>Remaining</span>
         </div>
         ${rows.map((row) => `
-          <div class="pool-row report-row" role="row">
+          <div class="pool-row report-row progress-breakdown-row" role="row">
             <span>${escapeHTML(row.label)}</span>
             <span>${escapeHTML(String(row.answered))} / ${escapeHTML(String(row.total))}</span>
             <span>${escapeHTML(String(row.percent))}%</span>
@@ -1692,12 +1776,12 @@
     `;
   }
 
-  function renderLearnerOption(option, answer, selected, answered) {
+  function renderLearnerOption(option, answer, selected, answered, disabledOnly = false) {
     const isCorrect = answered && option.letter === answer;
     const isIncorrect = answered && option.letter === selected && selected !== answer;
     const rowClass = isCorrect ? " correct" : isIncorrect ? " incorrect" : "";
     const checked = option.letter === selected ? " checked" : "";
-    const disabled = answered ? " disabled" : "";
+    const disabled = answered || disabledOnly ? " disabled" : "";
     const displayLetter = option.displayLetter || option.letter;
     return `
       <label class="option-row${rowClass}">
@@ -1827,6 +1911,11 @@
       render();
       return;
     }
+    const reviewSessionId = event.target.closest("[data-learner-review-session]")?.dataset.learnerReviewSession;
+    if (reviewSessionId) {
+      reviewLearnerSession(reviewSessionId);
+      return;
+    }
     const resumeSessionId = event.target.closest("[data-learner-resume-session]")?.dataset.learnerResumeSession;
     if (resumeSessionId) {
       resumeLearnerSession(resumeSessionId);
@@ -1840,6 +1929,14 @@
     const evaluatorQid = event.target.closest("[data-evaluator-qid]")?.dataset.evaluatorQid;
     if (evaluatorQid) {
       state.evaluatorQid = evaluatorQid;
+      clearMessage();
+      render();
+      return;
+    }
+    const evaluatorOrder = event.target.closest("[data-evaluator-order]")?.dataset.evaluatorOrder;
+    if (evaluatorOrder) {
+      state.evaluatorOrder = evaluatorOrder === "random" ? "random" : "sequential";
+      state.evaluatorQid = "";
       clearMessage();
       render();
       return;
@@ -1882,6 +1979,7 @@
       state.evaluatorTopic = "all";
     }
     if (filter.startsWith("learner")) {
+      state.learnerReviewMode = false;
       state.learnerQid = "";
     }
     if (filter.startsWith("evaluator")) {
@@ -1908,6 +2006,7 @@
     state.user = response.user;
     await refreshData();
     state.learnerSession = null;
+    state.learnerReviewMode = false;
     state.learnerQid = "";
     state.learnerFlagOpenQid = "";
     state.view = "menu";
@@ -1922,6 +2021,7 @@
     state.user = response.user;
     await refreshData();
     state.learnerSession = null;
+    state.learnerReviewMode = false;
     state.learnerQid = "";
     state.learnerFlagOpenQid = "";
     state.view = "menu";
@@ -1950,6 +2050,7 @@
     state.pendingResetCode = "";
     await refreshData();
     state.learnerSession = null;
+    state.learnerReviewMode = false;
     state.learnerQid = "";
     state.learnerFlagOpenQid = "";
     state.view = "menu";
@@ -2023,6 +2124,7 @@
     const response = await apiPost("/api/learner-session", { action: "create", session });
     state.learnerSession = normalizeLearnerSession(response.session || session);
     state.learnerSessions[state.learnerSession.id] = state.learnerSession;
+    state.learnerReviewMode = false;
     state.learnerQid = selectedQuestions[0]?.id || "";
     state.learnerFlagOpenQid = "";
     setMessage("success", `Quiz generated with ${count} question${count === 1 ? "" : "s"}.`);
@@ -2030,6 +2132,11 @@
   }
 
   async function saveLearnerAnswer(data) {
+    if (state.learnerReviewMode) {
+      setMessage("error", "Test review is read-only.");
+      render();
+      return;
+    }
     const recordId = String(data.get("recordId") || "");
     const selected = String(data.get("selected") || "");
     const displayOrder = String(data.get("displayOrder") || "")
@@ -2072,6 +2179,7 @@
         state.learnerSessions[session.id] = session;
       }
       state.learnerSession = null;
+      state.learnerReviewMode = false;
       state.learnerQid = "";
       state.learnerFlagOpenQid = "";
       setMessage("success", "Quiz paused. You can resume it from learner mode.");
@@ -2094,6 +2202,7 @@
       const session = normalizeLearnerSession(response.session || existing);
       state.learnerSessions[session.id] = session;
       state.learnerSession = session;
+      state.learnerReviewMode = false;
       state.learnerQid = firstUnansweredQuestionId(session) || session.questionIds[0] || "";
       state.learnerFlagOpenQid = "";
       setMessage("success", "Quiz resumed.");
@@ -2119,6 +2228,7 @@
       }
       if (state.learnerSession?.id === sessionId) {
         state.learnerSession = null;
+        state.learnerReviewMode = false;
         state.learnerQid = "";
         state.learnerFlagOpenQid = "";
       }
@@ -2219,6 +2329,7 @@
       state.learnerSessions = {};
       state.learnerFlags = {};
       state.learnerSession = null;
+      state.learnerReviewMode = false;
       state.learnerQid = "";
       state.learnerFlagOpenQid = "";
       clearMessage();
@@ -2255,6 +2366,7 @@
     }
     if (action === "learner-new-session") {
       state.learnerSession = null;
+      state.learnerReviewMode = false;
       state.learnerQid = "";
       state.learnerFlagOpenQid = "";
       clearMessage();
@@ -2307,7 +2419,7 @@
   }
 
   function filteredEvaluatorQuestions() {
-    return state.questions.filter((q) => {
+    const questions = state.questions.filter((q) => {
       if (state.reviews[q.id]) {
         return false;
       }
@@ -2325,6 +2437,35 @@
       }
       return true;
     });
+    return orderedEvaluatorQuestions(questions);
+  }
+
+  function orderedEvaluatorQuestions(questions) {
+    const sequential = questions.slice().sort(compareQuestionsSequentially);
+    if (state.evaluatorOrder !== "random") {
+      return sequential;
+    }
+    const userSeed = state.user?.anonymousUserId || state.token || "anonymous";
+    const filterSeed = [
+      "evaluator",
+      userSeed,
+      state.evaluatorDomain,
+      state.evaluatorTopicGroup,
+      state.evaluatorTopic,
+      sequential.map((q) => q.id).join("|")
+    ].join(":");
+    return shuffleWithSeed(sequential, filterSeed);
+  }
+
+  function compareQuestionsSequentially(a, b) {
+    return compareNaturally(a.sourceLabel, b.sourceLabel)
+      || compareNaturally(a.number, b.number)
+      || compareNaturally(a.questionId, b.questionId)
+      || compareNaturally(a.id, b.id);
+  }
+
+  function compareNaturally(a, b) {
+    return String(a || "").localeCompare(String(b || ""), undefined, { numeric: true, sensitivity: "base" });
   }
 
   function filteredLearnerQuestions() {
@@ -2376,6 +2517,40 @@
       .sort((a, b) => String(b.updatedAt || b.createdAt).localeCompare(String(a.updatedAt || a.createdAt)));
   }
 
+  function recentLearnerSessions(limit = 8) {
+    return Object.values(state.learnerSessions || {})
+      .filter((session) => session && Array.isArray(session.questionIds) && session.questionIds.length)
+      .filter((session) => session.questionIds.some((recordId) => {
+        const question = state.questions.find((q) => q.id === recordId);
+        return question && question.learnAvailable;
+      }))
+      .sort((a, b) => String(b.updatedAt || b.createdAt).localeCompare(String(a.updatedAt || a.createdAt)))
+      .slice(0, limit);
+  }
+
+  function reviewLearnerSession(sessionId) {
+    const existing = state.learnerSessions[sessionId];
+    if (!existing) {
+      setMessage("error", "That test was not found.");
+      render();
+      return;
+    }
+    const session = normalizeLearnerSession(existing);
+    const stats = sessionComputedStats(session);
+    if (stats.answered < 1) {
+      setMessage("error", "That test does not have recorded answers to review.");
+      render();
+      return;
+    }
+    state.learnerSession = session;
+    state.learnerReviewMode = true;
+    state.learnerQid = firstAnsweredQuestionId(session) || session.questionIds[0] || "";
+    state.learnerFlagOpenQid = "";
+    state.view = "learner";
+    setMessage("success", "Reviewing saved test results.");
+    render();
+  }
+
   function sessionAnsweredCount(session) {
     return (session.questionIds || []).filter((recordId) => {
       const record = state.progress[recordId];
@@ -2394,6 +2569,10 @@
       const history = Array.isArray(record?.history) ? record.history : [];
       return !history.some((attempt) => attempt?.quizSessionId === session.id);
     });
+  }
+
+  function firstAnsweredQuestionId(session) {
+    return (session.questionIds || []).find((recordId) => Boolean(sessionAttemptForRecord(session, recordId)));
   }
 
   function learnerDisplayOptions(q) {
@@ -2424,7 +2603,11 @@
   }
 
   function currentLearnerAttempt(recordId) {
-    const sessionId = state.learnerSession?.id;
+    return sessionAttemptForRecord(state.learnerSession, recordId);
+  }
+
+  function sessionAttemptForRecord(session, recordId) {
+    const sessionId = session?.id;
     if (!sessionId) {
       return null;
     }
@@ -2455,6 +2638,38 @@
       incorrect: attempts.length - correct,
       remaining: Math.max(0, questions.length - attempts.length)
     };
+  }
+
+  function sessionComputedStats(session) {
+    const total = (session.questionIds || []).length;
+    const attempts = (session.questionIds || [])
+      .map((recordId) => sessionAttemptForRecord(session, recordId))
+      .filter(Boolean);
+    const correct = attempts.filter((attempt) => attempt.correct).length;
+    return {
+      total,
+      answered: attempts.length,
+      correct,
+      incorrect: attempts.length - correct,
+      remaining: Math.max(0, total - attempts.length)
+    };
+  }
+
+  function sessionStatusLabel(status) {
+    if (status === "finished") {
+      return "Completed test";
+    }
+    if (status === "paused") {
+      return "Paused test";
+    }
+    return "In-progress test";
+  }
+
+  function formatSessionTimestamp(value) {
+    if (!value) {
+      return "";
+    }
+    return formatDateTime(value);
   }
 
   function sessionSummaryText(session, questionCount) {
