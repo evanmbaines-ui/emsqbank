@@ -67,9 +67,50 @@ Every import writes:
 
 - `web/server_data/intake_manifests/<batch_id>.json`
 - `web/server_data/lifecycle_audit_log.jsonl`
-- per-question `intake_batch_id`, `intake_source_path`, `intake_source_sha256`, `content_hash`, and `state_history`
+- per-question `intake_batch_id`, `intake_source_path`, `intake_source_sha256`, `content_hash`, `concept_key`, duplicate warnings, and `state_history`
 
 If a generated item reuses a `question_id` but its content hash differs, the server creates a new lineage record instead of overwriting the old one.
+
+## Concept-Level Production Control
+
+The website tracks two different identifiers:
+
+- `record_id`: the exact website question record shown to evaluators or learners.
+- `concept_key`: the mapped concept/job being tested, preferably `job_id` from the 2500-question generation index.
+
+Use `record_id` for exact question state changes. Use `concept_key` to reconcile the website against the generation map and prevent concept duplication.
+
+On import, the server now flags:
+
+- exact content duplication: another record has the same stem/options/answer/rationale hash.
+- concept duplication: another record already represents the same `concept_key`.
+
+Duplicate warnings are preserved in the intake manifest, admin summary, lifecycle export, and concept registry. They do not automatically block import because deliberate revisions may reuse the same concept. Treat each duplicate warning as a production-control review item before releasing a batch to voting.
+
+Admin dashboard concept states:
+
+- `accepted_on_site`: at least one record for the concept is accepted.
+- `in_evaluator_voting`: at least one record is currently voting.
+- `pushed_paused`: the concept has been imported but is not currently visible to evaluators.
+- `rejected_rework_needed`: all visible lineage is rejected unless a revision is imported.
+- `retired`: records exist but should not be reused.
+
+Before generating a new batch, export the concept registry and exclude or intentionally revise concepts that are already accepted, voting, paused, or retired:
+
+```bash
+python3 web/server.py export-concepts \
+  --out outputs/web_feedback/ems_concept_lifecycle_registry_YYYYMMDD.json
+```
+
+The admin dashboard also has an `Export concepts` button. Use this export to update the question generation map columns for:
+
+- pushed to website
+- latest website state
+- accepted/rejected/paused/voting/retired
+- current `record_id`
+- current `content_hash`
+- duplicate-risk flag
+- revision needed from evaluator feedback
 
 ## Export Feedback Back To The LLM
 

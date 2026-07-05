@@ -306,6 +306,7 @@
           <button class="button${state.view === "methods" ? " active" : ""}" type="button" data-view="methods">Methods</button>
           <button class="button primary" type="button" data-action="admin-refresh">Refresh</button>
           <button class="button" type="button" data-action="export-admin-summary">Export summary</button>
+          <button class="button" type="button" data-action="export-concepts-json">Export concepts</button>
           <button class="button" type="button" data-action="export-lifecycle-json">Export lifecycle</button>
           <button class="button" type="button" data-action="export-llm-feedback-json">Export LLM feedback</button>
           <button class="button" type="button" data-action="export-generation-feedback-json">Export generation feedback</button>
@@ -322,6 +323,7 @@
     const pool = summary.pool_counts || {};
     const reviewers = summary.reviewer_counts || {};
     const activity = summary.activity || {};
+    const concepts = summary.concept_counts || {};
     return `
       ${renderAdminAlerts(summary)}
       ${renderEvaluationModeControl(summary.environment || {})}
@@ -360,8 +362,22 @@
             ${stat(topCount(summary.issue_counts), "Top issue")}
           </div>
         </div>
+        <div class="panel mode-panel">
+          <h2>Concept Ledger</h2>
+          <div class="stat-grid">
+            ${stat(concepts.total_concepts_on_site || 0, "Pushed concepts")}
+            ${stat(concepts.in_evaluator_voting || 0, "In voting")}
+            ${stat(concepts.accepted_on_site || 0, "Accepted")}
+          </div>
+          <div class="stat-grid">
+            ${stat(concepts.rejected_rework_needed || 0, "Rejected")}
+            ${stat(concepts.pushed_paused || 0, "Paused")}
+            ${stat(concepts.duplicate_risk_concepts || 0, "Duplicate risk")}
+          </div>
+        </div>
       </section>
       ${renderLearnerFlagAdminSection(summary.learner_flags || {})}
+      ${renderConceptDuplicateSection(summary.concept_duplicates || [])}
       <section class="panel">
         <div class="panel-body">
           <h2 class="section-title">Question Progress</h2>
@@ -453,7 +469,54 @@
         text: `${learnerFlags.open} learner flag${learnerFlags.open === 1 ? "" : "s"} pending admin review.`
       });
     }
+    if ((summary.concept_counts || {}).duplicate_risk_concepts > 0) {
+      alerts.push({
+        type: "error",
+        text: `${summary.concept_counts.duplicate_risk_concepts} concept${summary.concept_counts.duplicate_risk_concepts === 1 ? "" : "s"} have duplicate-risk records in the website ledger.`
+      });
+    }
     return alerts.map((alert) => `<div class="alert ${alert.type}">${escapeHTML(alert.text)}</div>`).join("");
+  }
+
+  function renderConceptDuplicateSection(rows) {
+    if (!rows.length) {
+      return "";
+    }
+    return `
+      <section class="panel">
+        <div class="panel-body">
+          <h2 class="section-title">Concept Duplicate Risk</h2>
+          <div class="pool-table" role="table" aria-label="Concept duplicate risk">
+            <div class="pool-row progress-row pool-head" role="row">
+              <span>Concept</span>
+              <span>Status</span>
+              <span>Records</span>
+              <span>Hashes</span>
+              <span>States</span>
+              <span>Topic</span>
+            </div>
+            ${rows.slice(0, 20).map(renderConceptDuplicateRow).join("")}
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
+  function renderConceptDuplicateRow(row) {
+    const stateCounts = Object.entries(row.state_counts || {})
+      .filter(([, count]) => Number(count || 0) > 0)
+      .map(([key, count]) => `${labelize(key)}: ${count}`)
+      .join(", ");
+    return `
+      <div class="pool-row progress-row" role="row">
+        <span><strong>${escapeHTML(row.core_content_code || "")}</strong> ${escapeHTML(row.concept_key || "")}</span>
+        <span><span class="pill ${escapeAttr(row.status || "")}">${escapeHTML(labelize(row.status || ""))}</span></span>
+        <span>${escapeHTML(String(row.record_count || 0))} total / ${escapeHTML(String(row.active_record_count || 0))} active</span>
+        <span>${escapeHTML(String(row.content_hash_count || 0))}</span>
+        <span>${escapeHTML(stateCounts || "None")}</span>
+        <span>${escapeHTML(row.topic_group || row.topic || displayDomain(row.domain) || "")}</span>
+      </div>
+    `;
   }
 
   function renderLearnerFlagAdminSection(learnerFlags) {
@@ -1743,6 +1806,10 @@
       exportLifecycleJSON();
       return;
     }
+    if (action === "export-concepts-json") {
+      exportConceptsJSON();
+      return;
+    }
     if (action === "export-llm-feedback-json") {
       exportLLMFeedbackJSON();
       return;
@@ -2064,6 +2131,16 @@
       downloadText(`ems_lifecycle_registry_${dateStamp()}.json`, JSON.stringify(response, null, 2), "application/json");
     } catch (error) {
       setMessage("error", error.message || "Could not export lifecycle registry.");
+      render();
+    }
+  }
+
+  async function exportConceptsJSON() {
+    try {
+      const response = await adminGet("/api/admin/export-concepts");
+      downloadText(`ems_concept_lifecycle_registry_${dateStamp()}.json`, JSON.stringify(response, null, 2), "application/json");
+    } catch (error) {
+      setMessage("error", error.message || "Could not export concept registry.");
       render();
     }
   }

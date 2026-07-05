@@ -127,6 +127,14 @@ Export the full lifecycle registry and audit log:
 python3 web/server.py export-lifecycle --out outputs/web_feedback/ems_lifecycle_registry_YYYYMMDD.json
 ```
 
+Export the concept-level production ledger:
+
+```bash
+python3 web/server.py export-concepts --out outputs/web_feedback/ems_concept_lifecycle_registry_YYYYMMDD.json
+```
+
+The lifecycle registry tracks exact website question records. The concept ledger tracks mapped concepts through `concept_key`, preferably the generation-map `job_id`, so accepted, voting, paused, rejected, retired, and duplicate-risk concepts can be reconciled before the next generation batch.
+
 The server also exposes local admin endpoints for import, state changes, lifecycle export, LLM feedback export, and generation-feedback export. The local admin token is created at:
 
 ```text

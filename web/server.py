@@ -367,6 +367,19 @@ def topic_group_for_question(question: dict) -> str:
     return str(question.get("domain") or "Unassigned")
 
 
+def concept_key_for_question(question: dict) -> str:
+    """Stable production key for the tested concept behind a question record."""
+    for field in ("concept_key", "job_id", "map_row_id", "question_id"):
+        value = str(question.get(field, "") or "").strip()
+        if value:
+            return value
+    code = str(question.get("content_id") or question.get("core_content_code") or "").strip()
+    title = slugify(question.get("title", ""))
+    if code and title:
+        return f"{code}::{title}"
+    return str(question.get("record_id") or "").strip()
+
+
 def normalize_question(item: dict, index: int, source_label: str) -> dict:
     base_id = (
         item.get("question_id")
@@ -384,6 +397,8 @@ def normalize_question(item: dict, index: int, source_label: str) -> dict:
     return {
         "record_id": str(base_id),
         "question_id": item.get("question_id") or str(base_id),
+        "concept_key": concept_key_for_question(item),
+        "map_row_id": item.get("map_row_id", ""),
         "source_label": source_label,
         "source_question_number": number,
         "job_id": item.get("job_id", ""),
@@ -506,9 +521,19 @@ def import_questions_from_file(
     source_rel = relative_project_path(resolved)
     target_state = "voting" if activate else "paused"
     records = []
+    existing_by_content_hash: dict[str, list[str]] = {}
+    existing_by_concept_key: dict[str, list[str]] = {}
+    for existing_record_id, existing_question in bank["questions"].items():
+        existing_hash = str(existing_question.get("content_hash", "") or "")
+        if existing_hash:
+            existing_by_content_hash.setdefault(existing_hash, []).append(existing_record_id)
+        existing_concept_key = concept_key_for_question(existing_question)
+        if existing_concept_key:
+            existing_by_concept_key.setdefault(existing_concept_key, []).append(existing_record_id)
 
     for index, item in enumerate(raw):
         question = normalize_question(item, index, source_label)
+        question["concept_key"] = concept_key_for_question(question)
         question["added_at"] = imported_at
         question["intake_batch_id"] = batch_id
         question["intake_source_path"] = source_rel
@@ -530,6 +555,35 @@ def import_questions_from_file(
             question["pool_state"] = "paused"
         record_id = question["record_id"]
         existing = bank["questions"].get(record_id)
+        duplicate_warnings = []
+        matching_hash_records = [
+            existing_record_id
+            for existing_record_id in existing_by_content_hash.get(question["content_hash"], [])
+            if existing_record_id != record_id
+        ]
+        if matching_hash_records:
+            duplicate_warnings.append(
+                {
+                    "type": "duplicate_content_hash",
+                    "existing_record_ids": matching_hash_records,
+                    "message": "Another website record already has identical stem/options/answer/rationale content.",
+                }
+            )
+        matching_concept_records = [
+            existing_record_id
+            for existing_record_id in existing_by_concept_key.get(question["concept_key"], [])
+            if existing_record_id != record_id
+        ]
+        if matching_concept_records:
+            duplicate_warnings.append(
+                {
+                    "type": "concept_already_present",
+                    "concept_key": question["concept_key"],
+                    "existing_record_ids": matching_concept_records,
+                    "message": "This mapped concept already has a website record; treat as revision/lineage unless deliberate.",
+                }
+            )
+        question["duplicate_warnings"] = duplicate_warnings
         if existing and existing.get("content_hash") == question["content_hash"]:
             skipped += 1
             records.append(
@@ -537,8 +591,10 @@ def import_questions_from_file(
                     "action": "skipped_duplicate_hash",
                     "record_id": record_id,
                     "question_id": question["question_id"],
+                    "concept_key": question["concept_key"],
                     "content_hash": question["content_hash"],
                     "source_question_number": question.get("source_question_number", ""),
+                    "duplicate_warnings": duplicate_warnings,
                 }
             )
             continue
@@ -553,9 +609,11 @@ def import_questions_from_file(
                         "action": "skipped_duplicate_revised_hash",
                         "record_id": record_id,
                         "question_id": question["question_id"],
+                        "concept_key": question["concept_key"],
                         "content_hash": question["content_hash"],
                         "source_question_number": question.get("source_question_number", ""),
                         "lineage_parent_record_id": parent_record_id,
+                        "duplicate_warnings": duplicate_warnings,
                     }
                 )
                 continue
@@ -574,12 +632,16 @@ def import_questions_from_file(
                 "action": action,
                 "record_id": record_id,
                 "question_id": question["question_id"],
+                "concept_key": question["concept_key"],
                 "content_hash": question["content_hash"],
                 "source_question_number": question.get("source_question_number", ""),
                 "pool_state": question["pool_state"],
                 "lineage_parent_record_id": question.get("lineage_parent_record_id", ""),
+                "duplicate_warnings": duplicate_warnings,
             }
         )
+        existing_by_content_hash.setdefault(question["content_hash"], []).append(record_id)
+        existing_by_concept_key.setdefault(question["concept_key"], []).append(record_id)
 
     manifest = {
         "batch_id": batch_id,
@@ -665,6 +727,7 @@ def backfill_lifecycle_metadata(actor: str = "system") -> dict:
             "intake_source_path": source_path,
             "intake_source_sha256": source_sha,
             "intake_notes": "Backfilled from existing website question bank when lifecycle tracking was standardized.",
+            "concept_key": concept_key_for_question(question),
         }.items():
             if not question.get(key) and value:
                 question[key] = value
@@ -992,6 +1055,7 @@ def question_payload(anonymous_id: str | None = None) -> list[dict]:
             "lineage_parent_content_hash",
             "lineage_reason",
             "state_history",
+            "duplicate_warnings",
         ):
             item.pop(hidden_field, None)
         questions.append(item)
@@ -1267,6 +1331,7 @@ def generation_feedback_export() -> dict:
                     "intake_batch_id": question.get("intake_batch_id", ""),
                     "intake_source_path": question.get("intake_source_path", ""),
                     "lineage_parent_record_id": question.get("lineage_parent_record_id", ""),
+                    "concept_key": question.get("concept_key") or concept_key_for_question(question),
                     "job_id": question.get("job_id", ""),
                     "content_id": question.get("content_id", ""),
                     "core_content_code": question.get("core_content_code", ""),
@@ -1298,6 +1363,104 @@ def generation_feedback_export() -> dict:
     }
 
 
+def concept_lifecycle_status(state_counts: dict[str, int]) -> str:
+    if state_counts.get("accepted", 0):
+        return "accepted_on_site"
+    if state_counts.get("voting", 0):
+        return "in_evaluator_voting"
+    if state_counts.get("paused", 0):
+        return "pushed_paused"
+    if state_counts.get("rejected", 0):
+        return "rejected_rework_needed"
+    if state_counts.get("retired", 0):
+        return "retired"
+    return "not_classified"
+
+
+def concept_registry_summary(
+    bank: dict | None = None,
+    reviews: dict | None = None,
+    learner_tallies: dict | None = None,
+    qualified_ids: set[str] | None = None,
+) -> dict:
+    bank = bank if bank is not None else load_json(QUESTION_BANK_FILE, {"questions": {}, "sources": []})
+    reviews = reviews if reviews is not None else load_json(REVIEWS_FILE, {"reviews": {}})
+    learner_tallies = learner_tallies if learner_tallies is not None else learner_answer_tallies(bank)
+    qualified_ids = qualified_ids if qualified_ids is not None else qualified_reviewer_ids()
+    groups: dict[str, dict] = {}
+
+    for record_id, question in bank.get("questions", {}).items():
+        concept_key = concept_key_for_question(question)
+        row = groups.setdefault(
+            concept_key,
+            {
+                "concept_key": concept_key,
+                "content_id": question.get("content_id", ""),
+                "core_content_code": question.get("core_content_code", ""),
+                "domain": question.get("domain", ""),
+                "topic_group_code": question.get("topic_group_code") or topic_group_code_for_question(question),
+                "topic_group": topic_group_for_question(question),
+                "topic": question.get("topic", ""),
+                "record_ids": [],
+                "question_ids": [],
+                "content_hashes": [],
+                "intake_batch_ids": [],
+                "state_counts": {state: 0 for state in sorted(VALID_POOL_STATES)},
+                "qualified_accept": 0,
+                "qualified_reject": 0,
+                "total_reviews": 0,
+                "learner_attempts": 0,
+                "duplicate_warning_count": 0,
+                "duplicate_warning_types": {},
+            },
+        )
+        pool_state = question.get("pool_state", "voting")
+        row["state_counts"][pool_state] = row["state_counts"].get(pool_state, 0) + 1
+        row["record_ids"].append(record_id)
+        row["question_ids"].append(question.get("question_id", ""))
+        row["content_hashes"].append(question.get("content_hash", ""))
+        if question.get("intake_batch_id"):
+            row["intake_batch_ids"].append(question.get("intake_batch_id", ""))
+        tally = tally_for_question(record_id, reviews, qualified_ids)
+        row["qualified_accept"] += tally.get("qualifiedAccept", 0)
+        row["qualified_reject"] += tally.get("qualifiedReject", 0)
+        row["total_reviews"] += tally.get("totalReviews", 0)
+        row["learner_attempts"] += learner_tallies.get(record_id, {}).get("total_attempts", 0)
+        for warning in question.get("duplicate_warnings", []) or []:
+            warning_type = warning.get("type", "duplicate_warning")
+            row["duplicate_warning_count"] += 1
+            row["duplicate_warning_types"][warning_type] = row["duplicate_warning_types"].get(warning_type, 0) + 1
+
+    rows = []
+    counts_by_status: dict[str, int] = {}
+    for row in groups.values():
+        row["record_count"] = len(row["record_ids"])
+        row["question_count"] = len(set(row["question_ids"]))
+        row["content_hash_count"] = len(set(filter(None, row["content_hashes"])))
+        row["intake_batch_ids"] = sorted(set(filter(None, row["intake_batch_ids"])))
+        row["status"] = concept_lifecycle_status(row["state_counts"])
+        row["active_record_count"] = sum(row["state_counts"].get(state, 0) for state in ("voting", "accepted", "paused"))
+        row["duplicate_risk"] = row["active_record_count"] > 1 or row["content_hash_count"] > 1 or row["duplicate_warning_count"] > 0
+        counts_by_status[row["status"]] = counts_by_status.get(row["status"], 0) + 1
+        rows.append(row)
+
+    duplicate_rows = [row for row in rows if row["duplicate_risk"]]
+    return {
+        "schema": "ems_qbank_concept_lifecycle_registry_v1",
+        "generated_at": utc_now(),
+        "counts": {
+            "total_concepts_on_site": len(rows),
+            "duplicate_risk_concepts": len(duplicate_rows),
+            **counts_by_status,
+        },
+        "duplicate_risk_rows": sorted(
+            duplicate_rows,
+            key=lambda row: (-row["active_record_count"], -row["content_hash_count"], row["concept_key"]),
+        ),
+        "rows": sorted(rows, key=lambda row: (row["status"], row["core_content_code"], row["concept_key"])),
+    }
+
+
 def admin_summary() -> dict:
     ensure_question_bank()
     bank = load_json(QUESTION_BANK_FILE, {"questions": {}, "sources": []})
@@ -1306,6 +1469,7 @@ def admin_summary() -> dict:
     progress = load_json(LEARNER_FILE, {"progress": {}})
     learner_tallies = learner_answer_tallies(bank, progress)
     qualified_ids = qualified_reviewer_ids()
+    concept_registry = concept_registry_summary(bank, reviews, learner_tallies, qualified_ids)
 
     pool_counts = {"voting": 0, "accepted": 0, "rejected": 0, "paused": 0, "retired": 0, "tiebreaker": 0}
     issue_counts: dict[str, int] = {}
@@ -1338,6 +1502,8 @@ def admin_summary() -> dict:
                 "source_question_number": question.get("source_question_number", ""),
                 "intake_batch_id": question.get("intake_batch_id", ""),
                 "lineage_parent_record_id": question.get("lineage_parent_record_id", ""),
+                "concept_key": question.get("concept_key") or concept_key_for_question(question),
+                "duplicate_warnings": question.get("duplicate_warnings", []),
                 "content_id": question.get("content_id", ""),
                 "core_content_code": question.get("core_content_code", ""),
                 "domain": question.get("domain", ""),
@@ -1390,6 +1556,8 @@ def admin_summary() -> dict:
         "issue_counts": issue_counts,
         "disposition_counts": disposition_counts,
         "learner_flags": learner_flag_rollup(bank),
+        "concept_counts": concept_registry["counts"],
+        "concept_duplicates": concept_registry["duplicate_risk_rows"],
         "questions": sorted(rows, key=lambda row: (row["pool_state"], row["review_stage"], int_or_text(row["source_question_number"]))),
     }
 
@@ -1415,6 +1583,7 @@ def lifecycle_registry_export() -> dict:
     progress = load_json(LEARNER_FILE, {"progress": {}})
     learner_tallies = learner_answer_tallies(bank, progress)
     qualified_ids = qualified_reviewer_ids()
+    concept_registry = concept_registry_summary(bank, reviews, learner_tallies, qualified_ids)
     rows = []
     for record_id, question in bank.get("questions", {}).items():
         tally = tally_for_question(record_id, reviews, qualified_ids)
@@ -1430,6 +1599,8 @@ def lifecycle_registry_export() -> dict:
                 "intake_source_sha256": question.get("intake_source_sha256", ""),
                 "lineage_parent_record_id": question.get("lineage_parent_record_id", ""),
                 "lineage_parent_content_hash": question.get("lineage_parent_content_hash", ""),
+                "concept_key": question.get("concept_key") or concept_key_for_question(question),
+                "duplicate_warnings": question.get("duplicate_warnings", []),
                 "pool_state": question.get("pool_state", "voting"),
                 "decision_reason": question.get("decision_reason", ""),
                 "added_at": question.get("added_at", ""),
@@ -1460,6 +1631,7 @@ def lifecycle_registry_export() -> dict:
         "environment": evaluation_environment_payload(),
         "pool_counts": admin_summary()["pool_counts"],
         "sources": bank.get("sources", []),
+        "concept_registry": concept_registry,
         "questions": sorted(rows, key=lambda row: (row["pool_state"], row["intake_batch_id"], int_or_text(row["source_question_number"]))),
         "audit_log": load_audit_events(),
     }
@@ -1534,6 +1706,7 @@ def llm_feedback_export() -> dict:
                 "content_hash": question.get("content_hash", ""),
                 "intake_batch_id": question.get("intake_batch_id", ""),
                 "lineage_parent_record_id": question.get("lineage_parent_record_id", ""),
+                "concept_key": question.get("concept_key") or concept_key_for_question(question),
                 "pool_state": question.get("pool_state", "voting"),
                 "llm_action": llm_action_for_question(question, tally, disposition_counts, action_issue_counts, has_comments),
                 "decision_reason": question.get("decision_reason", ""),
@@ -1601,6 +1774,11 @@ class RequestHandler(BaseHTTPRequestHandler):
             if not self.require_admin():
                 return
             self.send_json(generation_feedback_export())
+            return
+        if path == "/api/admin/export-concepts":
+            if not self.require_admin():
+                return
+            self.send_json(concept_registry_summary())
             return
         if path == "/api/admin/export-llm-feedback":
             if not self.require_admin():
@@ -2186,6 +2364,10 @@ def export_llm_feedback_command(args):
     write_or_print_json(llm_feedback_export(), args.out)
 
 
+def export_concepts_command(args):
+    write_or_print_json(concept_registry_summary(), args.out)
+
+
 def set_state_command(args):
     ensure_data_root()
     if args.state not in VALID_POOL_STATES:
@@ -2229,6 +2411,9 @@ def main():
     feedback_parser = subparsers.add_parser("export-llm-feedback", help="export LLM-ready website feedback")
     feedback_parser.add_argument("--out", default="")
 
+    concepts_parser = subparsers.add_parser("export-concepts", help="export concept-level website lifecycle registry")
+    concepts_parser.add_argument("--out", default="")
+
     state_parser = subparsers.add_parser("set-state", help="set a question pool state with an audit-log entry")
     state_parser.add_argument("record_id")
     state_parser.add_argument("state", choices=sorted(VALID_POOL_STATES))
@@ -2248,6 +2433,8 @@ def main():
         export_lifecycle_command(args)
     elif args.command == "export-llm-feedback":
         export_llm_feedback_command(args)
+    elif args.command == "export-concepts":
+        export_concepts_command(args)
     elif args.command == "set-state":
         set_state_command(args)
     elif args.command == "backfill-lifecycle":
