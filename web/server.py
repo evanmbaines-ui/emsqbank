@@ -1358,6 +1358,8 @@ def generation_feedback_export() -> dict:
                     "anonymous_user_id": anonymous_id,
                     "qualified_vote": review_qualified_at_submission(anonymous_id, review, qualified_ids),
                     "counts_toward_decision": review_counts_toward_decision(review),
+                    "late_after_decision": bool(review.get("lateAfterDecision")),
+                    "pool_state_at_submission": review.get("poolStateAtSubmission", ""),
                     "evaluation_environment": review.get("evaluationEnvironment", "legacy_sandbox"),
                     "evaluation_mode": review_evaluation_mode(review),
                     "training_status_at_submission": profile_at_submission.get("trainingStatus", ""),
@@ -1423,6 +1425,8 @@ def publication_response_rows() -> list[dict]:
                     "anonymous_user_id": anonymous_id,
                     "qualified_vote": review_qualified_at_submission(anonymous_id, review, qualified_ids),
                     "counts_toward_decision": review_counts_toward_decision(review),
+                    "late_after_decision": bool(review.get("lateAfterDecision")),
+                    "pool_state_at_submission": review.get("poolStateAtSubmission", ""),
                     "evaluation_mode": review_evaluation_mode(review),
                     "training_status_at_submission": profile_at_submission.get("trainingStatus", ""),
                     "previous_board_at_submission": profile_at_submission.get("previousBoard", ""),
@@ -1856,6 +1860,8 @@ def llm_feedback_export() -> dict:
                     "anonymous_user_id": anonymous_id,
                     "qualified_vote": review_qualified_at_submission(anonymous_id, review, qualified_ids),
                     "counts_toward_decision": review_counts_toward_decision(review),
+                    "late_after_decision": bool(review.get("lateAfterDecision")),
+                    "pool_state_at_submission": review.get("poolStateAtSubmission", ""),
                     "evaluation_environment": review.get("evaluationEnvironment", "legacy_sandbox"),
                     "evaluation_mode": review_evaluation_mode(review),
                     "disposition": disposition,
@@ -2287,9 +2293,8 @@ class RequestHandler(BaseHTTPRequestHandler):
             if not question:
                 self.send_json({"error": "Question not found."}, status=404)
                 return
-            if question.get("pool_state") != "voting":
-                self.send_json({"error": "This question is no longer accepting evaluator submissions."}, status=409)
-                return
+            pool_state_at_submission = question.get("pool_state", "voting")
+            late_after_decision = pool_state_at_submission != "voting"
 
             reviews = load_json(REVIEWS_FILE, {"reviews": {}})
             reviews.setdefault("reviews", {}).setdefault(record_id, {})
@@ -2298,6 +2303,7 @@ class RequestHandler(BaseHTTPRequestHandler):
             environment = evaluation_environment_payload()
             evaluation_mode = environment.get("evaluation_mode", "sandbox")
             live_evaluation = bool(environment.get("live_evaluation"))
+            counts_toward_decision = live_evaluation and not late_after_decision
             review_map = reviews["reviews"][record_id]
             existing_unscoped = review_map.get(anonymous_id)
             if existing_unscoped and not review_matches_mode(existing_unscoped, "live"):
@@ -2330,7 +2336,9 @@ class RequestHandler(BaseHTTPRequestHandler):
                 "qualifiedAtSubmission": profile_at_submission.get("previousBoard") == "yes",
                 "evaluationEnvironment": environment.get("evaluation_env", "sandbox"),
                 "evaluationMode": evaluation_mode,
-                "countsTowardDecision": live_evaluation,
+                "countsTowardDecision": counts_toward_decision,
+                "lateAfterDecision": late_after_decision,
+                "poolStateAtSubmission": pool_state_at_submission,
                 "updatedAt": utc_now(),
             }
             save_json(REVIEWS_FILE, reviews)
@@ -2346,14 +2354,17 @@ class RequestHandler(BaseHTTPRequestHandler):
                 qualified_at_submission=profile_at_submission.get("previousBoard") == "yes",
                 evaluation_environment=environment.get("evaluation_env", "sandbox"),
                 evaluation_mode=environment.get("evaluation_mode", "sandbox"),
-                counts_toward_decision=live_evaluation,
+                counts_toward_decision=counts_toward_decision,
+                late_after_decision=late_after_decision,
+                pool_state_at_submission=pool_state_at_submission,
                 profile_at_submission=profile_at_submission,
                 generation_issue_flags=[str(flag) for flag in payload.get("generationIssueFlags", [])],
                 difficulty=str(payload.get("difficulty", "")),
                 quality=str(payload.get("quality", "")),
                 confidence=str(payload.get("confidence", "")),
             )
-            update_pool_decision(record_id)
+            if counts_toward_decision:
+                update_pool_decision(record_id)
         self.send_json(
             {
                 "ok": True,

@@ -1706,9 +1706,11 @@
       generationIssueFlags: data.getAll("generationIssueFlags").map(String),
       comments: String(data.get("comments") || "")
     };
-    await apiPost("/api/review", payload);
+    const response = await apiPost("/api/review", payload);
     await refreshData();
-    if (state.user.qualifiedVoter) {
+    if (response.review?.lateAfterDecision) {
+      setMessage("success", "Feedback saved. This question had already reached a decision, so it was logged but not counted.");
+    } else if (state.user.qualifiedVoter) {
       setMessage("success", "Qualified vote saved.");
     } else {
       setMessage("success", "Feedback saved. It is not counted as a qualified vote.");
