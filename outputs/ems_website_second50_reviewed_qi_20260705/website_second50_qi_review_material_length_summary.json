@@ -1,0 +1,19 @@
+{
+  "questions": 50,
+  "calibrated_length_complexity_thresholds": {
+    "word_margin": 5,
+    "char_margin": 35,
+    "complexity_margin": 15
+  },
+  "material_correct_answer_length_complexity_count": 4,
+  "material_correct_answer_length_complexity_rate": 0.08,
+  "target_max_rate": 0.2,
+  "flagged_items": [
+    52,
+    61,
+    67,
+    81
+  ],
+  "audit_passed": true,
+  "note": "Calibrated cueing audit ignores microscopic one-character or one-complexity-point differences and flags only material cueing margins."
+}

@@ -1,0 +1,5 @@
+question_number,pilot_id,correct_answer,reasons
+52,WEBX100-052,D,correct_words_exceed_next_by_5
+61,WEBX100-061,A,correct_chars_exceed_next_by_44
+67,WEBX100-067,C,correct_complexity_exceeds_next_by_15
+81,WEBX100-081,A,correct_complexity_exceeds_next_by_18

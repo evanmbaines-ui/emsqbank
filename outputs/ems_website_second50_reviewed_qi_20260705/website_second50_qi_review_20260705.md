@@ -1,0 +1,751 @@
+# WEBX100 Questions 51-100 - QI Revised Review Packet
+
+### 51. Refractory Arrest Transport Capability
+Pilot ID: WEBX100-051
+Core content code: 2.1.1.2
+
+A patient remains in refractory ventricular fibrillation after high-quality resuscitation. A receiving hospital 12 minutes away has an active extracorporeal cardiopulmonary resuscitation pathway and has accepted the patient. Which transport decision is most defensible?
+
+A. Transport is reasonable if the receiving center offers catheterization, targeted temperature management, or extracorporeal support for all refractory arrests.
+B. Remain on scene unless return of spontaneous circulation occurs, because ongoing resuscitation during transport is never justified.
+C. Transport may be reasonable because the receiving system can deliver the specific intervention being sought.
+D. Transport every refractory ventricular fibrillation arrest, even when the receiving hospital has no special pathway or acceptance process.
+
+Answer: C
+Rationale: Transport is most defensible when it is linked to a realistic intervention pathway, such as accepted extracorporeal cardiopulmonary resuscitation capability. A is overbroad because not every post-arrest service justifies transport during arrest. B is too absolute. D transports without the system capability that makes the risk worthwhile.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:139.
+
+### 52. Heat Exhaustion Versus Heat Stroke
+Pilot ID: WEBX100-052
+Core content code: 2.3.13.2.1
+
+A marathon runner is dizzy, nauseated, sweating, and tachycardic but answers questions appropriately and follows commands. Another runner is hot, confused, and has a seizure. Which distinction is most important?
+
+A. Sweating excludes heat stroke, so both patients have heat exhaustion.
+B. Gastrointestinal symptoms prove heat stroke even when mental status is normal.
+C. Core temperature is unnecessary because symptoms alone separate all heat illness categories.
+D. Normal mentation favors heat exhaustion; seizure or coma raises concern for heat stroke or another critical illness.
+
+Answer: D
+Rationale: Preserved mental status supports heat exhaustion, while seizure or coma should prompt concern for heat stroke or another critical diagnosis. A falsely excludes heat stroke because sweating may persist. B overuses gastrointestinal symptoms. C dismisses core temperature and clinical severity assessment.
+Citation: Beltran GW. Heat-related illness. In: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:406.
+
+### 53. TOR Family Acceptability
+Pilot ID: WEBX100-053
+Core content code: 2.1.1.4
+
+A medical director is reviewing field termination of resuscitation (TOR). Some crews worry that families will not accept stopping efforts at home. Which program element best addresses this concern while preserving appropriate TOR use?
+
+A. Use protocolized termination with clear family communication, support, and quality review when criteria are met.
+B. Continue transport for most arrests when family is present, reserving field termination for scenes without relatives.
+C. Ask family whether to terminate, then treat their preference as the main criterion for stopping resuscitation.
+D. Use field termination only after transport risk becomes obvious to the crew during loading.
+
+Answer: A
+Rationale: Protocolized field termination can reduce futile and risky transport when paired with clear communication, support, and review. B lets family presence override appropriate criteria. C makes the family responsible for a medical-system decision. D waits too late and treats transport risk as an afterthought.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 2nd ed. John Wiley & Sons; 2015:455.
+
+### 54. POLST As Actionable Orders
+Pilot ID: WEBX100-054
+Core content code: 2.1.1.6
+
+A frail nursing-home resident has respiratory distress and a Physician Orders for Life-Sustaining Treatment (POLST) form indicating no intubation and limited transport goals. Family members disagree at the bedside. Why is the POLST especially relevant?
+
+A. It is a patient education handout that helps families discuss preferences but does not guide EMS actions.
+B. It converts end-of-life preferences into medical orders intended to guide care across settings, including EMS.
+C. It applies only after hospital admission because EMS cannot act on medical orders from long-term care.
+D. It is valid only if the patient verbally repeats every preference during the EMS encounter.
+
+Answer: B
+Rationale: A Physician Orders for Life-Sustaining Treatment form converts preferences into medical orders meant to guide care across settings, including EMS. A treats it as education only. C wrongly excludes EMS. D makes validity depend on real-time verbal repetition.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 2nd ed. John Wiley & Sons; 2015:449.
+
+### 55. Capnography For Ventilation Monitoring
+Pilot ID: WEBX100-055
+Core content code: 2.3.1.2
+
+A sedated interfacility patient is breathing spontaneously through a tracheostomy collar. The pulse oximeter remains 99%, but waveform capnography shows rising end-tidal carbon dioxide and a slowing respiratory pattern. What is the best interpretation?
+
+A. Pulse oximetry is normal, so ventilation is adequate.
+B. Capnography is useful only after endotracheal intubation, not during spontaneous breathing.
+C. The waveform suggests worsening ventilation and should prompt reassessment before oxygen saturation falls.
+D. End-tidal carbon dioxide trends are uninterpretable in EMS transport unless arterial blood gases are available.
+
+Answer: C
+Rationale: Waveform capnography can show worsening ventilation before oxygen saturation falls, including during spontaneous breathing through a tracheostomy. A overtrusts pulse oximetry. B wrongly limits capnography to intubation. D overstates the need for arterial blood gases.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:63.
+
+### 56. IABP Transport Precheck
+Pilot ID: WEBX100-056
+Core content code: 2.3.2.6.1
+
+A critical care transport team is moving a patient with an intra-aortic balloon pump (IABP). Before disconnecting the referral pump, which check is most important?
+
+A. Confirm receiving-bed assignment only, because device checks are the referral hospital's responsibility.
+B. Pause the balloon during loading to prevent limb ischemia, then restart after arrival.
+C. Disconnect first so the team can identify problems using the transport pump alarms.
+D. Inspect insertion site, distal perfusion, tubing, balloon size, power plan, and pump setup before transfer.
+
+Answer: D
+Rationale: Intra-aortic balloon pump transport requires deliberate pretransfer checks of limb perfusion, tubing, balloon size, power, and setup. A limits preparation to logistics. B inappropriately pauses support for loading. C waits for alarms after disconnection rather than preventing problems.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:110.
+
+### 57. Provider-Initiated Nontransport Oversight
+Pilot ID: WEBX100-057
+Core content code: 1.1.1.2.3
+
+An agency wants paramedics to decide not to transport selected low-acuity patients without online medical control. Which minimum oversight package is most defensible?
+
+A. Provide additional education, strict physician oversight, written criteria, and quality review for provider-initiated nontransport.
+B. Announce the option and let experienced crews decide because field clinicians know local patients best.
+C. Allow nontransport only when the patient signs a refusal form, with no separate training or review.
+D. Ban all provider-initiated nontransport because EMS cannot ever determine medical necessity in the field.
+
+Answer: A
+Rationale: Provider-initiated nontransport can be appropriate only when it is deliberately designed with education, written criteria, physician oversight, and quality review. A is best because it builds those safeguards into the program. B relies on clinician experience alone and lacks system controls. C treats refusal paperwork as sufficient, which does not create a safe nontransport pathway. D is too categorical because carefully governed nontransport programs can be designed safely.
+Citation: National Association of EMS Physicians. EMS Provider Determinations of Necessity for Transport. Prehosp Emerg Care. 2011:546.
+
+### 58. Uterine Atony Recognition
+Pilot ID: WEBX100-058
+Core content code: 2.3.7.3.4
+
+A patient has heavy vaginal bleeding 20 minutes after delivery. The uterus feels enlarged and boggy above the umbilicus. Which cause should the EMS physician most strongly suspect?
+
+A. Uterine inversion, because the uterus is usually enlarged and boggy.
+B. Uterine atony, because a boggy uterus is the most common cause of primary postpartum hemorrhage.
+C. Placenta accreta, because it is the most common cause of primary postpartum hemorrhage.
+D. Vaginal laceration, because uterine tone is irrelevant to postpartum bleeding.
+
+Answer: B
+Rationale: A boggy enlarged uterus after delivery strongly suggests uterine atony, the common cause of primary postpartum hemorrhage. A misdescribes inversion. C overstates accreta as the common cause. D ignores the diagnostic value of uterine tone.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:363.
+
+### 59. In-Home MIH With Transport Backup
+Pilot ID: WEBX100-059
+Core content code: 4.7.6.2
+
+A mobile integrated health/community paramedicine team evaluates a heart-failure patient at home. The patient is stable, has a clear care plan, same-day clinician follow-up, and transport remains available if deterioration occurs. Which disposition best fits the mobile integrated health model?
+
+A. Transport to the emergency department because in-home mobile integrated health evaluations should not affect disposition.
+B. Leave the patient at home without scheduled follow-up because the program goal is reducing ambulance use.
+C. Keep the patient at home after evaluation and care coordination when criteria are met and transport remains available if needed.
+D. Send the patient to urgent care by private vehicle because mobile integrated health should avoid longitudinal coordination.
+
+Answer: C
+Rationale: Selected patients may remain at home after mobile integrated health evaluation when criteria, care coordination, follow-up, and transport backup are in place. A ignores the program model. B removes the safety net. D substitutes an uncoordinated destination for longitudinal care planning.
+Citation: Kroll M, Munjal KG. Mobile integrated health and community paramedicine. In: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. Wiley; 2021:408.
+
+### 60. Certified Stroke Center With Operational Lapses
+Pilot ID: WEBX100-060
+Core content code: 1.4.4.1
+
+A hospital maintains external certification as a primary stroke center. Over the past month, an emergency medical services (EMS) medical director has documented several episodes in which EMS prenotification was accepted, but the hospital later reported unavailable computed tomography (CT) capability or delayed stroke-team response because of after-hours coverage gaps. The certifying organization has not changed the hospital's certification status. The EMS director wants to protect patients but is concerned that bypassing the hospital could trigger legal action. What is the most defensible next step?
+
+A. Keep the hospital in the stroke destination tier while requesting updated after-hours coverage data from the certifying body, without changing routing yet.
+B. Temporarily route around the hospital by internal EMS memo while collecting data for the next scheduled state designation cycle.
+C. Refer the documented lapses to the authorized state or regional EMS designation/diversion process, using objective capability criteria for any temporary or conditional routing change.
+D. Treat the episodes as routine capacity variation, discuss them at the next stroke committee meeting, and maintain routing until an adverse outcome occurs.
+
+Answer: C
+Rationale: External certification is important, but it does not replace EMS-system oversight of real operational capability, destination protocols, and patient safety. Documented lapses should be handled through an authorized, objective, and transparent state or regional process. A and D underrespond to repeated operational lapses. B acts before the legally authorized designation/diversion process.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:7-8,35.
+
+### 61. Spinal Motion Restriction Indication
+Pilot ID: WEBX100-061
+Core content code: 2.2.3.1
+
+A fall patient is intoxicated, has neck pain, and a painful femur deformity. He repeatedly tries to sit up. Which spinal motion restriction decision is most appropriate?
+
+A. Restrict motion because symptoms and unreliable clearance from intoxication and distracting injury create concern for spinal column injury.
+B. No restriction is needed because the mechanism was a fall rather than a motor vehicle crash.
+C. Restrict motion only if neurologic deficit appears, because pain alone is not relevant.
+D. Use a long backboard for all transport because every fall patient requires full immobilization.
+
+Answer: A
+Rationale: Spinal motion restriction is appropriate when symptoms and unreliable clearance from intoxication or distracting injury raise concern. B dismisses a fall mechanism incorrectly. C ignores pain and unreliable examination. D returns to indiscriminate immobilization rather than selective restriction.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:338.
+
+### 62. Ryan White Infection Control Structure
+Pilot ID: WEBX100-062
+Core content code: 2.3.11.6.2
+
+A crew reports a possible blood exposure after transporting a patient later diagnosed with meningococcemia. The agency has no designated contact for hospital notification follow-up. What system element is specifically required by the Ryan White framework?
+
+A. A hospital infection-prevention contact who receives source-patient reports and notifies EMS leadership only when the hospital identifies a reportable disease.
+B. A designated infection control officer for the emergency response agency, linked to rapid post-exposure notification from the receiving facility.
+C. A state health department hotline with 24-hour source-patient laboratory access, used whenever hospital notification is delayed.
+D. A receiving emergency department callback roster that assigns follow-up to the physician who happened to accept the patient.
+
+Answer: B
+Rationale: The Ryan White framework centers a designated infection control officer for the emergency response agency and a rapid notification process after qualifying exposures. A helps hospital communication but does not establish the agency role. C may support public-health consultation but is not the required agency structure. D is too informal and depends on individual clinician availability.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:89.
+
+### 63. Patient Condition Language
+Pilot ID: WEBX100-063
+Core content code: 1.5.1
+
+After a bus crash, reporters ask whether a critically injured child is stable. The child has a temporary blood pressure response to transfusion but ongoing concern for deterioration. Which statement is best?
+
+A. All transported patients are stable because they left the scene alive.
+B. The patient is stable, because a single blood pressure improved after treatment.
+C. The patient remains seriously injured and is receiving ongoing care; confirmed updates will follow through public information.
+D. The patient is unstable and likely to die, because serious injury should be described as bluntly as possible.
+
+Answer: C
+Rationale: C is the best public-information language because it is accurate, avoids false reassurance, protects privacy, and routes updates through the public-information process. A falsely equates transport with clinical stability. B overinterprets one improved vital sign and may mislead the public. D is speculative and unnecessarily alarming before verified information is available.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:259.
+
+### 64. High-Altitude Cerebral Edema Temporizing Medication
+Pilot ID: WEBX100-064
+Core content code: 2.3.13.3.1
+
+A high-altitude rescue team is caring for a climber at 4,600 meters who has worsening headache, repeated vomiting, an unsteady gait, and new confusion after two days of rapid ascent. Weather prevents immediate descent for several hours. Oxygen is available and a portable hyperbaric chamber is being requested. Which medication plan is the best temporizing treatment while evacuation is arranged?
+
+A. Acetazolamide now and again twice daily, treating this as acute mountain sickness while maintaining oxygen until weather clears.
+B. Nifedipine extended release with oxygen for presumed high-altitude pulmonary edema physiology, despite dominant ataxia and confusion.
+C. Furosemide with fluid restriction to lower intracranial volume, plus oxygen and close reassessment until evacuation begins.
+D. Dexamethasone now, followed by repeat dosing every 4 to 6 hours, with oxygen while arranging descent or portable hyperbaric treatment.
+
+Answer: D
+Rationale: Ataxia and confusion at altitude indicate high-altitude cerebral edema, so the treatment decision should move beyond acute mountain sickness recognition. Descent is definitive, but when descent is delayed, oxygen plus dexamethasone is the best temporizing medication strategy, with portable hyperbaric treatment as a bridge. A uses acetazolamide, which is more useful for acclimatization or acute mountain sickness rather than cerebral edema rescue. B treats high-altitude pulmonary edema physiology and does not address the neurologic syndrome. C is not a recommended temporizing regimen for this condition.
+Citation: Moy HP, Benson RT II. High-altitude illnesses. In: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:412-413.
+
+### 65. Workforce Equity Intervention Package
+Pilot ID: WEBX100-065
+Core content code: 1.3.7
+
+An EMS agency audits its workforce and finds poor representation from several communities it serves, no structured mentorship pathway for underrepresented applicants, an advisory board that does not reflect the service area, and repeated biased language in patient care reports. Which intervention package best matches NAEMSP workforce-equity principles?
+
+A. Build recruitment and mentorship pathways, review policies, align advisory-board membership with communities served, and train clinicians in antiracism, upstander, and allyship skills.
+B. Require a yearly implicit-bias module, update the complaint process, add anonymous reporting, but keep recruitment, mentoring, and advisory-board structure unchanged.
+C. Focus on disciplinary review, patient-care-report audits, and legal compliance training, but avoid community partnership and mentorship until workforce numbers improve.
+D. Broaden job postings, scholarship advertising, and interview panels, but leave policies, mentorship, cultural-humility curriculum, and governance membership unchanged.
+
+Answer: A
+Rationale: NAEMSP principles call for a multifactorial approach: intentional recruitment and mentorship, policy review, community-reflective governance, community engagement, and education in antiracism, upstander behavior, allyship, bias, and cultural humility. B, C, and D each include something potentially useful but omit major structural components.
+Citation: National Association of EMS Physicians. Essential Principles to Create an Equitable, Inclusive, and Diverse EMS Workforce and Work Environment. 2022:1-4.
+
+### 66. Impaled Object During Wilderness Evacuation
+Pilot ID: WEBX100-066
+Core content code: 4.6.2.2
+
+A hiker has a forked branch impaled through the lateral calf. Distal perfusion is intact and bleeding is controlled, but the forked external portion locks against the litter rail and prevents packaging for a 12-hour evacuation. The available hand saw can shorten the free end but cannot free the forked segment from the litter frame. Which wilderness-specific consideration is most defensible?
+
+A. Shorten only the free end of the branch, pad the wound, and continue trying to package even though the forked segment still blocks the litter.
+B. Consider protocol-guided removal or modification only if evacuation requires it and bleeding control, anatomy, analgesia, and reassessment are manageable.
+C. Leave the object fully intact, improvise a wider litter setup, and delay evacuation until a rescue team with power tools can reach the patient.
+D. Remove the branch immediately because an impaled extremity object with intact distal perfusion has low bleeding risk during prolonged evacuation.
+
+Answer: B
+Rationale: Impaled objects are usually stabilized in place, but wilderness evacuation may force a protocol-guided exception when safe packaging is impossible. That decision requires attention to anatomy, hemorrhage control, analgesia, and repeated reassessment. A does not solve the packaging problem. C may create an unnecessary delay when a managed exception is needed. D trivializes bleeding and tissue risk.
+Citation: Hawkins SC, Millin MG, Smith WR. Wilderness EMS. In: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. Wiley; 2021:398.
+
+### 67. Airway Care Without Light
+Pilot ID: WEBX100-067
+Core content code: 4.4.5.2
+
+A tactical medic must manage airway obstruction in darkness under sensory-deprived conditions. The patient is breathing poorly but cannot be moved immediately. Which principle is best?
+
+A. Wait for full lighting because airway intervention is contraindicated without direct visualization.
+B. Perform surgical airway first in all dark environments because basic adjuncts cannot be assessed.
+C. Select basic adjuncts, supraglottic airway, laryngoscopy, nasal or digital intubation, or surgical airway based on context and risk.
+D. Avoid airway adjuncts because low-light care should focus only on hemorrhage.
+
+Answer: C
+Rationale: C is best because tactical airway care may require adapted techniques based on threat, light, patient condition, and team capability. A delays potentially life-saving care until full lighting is available. B jumps to surgical airway as a default rather than matching the intervention to the patient and setting. D ignores a life-threatening airway problem by focusing only on hemorrhage.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 2nd ed. John Wiley & Sons; 2015:47.
+
+### 68. Ambulance Medical Necessity
+Pilot ID: WEBX100-068
+Core content code: 1.1.1.2.3
+
+A billing review asks why one advanced life support (ALS) transport was denied despite a paramedic being present. Which statement best reflects ambulance medical necessity?
+
+A. Ambulance transport is medically necessary whenever a patient requests EMS instead of private transport.
+B. Any transport from a 911 call is medically necessary because dispatch categorized it as urgent.
+C. Medical necessity is determined only by the final emergency department diagnosis.
+D. ALS reimbursement requires ALS-level need, and ambulance medical necessity depends on whether transport by other means is contraindicated.
+
+Answer: D
+Rationale: Ambulance medical necessity depends on whether other transport is contraindicated, and advanced life support payment requires ALS-level need. A relies on patient preference. B relies on dispatch category. C waits for final diagnosis rather than transport-time need.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:10.
+
+### 69. EMAC Mutual Aid Function
+Pilot ID: WEBX100-069
+Core content code: 1.2.2.4
+
+After a hurricane, one state requests ambulance strike teams from another state. The assisting state needs clarity on licensing recognition, reimbursement, insurance, and paperwork. Which mechanism is designed for this state-to-state aid?
+
+A. The Emergency Management Assistance Compact (EMAC), which supports state-to-state resource requests and administrative issues.
+B. The Interstate Disaster Ambulance Reciprocity Act (IDARA), a plausible-sounding federal law that would create licensing reciprocity and reimbursement during disasters.
+C. A county-to-county mutual-aid agreement that can request nearby ambulances but does not solve interstate recognition and reimbursement.
+D. A hospital transfer agreement that supports interfacility movement but not state-to-state emergency-management resource sharing.
+
+Answer: A
+Rationale: The Emergency Management Assistance Compact (EMAC) is the state-to-state mechanism for requesting and deploying resources with administrative support for issues such as recognition, reimbursement, insurance, and paperwork. B names a plausible but fabricated federal act. C may support local mutual aid but not interstate emergency-management assistance. D is an interfacility patient-transfer tool, not a state-to-state resource compact.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:312.
+
+### 70. Retention Beyond Pay
+Pilot ID: WEBX100-070
+Core content code: 1.3.6
+
+Exit interviews show paramedics cite unpredictable supervision, disrespectful station culture, and poor conflict handling more often than pay. Which retention strategy best fits the finding?
+
+A. Increase wages and signing bonuses while postponing work-climate changes until turnover persists.
+B. Address workplace climate, supervisor relationships, and career support rather than focusing only on pay or schedule.
+C. Create a formal grievance pathway and supervisor coaching program, but defer broader culture work until after the next exit-interview cycle.
+D. Reduce vacancies with mandatory overtime while launching recruitment for more replacement clinicians.
+
+Answer: B
+Rationale: When exit interviews emphasize climate, supervision, and conflict handling, retention work should address those factors rather than only pay or staffing math. A may help pay concerns but misses the dominant finding. C is partial and reactive. D may worsen the workplace problems driving turnover.
+Citation: National Association of EMS Physicians. Essential Principles to Create an Equitable, Inclusive, and Diverse EMS Workforce and Work Environment. 2022:6.
+
+### 71. Wilderness Protocol Difference
+Pilot ID: WEBX100-071
+Core content code: 1.2.5.4
+
+A rural EMS system develops a wilderness response annex for delayed evacuations. Which protocol difference is most defensible?
+
+A. Keep ordinary urban protocols as the default, but allow online medical control to approve exceptions when communication is available.
+B. Write a wilderness annex focused on equipment and evacuation roles while leaving clinical interventions unchanged.
+C. Allow selected wilderness modifications when delayed evacuation changes the risk-benefit of usual urban care.
+D. Require emergency department consultation for every modified wilderness intervention before the team proceeds.
+
+Answer: C
+Rationale: Delayed evacuation can justify selected wilderness protocol modifications when risk-benefit differs from urban EMS. A makes modifications dependent on communication that may not exist. B addresses operations but misses clinical differences. D is impractical in remote settings and would delay care.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:398.
+
+### 72. Physician Field Care Feedback Loop
+Pilot ID: WEBX100-072
+Core content code: 1.1.1.1.1
+
+An EMS physician performs a rare field procedure during a prolonged extrication. The patient survives, and the case reveals equipment, training, and dispatch lessons. What should happen after the call?
+
+A. Treat it as a one-off physician rescue and avoid agency review because the physician handled the procedure.
+B. Use the successful outcome to authorize all EMS clinicians to perform the procedure immediately.
+C. Discuss the case only with the receiving surgeon because EMS system learning ended at transfer of care.
+D. Feed the case into quality review, protocol evaluation, training, and system planning for future rare field interventions.
+
+Answer: D
+Rationale: D is best because direct physician field-care events should feed back into system learning through debriefing, education, protocol review, and quality improvement. A treats the event as an isolated success rather than asking why physician intervention was needed. B focuses on individual credit or blame instead of process learning. C misses the chance to update training, equipment, or protocols after a rare high-risk event.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:13.
+
+### 73. Supraglottic Airway System Role
+Pilot ID: WEBX100-073
+Core content code: 2.1.2.2.6
+
+A medical director is revising cardiac arrest airway protocols. The service has variable endotracheal intubation success but good ventilation with supraglottic devices. Which role for supraglottic airways is most defensible?
+
+A. Use supraglottic airways as rescue devices or primary invasive airways in selected systems, with placement confirmation and quality monitoring.
+B. Reserve supraglottic airways for failed intubation only, even when first-pass intubation success is poor and ventilation is delayed.
+C. Use bag-valve-mask ventilation alone in cardiac arrest unless an endotracheal tube can be placed by the first arriving clinician.
+D. Allow supraglottic placement without waveform confirmation because insertion is simpler than intubation and usually restores ventilation quickly.
+
+Answer: A
+Rationale: Supraglottic airways can be rescue devices or primary invasive airways in selected systems when placement is confirmed and quality is monitored. B ignores system performance. C discards a useful intermediate airway strategy. D omits confirmation and monitoring.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:34.
+
+### 74. Femoral Shaft Fracture Splint Choice
+Pilot ID: WEBX100-074
+Core content code: 2.2.5.1.3
+
+A patient has an isolated-appearing midshaft femur deformity after a fall. He is normotensive, distal perfusion is present, and pelvic, knee, or distal femur injury cannot be confidently excluded because pain limits the exam. A crew asks whether traction is required because the thigh looks deformed. Which protocol direction best matches current NAEMSP guidance?
+
+A. Apply traction because isolated femoral shaft fractures commonly cause hemorrhagic shock unless thigh volume is reduced and deformity corrected.
+B. Use static immobilization and analgesia unless associated distal femur, knee, ipsilateral lower-extremity, and pelvic injury can be reasonably excluded.
+C. Avoid splinting and analgesia because the evidence base no longer supports prehospital immobilization of femoral shaft fractures.
+D. Use traction for any suspected femur fracture when transport is longer than five minutes, regardless of associated injury concern.
+
+Answer: B
+Rationale: Current NAEMSP guidance allows either static or traction splinting and notes that static splinting may be preferred in the prehospital setting. Traction should not be used unless associated distal femur, knee, ipsilateral lower-extremity, and pelvic injuries have been reasonably excluded. A overstates hemorrhagic shock from isolated femoral shaft fracture. C discards immobilization and analgesia. D ignores contraindicating associated-injury concerns.
+Citation: Lyng JW, Corsa JG, Nawrocki PS, Raetzke BD, Nackenson J, Bosson N. Prehospital Trauma Compendium: Management of Suspected Femoral Shaft Fractures - A Position Statement and Resource Document of NAEMSP. Prehosp Emerg Care. Published online May 29, 2025. doi:10.1080/10903127.2025.2493846.
+
+### 75. Tuberculosis Postexposure Testing Window
+Pilot ID: WEBX100-075
+Core content code: 2.3.11.6.1
+
+A paramedic had close unprotected exposure to active pulmonary tuberculosis during a long transport. The initial tuberculosis (TB) test is negative. Which follow-up plan is best?
+
+A. Monitor symptoms and repeat testing only if cough, fever, or weight loss develops during the next few weeks.
+B. Repeat testing the next day and clear the paramedic if the second result is negative and symptoms remain absent.
+C. Monitor for symptoms and arrange repeat tuberculosis testing at about 8 to 12 weeks after exposure.
+D. Begin empiric treatment for active tuberculosis exposure and defer repeat testing unless occupational health requests it.
+
+Answer: C
+Rationale: A negative baseline test does not exclude later conversion after tuberculosis exposure; symptom monitoring and repeat testing at about 8 to 12 weeks are appropriate. A makes testing symptom-dependent. B repeats before conversion is expected. D confuses exposure with active infection and bypasses the follow-up testing window.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 2nd ed. John Wiley & Sons; 2015:251.
+
+### 76. Strategic Caches And Stockpiles
+Pilot ID: WEBX100-076
+Core content code: 4.1.5.5
+
+A nerve-agent incident overwhelms local antidote supplies, and responders need rapid public and responder protection while resupply is arranged. Which asset concept is most relevant?
+
+A. Routine hospital floor stock, because disaster caches are intended only for inpatient use.
+B. Private pharmacy retail inventory, because federal and regional caches cannot support EMS incidents.
+C. A media staging area, because public information is the main antidote-access mechanism.
+D. Strategic National Stockpile, regional ChemPacks, or similar caches to resupply overtaxed resources.
+
+Answer: D
+Rationale: D is best because strategic stockpiles, ChemPacks, and caches are designed to support overtaxed local resources during relevant disasters or hazardous-materials incidents. A describes routine daily inventory, which is not enough for surge demand. B falsely excludes federal or regional support from EMS planning. C addresses public messaging rather than antidote or medical-supply access.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 2nd ed. John Wiley & Sons; 2015:278.
+
+### 77. When MCI Triage Is Needed
+Pilot ID: WEBX100-077
+Core content code: 4.1.7.1
+
+Two patients are injured at a crash and four ambulances are available. Later, a bus crash produces 30 injured patients with only six ambulances and limited immediate care capacity. Which statement best defines when mass casualty triage is needed?
+
+A. Triage is needed when patient care needs exceed resources available for immediate care.
+B. Triage is needed only when more than 100 patients are present.
+C. Triage is needed whenever media or law enforcement call an event a disaster.
+D. Triage is needed when 10 or more patients are present.
+
+Answer: A
+Rationale: A is correct because mass casualty triage is needed when patient care needs exceed the resources available for immediate care. B is wrong because no 100-patient threshold is required. C is wrong because media or law-enforcement labels do not define triage need. D is wrong because eventual transport capacity does not solve immediate scarcity at the scene.
+Citation: Lerner EB, Schwartz RB. Prehospital triage for mass casualties. In: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:298.
+
+### 78. NAEMSP TOR Protocol Support
+Pilot ID: WEBX100-078
+Core content code: 1.1.2.3
+
+A system lacks termination-of-resuscitation guidance and transports nearly all arrests with ongoing cardiopulmonary resuscitation. Which policy direction aligns with National Association of EMS Physicians (NAEMSP) guidance?
+
+A. Require transport of every arrest unless rigor mortis is present.
+B. Develop EMS-system protocols for termination of resuscitation in nontraumatic and selected adult traumatic cardiopulmonary arrest.
+C. Allow field termination only when the family requests it.
+D. Avoid written protocols because termination decisions must be made informally by the senior paramedic.
+
+Answer: B
+Rationale: B is best because NAEMSP supports written EMS-system termination-of-resuscitation protocols for nontraumatic and selected adult traumatic arrests. A is overly restrictive and would prevent appropriate protocolized termination in some systems. C makes family request the decisive criterion rather than clinical and protocol criteria. D leaves a high-risk decision informal and inconsistent.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:525.
+
+### 79. Exceptional CPR Transport
+Pilot ID: WEBX100-079
+Core content code: 2.1.1.2
+
+A patient remains pulseless after high-quality resuscitation. The crew asks whether to transport with ongoing cardiopulmonary resuscitation (CPR). Which case most strongly supports transport?
+
+A. Unwitnessed asystolic arrest with no reversible cause and no receiving intervention.
+B. All arrests after 20 minutes because hospital arrival is the next step in every algorithm.
+C. Refractory ventricular fibrillation with an accepted extracorporeal resuscitation pathway.
+D. Any arrest with family present because transport shows continued effort.
+
+Answer: C
+Rationale: Transport with ongoing cardiopulmonary resuscitation is best reserved for exceptional cases linked to reversible causes or a receiving intervention such as extracorporeal support. A has poor expected benefit. B turns transport into a routine algorithm step. D uses optics rather than patient benefit.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:139.
+
+### 80. Special Event Communications Matrix
+Pilot ID: WEBX100-080
+Core content code: 1.5.2
+
+A county fair expects 35,000 attendees. Cellular service is unreliable in several areas, venue Wi-Fi fails during peak crowds, and the routine dispatch channel is already busy with daily emergency calls. Event medical staff, incident command, transport supervisors, law enforcement, and receiving hospitals all need to coordinate patient movement. Which communications plan is strongest?
+
+A. Use a supervisor text group and commercial cell phones, with extra batteries and written message forms at the command post.
+B. Issue radios only to the treatment tent and route every ambulance request through the routine daily dispatch channel.
+C. Wait until call volume rises, then let incident command add tactical channels dynamically as the overload pattern becomes clear.
+D. Create and test a communications matrix with primary and backup pathways linking event medical, command, dispatch, transport, and hospitals.
+
+Answer: D
+Rationale: Special-event planning should define reliable and redundant communication pathways before the event, including who talks to whom and what backup pathway is used when primary systems fail. A still relies heavily on fragile commercial systems. B is too narrow and overloads routine dispatch. C postpones communications design until failure is already occurring.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:214.
+
+### 81. Femoral Fracture Protocol Update
+Pilot ID: WEBX100-081
+Core content code: 2.2.5.1.3
+
+After reviewing the current NAEMSP femoral shaft fracture position statement, an EMS medical director updates a protocol that previously required traction splinting for every suspected midshaft femur fracture. Which protocol language is best supported?
+
+A. Allow static immobilization or traction; use traction only after excluding associated pelvic, knee, distal femur, and ipsilateral lower-extremity injury, with analgesia and distal neurovascular reassessment.
+B. Require traction for every mid-thigh deformity because isolated femoral shaft fractures commonly cause hemorrhagic shock and static splinting is inferior in delayed transport.
+C. Remove all traction splints and use only soft padding because the evidence no longer supports field immobilization or device-based femur fracture protocols.
+D. Permit traction whenever transport exceeds 10 minutes, even when knee pain, pelvic tenderness, or distal leg injury prevents exclusion of associated trauma.
+
+Answer: A
+Rationale: NAEMSP guidance supports static or traction splinting, notes that static splinting may be preferred, and recommends avoiding traction unless distal femur, knee, ipsilateral lower-extremity, and pelvic injuries have been reasonably excluded. Pain management and reassessment remain important. B overstates shock and traction superiority. C throws out splinting. D ignores associated-injury limitations.
+Citation: Lyng JW, Corsa JG, Nawrocki PS, Raetzke BD, Nackenson J, Bosson N. Prehospital Trauma Compendium: Management of Suspected Femoral Shaft Fractures - A Position Statement and Resource Document of NAEMSP. Prehosp Emerg Care. Published online May 29, 2025. doi:10.1080/10903127.2025.2493846.
+
+### 82. MIH Heart-Failure Education Need
+Pilot ID: WEBX100-082
+Core content code: 4.7.2
+
+A mobile integrated health (MIH) program expands from one-time vaccination support to longitudinal care for high-risk heart-failure patients, including medication reconciliation, symptom tracking, home safety review, and care navigation. What education change is most appropriate?
+
+A. Use the same brief task checklist because vaccination visits and longitudinal heart-failure care both occur outside the hospital.
+B. Require broader preparation in assessment, decision-making, care coordination, communication, and longitudinal follow-up beyond narrow task training.
+C. Emphasize advanced cardiovascular physiology, including Frank-Starling curves and electrophysiology, as the main added curriculum.
+D. Focus added training on acute heart-failure rescue care, including inotrope selection, intravenous diuretics, and escalation during decompensation.
+
+Answer: B
+Rationale: Longitudinal MIH work requires education beyond a narrow task checklist, including assessment, decision-making, communication, care coordination, and follow-up. A undertrains the new role. C and D include clinically relevant heart-failure knowledge, but they miss the MIH-specific longitudinal and coordination functions.
+Citation: Kroll M, Munjal KG. Mobile integrated health and community paramedicine. In: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. Wiley; 2021:409.
+
+### 83. PSAP Quality Beyond Answer Time
+Pilot ID: WEBX100-083
+Core content code: 1.5.4
+
+A public safety answering point (PSAP) meets call-answer time targets, but reviews show inconsistent caller interrogation, response-mode selection, and telephone cardiopulmonary resuscitation (CPR) instructions. Which quality focus is most appropriate?
+
+A. Keep focusing only on answer time because field crews make all clinical decisions.
+B. Move prearrival instructions to ambulance crews after arrival because telecommunicators should not provide medical guidance.
+C. Track caller interrogation, dispatch configuration, response mode, and prearrival instructions as part of the communication lifecycle.
+D. Stop reviewing response-mode selection because it is an administrative rather than patient-safety function.
+
+Answer: C
+Rationale: Public safety answering point quality should include caller interrogation, response configuration, response mode, and prearrival instructions, not only speed to answer. A ignores communication decisions that affect care. B delays instructions until arrival. D misclassifies response-mode selection as merely administrative.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:215.
+
+### 84. BVM Complication And Cricoid Pressure
+Pilot ID: WEBX100-084
+Core content code: 2.1.2.1.3
+
+During prolonged bag-valve-mask (BVM) ventilation, a patient develops gastric distention and vomits. A trainee says cricoid pressure would have guaranteed prevention. What is the best correction?
+
+A. Add cricoid pressure to future bag-valve-mask attempts as the main aspiration-prevention step and keep the same ventilation force.
+B. Attribute vomiting primarily to inadequate mask seal and increase delivered volume until chest rise becomes easier to see.
+C. Suction and reposition after emesis, then resume ventilation but treat aspiration risk as unrelated to bag-valve-mask technique.
+D. Recognize gastric insufflation, regurgitation, and aspiration as bag-valve-mask complications; cricoid pressure has not clearly prevented them.
+
+Answer: D
+Rationale: Bag-valve-mask ventilation can cause gastric insufflation, regurgitation, and aspiration, and cricoid pressure does not reliably prevent those complications. A overrelies on cricoid pressure. B increases a harmful ventilation pattern. C includes useful immediate actions but misses the teaching point about bag-valve-mask complications and technique.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:30.
+
+### 85. MIH Competency Evaluation
+Pilot ID: WEBX100-085
+Core content code: 4.7.5
+
+A mobile integrated health/community paramedicine (MIH-CP) program adds point-of-care testing, urinary catheter troubleshooting, and behavioral-health navigation. Which oversight element should the physician medical director support?
+
+A. Regular competency evaluation tied to the expanded clinical and care-navigation functions.
+B. One-time course completion before program launch, with no scheduled review unless a complaint occurs.
+C. Annual human-resources evaluation only, because MIH-CP clinicians are not providing emergency care.
+D. Self-attestation by clinicians because community paramedicine depends on independent judgment.
+
+Answer: A
+Rationale: Expanded mobile integrated health/community paramedicine functions require ongoing competency evaluation tied to the actual clinical and navigation work. B relies on launch training only. C substitutes human-resources review for clinical competence. D makes self-attestation sufficient.
+Citation: Ulintz AJ, O'Connor LC, Heffern TM, et al. Mobile Integrated Health Care and Community Paramedicine: A Position Statement and Resource Document of NAEMSP. Prehosp Emerg Care. 2025:1.
+
+### 86. Caustic Ingestion Oral Exam Trap
+Pilot ID: WEBX100-086
+Core content code: 2.3.8.4
+
+A toddler may have swallowed drain cleaner. He has no visible oral burns, is drooling intermittently, and the bottle concentration is unclear. Which action best avoids a common assessment trap?
+
+A. Clear the child because absence of oral burns rules out significant caustic injury.
+B. Consult poison center or medical oversight because oral findings do not reliably predict caustic injury severity.
+C. Induce vomiting to determine whether esophageal injury is present.
+D. Use oral lesions alone to determine destination because visible burns reliably grade severity.
+
+Answer: B
+Rationale: B is best because oral findings do not reliably predict caustic injury severity, so poison-center or medical-oversight guidance is appropriate even when the mouth looks reassuring. A falsely clears the child based on a normal oral exam. C is dangerous because forced dilution or oral intake can worsen risk in selected caustic ingestions. D overuses visible lesions alone for destination decisions.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:380.
+
+### 87. Protocol Rollout Quality Loop
+Pilot ID: WEBX100-087
+Core content code: 1.1.1.2.1
+
+A new evidence-based analgesia protocol is emailed to crews and posted online. Three months later, use is low and dosing errors appear. What implementation element was most clearly missing?
+
+A. A longer protocol document, because implementation failures mainly reflect insufficient detail.
+B. A rule suspending clinicians after the first dosing error, because adoption is primarily disciplinary.
+C. Education, operational rollout, and a quality loop verifying that the intended practice change actually occurred.
+D. A delay until every hospital adopts identical analgesia orders.
+
+Answer: C
+Rationale: C is best because protocol rollout requires education, operational implementation, and a quality loop confirming that practice actually changed. A adds protocol detail without checking implementation. B makes adoption punitive, which may suppress reporting rather than improve practice. D delays local improvement unnecessarily when the service can monitor and refine its own rollout.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:7.
+
+### 88. EFIC Eligibility Boundary
+Pilot ID: WEBX100-088
+Core content code: 3.2.1.5
+
+Investigators propose a prehospital trial of a time-critical hemorrhage drug for unconscious trauma patients when standard treatment is unsatisfactory and proxy consent cannot be obtained before treatment. Which research pathway may apply?
+
+A. Ordinary verbal consent from the crew because EMS clinicians can consent for incapacitated patients.
+B. No human-subjects review because the intervention occurs before hospital arrival.
+C. Retrospective chart review rules because the patients are enrolled during clinical care.
+D. Exception from informed consent (EFIC), if life-threatening, time-critical research safeguards and regulatory requirements are met.
+
+Answer: D
+Rationale: Exception from informed consent can apply only in tightly regulated life-threatening, time-critical research with safeguards such as community consultation and risk-benefit review. A gives consent authority to crews incorrectly. B ignores human-subject protections. C misclassifies prospective intervention as chart review.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:470.
+
+### 89. POLST Across Settings
+Pilot ID: WEBX100-089
+Core content code: 1.1.2.3
+
+A hospice patient at home has a Physician Orders for Life-Sustaining Treatment (POLST) indicating comfort-focused care and no transport unless symptoms cannot be controlled. The family hands it to EMS. What is the key operational meaning?
+
+A. POLST is a medical order designed to guide treatment intensity across settings, including EMS.
+B. POLST is only a living will summary and has no EMS relevance.
+C. POLST becomes active only after a hospital physician countersigns it during this encounter.
+D. POLST applies only to cardiopulmonary resuscitation and says nothing about transport or treatment intensity.
+
+Answer: A
+Rationale: A is best because POLST forms are portable medical orders that guide treatment intensity across settings, including EMS encounters. B treats the form as nonactionable even though it is intended to guide treatment. C invents a requirement for encounter-specific countersignature. D wrongly limits POLST to cardiopulmonary resuscitation status instead of broader treatment preferences.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:532.
+
+### 90. Volume-Overload Heart Failure Pattern
+Pilot ID: WEBX100-090
+Core content code: 2.3.2.2.1
+
+An older patient has progressive dyspnea, orthopnea, jugular venous distention, rales, leg edema, and recent weight gain. Wheezing is also present. Which interpretation is best?
+
+A. Treat chronic obstructive pulmonary disease first if wheezing is present, then reassess for heart failure after bronchodilators.
+B. The pattern supports acute decompensated heart failure with volume overload, while wheezing must be interpreted in context.
+C. Use oxygen saturation as the main discriminator, because normal saturation makes acute heart failure unlikely.
+D. Treat leg edema as chronic background information unless hypotension or chest pain is present.
+
+Answer: B
+Rationale: Orthopnea, jugular venous distention, rales, edema, and weight gain support acute decompensated heart failure with volume overload, while wheezing must be interpreted in context. A overanchors on wheeze. C overuses oxygen saturation. D dismisses useful volume-status information.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:52.
+
+### 91. Human Trafficking Training Package
+Pilot ID: WEBX100-091
+Core content code: 1.1.2.2
+
+Before a major sporting event, an EMS medical director updates mandatory-reporting education for possible human trafficking encounters. Which package is most complete?
+
+A. A list of criminal penalties for traffickers and a reminder to call police for every suspicious patient.
+B. Recognition indicators, trauma-informed interviewing, support resources, criminal penalties for traffickers, and a hotline number.
+C. Recognition indicators, trauma-informed interviewing, documentation standards, support resources, and reporting procedures.
+D. A lecture on event security plans without patient-support or documentation content.
+
+Answer: C
+Rationale: A complete human-trafficking training package should include recognition indicators, trauma-informed interviewing, documentation standards, support resources, and reporting procedures. B contains several useful elements but omits documentation standards and reporting procedures while adding legal-punishment content that does not complete the field-care workflow. A is too law-enforcement centered and indiscriminate. D addresses event security but misses patient support and documentation.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:512-513.
+
+### 92. Pregnant Trauma Monitoring Destination
+Pilot ID: WEBX100-092
+Core content code: 2.3.7.6
+
+A 28-week pregnant patient has a low-speed crash, normal maternal vital signs, mild abdominal discomfort, and no obvious injury. A community emergency department without obstetric monitoring is 5 minutes away; an obstetric-capable hospital is 18 minutes away. Which destination is best?
+
+A. Closest hospital because normal maternal vital signs exclude fetal risk.
+B. Home with instructions because low-speed crashes do not require evaluation after 24 weeks.
+C. Trauma center only, regardless of obstetric capability or injury severity.
+D. A facility capable of fetal monitoring for at least 4 hours, assuming transport is otherwise safe.
+
+Answer: D
+Rationale: After 24 weeks, pregnant trauma patients generally need a facility capable of fetal monitoring when transport is safe. A falsely reassures from maternal vitals. B dismisses fetal risk. C ignores the importance of obstetric monitoring for this presentation.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:345.
+
+### 93. Open Pneumothorax Dressing Choice
+Pilot ID: WEBX100-093
+Core content code: 2.2.1.6
+
+A patient has a small penetrating anterior chest wound with bubbling from the wound, mild dyspnea, and no major external hemorrhage. Breath sounds are present bilaterally and blood pressure is normal. Which dressing plan best addresses the immediate chest-wall problem while preserving safety during transport?
+
+A. Apply a vented occlusive dressing, or an occlusive dressing configured as a one-way valve, and monitor for tension physiology that would require venting.
+B. Use bulky nonocclusive gauze with a pressure wrap, prioritizing blood absorption while avoiding any seal over the chest-wall defect.
+C. Control the wound with direct pressure and hemostatic gauze first, because bubbling chest wounds should be treated primarily as external hemorrhage.
+D. Place a fully occlusive nonvented dressing on all sides and focus reassessment on external bleeding rather than tension physiology.
+
+Answer: A
+Rationale: A bubbling penetrating chest wound is an open pneumothorax problem. A vented occlusive dressing, or an occlusive dressing configured to act as a one-way valve, helps limit air entry while requiring monitoring for tension physiology. B may fit a bleeding wound but does not address the open pneumothorax. C overapplies hemorrhage control when major bleeding is not present. D seals the defect without adequate attention to tension risk.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:260-261.
+
+### 94. Cohort Study Direction
+Pilot ID: WEBX100-094
+Core content code: 3.2.2
+
+Researchers identify patients who did and did not receive prehospital vasopressors for hypotension, then follow both groups for survival and neurologic outcome. What design direction is this?
+
+A. Case-control, because the study starts with outcomes and looks backward to exposure.
+B. Cohort, because subjects are grouped by exposure status and followed toward outcomes.
+C. Cross-sectional, because exposure and outcome are measured at one instant without follow-up.
+D. Systematic review, because multiple patient groups are compared.
+
+Answer: B
+Rationale: B is best because a cohort study groups patients by exposure and follows them forward to compare outcomes. A starts with outcome status, which describes a case-control structure. C lacks the exposure-to-outcome follow-up that defines a cohort design. D is a literature synthesis rather than a patient-level observational study.
+Citation: Lerner EB, Cone DC, Yealy DM. EMS research basics. In: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:463.
+
+### 95. ESF 8 Scope
+Pilot ID: WEBX100-095
+Core content code: 4.1.1.1
+
+A state requests federal support for public health, medical care, behavioral health, and mass fatality management after flooding. Which Emergency Support Function (ESF) best matches this request?
+
+A. Emergency Support Function #5: incident-management coordination, situational assessment, and federal emergency-management support.
+B. Emergency Support Function #6: mass care, emergency assistance, temporary housing, and human-services support.
+C. Emergency Support Function #8: public health, medical care, behavioral health, and mass-fatality support.
+D. Emergency Support Function #13: public safety, security operations, traffic control, and law-enforcement support.
+
+Answer: C
+Rationale: Emergency Support Function #8 covers public health and medical services, including medical care, behavioral health, and fatality management. A is emergency management coordination. B is mass care and housing support. D is public safety and security.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:295.
+
+### 96. CONSORT For Randomized Trials
+Pilot ID: WEBX100-096
+Core content code: 3.2.4.4
+
+An EMS airway-device randomized trial manuscript must report allocation, participant flow, and analysis groups. Which reporting framework is the best match?
+
+A. Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA).
+B. Strengthening the Reporting of Observational Studies in Epidemiology (STROBE).
+C. Standards for Quality Improvement Reporting Excellence (SQUIRE).
+D. Consolidated Standards of Reporting Trials (CONSORT).
+
+Answer: D
+Rationale: D is best because CONSORT is the reporting framework for randomized controlled trials. A is wrong because PRISMA is used for systematic reviews and meta-analyses. B is wrong because STROBE is used for observational studies. C is wrong because SQUIRE is used for quality improvement reports, not randomized trial reporting.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:479.
+
+### 97. MIH Regulation Without Stifling Innovation
+Pilot ID: WEBX100-097
+Core content code: 4.7.4
+
+A state has incomplete mobile integrated health/community paramedicine rules, but local outcome data show a high-need readmission population that could benefit. Which regulatory posture is most defensible?
+
+A. Seek state regulatory guidance and build data-informed standards that protect patients without unnecessarily blocking innovation.
+B. Use local medical-director protocols while asking the state to clarify rules after the pilot demonstrates value.
+C. Limit the pilot to data collection and referral navigation until state regulation, scope, and payment questions are addressed.
+D. Run the program under a hospital quality-improvement charter so state EMS regulation is less likely to apply.
+
+Answer: A
+Rationale: The most defensible posture is to seek state guidance and build standards that protect patients while allowing data-informed innovation. B starts practice before resolving authority. C may be a cautious interim step but does not build the needed regulatory pathway for care delivery. D tries to route around EMS regulation rather than address it.
+Citation: Ulintz AJ, O'Connor LC, Heffern TM, et al. Mobile Integrated Health Care and Community Paramedicine: A Position Statement and Resource Document of NAEMSP. Prehosp Emerg Care. 2025:1,4.
+
+### 98. In-Flight Chest Pain Coordination
+Pilot ID: WEBX100-098
+Core content code: 1.2.5.12
+
+A physician with emergency medical services (EMS) experience volunteers for a passenger with chest discomfort during a commercial flight. The passenger is awake, normotensive, not dyspneic, and symptoms are improving after rest. The aircraft is 50 minutes from its scheduled destination with EMS available on landing; diversion would require landing at a small airport with limited medical capability. What is the best recommendation?
+
+A. Recommend immediate diversion solely because chest discomfort occurred, before completing assessment or ground medical consultation.
+B. Coordinate with the crew and ground medical support, use onboard equipment, monitor for high-risk features, and divert only if assessment supports it.
+C. Avoid ground medical consultation because symptoms are improving and the aircraft is already within an hour of the scheduled destination.
+D. Direct the crew independently as the medical authority because clinical decisions supersede flight operations during passenger illness.
+
+Answer: B
+Rationale: In-flight medical care is constrained by aircraft operations, available equipment, crew authority, and ground medical support. Improving, stable chest discomfort should prompt assessment, monitoring, crew coordination, and ground consultation rather than automatic diversion. A overuses diversion. C underuses available support. D misunderstands aircraft command and operational authority.
+Citation: Martin-Gill C, Doyle TJ, Yealy DM. In-flight medical emergencies: a review. JAMA. 2018;320(24):2580-2590. doi:10.1001/jama.2018.19842.
+
+### 99. Low-Frequency High-Risk Skill Maintenance
+Pilot ID: WEBX100-099
+Core content code: 1.1.1.3
+
+A service permits pediatric pacing and pediatric medication dosing, but most paramedics have not used either skill in years. Which competence strategy is best?
+
+A. Use initial course completion plus annual protocol attestation for rare skills unless an adverse event occurs.
+B. Use confidence surveys and supervisor observation to identify clinicians who request extra practice.
+C. Use simulation, skills verification, case review, and remediation for low-frequency high-risk skills.
+D. Review rare skills during biennial credentialing only if the clinician has performed the skill since the last review.
+
+Answer: C
+Rationale: Low-frequency high-risk skills require planned continued-competence work such as simulation, skill verification, case review, and remediation. A relies too much on initial training. B makes confidence a proxy for competence. D risks excluding precisely the skills that need maintenance because they are rarely performed.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:7.
+
+### 100. Competency Review Interval
+Pilot ID: WEBX100-100
+Core content code: 1.1.1.3
+
+An agency credentials new clinicians at hire but has no scheduled clinical reverification afterward. Leaders ask how to handle ongoing competence for cognitive, psychomotor, affective, and critical-thinking domains. Which approach is best?
+
+A. Use state license renewal alone because it proves current local competence.
+B. Review competence only after patient complaints because routine reverification is punitive.
+C. Use annual human-resources evaluation without clinical skill or judgment assessment.
+D. Establish scheduled reviews and reverification of relevant skills at least every 2 years.
+
+Answer: D
+Rationale: Ongoing competence should be reviewed on a schedule, including reverification of relevant skills at least every 2 years. A treats license renewal as local competence. B waits for harm. C omits clinical skill and judgment assessment.
+Citation: Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:7.

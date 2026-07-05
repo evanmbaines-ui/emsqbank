@@ -1,0 +1,56 @@
+{
+  "batch_id": "20260705_second50_qi_review",
+  "source_packet": "outputs/ems_website_exclusion_fresh100_20260705/fresh100_website_exclusion_items.json",
+  "review_packet_json": "outputs/ems_website_second50_reviewed_qi_20260705/website_second50_qi_review_20260705.json",
+  "review_packet_markdown": "outputs/ems_website_second50_reviewed_qi_20260705/website_second50_qi_review_20260705.md",
+  "reviewed_range": "51-100",
+  "revised_item_numbers": [
+    60,
+    62,
+    64,
+    65,
+    66,
+    69,
+    73,
+    74,
+    75,
+    77,
+    80,
+    81,
+    82,
+    84,
+    91,
+    93,
+    95,
+    98
+  ],
+  "revised_count": 18,
+  "replaced_count": 0,
+  "machine_ready_count": 32,
+  "machine_ready_rate": 0.64,
+  "source_updates": [
+    "LYNG_2025_NAEMSP_FEMORAL_SHAFT_FRACTURE_COMPENDIUM"
+  ],
+  "answer_balance_second50": {
+    "C": 14,
+    "D": 12,
+    "A": 12,
+    "B": 12
+  },
+  "non_counted_cleanup_note": "Q64 stem was corrected to omit the diagnosis; sparse rationales were expanded. Revision counts were intentionally unchanged per reviewer instruction.",
+  "non_counted_cleanup_items": [
+    57,
+    63,
+    64,
+    67,
+    72,
+    76,
+    77,
+    78,
+    86,
+    87,
+    89,
+    94,
+    96
+  ]
+}

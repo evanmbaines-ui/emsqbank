@@ -1,0 +1,14 @@
+{
+  "question_count": 50,
+  "distractor_count": 150,
+  "failed_item_count": 3,
+  "failed_item_rate": 0.06,
+  "option_only_solvable_count": 3,
+  "implausible_distractor_count": 0,
+  "items_with_0_high_quality_distractors": 0,
+  "items_with_1_high_quality_distractor": 0,
+  "items_with_2_high_quality_distractors": 15,
+  "items_with_3_high_quality_distractors": 35,
+  "pass_rule": "pass if no score-0 distractors, at least 2 heuristic score-2 distractors, and no option-only solvability flag",
+  "note": "Heuristic scores are deterministic triage. Final release still requires human or expert-model nearby-correct-scenario notes for each distractor."
+}
