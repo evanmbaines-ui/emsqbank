@@ -133,6 +133,11 @@ button:disabled {
   padding: 22px;
 }
 
+.auth-panel .brand-subtitle {
+  margin: 4px 0 18px;
+  line-height: 1.45;
+}
+
 .landing-hero {
   position: relative;
   width: 100vw;
