@@ -19,7 +19,7 @@
     ["nonfunctional_distractor", "Nonfunctional distractor"],
     ["too_easy_cognitive_underreach", "Too easy / underreaches"],
     ["giveaway_in_question", "Giveaway in question"],
-    ["not_clinically_current", "Not clinically current"],
+    ["not_clinically_current", "Not clinically correct or current"],
     ["terminology_domain_fidelity", "Terminology/domain fidelity"],
     ["poor_confusing_wording", "Poor/confusing wording"],
     ["other", "Other"]
