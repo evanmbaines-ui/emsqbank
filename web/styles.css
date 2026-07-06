@@ -1636,6 +1636,10 @@ button:focus-visible {
   gap: var(--choice-control-gap);
 }
 
+.checkbox-fieldset-title {
+  margin: 0;
+}
+
 .checkbox-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1693,10 +1697,6 @@ button:focus-visible {
 
 .checkbox-grid input:disabled + span {
   color: var(--muted);
-}
-
-.checkbox-fieldset legend {
-  padding: 0;
 }
 
 .profile-grid {

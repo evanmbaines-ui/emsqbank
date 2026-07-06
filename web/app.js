@@ -1350,12 +1350,12 @@
                 </select>
               </div>
             </div>
-            <fieldset class="checkbox-fieldset">
-              <legend class="field-label">Generation feedback flags</legend>
+            <div class="checkbox-fieldset" role="group" aria-labelledby="generation-feedback-flags-label">
+              <div id="generation-feedback-flags-label" class="field-label checkbox-fieldset-title">Generation feedback flags</div>
               <div class="checkbox-grid">
                 ${GENERATION_ISSUES.map(([value, label]) => renderCheckbox("generationIssueFlags", value, label, record.generationIssueFlags || [], isClosed)).join("")}
               </div>
-            </fieldset>
+            </div>
             <div class="field">
               <label for="comments">Comments for generation/revision</label>
               <textarea id="comments" name="comments" ${isClosed ? "disabled" : ""}>${escapeHTML(record.comments || "")}</textarea>
@@ -1602,12 +1602,12 @@
         </div>
         <form class="form-grid" data-form="learner-flag">
           <input type="hidden" name="recordId" value="${escapeAttr(q.id)}">
-          <fieldset class="checkbox-fieldset">
-            <legend class="field-label">Question issue flags</legend>
+          <div class="checkbox-fieldset" role="group" aria-labelledby="question-issue-flags-label">
+            <div id="question-issue-flags-label" class="field-label checkbox-fieldset-title">Question issue flags</div>
             <div class="checkbox-grid">
               ${GENERATION_ISSUES.map(([value, label]) => renderCheckbox("learnerIssueFlags", value, label, selected, false)).join("")}
             </div>
-          </fieldset>
+          </div>
           <div class="field">
             <label for="learner-flag-comments">Comments for review</label>
             <textarea id="learner-flag-comments" name="comments">${escapeHTML(flag.comments || "")}</textarea>
