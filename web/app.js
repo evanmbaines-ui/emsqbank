@@ -223,6 +223,7 @@
     return {
       id: q.record_id,
       number: q.source_question_number || index + 1,
+      reviewOrder: q.review_order || q.source_question_number || index + 1,
       questionId: q.question_id || q.record_id,
       jobId: q.job_id || "",
       contentId: q.content_id || "",
@@ -2555,7 +2556,8 @@
   }
 
   function compareQuestionsSequentially(a, b) {
-    return compareNaturally(a.sourceLabel, b.sourceLabel)
+    return compareNaturally(a.reviewOrder, b.reviewOrder)
+      || compareNaturally(a.sourceLabel, b.sourceLabel)
       || compareNaturally(a.number, b.number)
       || compareNaturally(a.questionId, b.questionId)
       || compareNaturally(a.id, b.id);

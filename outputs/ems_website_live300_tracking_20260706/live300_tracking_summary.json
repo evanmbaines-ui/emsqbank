@@ -1,0 +1,59 @@
+{
+  "created_at": "2026-07-06",
+  "total_questions_tracked": 300,
+  "existing_questions_tracked": 250,
+  "paramedic_next_action_pilot_questions": 50,
+  "review_order_strategy": "one paramedic next-action pilot question inserted after every five existing questions in the sequential evaluator order",
+  "review_order_min": 1,
+  "review_order_max": 300,
+  "unique_question_ids": 300,
+  "unique_concept_keys": 300,
+  "unique_content_ids": 237,
+  "source_label_counts": {
+    "first50_reviewed_website_push": 50,
+    "paramedic_next_action_50": 50,
+    "legacy_locked_priority_superset_100": 100,
+    "second50_qi_review": 50,
+    "uncovered50_v3_source_hardened": 50
+  },
+  "domain_counts": {
+    "DISASTER MANAGEMENT AND SPECIAL OPERATIONS": 50,
+    "CLINICAL ASPECTS OF EMS MEDICINE": 150,
+    "QUALITY MANAGEMENT AND RESEARCH": 25,
+    "MEDICAL OVERSIGHT OF EMS": 75
+  },
+  "topic_group_counts": {
+    "Disaster Management": 4,
+    "Resuscitation": 2,
+    "Quality Management": 4,
+    "Medical Emergencies": 11,
+    "Trauma": 3,
+    "RESUSCITATION": 17,
+    "EMS System Management": 6,
+    "Tactical": 2,
+    "Medical Oversight": 3,
+    "Mass Gathering": 4,
+    "Special Clinical Considerations": 4,
+    "Crisis and Emergency Risk Communication": 1,
+    "Research": 3,
+    "EMS Personnel": 2,
+    "Wilderness": 1,
+    "TRAUMA": 7,
+    "": 150,
+    "MEDICAL EMERGENCIES": 36,
+    "SPECIAL CLINICAL CONSIDERATIONS": 10,
+    "DISASTER MANAGEMENT": 10,
+    "EMS SYSTEMS": 6,
+    "QUALITY MANAGEMENT": 5,
+    "EMS SYSTEM MANAGEMENT": 3,
+    "MEDICAL OVERSIGHT": 6
+  },
+  "content_ids_with_multiple_questions": 56,
+  "files": {
+    "website_json": "outputs/ems_paramedic_next_action_experiment_20260706/paramedic_next_action_50_website_ready.json",
+    "migration": "web/migrations/20260706_global_300_interleaved_review_order.json",
+    "review_order_tracker": "outputs/ems_website_live300_tracking_20260706/live300_interleaved_review_order.csv",
+    "content_area_usage": "outputs/ems_website_live300_tracking_20260706/live300_content_area_usage.csv",
+    "redundancy_summary": "outputs/ems_paramedic_next_action_experiment_20260706/paramedic_next_action_50_website_redundancy_summary.json"
+  }
+}

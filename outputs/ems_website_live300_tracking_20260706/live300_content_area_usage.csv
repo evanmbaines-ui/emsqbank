@@ -1,0 +1,238 @@
+content_id,question_count,paramedic_pilot_count,question_ids,review_orders,topics,topic_groups
+1.1.1.1.1,2,0,EMS2026-1-1-1-1-1-05|EMS2026-1-1-1-1-1-07,13|206,Provision of direct patient care,Medical Oversight
+1.1.1.1.2,1,0,EMS2026-1-1-1-1-2-05,247,Physician directed care by radio or phone,MEDICAL OVERSIGHT
+1.1.1.1.3,1,0,EMS2026-1-1-1-1-3-04,259,Physician directed care in person,MEDICAL OVERSIGHT
+1.1.1.1.4,1,0,EMS2026-1-1-1-1-4-04,269,Telemedicine,MEDICAL OVERSIGHT
+1.1.1.2.1,1,0,EMS2026-1-1-1-2-1-06,224,Development of medical protocols,
+1.1.1.2.2,2,0,EMS2026-1-1-1-2-2-02|EMS2026-1-1-1-2-2-01,47|75,Quality improvement programs,Medical Oversight
+1.1.1.2.3,2,0,EMS2026-1-1-1-2-3-06|EMS2026-1-1-1-2-3-01,188|201,Determination of medical necessity in the field,
+1.1.1.3,2,0,EMS2026-1-1-1-3-05|EMS2026-1-1-1-3-04,238|239,Assessment of personnel competence and fitness for duty (initial and continued),
+1.1.1.4,1,0,EMS2026-1-1-1-4-07,267,Medical director qualifications,MEDICAL OVERSIGHT
+1.1.2.1,2,0,EMS2026-1-1-2-1-02|EMS2026-1-1-2-1-06,131|137,Definition of a patient,
+1.1.2.2,1,0,EMS2026-1-1-2-2-09,229,Mandatory reporting,
+1.1.2.3,2,0,EMS2026-1-1-2-3-03|EMS2026-1-1-2-3-06,213|226,Determination and/or pronouncement of death,
+1.1.2.4.1,1,0,EMS2026-1-1-2-4-1-05,279,Informed consent and informed refusal,MEDICAL OVERSIGHT
+1.1.2.4.2,1,0,EMS2026-1-1-2-4-2-03,136,Difference between capacity and competence,
+1.1.2.5,1,0,EMS2026-1-1-2-5-03,16,Patient abandonment,Medical Oversight
+1.1.2.6,1,0,EMS2026-1-1-2-6-05,257,Due process,MEDICAL OVERSIGHT
+1.1.2.7,1,0,EMS2026-1-1-2-7-06,88,Risk management,
+1.2.1,1,0,EMS2026-1-2-1-07,273,Public Safety Answering Points,EMS SYSTEMS
+1.2.2.1,1,0,EMS2026-1-2-2-1-05,283,Pre-arrival instructions,EMS SYSTEMS
+1.2.2.2,1,0,EMS2026-1-2-2-2-05,278,"Prioritization of response (e.g., determining local needs based on local resources)",EMS SYSTEMS
+1.2.2.3,1,0,EMS2026-1-2-2-3-05,250,Tiered response,EMS SYSTEMS
+1.2.2.4,1,0,EMS2026-1-2-2-4-04,202,Mutual aid response,
+1.2.3,1,0,EMS2026-1-2-3-07,275,Use of Lights and Siren,EMS SYSTEMS
+1.2.4.1,1,0,EMS2026-1-2-4-1-05,242,Response and transport vehicles,EMS SYSTEMS
+1.2.4.2,1,0,EMS2026-1-2-4-2-01,98,"EMS clinician levels (EMR, EMT, AEMT, Paramedic)",
+1.2.5.4,1,0,EMS2026-1-2-5-4-05,205,Wilderness EMS,
+1.2.5.6,1,0,EMS2026-1-2-5-6-03,133,Inter-facility transport,
+1.2.5.8,1,0,EMS2026-1-2-5-8-06,152,Critical care and specialty care transport,
+1.2.5.12,1,0,EMS2026-1-2-5-12-01,237,"Airline, cruise ship, and resort medical support",
+1.2.7,2,0,EMS2026-1-2-7-02|EMS2026-1-2-7-11,62|127,Regionalization of Care,
+1.3.1.1,2,0,EMS2026-1-3-1-1-01|EMS2026-1-3-1-1-07,151|166,State vs. national,
+1.3.2.2,1,0,EMS2026-1-3-2-2-01,87,Education delivery models,
+1.3.2.6,1,0,EMS2026-1-3-2-6-06,106,Remediation and workforce re-entry,
+1.3.4.1.1,3,0,EMS2026-1-3-4-1-1-07|EMS2026-1-3-4-1-1-06|EMS2026-1-3-4-1-1-02,41|46|89,"Regulations and standards (e.g., National Fire Protection Association [NFPA] 1582, Ryan White Act, Occupational Safety and Health Administration [OSHA] requirements, National Institute for Occupational Safety and Health [NIOSH])",EMS Personnel
+1.3.4.3,1,0,EMS2026-1-3-4-3-03,177,Disordered sleep and work schedule,
+1.3.4.4,1,0,EMS2026-1-3-4-4-04,148,Prevention and intervention for psychologically stressful events,
+1.3.6,2,0,EMS2026-1-3-6-08|EMS2026-1-3-6-10,83|203,Recruitment and Retention,
+1.3.7,2,0,EMS2026-1-3-7-08|EMS2026-1-3-7-04,79|197,Diverse and Inclusive Workforce,
+1.4.3.1,1,0,EMS2026-1-4-3-1-05,295,Working with government and public health agencies,EMS SYSTEM MANAGEMENT
+1.4.3.4.4,1,0,EMS2026-1-4-3-4-4-01,94,Health Insurance Portability and Accountability Act (HIPAA),
+1.4.4.1,2,0,EMS2026-1-4-4-1-04|EMS2026-1-4-4-1-03,39|191,Specialty hospital designations and patient transport,EMS System Management
+1.4.4.2,2,0,EMS2026-1-4-4-2-04|EMS2026-1-4-4-2-03,119|172,Field triage to appropriate destination,
+1.4.4.3,2,0,EMS2026-1-4-4-3-04|EMS2026-1-4-4-3-01,7|31,Public access defibrillation (PAD),EMS System Management
+1.4.4.4,1,0,EMS2026-1-4-4-4-04,245,Hospital diversion and bypass,EMS SYSTEM MANAGEMENT
+1.4.4.5,2,0,EMS2026-1-4-4-5-06|EMS2026-1-4-4-5-01,8|32,"Integration of EMS, community public resources, mental health resources, and social services",EMS System Management
+1.4.5,1,0,EMS2026-1-4-5-05,159,System Status Management,
+1.4.6.1,2,0,EMS2026-1-4-6-1-02|EMS2026-1-4-6-1-03,43|135,Alternative destinations,EMS System Management
+1.4.6.2,1,0,EMS2026-1-4-6-2-03,169,Treatment in place,
+1.4.7,1,0,EMS2026-1-4-7-07,266,Navigation to Healthcare Resources,EMS SYSTEM MANAGEMENT
+1.5.1,3,0,EMS2026-1-5-1-12|EMS2026-1-5-1-09|EMS2026-1-5-1-10,76|170|195,Public information and interacting with the media,
+1.5.2,1,0,EMS2026-1-5-2-10,215,Crisis communication,
+1.5.3,3,0,EMS2026-1-5-3-01|EMS2026-1-5-3-05|EMS2026-1-5-3-08,21|161|165,Emergency risk communication,Crisis and Emergency Risk Communication
+1.5.4,2,0,EMS2026-1-5-4-10|EMS2026-1-5-4-04,101|219,Communication lifecycle,
+2.1.1.1,1,0,EMS2026-2-1-1-1-04,290,General management and field resuscitation,RESUSCITATION
+2.1.1.2,2,0,EMS2026-2-1-1-2-06|EMS2026-2-1-1-2-02,181|214,Transport decisions,
+2.1.1.3,1,0,EMS2026-2-1-1-3-04,277,Post-resuscitation care,RESUSCITATION
+2.1.1.4,1,0,EMS2026-2-1-1-4-04,183,Termination of resuscitation in the field,
+2.1.1.5,1,0,EMS2026-2-1-1-5-04,298,Mechanical CPR and real-time feedback devices,RESUSCITATION
+2.1.1.6,1,0,EMS2026-2-1-1-6-03,184,Withholding resuscitation (including determination of death and applying advanced directives),
+2.1.2.1.2,1,0,EMS2026-2-1-2-1-2-04,280,Oropharyngeal and nasopharyngeal airways,RESUSCITATION
+2.1.2.1.3,2,1,EMS2026-2-1-2-1-3-03|EMS2026-2-1-2-1-3-04,6|220,Bag-valve-mask ventilation,RESUSCITATION
+2.1.2.2.1,1,0,EMS2026-2-1-2-2-1-03,142,Devices for securing airway,
+2.1.2.2.2,1,0,EMS2026-2-1-2-2-2-04,281,Airway management adjuncts,RESUSCITATION
+2.1.2.2.3,1,0,EMS2026-2-1-2-2-3-01,116,Direct laryngoscopy,
+2.1.2.2.4,1,0,EMS2026-2-1-2-2-4-04,69,Video laryngoscopy,
+2.1.2.2.5,1,0,EMS2026-2-1-2-2-5-04,272,Drug assisted airway management,RESUSCITATION
+2.1.2.2.6,2,1,EMS2026-2-1-2-2-6-03|EMS2026-2-1-2-2-6-01,12|207,Supraglottic/extraglottic airways,RESUSCITATION
+2.1.2.2.7,1,0,EMS2026-2-1-2-2-7-04,299,Nasal intubation,RESUSCITATION
+2.1.2.2.8,1,0,EMS2026-2-1-2-2-8-01,44,Cricothyroidotomy,Resuscitation
+2.1.2.3,1,0,EMS2026-2-1-2-3-04,292,"Airway management in challenging conditions (e.g., low light, atypical position)",RESUSCITATION
+2.1.2.4,1,0,EMS2026-2-1-2-4-01,2,Airway management in bariatric patients,Resuscitation
+2.1.2.5,1,0,EMS2026-2-1-2-5-03,268,Tracheostomy complications,RESUSCITATION
+2.1.2.6,2,1,EMS2026-2-1-2-6-03|EMS2026-2-1-2-6-02,18|261,Control of post-tonsillectomy hemorrhage,RESUSCITATION
+2.1.3.1,1,1,EMS2026-2-1-3-1-03,24,Recognition of shock and hypotension,RESUSCITATION
+2.1.3.2,2,1,EMS2026-2-1-3-2-03|EMS2026-2-1-3-2-02,30|153,Management of hypotension and shock,RESUSCITATION
+2.1.3.3.3,3,1,EMS2026-2-1-3-3-3-02|EMS2026-2-1-3-3-3-04|EMS2026-2-1-3-3-3-05,36|110|179,Placement of intraosseous lines (adult and pediatric),RESUSCITATION
+2.1.3.4,1,0,EMS2026-2-1-3-4-01,171,Blood product transfusion,
+2.1.4,1,1,EMS2026-2-1-4-03,42,Altered Mental Status,RESUSCITATION
+2.2.1.1,2,0,EMS2026-2-2-1-1-02|EMS2026-2-2-1-1-04,5|86,Goal of minimizing scene time for severe trauma,Trauma
+2.2.1.2,2,1,EMS2026-2-2-1-2-05|EMS2026-2-2-1-2-03,15|48,Management and resuscitation of multi-trauma patient,TRAUMA|Trauma
+2.2.1.3,1,0,EMS2026-2-2-1-3-03,147,Field trauma triage criteria,
+2.2.1.4.1,1,0,EMS2026-2-2-1-4-1-03,271,Motor vehicle collisions,TRAUMA
+2.2.1.4.2,1,0,EMS2026-2-2-1-4-2-04,61,Gunshot wounds and ballistics,
+2.2.1.5,2,1,EMS2026-2-2-1-5-03|EMS2026-2-2-1-5-05,54|149,Control of life-threatening hemorrhage,TRAUMA
+2.2.1.6,1,0,EMS2026-2-2-1-6-01,231,Wound care management,
+2.2.2.1,1,0,EMS2026-2-2-2-1-05,253,"Thoracostomy (including needle, simple, or tube)",TRAUMA
+2.2.3.1,1,0,EMS2026-2-2-3-1-01,193,Spinal motion restriction,
+2.2.3.2,1,0,EMS2026-2-2-3-2-04,256,Application of backboard as extrication device,TRAUMA
+2.2.5.1.1,1,0,EMS2026-2-2-5-1-1-03,117,"Splinting, including use of nontraditional materials",
+2.2.5.1.2,1,0,EMS2026-2-2-5-1-2-05,100,Joint reduction without anesthetics,
+2.2.5.1.3,2,0,EMS2026-2-2-5-1-3-04|EMS2026-2-2-5-1-3-05,208|217,Application of traction devices,
+2.2.6,1,1,EMS2026-2-2-6-02,60,Facial and Ocular Trauma,TRAUMA
+2.2.7.1,1,0,EMS2026-2-2-7-1-03,14,Severe head injury management,Trauma
+2.2.8.1,1,0,EMS2026-2-2-8-1-04,74,Field limb amputation,
+2.2.8.2,1,1,EMS2026-2-2-8-2-03,66,Crush injuries,TRAUMA
+2.3.1.1,1,0,EMS2026-2-3-1-1-03,34,Determination of causes,Medical Emergencies
+2.3.1.2,3,1,EMS2026-2-3-1-2-04|EMS2026-2-3-1-2-02|EMS2026-2-3-1-2-05,52|72|185,Use of capnometry and capnography waveforms in diagnosis and management,MEDICAL EMERGENCIES|Medical Emergencies
+2.3.1.3,2,1,EMS2026-2-3-1-3-02|EMS2026-2-3-1-3-01,78|163,Management of respiratory distress or shortness of breath,MEDICAL EMERGENCIES
+2.3.1.4,1,1,EMS2026-2-3-1-4-01,84,Non-invasive positive pressure ventilation,MEDICAL EMERGENCIES
+2.3.1.6.1,1,0,EMS2026-2-3-1-6-1-05,77,Clinical diagnosis,
+2.3.1.6.2,2,1,EMS2026-2-3-1-6-2-01|EMS2026-2-3-1-6-2-03,90|97,Management and related devices,MEDICAL EMERGENCIES
+2.3.2.1.3,1,0,EMS2026-2-3-2-1-3-02,140,Prehospital administration of thrombolytics for STEMI,
+2.3.2.2.1,1,0,EMS2026-2-3-2-2-1-02,227,Field identification of heart failure (acute or chronic),
+2.3.2.2.2,1,0,EMS2026-2-3-2-2-2-01,145,Heart failure management,
+2.3.2.6.1,1,0,EMS2026-2-3-2-6-1-03,187,Intra-aortic balloon pump management,
+2.3.2.6.2,1,1,EMS2026-2-3-2-6-2-02,96,Ventricular assist devices (surgical and percutaneous),MEDICAL EMERGENCIES
+2.3.2.7,1,0,EMS2026-2-3-2-7-02,58,Wearable cardioverter defibrillator,Medical Emergencies
+2.3.3.1.1,1,0,EMS2026-2-3-3-1-1-05,4,Prehospital stroke identification and severity scales,Medical Emergencies
+2.3.4.1,1,0,EMS2026-2-3-4-1-07,287,Gastrointestinal hemorrhage,MEDICAL EMERGENCIES
+2.3.4.2,1,0,EMS2026-2-3-4-2-02,289,Gastrointestinal tube displacement,MEDICAL EMERGENCIES
+2.3.5.2,1,0,EMS2026-2-3-5-2-04,25,Protocols for treat and release,Medical Emergencies
+2.3.5.4,2,1,EMS2026-2-3-5-4-04|EMS2026-2-3-5-4-01,102|255,Insulin pumps,MEDICAL EMERGENCIES
+2.3.5.5,1,1,EMS2026-2-3-5-5-02,108,Wearable glucose monitors,MEDICAL EMERGENCIES
+2.3.6.1.2,1,1,EMS2026-2-3-6-1-2-02,114,Uncontrolled hemorrhage from shunt site,MEDICAL EMERGENCIES
+2.3.6.2,2,1,EMS2026-2-3-6-2-03|EMS2026-2-3-6-2-01,120|167,Evaluation and treatment of hyperkalemia,MEDICAL EMERGENCIES
+2.3.7.1.2,1,1,EMS2026-2-3-7-1-2-02,126,Preeclampsia and eclampsia,MEDICAL EMERGENCIES
+2.3.7.1.4,1,1,EMS2026-2-3-7-1-4-02,132,Placenta previa,MEDICAL EMERGENCIES
+2.3.7.1.5,1,0,EMS2026-2-3-7-1-5-01,263,Spontaneous or threatened abortion,MEDICAL EMERGENCIES
+2.3.7.2.2,2,0,EMS2026-2-3-7-2-2-03|EMS2026-2-3-7-2-2-02,53|160,"High-risk delivery of a fetus (e.g., preterm delivery)",Medical Emergencies
+2.3.7.3.2,1,1,EMS2026-2-3-7-3-2-02,138,Shoulder dystocia,MEDICAL EMERGENCIES
+2.3.7.3.4,2,0,EMS2026-2-3-7-3-4-04|EMS2026-2-3-7-3-4-02,19|189,Post-partum hemorrhage,Medical Emergencies
+2.3.7.3.6,1,1,EMS2026-2-3-7-3-6-02,144,Neonatal resuscitation,MEDICAL EMERGENCIES
+2.3.7.6,1,0,EMS2026-2-3-7-6-01,230,Trauma in pregnancy,
+2.3.7.8,1,0,EMS2026-2-3-7-8-05,68,Systems of care (including destination decisions),
+2.3.8.2.5,1,1,EMS2026-2-3-8-2-5-03,156,Organophosphates,MEDICAL EMERGENCIES
+2.3.8.3,2,1,EMS2026-2-3-8-3-05|EMS2026-2-3-8-3-01,63|150,Treatment with antidotes,MEDICAL EMERGENCIES
+2.3.8.4,1,0,EMS2026-2-3-8-4-05,223,Caustic substance ingestion (including airway management),
+2.3.8.5.1,1,1,EMS2026-2-3-8-5-1-02,162,Treatment of suspected overdose,MEDICAL EMERGENCIES
+2.3.8.6,1,0,EMS2026-2-3-8-6-05,122,"Bites, stings, and envenomation",
+2.3.9.5,1,1,EMS2026-2-3-9-5-02,294,Explosive/Blast,MEDICAL EMERGENCIES
+2.3.10.1,1,1,EMS2026-2-3-10-1-03,168,Early recognition,MEDICAL EMERGENCIES
+2.3.10.2,3,1,EMS2026-2-3-10-2-05|EMS2026-2-3-10-2-01|EMS2026-2-3-10-2-03,143|155|174,"Management (e.g., care bundles)",MEDICAL EMERGENCIES
+2.3.11.1.1,1,0,EMS2026-2-3-11-1-1-02,22,"Contact (e.g., Norovirus, MRSA, Hep B, C)",Medical Emergencies
+2.3.11.1.3,2,1,EMS2026-2-3-11-1-3-04|EMS2026-2-3-11-1-3-02,118|180,"Airborne (e.g., measles, COVID-19, varicella, tuberculosis)",MEDICAL EMERGENCIES
+2.3.11.3.1,1,0,EMS2026-2-3-11-3-1-02,11,Viral hemorrhagic fevers,Medical Emergencies
+2.3.11.3.4,1,1,EMS2026-2-3-11-3-4-02,300,MPox,MEDICAL EMERGENCIES
+2.3.11.5.2,1,0,EMS2026-2-3-11-5-2-02,248,Standard precautions,MEDICAL EMERGENCIES
+2.3.11.5.4.4,1,1,EMS2026-2-3-11-5-4-4-01,186,Alerting public health/receiving facility,MEDICAL EMERGENCIES
+2.3.11.6.1,1,0,EMS2026-2-3-11-6-1-05,209,"Health monitoring, post-exposure prophylaxis, and testing",
+2.3.11.6.2,2,0,EMS2026-2-3-11-6-2-02|EMS2026-2-3-11-6-2-01,141|194,Infection control liaison between hospital and EMS agency,
+2.3.11.7,1,0,EMS2026-2-3-11-7-03,38,Cleaning and disinfection of the ambulance,Medical Emergencies
+2.3.12.1.1,1,1,EMS2026-2-3-12-1-1-02,192,Mood disorders,MEDICAL EMERGENCIES
+2.3.12.1.2,1,0,EMS2026-2-3-12-1-2-04,254,Psychosis,MEDICAL EMERGENCIES
+2.3.12.1.3,1,1,EMS2026-2-3-12-1-3-02,198,"Anxiety, panic disorder, hyperventilation syndrome",MEDICAL EMERGENCIES
+2.3.12.2,1,1,EMS2026-2-3-12-2-03,204,Suicidal ideation,MEDICAL EMERGENCIES
+2.3.12.3.1,1,0,EMS2026-2-3-12-3-1-04,104,De-escalation techniques,
+2.3.12.3.4,1,1,EMS2026-2-3-12-3-4-02,210,Delirium with agitated behavior,MEDICAL EMERGENCIES
+2.3.13.1.1,1,1,EMS2026-2-3-13-1-1-02,216,Hypothermia,MEDICAL EMERGENCIES
+2.3.13.1.3,1,1,EMS2026-2-3-13-1-3-02,222,Protection from injury vs. re-warming,MEDICAL EMERGENCIES
+2.3.13.2.1,2,1,EMS2026-2-3-13-2-1-02|EMS2026-2-3-13-2-1-03,182|228,Exertional heat stroke,MEDICAL EMERGENCIES
+2.3.13.3.1,2,0,EMS2026-2-3-13-3-1-03|EMS2026-2-3-13-3-1-04,105|196,Protection from high altitude injury,
+2.3.13.3.3,1,0,EMS2026-2-3-13-3-3-02,93,Field prophylaxis and treatment,
+2.3.13.4.1,1,1,EMS2026-2-3-13-4-1-03,234,Initial management in water,MEDICAL EMERGENCIES
+2.3.13.4.2,1,0,EMS2026-2-3-13-4-2-01,49,Decompression illness,Medical Emergencies
+2.3.13.4.4,1,0,EMS2026-2-3-13-4-4-01,95,Nitrogen narcosis,
+2.3.13.5.1,1,0,EMS2026-2-3-13-5-1-01,111,Reverse triage,
+2.4.1,1,0,EMS2026-2-4-1-02,28,Point of Care Testing,Special Clinical Considerations
+2.4.4.1,1,0,EMS2026-2-4-4-1-06,284,Effect of altitude on patient management,SPECIAL CLINICAL CONSIDERATIONS
+2.4.5.1,3,1,EMS2026-2-4-5-1-05|EMS2026-2-4-5-1-04|EMS2026-2-4-5-1-03,23|157|240,Pediatric airway management,SPECIAL CLINICAL CONSIDERATIONS|Special Clinical Considerations
+2.4.5.4,1,1,EMS2026-2-4-5-4-03,246,Unique issues related to consent,SPECIAL CLINICAL CONSIDERATIONS
+2.4.5.5,1,0,EMS2026-2-4-5-5-01,20,Brief resolved unexplained event (BRUE),Special Clinical Considerations
+2.4.5.6,1,0,EMS2026-2-4-5-6-04,107,"Children with special healthcare needs (e.g., technology dependent)",
+2.4.5.7,1,1,EMS2026-2-4-5-7-03,252,Safe transport of pediatric patients,SPECIAL CLINICAL CONSIDERATIONS
+2.4.6.1,2,1,EMS2026-2-4-6-1-05|EMS2026-2-4-6-1-03,139|258,"Geriatric trauma (e.g., falls)",SPECIAL CLINICAL CONSIDERATIONS
+2.4.6.3,1,1,EMS2026-2-4-6-3-04,264,Dementia or delirium,SPECIAL CLINICAL CONSIDERATIONS
+2.4.7.2,1,1,EMS2026-2-4-7-2-02,270,Procedure challenges,SPECIAL CLINICAL CONSIDERATIONS
+2.4.8.1,1,1,EMS2026-2-4-8-1-03,276,Hospice care,SPECIAL CLINICAL CONSIDERATIONS
+2.4.9.1,1,0,EMS2026-2-4-9-1-05,154,Social isolation,
+2.4.9.2,1,1,EMS2026-2-4-9-2-02,282,Family centered care,SPECIAL CLINICAL CONSIDERATIONS
+2.4.9.3,1,1,EMS2026-2-4-9-3-02,288,Management of bystanders while caring for patient,SPECIAL CLINICAL CONSIDERATIONS
+2.4.9.6,1,0,EMS2026-2-4-9-6-01,51,Housing instability,Special Clinical Considerations
+2.4.12.1,1,0,EMS2026-2-4-12-1-02,82,Lift assist calls,
+2.4.13,2,0,EMS2026-2-4-13-03|EMS2026-2-4-13-05,71|113,Gender-based Health Issues,
+3.1.1,1,0,EMS2026-3-1-1-07,9,Quality Improvement Methodology Frameworks,Quality Management
+3.1.2.1,2,0,EMS2026-3-1-2-1-02|EMS2026-3-1-2-1-08,3|129,Clinical decision making,Quality Management
+3.1.2.2,1,0,EMS2026-3-1-2-2-04,29,Cognitive biases,Quality Management
+3.1.2.3,1,0,EMS2026-3-1-2-3-06,158,Adverse events,
+3.1.2.4,1,0,EMS2026-3-1-2-4-05,243,Just culture,QUALITY MANAGEMENT
+3.1.3.1.1,1,0,EMS2026-3-1-3-1-1-05,265,Causal tools (fishbone and driver diagram),QUALITY MANAGEMENT
+3.1.3.1.2,1,0,EMS2026-3-1-3-1-2-05,249,Graphic display tools (run chart and control chart),QUALITY MANAGEMENT
+3.1.3.2,1,0,EMS2026-3-1-3-2-02,27,Quality improvement programs,Quality Management
+3.1.4.1,1,0,EMS2026-3-1-4-1-04,128,"Local, state, and national EMS data sources (including registries and databases)",
+3.1.4.2,1,0,EMS2026-3-1-4-2-05,291,Information system design,QUALITY MANAGEMENT
+3.1.4.3,1,0,EMS2026-3-1-4-3-05,274,Performance measures,QUALITY MANAGEMENT
+3.1.6,1,0,EMS2026-3-1-6-08,73,Implementation Science,
+3.2.1.1,1,0,EMS2026-3-2-1-1-07,80,"Ethical frameworks (e.g., Belmont Report, Common Rule, Final Rule)",
+3.2.1.2,2,0,EMS2026-3-2-1-2-05|EMS2026-3-2-1-2-07,70|125,Role of the Institutional Review Board,
+3.2.1.5,1,0,EMS2026-3-2-1-5-03,225,Human subjects research and vulnerable populations,
+3.2.2,2,0,EMS2026-3-2-2-05|EMS2026-3-2-2-08,26|232,Epidemiology,Research
+3.2.3.1,1,0,EMS2026-3-2-3-1-08,178,Hypothesis testing,
+3.2.3.2,1,0,EMS2026-3-2-3-2-07,164,Statistical tests,
+3.2.3.3,1,0,EMS2026-3-2-3-3-01,33,Data analysis,Research
+3.2.4.3,1,0,EMS2026-3-2-4-3-02,175,Outcome measures,
+3.2.4.4,1,0,EMS2026-3-2-4-4-02,235,"Reporting guidelines (e.g., PRISMA, CONSORT, STROBE)",
+3.2.4.5,1,0,EMS2026-3-2-4-5-05,40,Cost analysis research,Research
+4.1.1.1,1,0,EMS2026-4-1-1-1-03,233,IS-800,
+4.1.2.1,1,0,EMS2026-4-1-2-1-05,251,IS-700,DISASTER MANAGEMENT
+4.1.3.3,1,0,EMS2026-4-1-3-3-02,121,Regional resource allocation and management,
+4.1.3.5,1,0,EMS2026-4-1-3-5-02,1,IS-100 and IS-200,Disaster Management
+4.1.4.1,1,0,EMS2026-4-1-4-1-03,146,State and federal criteria for disaster declaration,
+4.1.4.2,2,0,EMS2026-4-1-4-2-05|EMS2026-4-1-4-2-06,92|176,State emergency mutual aid compacts,
+4.1.5.1,1,0,EMS2026-4-1-5-1-04,293,National Disaster Medical System (NDMS),DISASTER MANAGEMENT
+4.1.5.2,1,0,EMS2026-4-1-5-2-04,285,Specialized teams,DISASTER MANAGEMENT
+4.1.5.3,1,0,EMS2026-4-1-5-3-04,262,Non-governmental agencies,DISASTER MANAGEMENT
+4.1.5.4,1,0,EMS2026-4-1-5-4-04,297,Medical Reserve Corps,DISASTER MANAGEMENT
+4.1.5.5,1,0,EMS2026-4-1-5-5-02,211,State and federal assets,
+4.1.6.1,1,0,EMS2026-4-1-6-1-04,260,Allocation of scene resources,DISASTER MANAGEMENT
+4.1.6.3,1,0,EMS2026-4-1-6-3-02,37,Contingency and crisis standards of care,Disaster Management
+4.1.6.4,1,0,EMS2026-4-1-6-4-04,244,Regional Medical Operations Coordination Centers,DISASTER MANAGEMENT
+4.1.6.5,1,0,EMS2026-4-1-6-5-04,296,Alternate care facilities,DISASTER MANAGEMENT
+4.1.7.1,1,0,EMS2026-4-1-7-1-01,212,Triage,
+4.1.7.2.1,2,0,EMS2026-4-1-7-2-1-02|EMS2026-4-1-7-2-1-04,56|59,Life-saving interventions and on-site treatment,Disaster Management
+4.1.7.2.2,1,0,EMS2026-4-1-7-2-2-04,241,Patient reunification,DISASTER MANAGEMENT
+4.1.7.3.1,1,0,EMS2026-4-1-7-3-1-04,286,Transport modes,DISASTER MANAGEMENT
+4.1.7.3.3,1,0,EMS2026-4-1-7-3-3-01,109,Patient tracking,
+4.1.8.1.3,1,0,EMS2026-4-1-8-1-3-01,99,Personnel and patient decontamination,
+4.1.8.4,1,0,EMS2026-4-1-8-4-04,123,Radiological incidents,
+4.2.1.3,1,0,EMS2026-4-2-1-3-02,50,Design of event treatment facilities,Mass Gathering
+4.2.1.5,2,0,EMS2026-4-2-1-5-05|EMS2026-4-2-1-5-01,57|115,MCI preparedness within mass gathering,Mass Gathering
+4.2.3,1,0,EMS2026-4-2-3-05,55,Training and Drills,Mass Gathering
+4.2.5.1,1,0,EMS2026-4-2-5-1-03,17,Onsite public safety answering point and dispatch,Mass Gathering
+4.3.1,1,0,EMS2026-4-3-1-07,103,Personnel rehabilitation,
+4.4.4,2,0,EMS2026-4-4-4-04|EMS2026-4-4-4-05,10|35,Phases of care,Tactical
+4.4.5.2,1,0,EMS2026-4-4-5-2-03,200,Sensory-deprived or sensory-overload physical assessment,
+4.4.6.1,2,0,EMS2026-4-4-6-1-05|EMS2026-4-4-6-1-02,130|173,Medical threat assessment,
+4.5.1.1,1,0,EMS2026-4-5-1-1-04,65,Rope rescue,
+4.5.1.2,1,0,EMS2026-4-5-1-2-03,134,Confined space rescue,
+4.5.1.5,1,0,EMS2026-4-5-1-5-04,85,Vehicle and machinery rescue,
+4.5.5,1,0,EMS2026-4-5-5-01,64,Operational considerations,
+4.6.2.2,1,0,EMS2026-4-6-2-2-04,199,Advanced wound care,
+4.6.2.3,2,0,EMS2026-4-6-2-3-01|EMS2026-4-6-2-3-03,45|112,"Field reduction of dislocations, subluxations, or fractures",Wilderness
+4.6.2.4,2,0,EMS2026-4-6-2-4-02|EMS2026-4-6-2-4-04,81|91,Patient temperature management,
+4.7.2,1,0,EMS2026-4-7-2-06,218,Expanded role/scope of practice,
+4.7.3,1,0,EMS2026-4-7-3-05,124,"Resources (e.g., equipment, medications, or point-of-care testing)",
+4.7.4,2,0,EMS2026-4-7-4-05|EMS2026-4-7-4-02,67|236,Medical oversight models,
+4.7.5,1,0,EMS2026-4-7-5-03,221,"Personnel education, certification, and credentialing",
+4.7.6.2,1,0,EMS2026-4-7-6-2-06,190,Patient care navigation,

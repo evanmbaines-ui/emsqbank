@@ -1,0 +1,16 @@
+{
+  "questions": 50,
+  "audit_target": "correct answer has uniquely higher comma count than all distractors",
+  "correct_unique_highest_comma_count": 0,
+  "correct_unique_highest_comma_rate": 0.0,
+  "correct_unique_highest_comma_items": [],
+  "correct_contains_comma_count": 4,
+  "correct_contains_comma_rate": 0.08,
+  "correct_contains_comma_items": [
+    12,
+    16,
+    30,
+    50
+  ],
+  "note": "Comma-only cueing audit refreshed after partial-key cleanup on 2026-07-06."
+}
