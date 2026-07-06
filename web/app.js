@@ -915,7 +915,7 @@
             <div><strong>545</strong><span>Core Content outline rows mapped</span></div>
             <div><strong>410</strong><span>Terminal topics used for sampling</span></div>
             <div><strong>2,500</strong><span>Planned single-best-answer items</span></div>
-            <div><strong>160</strong><span>Indexed local source records</span></div>
+            <div><strong>211</strong><span>Content-library files inventoried</span></div>
           </div>
 
           <section class="methods-section">
@@ -931,7 +931,7 @@
               Question writing is source-grounded rather than open-ended. The local corpus includes the 2026 Core Content outline, EMS textbooks and companion searchable text, board-review slide modules, NAEMSP review guides, position statements, official and regulatory documents, peer-reviewed EMS reviews, and other vetted EMS-relevant sources. Sources are prioritized in a fixed hierarchy: Core Content for scope, EMS textbooks for core explanations, NAEMSP and other official consensus documents for current policy or standards, board-review materials for emphasis, peer-reviewed reviews for gap filling, and other vetted sources only when higher-tier material is not available.
             </p>
             <p>
-              The source map records coverage status, source links, textbook locators, and whether a content area needs supplemental review. This is meant to keep each question traceable back to a supportable source instead of relying on the model's memory.
+              The content-library audit currently inventories 211 local source files. The source map records coverage status, source links, textbook locators, and whether a content area needs supplemental review. This is meant to keep each question traceable back to a supportable source instead of relying on the model's memory.
             </p>
           </section>
 
