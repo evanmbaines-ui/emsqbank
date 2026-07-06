@@ -232,6 +232,7 @@
       domain: q.domain || "Unassigned",
       topicGroupCode,
       topicGroup: topicGroupLabel(q.topic_group, topicGroupCode, q),
+      coreContentPath: Array.isArray(q.core_content_path) ? q.core_content_path : [],
       topic: q.topic || "",
       answer: q.answer || "",
       title: q.title || `Question ${index + 1}`,
@@ -1876,19 +1877,28 @@
   function renderQuestionContext(q) {
     return `
       <div class="answer-context" aria-label="Question context">
-        <strong class="answer-context-title">${escapeHTML(q.title)}</strong>
         ${renderQuestionHierarchy(q)}
       </div>
     `;
   }
 
   function renderQuestionHierarchy(q) {
-    const levels = [
-      { label: "Domain", value: displayDomain(q.domain) },
-      { label: "Topic group", value: q.topicGroup },
-      { label: "Core content", value: q.coreContentCode ? `Core ${q.coreContentCode}` : "" },
-      { label: "Topic", value: q.topic && q.topic !== q.topicGroup ? q.topic : "" },
-    ].filter((level) => String(level.value || "").trim());
+    const outlineRows = q.coreContentPath.length ? q.coreContentPath : fallbackCoreContentPath(q);
+    const outlineLevels = outlineRows
+      .map((row, index) => ({
+        label: coreContentLevelLabel(row, index, outlineRows.length),
+        code: row.code || "",
+        value: displayCoreContentTitle(row.title || ""),
+        isQuestionTitle: false
+      }))
+      .filter((level) => String(level.value || level.code || "").trim());
+    const title = String(q.title || "").trim();
+    const levels = title ? outlineLevels.concat({
+      label: "Question title",
+      code: "",
+      value: title,
+      isQuestionTitle: true
+    }) : outlineLevels;
 
     if (!levels.length) {
       return "";
@@ -1897,13 +1907,48 @@
     return `
       <ol class="topic-tree" aria-label="Question topic hierarchy">
         ${levels.map((level, index) => `
-          <li class="topic-tree-node" style="--tree-indent: ${index * 24}px;">
+          <li class="topic-tree-node${level.isQuestionTitle ? " question-title-node" : ""}" style="--tree-indent: ${index * 18}px;">
             <span class="topic-tree-label">${escapeHTML(level.label)}</span>
+            ${level.code ? `<span class="topic-tree-code">${escapeHTML(level.code)}</span>` : `<span class="topic-tree-code empty" aria-hidden="true"></span>`}
             <span class="topic-tree-value">${escapeHTML(level.value)}</span>
           </li>
         `).join("")}
       </ol>
     `;
+  }
+
+  function fallbackCoreContentPath(q) {
+    const code = String(q.coreContentCode || q.contentId || "").trim();
+    const parts = code.split(".").filter(Boolean);
+    const rows = [];
+    if (parts.length) {
+      rows.push({ code: `${parts[0]}.0`, title: displayDomain(q.domain) });
+    }
+    if (parts.length >= 2) {
+      rows.push({ code: parts.slice(0, 2).join("."), title: q.topicGroup });
+    }
+    if (code && q.topic && !rows.some((row) => row.code === code)) {
+      rows.push({ code, title: q.topic });
+    }
+    return rows.filter((row) => String(row.title || row.code || "").trim());
+  }
+
+  function coreContentLevelLabel(row, index, total) {
+    const code = String(row.code || "");
+    if (/^\d+\.0$/.test(code)) {
+      return "Domain";
+    }
+    if (index === total - 1) {
+      return "Terminal topic";
+    }
+    if (index === 1) {
+      return "Section";
+    }
+    return "Subsection";
+  }
+
+  function displayCoreContentTitle(value) {
+    return displayDomain(value);
   }
 
   function renderResultBanner(record, selectedLabel = "") {

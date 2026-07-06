@@ -33,6 +33,7 @@ DEFAULT_SOURCE = (
     / "ems_locked_priority_superset_100_items.json"
 )
 SEED_QUESTION_BANK_FILE = WEB_ROOT / "seed_data" / "question_bank.json"
+CORE_CONTENT_OUTLINE_FILE = WEB_ROOT / "seed_data" / "core_content_outline.json"
 QUESTION_CONTENT_MIGRATION_DIR = WEB_ROOT / "migrations"
 
 USERS_FILE = DATA_ROOT / "users.json"
@@ -102,6 +103,7 @@ TOPIC_GROUP_LABELS = {
 }
 
 DATA_LOCK = threading.Lock()
+_CORE_CONTENT_OUTLINE: dict[str, str] | None = None
 
 
 def utc_now() -> str:
@@ -491,6 +493,48 @@ def topic_group_for_question(question: dict) -> str:
     if existing and existing != code:
         return existing
     return str(question.get("domain") or "Unassigned")
+
+
+def core_content_outline() -> dict[str, str]:
+    global _CORE_CONTENT_OUTLINE
+    if _CORE_CONTENT_OUTLINE is None:
+        data = load_json(CORE_CONTENT_OUTLINE_FILE, {"rows": []})
+        _CORE_CONTENT_OUTLINE = {
+            str(row.get("code", "")).strip(): str(row.get("title", "")).strip()
+            for row in data.get("rows", [])
+            if str(row.get("code", "")).strip() and str(row.get("title", "")).strip()
+        }
+    return _CORE_CONTENT_OUTLINE
+
+
+def core_content_path_for_question(question: dict) -> list[dict]:
+    code = str(question.get("content_id") or question.get("core_content_code") or "").strip()
+    parts = [part for part in code.split(".") if part]
+    if not parts:
+        return []
+
+    candidate_codes: list[str] = []
+    if len(parts) >= 1:
+        candidate_codes.append(f"{parts[0]}.0")
+    for depth in range(2, len(parts) + 1):
+        candidate_codes.append(".".join(parts[:depth]))
+
+    fallback_titles = {
+        f"{parts[0]}.0": str(question.get("domain") or "").strip(),
+        topic_group_code_for_question(question): topic_group_for_question(question),
+        code: str(question.get("topic") or "").strip(),
+    }
+    outline = core_content_outline()
+    path = []
+    seen = set()
+    for candidate_code in candidate_codes:
+        if candidate_code in seen:
+            continue
+        seen.add(candidate_code)
+        title = outline.get(candidate_code) or fallback_titles.get(candidate_code, "")
+        if title:
+            path.append({"code": candidate_code, "title": title})
+    return path
 
 
 def concept_key_for_question(question: dict) -> str:
@@ -1369,6 +1413,7 @@ def question_payload(anonymous_id: str | None = None) -> list[dict]:
         item = dict(question)
         item["topic_group_code"] = item.get("topic_group_code") or topic_group_code_for_question(item)
         item["topic_group"] = topic_group_for_question(item)
+        item["core_content_path"] = core_content_path_for_question(item)
         item["review_available"] = pool_state == "voting"
         item["learn_available"] = pool_state == "accepted"
         item["pool_state"] = "available"

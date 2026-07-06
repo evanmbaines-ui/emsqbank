@@ -1,0 +1,3281 @@
+{
+  "source": "The 2026 Core Content of Emergency Medical Services Medicine",
+  "rows": [
+    {
+      "code": "1.0",
+      "title": "MEDICAL OVERSIGHT OF EMS",
+      "is_leaf": false,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.1",
+      "title": "MEDICAL OVERSIGHT",
+      "is_leaf": false,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.1.1",
+      "title": "Medical Oversight of EMS Systems",
+      "is_leaf": false,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.1.1.1",
+      "title": "Direct medical oversight",
+      "is_leaf": false,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.1.1.1.1",
+      "title": "Provision of direct patient care",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.1.1.1.2",
+      "title": "Physician directed care by radio or phone",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.1.1.1.3",
+      "title": "Physician directed care in person",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.1.1.1.4",
+      "title": "Telemedicine",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.1.1.2",
+      "title": "Indirect medical oversight",
+      "is_leaf": false,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.1.1.2.1",
+      "title": "Development of medical protocols",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.1.1.2.2",
+      "title": "Quality improvement programs",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.1.1.2.3",
+      "title": "Determination of medical necessity in the field",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.1.1.3",
+      "title": "Assessment of personnel competence and fitness for duty (initial and continued)",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.1.1.4",
+      "title": "Medical director qualifications",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.1.2",
+      "title": "Legal Issues",
+      "is_leaf": false,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.1.2.1",
+      "title": "Definition of a patient",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.1.2.2",
+      "title": "Mandatory reporting",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.1.2.3",
+      "title": "Determination and/or pronouncement of death",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.1.2.4",
+      "title": "Decision making capacity",
+      "is_leaf": false,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.1.2.4.1",
+      "title": "Informed consent and informed refusal",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.1.2.4.2",
+      "title": "Difference between capacity and competence",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.1.2.5",
+      "title": "Patient abandonment",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.1.2.6",
+      "title": "Due process",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.1.2.7",
+      "title": "Risk management",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.2",
+      "title": "EMS SYSTEMS",
+      "is_leaf": false,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.2.1",
+      "title": "Public Safety Answering Points",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.2.2",
+      "title": "Emergency Medical Dispatch",
+      "is_leaf": false,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.2.2.1",
+      "title": "Pre-arrival instructions",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.2.2.2",
+      "title": "Prioritization of response (e.g., determining local needs based on local resources)",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.2.2.3",
+      "title": "Tiered response",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.2.2.4",
+      "title": "Mutual aid response",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.2.3",
+      "title": "Use of Lights and Siren",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.2.4",
+      "title": "EMS System Design",
+      "is_leaf": false,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.2.4.1",
+      "title": "Response and transport vehicles",
+      "is_leaf": true,
+      "pdf_page": 10
+    },
+    {
+      "code": "1.2.4.2",
+      "title": "EMS clinician levels (EMR, EMT, AEMT, Paramedic)",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.2.4.3",
+      "title": "Service delivery models",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.2.4.4",
+      "title": "Equipment design and supply issues",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.2.5",
+      "title": "Delivery Systems with Special Considerations",
+      "is_leaf": false,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.2.5.1",
+      "title": "Urban EMS",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.2.5.2",
+      "title": "Suburban EMS",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.2.5.3",
+      "title": "Rural and frontier EMS",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.2.5.4",
+      "title": "Wilderness EMS",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.2.5.5",
+      "title": "Volunteer EMS",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.2.5.6",
+      "title": "Inter-facility transport",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.2.5.7",
+      "title": "Military EMS",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.2.5.8",
+      "title": "Critical care and specialty care transport",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.2.5.9",
+      "title": "Air medical transport",
+      "is_leaf": false,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.2.5.9.1",
+      "title": "Rotor wing",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.2.5.9.2",
+      "title": "Fixed wing",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.2.5.10",
+      "title": "Tribal EMS",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.2.5.11",
+      "title": "International EMS",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.2.5.12",
+      "title": "Airline, cruise ship, and resort medical support",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.2.6",
+      "title": "Communications Systems",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.2.7",
+      "title": "Regionalization of Care",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3",
+      "title": "EMS PERSONNEL",
+      "is_leaf": false,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.1",
+      "title": "Scope of Practice Models",
+      "is_leaf": false,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.1.1",
+      "title": "State vs. national",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.1.2",
+      "title": "Levels of EMS clinicians",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.1.3",
+      "title": "Roles and psychomotor skills",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.2",
+      "title": "Education",
+      "is_leaf": false,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.2.1",
+      "title": "Theories of adult learning",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.2.2",
+      "title": "Education delivery models",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.2.3",
+      "title": "National EMS education standards",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.2.4",
+      "title": "EMS clinician training programs",
+      "is_leaf": false,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.2.4.1",
+      "title": "Initial education",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.2.4.2",
+      "title": "Continuing education",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.2.5",
+      "title": "Accreditation of training programs",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.2.6",
+      "title": "Remediation and workforce re-entry",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.3",
+      "title": "Certification, Licensure, and Credentialing",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.4",
+      "title": "EMS Personnel Health, Safety, and Wellness",
+      "is_leaf": false,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.4.1",
+      "title": "Occupational health",
+      "is_leaf": false,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.4.1.1",
+      "title": "Regulations and standards (e.g., National Fire Protection Association [NFPA] 1582, Ryan White Act, Occupational Safety and Health Administration [OSHA] requirements, National Institute for Occupational Safety and Health [NIOSH])",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.4.1.2",
+      "title": "Ergonomic factors",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.4.1.3",
+      "title": "Workplace injuries",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.4.1.4",
+      "title": "Vaccination",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.4.2",
+      "title": "Emergency incident rehabilitation",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.4.3",
+      "title": "Disordered sleep and work schedule",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.4.4",
+      "title": "Prevention and intervention for psychologically stressful events",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.4.5",
+      "title": "Mental health",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.4.6",
+      "title": "Violence against EMS personnel",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.4.7",
+      "title": "Emergency vehicle operations",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.5",
+      "title": "Crew Resource Management",
+      "is_leaf": true,
+      "pdf_page": 11
+    },
+    {
+      "code": "1.3.6",
+      "title": "Recruitment and Retention",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.3.7",
+      "title": "Diverse and Inclusive Workforce",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4",
+      "title": "EMS SYSTEM MANAGEMENT",
+      "is_leaf": false,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.1",
+      "title": "Response Times",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.2",
+      "title": "System Finance",
+      "is_leaf": false,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.2.1",
+      "title": "Allocation of resources",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.2.2",
+      "title": "Billing",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.2.3",
+      "title": "Reimbursement",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.3",
+      "title": "Legislation and Government",
+      "is_leaf": false,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.3.1",
+      "title": "Working with government and public health agencies",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.3.2",
+      "title": "Local laws and ordinances impacting EMS",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.3.3",
+      "title": "State laws impacting EMS",
+      "is_leaf": false,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.3.3.1",
+      "title": "Involuntary care (e.g., petitions and certificates)",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.3.4",
+      "title": "Federal laws and regulations impacting EMS",
+      "is_leaf": false,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.3.4.1",
+      "title": "Good Samaritan laws",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.3.4.2",
+      "title": "Emergency Treatment and Labor Act (EMTALA)",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.3.4.3",
+      "title": "Controlled Substance Act (and Protecting Patient Access to Emergency Medications Act)",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.3.4.4",
+      "title": "Health Insurance Portability and Accountability Act (HIPAA)",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.4",
+      "title": "Public Health",
+      "is_leaf": false,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.4.1",
+      "title": "Specialty hospital designations and patient transport",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.4.2",
+      "title": "Field triage to appropriate destination",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.4.3",
+      "title": "Public access defibrillation (PAD)",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.4.4",
+      "title": "Hospital diversion and bypass",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.4.5",
+      "title": "Integration of EMS, community public resources, mental health resources, and social services",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.5",
+      "title": "System Status Management",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.6",
+      "title": "Use of Alternative Dispositions",
+      "is_leaf": false,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.6.1",
+      "title": "Alternative destinations",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.6.2",
+      "title": "Treatment in place",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.7",
+      "title": "Navigation to Healthcare Resources",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.4.8",
+      "title": "Advocacy for EMS Systems",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.5",
+      "title": "CRISIS AND EMERGENCY RISK COMMUNICATION",
+      "is_leaf": false,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.5.1",
+      "title": "Public information and interacting with the media",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.5.2",
+      "title": "Crisis communication",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.5.3",
+      "title": "Emergency risk communication",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "1.5.4",
+      "title": "Communication lifecycle",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "2.0",
+      "title": "CLINICAL ASPECTS OF EMS MEDICINE",
+      "is_leaf": false,
+      "pdf_page": 12
+    },
+    {
+      "code": "2.1",
+      "title": "RESUSCITATION",
+      "is_leaf": false,
+      "pdf_page": 12
+    },
+    {
+      "code": "2.1.1",
+      "title": "Cardiac Arrest",
+      "is_leaf": false,
+      "pdf_page": 12
+    },
+    {
+      "code": "2.1.1.1",
+      "title": "General management and field resuscitation",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "2.1.1.2",
+      "title": "Transport decisions",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "2.1.1.3",
+      "title": "Post-resuscitation care",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "2.1.1.4",
+      "title": "Termination of resuscitation in the field",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "2.1.1.5",
+      "title": "Mechanical CPR and real-time feedback devices",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "2.1.1.6",
+      "title": "Withholding resuscitation (including determination of death and applying advanced directives)",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "2.1.2",
+      "title": "Airway Management",
+      "is_leaf": false,
+      "pdf_page": 12
+    },
+    {
+      "code": "2.1.2.1",
+      "title": "Basic airway management",
+      "is_leaf": false,
+      "pdf_page": 12
+    },
+    {
+      "code": "2.1.2.1.2",
+      "title": "Oropharyngeal and nasopharyngeal airways",
+      "is_leaf": true,
+      "pdf_page": 12
+    },
+    {
+      "code": "2.1.2.1.3",
+      "title": "Bag-valve-mask ventilation",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.1.2.2",
+      "title": "Advanced airway management",
+      "is_leaf": false,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.1.2.2.1",
+      "title": "Devices for securing airway",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.1.2.2.2",
+      "title": "Airway management adjuncts",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.1.2.2.3",
+      "title": "Direct laryngoscopy",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.1.2.2.4",
+      "title": "Video laryngoscopy",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.1.2.2.5",
+      "title": "Drug assisted airway management",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.1.2.2.6",
+      "title": "Supraglottic/extraglottic airways",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.1.2.2.7",
+      "title": "Nasal intubation",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.1.2.2.8",
+      "title": "Cricothyroidotomy",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.1.2.3",
+      "title": "Airway management in challenging conditions (e.g., low light, atypical position)",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.1.2.4",
+      "title": "Airway management in bariatric patients",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.1.2.5",
+      "title": "Tracheostomy complications",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.1.2.6",
+      "title": "Control of post-tonsillectomy hemorrhage",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.1.3",
+      "title": "Hypotension and Shock",
+      "is_leaf": false,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.1.3.1",
+      "title": "Recognition of shock and hypotension",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.1.3.2",
+      "title": "Management of hypotension and shock",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.1.3.3",
+      "title": "Vascular access",
+      "is_leaf": false,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.1.3.3.1",
+      "title": "Placement of peripheral intravenous lines",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.1.3.3.2",
+      "title": "Access or placement of central venous lines",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.1.3.3.3",
+      "title": "Placement of intraosseous lines (adult and pediatric)",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.1.3.4",
+      "title": "Blood product transfusion",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.1.4",
+      "title": "Altered Mental Status",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2",
+      "title": "TRAUMA",
+      "is_leaf": false,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.1",
+      "title": "General Trauma",
+      "is_leaf": false,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.1.1",
+      "title": "Goal of minimizing scene time for severe trauma",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.1.2",
+      "title": "Management and resuscitation of multi-trauma patient",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.1.3",
+      "title": "Field trauma triage criteria",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.1.4",
+      "title": "Blunt vs penetrating trauma",
+      "is_leaf": false,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.1.4.1",
+      "title": "Motor vehicle collisions",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.1.4.2",
+      "title": "Gunshot wounds and ballistics",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.1.5",
+      "title": "Control of life-threatening hemorrhage",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.1.6",
+      "title": "Wound care management",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.2",
+      "title": "Chest and Abdominal Trauma",
+      "is_leaf": false,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.2.1",
+      "title": "Thoracostomy (including needle, simple, or tube)",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.2.1.3",
+      "title": "Prehospital administration of thrombolytics for STEMI",
+      "is_leaf": false,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.2.3",
+      "title": "Spinal Trauma",
+      "is_leaf": false,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.3.1",
+      "title": "Spinal motion restriction",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.3.2",
+      "title": "Application of backboard as extrication device",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.4",
+      "title": "Burn Management",
+      "is_leaf": false,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.4.1",
+      "title": "Escharotomy",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.5",
+      "title": "Orthopedic Trauma",
+      "is_leaf": false,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.5.1",
+      "title": "Fractures and dislocations",
+      "is_leaf": false,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.5.1.1",
+      "title": "Splinting, including use of nontraditional materials",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.5.1.2",
+      "title": "Joint reduction without anesthetics",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.5.1.3",
+      "title": "Application of traction devices",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.5.1.4",
+      "title": "Administration of antibiotics",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.6",
+      "title": "Facial and Ocular Trauma",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.7",
+      "title": "Traumatic Brain Injuries",
+      "is_leaf": false,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.7.1",
+      "title": "Severe head injury management",
+      "is_leaf": true,
+      "pdf_page": 13
+    },
+    {
+      "code": "2.2.7.2",
+      "title": "Concussion management",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.2.8",
+      "title": "Management of the Trapped Patient",
+      "is_leaf": false,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.2.8.1",
+      "title": "Field limb amputation",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.2.8.2",
+      "title": "Crush injuries",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3",
+      "title": "MEDICAL EMERGENCIES",
+      "is_leaf": false,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.1",
+      "title": "Respiratory",
+      "is_leaf": false,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.1.1",
+      "title": "Determination of causes",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.1.2",
+      "title": "Use of capnometry and capnography waveforms in diagnosis and management",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.1.3",
+      "title": "Management of respiratory distress or shortness of breath",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.1.4",
+      "title": "Non-invasive positive pressure ventilation",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.1.5",
+      "title": "Portable ventilator management",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.1.6",
+      "title": "Pneumothorax",
+      "is_leaf": false,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.1.6.1",
+      "title": "Clinical diagnosis",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.1.6.2",
+      "title": "Management and related devices",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.2",
+      "title": "Cardiovascular",
+      "is_leaf": false,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.2.1",
+      "title": "Acute Coronary Syndrome, including ST-elevation myocardial infarct (STEMI)",
+      "is_leaf": false,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.2.1.1",
+      "title": "Utilization of electrocardiogram (ECG) in the field",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.2.1.2",
+      "title": "Systems of care (including PCI centers)",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.2.1.3",
+      "title": "Prehospital administration of thrombolytics for STEMI",
+      "is_leaf": true,
+      "pdf_page": null
+    },
+    {
+      "code": "2.3.2.2",
+      "title": "Heart failure",
+      "is_leaf": false,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.2.2.1",
+      "title": "Field identification of heart failure (acute or chronic)",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.2.2.2",
+      "title": "Heart failure management",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.2.3",
+      "title": "Sympathetic crashing acute pulmonary edema (SCAPE)",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.2.4",
+      "title": "Implantable cardiac devices",
+      "is_leaf": false,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.2.4.1",
+      "title": "Evaluation and management of malfunction",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.2.5",
+      "title": "Pericardiocentesis with or without ultrasound or other guidance device",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.2.6",
+      "title": "Cardiac assist devices",
+      "is_leaf": false,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.2.6.1",
+      "title": "Intra-aortic balloon pump management",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.2.6.2",
+      "title": "Ventricular assist devices (surgical and percutaneous)",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.2.6.3",
+      "title": "Extra-corporeal membrane oxygenation",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.2.7",
+      "title": "Wearable cardioverter defibrillator",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.3",
+      "title": "Neurological",
+      "is_leaf": false,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.3.1",
+      "title": "Stroke",
+      "is_leaf": false,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.3.1.1",
+      "title": "Prehospital stroke identification and severity scales",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.3.1.2",
+      "title": "Systems of care (e.g., levels of stroke centers)",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.3.1.3",
+      "title": "Stroke mimics",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.3.2",
+      "title": "Seizure identification and management",
+      "is_leaf": false,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.3.2.1",
+      "title": "Seizure mimics",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.4",
+      "title": "Gastrointestinal Emergencies",
+      "is_leaf": false,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.4.1",
+      "title": "Gastrointestinal hemorrhage",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.4.2",
+      "title": "Gastrointestinal tube displacement",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.5",
+      "title": "Diabetic Emergencies",
+      "is_leaf": false,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.5.1",
+      "title": "Glucagon or glucose/dextrose administration",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.5.2",
+      "title": "Protocols for treat and release",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.5.3",
+      "title": "Evaluation and treatment of hyperglycemia",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.5.4",
+      "title": "Insulin pumps",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.5.5",
+      "title": "Wearable glucose monitors",
+      "is_leaf": true,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.6",
+      "title": "Renal",
+      "is_leaf": false,
+      "pdf_page": 14
+    },
+    {
+      "code": "2.3.6.1",
+      "title": "Dialysis (hemodialysis or peritoneal dialysis)",
+      "is_leaf": false,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.6.1.1",
+      "title": "Use of dialysis access for resuscitation",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.6.1.2",
+      "title": "Uncontrolled hemorrhage from shunt site",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.6.2",
+      "title": "Evaluation and treatment of hyperkalemia",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7",
+      "title": "Obstetric and Gynecologic Emergencies",
+      "is_leaf": false,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7.1",
+      "title": "Perinatal complications",
+      "is_leaf": false,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7.1.1",
+      "title": "Elevated blood pressure in pregnancy",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7.1.2",
+      "title": "Preeclampsia and eclampsia",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7.1.3",
+      "title": "Placental abruption",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7.1.4",
+      "title": "Placenta previa",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7.1.5",
+      "title": "Spontaneous or threatened abortion",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7.1.6",
+      "title": "Peri-partum cardiomyopathy",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7.2",
+      "title": "Childbirth",
+      "is_leaf": false,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7.2.1",
+      "title": "Normal delivery of a fetus",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7.2.2",
+      "title": "High-risk delivery of a fetus (e.g., preterm delivery)",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7.3",
+      "title": "Complications of prehospital deliveries",
+      "is_leaf": false,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7.3.1",
+      "title": "Management of abnormal presentations of fetus (e.g., breech)",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7.3.2",
+      "title": "Shoulder dystocia",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7.3.3",
+      "title": "Prolapsed umbilical cord",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7.3.4",
+      "title": "Post-partum hemorrhage",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7.3.5",
+      "title": "Resource allocation with multiple births",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7.3.6",
+      "title": "Neonatal resuscitation",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7.4",
+      "title": "Resuscitative hysterotomy",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7.5",
+      "title": "Ectopic pregnancy",
+      "is_leaf": false,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7.5.1",
+      "title": "Effect of clinical diagnosis on transport decisions",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7.6",
+      "title": "Trauma in pregnancy",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7.7",
+      "title": "Gynecologic emergencies (e.g., ovarian torsion)",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.7.8",
+      "title": "Systems of care (including destination decisions)",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.8",
+      "title": "Poisoning/Toxicologic Emergencies",
+      "is_leaf": false,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.8.1",
+      "title": "Toxidromes",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.8.2",
+      "title": "Clinical management of toxins",
+      "is_leaf": false,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.8.2.1",
+      "title": "Carbon monoxide",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.8.2.2",
+      "title": "Cyanide",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.8.2.3",
+      "title": "Chlorine",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.8.2.4",
+      "title": "Hydrofluoric acid",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.8.2.5",
+      "title": "Organophosphates",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.8.2.6",
+      "title": "Phosgene",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.8.2.7",
+      "title": "Hydrocarbons",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.8.3",
+      "title": "Treatment with antidotes",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.8.4",
+      "title": "Caustic substance ingestion (including airway management)",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.8.5",
+      "title": "Substance use disorder",
+      "is_leaf": false,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.8.5.1",
+      "title": "Treatment of suspected overdose",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.8.5.2",
+      "title": "Treatment of substance withdrawal",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.8.6",
+      "title": "Bites, stings, and envenomation",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.9",
+      "title": "Clinical Management in Chemical, Biological, Radiological, Nuclear, Explosive (CBRNE) Incidents",
+      "is_leaf": false,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.9.1",
+      "title": "Chemical (including nerve agents, blister agents/vesicants, asphyxiants, irritants/corrosives, riot control agents)",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.9.2",
+      "title": "Biological (including bacteria, toxins, viruses)",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.9.3",
+      "title": "Radiological",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.9.4",
+      "title": "Nuclear",
+      "is_leaf": true,
+      "pdf_page": 15
+    },
+    {
+      "code": "2.3.9.5",
+      "title": "Explosive/Blast",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.10",
+      "title": "Sepsis",
+      "is_leaf": false,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.10.1",
+      "title": "Early recognition",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.10.2",
+      "title": "Management (e.g., care bundles)",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11",
+      "title": "Communicable Diseases",
+      "is_leaf": false,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.1",
+      "title": "Common",
+      "is_leaf": false,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.1.1",
+      "title": "Contact (e.g., Norovirus, MRSA, Hep B, C)",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.1.2",
+      "title": "Droplet (e.g., Influenza, mumps, meningococcal)",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.1.3",
+      "title": "Airborne (e.g., measles, COVID-19, varicella, tuberculosis)",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.2",
+      "title": "Multi-Drug-Resistant Organisms (MDROs)",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.3",
+      "title": "High consequence infectious diseases",
+      "is_leaf": false,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.3.1",
+      "title": "Viral hemorrhagic fevers",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.3.2",
+      "title": "Smallpox",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.3.3",
+      "title": "Plague",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.3.4",
+      "title": "MPox",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.4",
+      "title": "Emerging pathogens",
+      "is_leaf": false,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.4.1",
+      "title": "Novel respiratory viruses (e.g., H5N1, MERS, COVID-19)",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.4.2",
+      "title": "Pandemics",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.5",
+      "title": "Infection control and prevention",
+      "is_leaf": false,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.5.1",
+      "title": "Centers for Disease Control and Prevention (CDC) and National Institute for Occupational Safety and Health (NIOSH) guidelines for blood-borne pathogens",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.5.2",
+      "title": "Standard precautions",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.5.3",
+      "title": "Transmission-based precautions (contact, droplet, airborne)",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.5.4",
+      "title": "\"Identify, Isolate, and Inform\" for high consequence infectious diseases (e.g. Ebola Virus Disease)",
+      "is_leaf": false,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.5.4.1",
+      "title": "Recognition of a communicable disease or biothreat (signs, symptoms, travel or exposure history)",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.5.4.2",
+      "title": "Isolation of persons who pose a communicable disease risk",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.5.4.3",
+      "title": "Hierarchy of controls",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.5.4.4",
+      "title": "Alerting public health/receiving facility",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.6",
+      "title": "Occupational exposure",
+      "is_leaf": false,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.6.1",
+      "title": "Health monitoring, post-exposure prophylaxis, and testing",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.6.2",
+      "title": "Infection control liaison between hospital and EMS agency",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.6.3",
+      "title": "Quarantine and isolation",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.11.7",
+      "title": "Cleaning and disinfection of the ambulance",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.12",
+      "title": "Behavioral Emergencies",
+      "is_leaf": false,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.12.1",
+      "title": "Mental health conditions",
+      "is_leaf": false,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.12.1.1",
+      "title": "Mood disorders",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.12.1.2",
+      "title": "Psychosis",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.12.1.3",
+      "title": "Anxiety, panic disorder, hyperventilation syndrome",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.12.2",
+      "title": "Suicidal ideation",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.12.3",
+      "title": "Managing agitated patients",
+      "is_leaf": false,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.12.3.1",
+      "title": "De-escalation techniques",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.12.3.2",
+      "title": "Medication management",
+      "is_leaf": true,
+      "pdf_page": 16
+    },
+    {
+      "code": "2.3.12.3.3",
+      "title": "Physical restraint",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.3.12.3.4",
+      "title": "Delirium with agitated behavior",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.3.13",
+      "title": "Environmental",
+      "is_leaf": false,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.3.13.1",
+      "title": "Cold-related illnesses",
+      "is_leaf": false,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.3.13.1.1",
+      "title": "Hypothermia",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.3.13.1.2",
+      "title": "Localized cold injuries (e.g. frostbite)",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.3.13.1.3",
+      "title": "Protection from injury vs. re-warming",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.3.13.2",
+      "title": "Heat-related illnesses",
+      "is_leaf": false,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.3.13.2.1",
+      "title": "Exertional heat stroke",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.3.13.2.2",
+      "title": "Methods to cool a patient in the field",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.3.13.3",
+      "title": "High altitude injury (e.g., high altitude pulmonary edema, high altitude cerebral edema)",
+      "is_leaf": false,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.3.13.3.1",
+      "title": "Protection from high altitude injury",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.3.13.3.2",
+      "title": "Portable hyperbaric chamber",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.3.13.3.3",
+      "title": "Field prophylaxis and treatment",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.3.13.4",
+      "title": "Drowning, submersion, and diving injuries",
+      "is_leaf": false,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.3.13.4.1",
+      "title": "Initial management in water",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.3.13.4.2",
+      "title": "Decompression illness",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.3.13.4.3",
+      "title": "Pulmonary overinflation syndromes",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.3.13.4.4",
+      "title": "Nitrogen narcosis",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.3.13.4.5",
+      "title": "Oxygen toxicity",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.3.13.4.6",
+      "title": "Recompression therapy",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.3.13.5",
+      "title": "Lightning and electrical injuries",
+      "is_leaf": false,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.3.13.5.1",
+      "title": "Reverse triage",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4",
+      "title": "SPECIAL CLINICAL CONSIDERATIONS",
+      "is_leaf": false,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.1",
+      "title": "Point of Care Testing",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.2",
+      "title": "Point of Care Ultrasound",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.3",
+      "title": "Pain Assessment and Management",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.4",
+      "title": "Flight Physiology",
+      "is_leaf": false,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.4.1",
+      "title": "Effect of altitude on patient management",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.4.2",
+      "title": "Effect of altitude on EMS personnel",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.5",
+      "title": "Pediatrics",
+      "is_leaf": false,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.5.1",
+      "title": "Pediatric airway management",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.5.2",
+      "title": "Pediatric trauma",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.5.3",
+      "title": "Specialized equipment (e.g., length-based tape)",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.5.4",
+      "title": "Unique issues related to consent",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.5.5",
+      "title": "Brief resolved unexplained event (BRUE)",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.5.6",
+      "title": "Children with special healthcare needs (e.g., technology dependent)",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.5.7",
+      "title": "Safe transport of pediatric patients",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.5.8",
+      "title": "Pediatric readiness",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.6",
+      "title": "Geriatrics",
+      "is_leaf": false,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.6.1",
+      "title": "Geriatric trauma (e.g., falls)",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.6.2",
+      "title": "Polypharmacy",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.6.3",
+      "title": "Dementia or delirium",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.7",
+      "title": "Bariatric Issues",
+      "is_leaf": false,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.7.1",
+      "title": "Equipment",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.7.2",
+      "title": "Procedure challenges",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.8",
+      "title": "End-of-Life Issues",
+      "is_leaf": false,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.8.1",
+      "title": "Hospice care",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.8.2",
+      "title": "Advanced directives (e.g., do not resuscitate [DNR], do not intubate [DNI], physician orders for life sustaining treatment [POLST], living wills)",
+      "is_leaf": true,
+      "pdf_page": 17
+    },
+    {
+      "code": "2.4.9",
+      "title": "Social Issues",
+      "is_leaf": false,
+      "pdf_page": 18
+    },
+    {
+      "code": "2.4.9.1",
+      "title": "Social isolation",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "2.4.9.2",
+      "title": "Family centered care",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "2.4.9.3",
+      "title": "Management of bystanders while caring for patient",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "2.4.9.4",
+      "title": "Delivering bad news",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "2.4.9.5",
+      "title": "Substance use disorders",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "2.4.9.6",
+      "title": "Housing instability",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "2.4.10",
+      "title": "Abuse and Neglect",
+      "is_leaf": false,
+      "pdf_page": 18
+    },
+    {
+      "code": "2.4.10.1",
+      "title": "Types (e.g., intimate partner, sexual, elder, child)",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "2.4.10.2",
+      "title": "Human trafficking",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "2.4.10.3",
+      "title": "Safety",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "2.4.10.4",
+      "title": "Evidence preservation and reporting",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "2.4.11",
+      "title": "Ethics in EMS",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "2.4.12",
+      "title": "Non-transports",
+      "is_leaf": false,
+      "pdf_page": 18
+    },
+    {
+      "code": "2.4.12.1",
+      "title": "Lift assist calls",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "2.4.13",
+      "title": "Gender-based Health Issues",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "2.4.14",
+      "title": "Patients with Limited Language Proficiency/Cultural Humility",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.0",
+      "title": "QUALITY MANAGEMENT AND RESEARCH",
+      "is_leaf": false,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.1",
+      "title": "QUALITY MANAGEMENT",
+      "is_leaf": false,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.1.1",
+      "title": "Quality Improvement Methodology Frameworks",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.1.2",
+      "title": "Patient Safety",
+      "is_leaf": false,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.1.2.1",
+      "title": "Clinical decision making",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.1.2.2",
+      "title": "Cognitive biases",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.1.2.3",
+      "title": "Adverse events",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.1.2.4",
+      "title": "Just culture",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.1.3",
+      "title": "Quality Improvement Science",
+      "is_leaf": false,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.1.3.1",
+      "title": "Quality improvement tools",
+      "is_leaf": false,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.1.3.1.1",
+      "title": "Causal tools (fishbone and driver diagram)",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.1.3.1.2",
+      "title": "Graphic display tools (run chart and control chart)",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.1.3.2",
+      "title": "Quality improvement programs",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.1.4",
+      "title": "Data Collection, Management, and Analysis",
+      "is_leaf": false,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.1.4.1",
+      "title": "Local, state, and national EMS data sources (including registries and databases)",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.1.4.2",
+      "title": "Information system design",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.1.4.3",
+      "title": "Performance measures",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.1.5",
+      "title": "Evidence-based Practice",
+      "is_leaf": false,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.1.5.1",
+      "title": "Systematic literature reviews with or without meta-analyses",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.1.5.2",
+      "title": "Evidence-based guidelines",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.1.6",
+      "title": "Implementation Science",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.2",
+      "title": "RESEARCH",
+      "is_leaf": false,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.2.1",
+      "title": "Ethical Considerations",
+      "is_leaf": false,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.2.1.1",
+      "title": "Ethical frameworks (e.g., Belmont Report, Common Rule, Final Rule)",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.2.1.2",
+      "title": "Role of the Institutional Review Board",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.2.1.3",
+      "title": "Informed consent",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.2.1.4",
+      "title": "Exception from informed consent (EFIC)",
+      "is_leaf": false,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.2.1.4.1",
+      "title": "Community consultation",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.2.1.4.2",
+      "title": "Public disclosure",
+      "is_leaf": true,
+      "pdf_page": 18
+    },
+    {
+      "code": "3.2.1.5",
+      "title": "Human subjects research and vulnerable populations",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "3.2.2",
+      "title": "Epidemiology",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "3.2.3",
+      "title": "Biostatistics",
+      "is_leaf": false,
+      "pdf_page": 19
+    },
+    {
+      "code": "3.2.3.1",
+      "title": "Hypothesis testing",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "3.2.3.2",
+      "title": "Statistical tests",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "3.2.3.3",
+      "title": "Data analysis",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "3.2.4",
+      "title": "EMS Research Design",
+      "is_leaf": false,
+      "pdf_page": 19
+    },
+    {
+      "code": "3.2.4.1",
+      "title": "Clinical trials (e.g., randomized controlled trial)",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "3.2.4.2",
+      "title": "Observational studies (e.g., cohort, case control, case series, case report)",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "3.2.4.3",
+      "title": "Outcome measures",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "3.2.4.4",
+      "title": "Reporting guidelines (e.g., PRISMA, CONSORT, STROBE)",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "3.2.4.5",
+      "title": "Cost analysis research",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.0",
+      "title": "DISASTER MANAGEMENT AND SPECIAL OPERATIONS",
+      "is_leaf": false,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1",
+      "title": "DISASTER MANAGEMENT",
+      "is_leaf": false,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.1",
+      "title": "National Response Framework (NRF)",
+      "is_leaf": false,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.1.1",
+      "title": "IS-800",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.2",
+      "title": "National Incident Management System (NIMS)",
+      "is_leaf": false,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.2.1",
+      "title": "IS-700",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.3",
+      "title": "Incident Command System (ICS)",
+      "is_leaf": false,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.3.1",
+      "title": "Integration of medical operations",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.3.2",
+      "title": "Local, state, federal assets",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.3.3",
+      "title": "Regional resource allocation and management",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.3.4",
+      "title": "Respective roles of law enforcement, EMS, hospitals, emergency management, and public health",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.3.5",
+      "title": "IS-100 and IS-200",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.4",
+      "title": "Catastrophic Incidents",
+      "is_leaf": false,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.4.1",
+      "title": "State and federal criteria for disaster declaration",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.4.2",
+      "title": "State emergency mutual aid compacts",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.5",
+      "title": "Health and Medical Resources",
+      "is_leaf": false,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.5.1",
+      "title": "National Disaster Medical System (NDMS)",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.5.2",
+      "title": "Specialized teams",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.5.3",
+      "title": "Non-governmental agencies",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.5.4",
+      "title": "Medical Reserve Corps",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.5.5",
+      "title": "State and federal assets",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.6",
+      "title": "Special Response Considerations",
+      "is_leaf": false,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.6.1",
+      "title": "Allocation of scene resources",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.6.2",
+      "title": "Personnel credentialing issues",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.6.3",
+      "title": "Contingency and crisis standards of care",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.6.4",
+      "title": "Regional Medical Operations Coordination Centers",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.6.5",
+      "title": "Alternate care facilities",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.7",
+      "title": "Mass Casualty Management",
+      "is_leaf": false,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.7.1",
+      "title": "Triage",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.7.2",
+      "title": "Patient Care",
+      "is_leaf": false,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.7.2.1",
+      "title": "Life-saving interventions and on-site treatment",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.7.2.2",
+      "title": "Patient reunification",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.7.3",
+      "title": "Transport",
+      "is_leaf": false,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.7.3.1",
+      "title": "Transport modes",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.7.3.2",
+      "title": "Destination",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.7.3.3",
+      "title": "Patient tracking",
+      "is_leaf": true,
+      "pdf_page": 19
+    },
+    {
+      "code": "4.1.8",
+      "title": "Chemical, Biological, Radiological, Nuclear, Explosive (CBRNE) Incident Management",
+      "is_leaf": false,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.1.8.1",
+      "title": "Hazardous Materials (HAZMAT) Response",
+      "is_leaf": false,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.1.8.1.1",
+      "title": "Indications for HAZMAT response",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.1.8.1.2",
+      "title": "Field identification of toxins/hazardous materials",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.1.8.1.3",
+      "title": "Personnel and patient decontamination",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.1.8.1.4",
+      "title": "Personal Protective Equipment (PPE)",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.1.8.1.5",
+      "title": "Care of the contaminated patient while wearing PPE",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.1.8.2",
+      "title": "Chemical incidents",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.1.8.3",
+      "title": "Biological incidents",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.1.8.4",
+      "title": "Radiological incidents",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.1.8.5",
+      "title": "Nuclear incidents",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.1.8.6",
+      "title": "Explosive incidents",
+      "is_leaf": false,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.1.8.6.1",
+      "title": "Improvised Explosive Devices (IEDs) and terrorist activity",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.1.8.6.2",
+      "title": "Community risk assessment",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.1.8.6.3",
+      "title": "Integration with search and rescue",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.1.8.6.4",
+      "title": "Secondary devices and scene safety",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.2",
+      "title": "MASS GATHERING",
+      "is_leaf": false,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.2.1",
+      "title": "Planning and Operations",
+      "is_leaf": false,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.2.1.1",
+      "title": "Medical risk assessment",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.2.1.2",
+      "title": "Level of care",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.2.1.3",
+      "title": "Design of event treatment facilities",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.2.1.4",
+      "title": "Ingress/egress of personnel, patients, and equipment",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.2.1.5",
+      "title": "MCI preparedness within mass gathering",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.2.1.6",
+      "title": "National Special Security Events (NSSE) and Special Event Assessment Rating (SEAR) Events",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.2.2",
+      "title": "Personnel Needs",
+      "is_leaf": false,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.2.2.1",
+      "title": "Care teams",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.2.2.2",
+      "title": "Physician role",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.2.3",
+      "title": "Training and Drills",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.2.4",
+      "title": "Equipment",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.2.5",
+      "title": "Communications",
+      "is_leaf": false,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.2.5.1",
+      "title": "Onsite public safety answering point and dispatch",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.2.5.2",
+      "title": "Event online medical consultation",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.3",
+      "title": "FIREGROUND OPERATIONS",
+      "is_leaf": false,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.3.1",
+      "title": "Personnel rehabilitation",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.4",
+      "title": "TACTICAL",
+      "is_leaf": false,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.4.1",
+      "title": "Role of tactical teams in high threat environment",
+      "is_leaf": false,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.4.1.1",
+      "title": "Active shooter incident response",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.4.1.2",
+      "title": "Barricaded individual response",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.4.2",
+      "title": "Military vs. civilian tactical medical approaches",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.4.3",
+      "title": "Tactical response models",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.4.4",
+      "title": "Phases of care",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.4.5",
+      "title": "Medical care in a high threat environment",
+      "is_leaf": false,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.4.5.1",
+      "title": "Remote assessment",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.4.5.2",
+      "title": "Sensory-deprived or sensory-overload physical assessment",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.4.5.3",
+      "title": "Priorities in patient care",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.4.6",
+      "title": "Operational considerations",
+      "is_leaf": false,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.4.6.1",
+      "title": "Medical threat assessment",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.4.6.2",
+      "title": "Specialized equipment including weapons safety",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.4.6.3",
+      "title": "Injuries from less lethal weapons",
+      "is_leaf": true,
+      "pdf_page": 20
+    },
+    {
+      "code": "4.4.6.4",
+      "title": "Hazardous materials/clandestine drug labs",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.4.7",
+      "title": "Medical support of tactical team members",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.5",
+      "title": "TECHNICAL RESCUE AND URBAN SEARCH AND RESCUE",
+      "is_leaf": false,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.5.1",
+      "title": "Technical rescue disciplines (safety and awareness)",
+      "is_leaf": false,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.5.1.1",
+      "title": "Rope rescue",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.5.1.2",
+      "title": "Confined space rescue",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.5.1.3",
+      "title": "Trench rescue",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.5.1.4",
+      "title": "Structural collapse rescue",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.5.1.5",
+      "title": "Vehicle and machinery rescue",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.5.1.6",
+      "title": "Water rescue",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.5.1.7",
+      "title": "Agricultural rescue",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.5.2",
+      "title": "Local, regional, and state teams",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.5.3",
+      "title": "Regulations and standards (NFPA and OSHA)",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.5.4",
+      "title": "Medical care considerations (e.g., limited patient assessment and prolonged field care)",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.5.5",
+      "title": "Operational considerations",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.5.6",
+      "title": "Medical team integration into task force operations",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.5.7",
+      "title": "Health and medical support of a task force team",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.6",
+      "title": "WILDERNESS",
+      "is_leaf": false,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.6.1",
+      "title": "Patient care in an austere setting",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.6.2",
+      "title": "Clinical care considerations",
+      "is_leaf": false,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.6.2.1",
+      "title": "Care and reassessment during prolonged evacuation",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.6.2.2",
+      "title": "Advanced wound care",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.6.2.3",
+      "title": "Field reduction of dislocations, subluxations, or fractures",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.6.2.4",
+      "title": "Patient temperature management",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.6.3",
+      "title": "Communications in wilderness settings",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.6.4",
+      "title": "Evacuation/non-traditional transport",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.6.5",
+      "title": "Multi-agency response coordination",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.6.6",
+      "title": "Survival skills in remote/wilderness environments",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.7",
+      "title": "MOBILE INTEGRATED HEALTHCARE / COMMUNITY PARAMEDICINE",
+      "is_leaf": false,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.7.1",
+      "title": "Needs assessment and program type",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.7.2",
+      "title": "Expanded role/scope of practice",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.7.3",
+      "title": "Resources (e.g., equipment, medications, or point-of-care testing)",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.7.4",
+      "title": "Medical oversight models",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.7.5",
+      "title": "Personnel education, certification, and credentialing",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.7.6",
+      "title": "Integration with healthcare systems",
+      "is_leaf": false,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.7.6.1",
+      "title": "Documentation",
+      "is_leaf": true,
+      "pdf_page": 21
+    },
+    {
+      "code": "4.7.6.2",
+      "title": "Patient care navigation",
+      "is_leaf": true,
+      "pdf_page": 21
+    }
+  ]
+}
