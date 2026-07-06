@@ -1876,14 +1876,33 @@
   function renderQuestionContext(q) {
     return `
       <div class="answer-context" aria-label="Question context">
-        <strong>${escapeHTML(q.title)}</strong>
-        <div class="question-meta">
-          <span class="pill">${escapeHTML(displayDomain(q.domain))}</span>
-          <span class="pill">${escapeHTML(q.topicGroup)}</span>
-          <span class="pill">Core ${escapeHTML(q.coreContentCode || "n/a")}</span>
-          ${q.topic && q.topic !== q.topicGroup ? `<span class="pill">${escapeHTML(q.topic)}</span>` : ""}
-        </div>
+        <strong class="answer-context-title">${escapeHTML(q.title)}</strong>
+        ${renderQuestionHierarchy(q)}
       </div>
+    `;
+  }
+
+  function renderQuestionHierarchy(q) {
+    const levels = [
+      { label: "Domain", value: displayDomain(q.domain) },
+      { label: "Topic group", value: q.topicGroup },
+      { label: "Core content", value: q.coreContentCode ? `Core ${q.coreContentCode}` : "" },
+      { label: "Topic", value: q.topic && q.topic !== q.topicGroup ? q.topic : "" },
+    ].filter((level) => String(level.value || "").trim());
+
+    if (!levels.length) {
+      return "";
+    }
+
+    return `
+      <ol class="topic-tree" aria-label="Question topic hierarchy">
+        ${levels.map((level, index) => `
+          <li class="topic-tree-node" style="--tree-indent: ${index * 24}px;">
+            <span class="topic-tree-label">${escapeHTML(level.label)}</span>
+            <span class="topic-tree-value">${escapeHTML(level.value)}</span>
+          </li>
+        `).join("")}
+      </ol>
     `;
   }
 
