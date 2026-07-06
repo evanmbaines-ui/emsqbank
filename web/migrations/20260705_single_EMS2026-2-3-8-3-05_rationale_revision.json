@@ -1,0 +1,36 @@
+{
+  "created_at": "2026-07-05",
+  "description": "Apply a propranolol antidote rationale and answer-option revision to one existing live question record in place while preserving record ID, pool state, reviews, and learner history.",
+  "migration_id": "20260705_single_EMS2026_2_3_8_3_05_rationale_revision",
+  "source_package": "outputs/ems_single_question_exports/EMS2026-2-3-8-3-05_rationale_revised_20260705.json",
+  "update_count": 1,
+  "updates": [
+    {
+      "change_type": "single_question_rationale_revision",
+      "fields": {
+        "answer": "D",
+        "citation": "Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:378.",
+        "concept_key": "JOB-2-3-8-3-05",
+        "content_id": "2.3.8.3",
+        "core_content_code": "2.3.8.3",
+        "domain": "CLINICAL ASPECTS OF EMS MEDICINE",
+        "job_id": "JOB-2-3-8-3-05",
+        "map_row_id": "EMS2026-2-3-8-3-05",
+        "options": {
+          "A": "Administer sodium bicarbonate.",
+          "B": "Administer calcium.",
+          "C": "Administer fomepizole.",
+          "D": "Administer glucagon."
+        },
+        "rationale": "Propranolol is a beta blocker and can also produce sodium-channel blockade in overdose. In this scenario, however, the QRS is narrow, so the beta-blockade effects predominate; glucagon is therefore the best next antidote choice for bradycardia and hypotension after calcium has not improved perfusion. A would be more compelling if the electrocardiogram showed QRS widening from sodium-channel blockade. B is less appropriate because calcium has already failed to improve perfusion and the ingestion is a beta blocker rather than a calcium-channel blocker. C is a real antidote pairing, but fomepizole treats toxic alcohol ingestion, not this toxidrome.",
+        "source_question_number": 3,
+        "stem": "A patient is bradycardic and hypotensive after ingesting a large amount of propranolol. The rhythm is narrow-complex, glucose is low-normal, and calcium has not improved perfusion. Which antidote pairing is most appropriate?",
+        "title": "Antidote Matching in Toxic Shock",
+        "topic": "Treatment with antidotes"
+      },
+      "position_statement": "Clarified propranolol beta-blocker toxicity treatment and narrowed answer-option wording",
+      "question_id": "EMS2026-2-3-8-3-05",
+      "reason": "Single-question revision supplied 2026-07-05: clarify propranolol beta-blocker toxicity rationale while preserving sodium-channel blockade teaching detail."
+    }
+  ]
+}

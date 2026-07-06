@@ -2826,7 +2826,7 @@
       "answer": "D",
       "citation": "Cone DC, Brice JH, Delbridge TR, Myers JB, eds. Emergency Medical Services: Clinical Practice and Systems Oversight. 3rd ed. John Wiley & Sons; 2021:378.",
       "closed_at": "",
-      "content_hash": "806757f0e7ee",
+      "content_hash": "0312f351f3b2",
       "content_id": "2.3.8.3",
       "core_content_code": "2.3.8.3",
       "decision_reason": "",
@@ -2837,14 +2837,14 @@
       "intake_source_sha256": "8e2c7bd5bb2d6c976194a70b92682f3ec130c79d11b1f8f3f86392a4b83145b7",
       "job_id": "JOB-2-3-8-3-05",
       "options": {
-        "A": "Administer sodium bicarbonate because hypotension after ingestion should be treated as sodium-channel blockade.",
-        "B": "Administer calcium because calcium-channel blocker and beta-blocker shock can look similar.",
-        "C": "Administer fomepizole because toxic alcohol ingestion can produce delayed shock and metabolic failure.",
-        "D": "Administer glucagon for beta-blocker poisoning with shock."
+        "A": "Administer sodium bicarbonate.",
+        "B": "Administer calcium.",
+        "C": "Administer fomepizole.",
+        "D": "Administer glucagon."
       },
       "pool_state": "voting",
       "question_id": "EMS2026-2-3-8-3-05",
-      "rationale": "Propranolol is a beta blocker, and glucagon is a high-yield antidote for beta-blocker toxicity with shock. A, B, and C are real antidote pairings, but they match different toxicologic scenarios.",
+      "rationale": "Propranolol is a beta blocker and can also produce sodium-channel blockade in overdose. In this scenario, however, the QRS is narrow, so the beta-blockade effects predominate; glucagon is therefore the best next antidote choice for bradycardia and hypotension after calcium has not improved perfusion. A would be more compelling if the electrocardiogram showed QRS widening from sodium-channel blockade. B is less appropriate because calcium has already failed to improve perfusion and the ingestion is a beta blocker rather than a calcium-channel blocker. C is a real antidote pairing, but fomepizole treats toxic alcohol ingestion, not this toxidrome.",
       "record_id": "EMS2026-2-3-8-3-05",
       "source_label": "locked_priority_superset_100",
       "source_question_number": 3,
@@ -2861,6 +2861,30 @@
           },
           "reason": "baseline_existing_question_bank",
           "to_state": "voting"
+        },
+        {
+          "event_at": "2026-07-06T00:10:40Z",
+          "actor": "codex",
+          "event_type": "rationale_revision",
+          "from_state": "voting",
+          "to_state": "voting",
+          "reason": "Clarified propranolol beta-blocker toxicity versus sodium-channel blockade using narrow QRS discriminator.",
+          "metadata": {
+            "previous_content_hash": "806757f0e7ee",
+            "new_content_hash": "8c7f79d897c1"
+          }
+        },
+        {
+          "event_at": "2026-07-06T00:11:48Z",
+          "actor": "codex",
+          "event_type": "option_wording_revision",
+          "from_state": "voting",
+          "to_state": "voting",
+          "reason": "Removed explanatory because-clauses from answer options; retained teaching detail in rationale.",
+          "metadata": {
+            "previous_content_hash": "8c7f79d897c1",
+            "new_content_hash": "0312f351f3b2"
+          }
         }
       ],
       "stem": "A patient is bradycardic and hypotensive after ingesting a large amount of propranolol. The rhythm is narrow-complex, glucose is low-normal, and calcium has not improved perfusion. Which antidote pairing is most appropriate?",
