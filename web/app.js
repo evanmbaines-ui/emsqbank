@@ -1350,9 +1350,11 @@
                 </select>
               </div>
             </div>
-            <fieldset class="checkbox-grid">
+            <fieldset class="checkbox-fieldset">
               <legend class="field-label">Generation feedback flags</legend>
-              ${GENERATION_ISSUES.map(([value, label]) => renderCheckbox("generationIssueFlags", value, label, record.generationIssueFlags || [], isClosed)).join("")}
+              <div class="checkbox-grid">
+                ${GENERATION_ISSUES.map(([value, label]) => renderCheckbox("generationIssueFlags", value, label, record.generationIssueFlags || [], isClosed)).join("")}
+              </div>
             </fieldset>
             <div class="field">
               <label for="comments">Comments for generation/revision</label>
@@ -1600,9 +1602,11 @@
         </div>
         <form class="form-grid" data-form="learner-flag">
           <input type="hidden" name="recordId" value="${escapeAttr(q.id)}">
-          <fieldset class="checkbox-grid">
+          <fieldset class="checkbox-fieldset">
             <legend class="field-label">Question issue flags</legend>
-            ${GENERATION_ISSUES.map(([value, label]) => renderCheckbox("learnerIssueFlags", value, label, selected, false)).join("")}
+            <div class="checkbox-grid">
+              ${GENERATION_ISSUES.map(([value, label]) => renderCheckbox("learnerIssueFlags", value, label, selected, false)).join("")}
+            </div>
           </fieldset>
           <div class="field">
             <label for="learner-flag-comments">Comments for review</label>

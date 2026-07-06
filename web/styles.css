@@ -1628,14 +1628,19 @@ button:focus-visible {
   border: 1px solid #e5aaa3;
 }
 
+.checkbox-fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--choice-control-gap);
+}
+
 .checkbox-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   column-gap: 8px;
   row-gap: var(--choice-control-gap);
-  border: 0;
-  padding: 0;
-  margin: 0;
 }
 
 .checkbox-grid label {
@@ -1690,9 +1695,8 @@ button:focus-visible {
   color: var(--muted);
 }
 
-.checkbox-grid legend {
-  grid-column: 1 / -1;
-  margin-bottom: 0;
+.checkbox-fieldset legend {
+  padding: 0;
 }
 
 .profile-grid {
