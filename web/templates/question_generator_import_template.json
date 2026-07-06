@@ -9,8 +9,8 @@
     "core_content_code": "1.1.1.1",
     "domain": "Medical Oversight of EMS",
     "topic_group": "Medical Oversight",
-    "topic": "Terminal topic or tested concept",
-    "title": "Short Descriptive Question Title",
+    "topic": "Direct medical oversight",
+    "title": "Short authored question title",
     "stem": "Write a focused single-best-answer clinical or systems question stem here. Include only the information needed to answer the question.",
     "options": {
       "A": "Plausible distractor.",

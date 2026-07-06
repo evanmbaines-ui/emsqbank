@@ -1481,7 +1481,7 @@ button:focus-visible {
 .topic-tree-label {
   color: var(--muted);
   font-size: 0.78rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.35;
 }
 
@@ -1494,7 +1494,7 @@ button:focus-visible {
   padding: 2px 6px;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   font-size: 0.78rem;
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.25;
   white-space: nowrap;
 }
@@ -1507,7 +1507,7 @@ button:focus-visible {
   min-width: 0;
   color: #2f3a4d;
   font-size: 0.9rem;
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.35;
   overflow-wrap: anywhere;
 }
@@ -1515,6 +1515,7 @@ button:focus-visible {
 .question-title-node .topic-tree-value {
   grid-column: 2 / -1;
   font-size: 0.96rem;
+  font-weight: 600;
 }
 
 .answer-context strong:not(.answer-context-title) {

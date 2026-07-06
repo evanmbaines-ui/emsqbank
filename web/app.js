@@ -497,7 +497,7 @@
               <span>Votes</span>
               <span>Feedback</span>
               <span>Learner</span>
-              <span>Topic</span>
+              <span>Core section</span>
             </div>
             ${(summary.questions || []).map(renderAdminRow).join("")}
           </div>
@@ -660,7 +660,7 @@
               <span>Records</span>
               <span>Hashes</span>
               <span>States</span>
-              <span>Topic</span>
+              <span>Core section</span>
             </div>
             ${rows.slice(0, 20).map(renderConceptDuplicateRow).join("")}
           </div>
@@ -1264,15 +1264,15 @@
             </div>
           </div>
           <div class="field">
-            <label for="evaluator-domain">Domain</label>
+            <label for="evaluator-domain">Core domain</label>
             <select id="evaluator-domain" data-filter="evaluatorDomain">${domainOptions(state.evaluatorDomain)}</select>
           </div>
           <div class="field">
-            <label for="evaluator-topic-group">Topic group</label>
+            <label for="evaluator-topic-group">Core section</label>
             <select id="evaluator-topic-group" data-filter="evaluatorTopicGroup">${topicGroupOptions(state.evaluatorTopicGroup, "evaluator")}</select>
           </div>
           <div class="field">
-            <label for="evaluator-topic">Topic</label>
+            <label for="evaluator-topic">Terminal topic</label>
             <select id="evaluator-topic" data-filter="evaluatorTopic">${topicOptions(state.evaluatorTopic, "evaluator")}</select>
           </div>
         </div>
@@ -1434,15 +1434,15 @@
                 </select>
               </div>
               <div class="field">
-                <label for="learner-domain">Domain</label>
+                <label for="learner-domain">Core domain</label>
                 <select id="learner-domain" data-filter="learnerDomain">${domainOptions(state.learnerDomain)}</select>
               </div>
               <div class="field">
-                <label for="learner-topic-group">Topic group</label>
+                <label for="learner-topic-group">Core section</label>
                 <select id="learner-topic-group" data-filter="learnerTopicGroup">${topicGroupOptions(state.learnerTopicGroup, "learner")}</select>
               </div>
               <div class="field">
-                <label for="learner-topic">Topic</label>
+                <label for="learner-topic">Terminal topic</label>
                 <select id="learner-topic" data-filter="learnerTopic">${topicOptions(state.learnerTopic, "learner")}</select>
               </div>
             </div>
@@ -1549,7 +1549,7 @@
             <div class="option-list">
               ${options.map((option) => renderLearnerOption(option, q.answer, selected, answered, reviewMode)).join("")}
             </div>
-            ${answered ? renderAnswerPanel(q, answerLabel) : (reviewMode ? "" : `<button class="primary" type="submit">Submit answer</button>`)}
+            ${answered ? renderAnswerPanel(q, answerLabel, { showQuestionContext: true }) : (reviewMode ? "" : `<button class="primary" type="submit">Submit answer</button>`)}
           </form>
           <div class="toolbar">
             <div class="toolbar-left">
@@ -1646,13 +1646,13 @@
       <section class="progress-breakdown-grid">
         <div class="panel">
           <div class="panel-body">
-            <h2 class="section-title">By Domain</h2>
+            <h2 class="section-title">By Core Domain</h2>
             ${renderProgressTable(domainRows)}
           </div>
         </div>
         <div class="panel">
           <div class="panel-body">
-            <h2 class="section-title">By Topic Group</h2>
+            <h2 class="section-title">By Core Section</h2>
             ${renderProgressTable(topicGroupRows)}
           </div>
         </div>
@@ -1746,8 +1746,8 @@
       <div class="pool-table" role="table" aria-label="Missed questions">
         <div class="pool-row report-row pool-head" role="row">
           <span>Question</span>
-          <span>Domain</span>
-          <span>Topic</span>
+          <span>Core domain</span>
+          <span>Terminal topic</span>
           <span>Result</span>
         </div>
         ${questions.map((q) => {
@@ -2841,7 +2841,7 @@
     }
     const parts = [
       learnerFilterLabel(session.filter),
-      session.domain === "all" ? "all domains" : displayDomain(session.domain),
+      session.domain === "all" ? "all core domains" : displayDomain(session.domain),
       session.topicGroup === "all" ? "" : topicGroupLabelForKey(session.topicGroup),
       session.topic === "all" ? "" : session.topic
     ].filter(Boolean);
@@ -3005,7 +3005,7 @@
 
   function domainOptions(selected) {
     const domains = Array.from(new Set(state.questions.map((q) => q.domain))).sort((a, b) => displayDomain(a).localeCompare(displayDomain(b)));
-    return selectOption("all", "All domains", selected) + domains.map((domain) => selectOption(domain, displayDomain(domain), selected)).join("");
+    return selectOption("all", "All core domains", selected) + domains.map((domain) => selectOption(domain, displayDomain(domain), selected)).join("");
   }
 
   function displayDomain(value) {
@@ -3044,13 +3044,13 @@
       }
     });
     const options = Array.from(groups.entries()).sort((a, b) => sortTopicGroupKeys(a[0], b[0]));
-    return selectOption("all", "All topic groups", selected) + options.map(([key, label]) => selectOption(key, label, selected)).join("");
+    return selectOption("all", "All core sections", selected) + options.map(([key, label]) => selectOption(key, label, selected)).join("");
   }
 
   function topicOptions(selected, mode) {
     const questions = scopedQuestionsForTopicControls(mode, true);
     const topics = Array.from(new Set(questions.map((q) => q.topic).filter(Boolean))).sort();
-    return selectOption("all", "All topics", selected) + topics.map((topic) => selectOption(topic, topic, selected)).join("");
+    return selectOption("all", "All terminal topics", selected) + topics.map((topic) => selectOption(topic, topic, selected)).join("");
   }
 
   function scopedQuestionsForTopicControls(mode, includeTopicGroup) {

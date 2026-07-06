@@ -41,8 +41,8 @@ EMS2026-PILOT
 - Evaluators cannot vote on the same question twice, and completed questions are removed from their evaluator feed.
 - Evaluators do not see per-question vote counts, prior-review status, or whether an available question is a tiebreaker.
 - Evaluator and learner feeds are randomized per anonymous user ID.
-- Evaluator and learner views can be filtered by domain, readable topic group, and topic.
-- Topic groups display names such as `Resuscitation` or `EMS Systems`; the underlying numeric topic-group code is retained for admin/export traceability.
+- Evaluator and learner views can be filtered by Core domain, Core section, and terminal topic.
+- Core sections display names such as `Resuscitation` or `EMS Systems`; the underlying numeric section code is retained for admin/export traceability.
 - Non-admin evaluators see only high-level review counts, not the pool table.
 - Prior provisional-lock status from generated packets is ignored for pool decisions.
 

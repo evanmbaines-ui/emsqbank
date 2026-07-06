@@ -13,10 +13,10 @@ Each question object must include:
 - `concept_key`: same value as `job_id` unless there is a specific reason to use a different stable concept key.
 - `content_id`: 2026 Core Content terminal topic code.
 - `core_content_code`: same value as `content_id`.
-- `domain`: Core Content domain name.
-- `topic_group`: human-readable topic group name.
-- `topic`: terminal topic or tested concept label.
-- `title`: short descriptive title shown in the question interface.
+- `domain`: Core Content domain name, matching the top-level Core Content domain when available.
+- `topic_group`: Core Content section name, meaning the second-level Core Content heading such as `Medical Emergencies` or `EMS Systems`.
+- `topic`: terminal Core Content topic name, or the closest tested-concept label when the terminal topic is broad.
+- `title`: short descriptive authored question title. The website nests this under the Core Content hierarchy; it should not duplicate the full hierarchy.
 - `stem`: board-style single-best-answer stem.
 - `options`: object with option letters as keys. Use `A`, `B`, `C`, and `D` unless a deliberate exception is needed.
 - `answer`: the correct option letter exactly matching one key in `options`.
@@ -27,6 +27,8 @@ Each question object must include:
 
 - `map_row_id`: stable row ID from the generation/content map, if different from `job_id`.
 - `question_number`: ordinal number within the generated batch.
+
+Do not submit a hand-built `core_content_path` for routine EMSqbank imports. The website derives the full displayed tree from `content_id` / `core_content_code` using the audited 2026 Core Content outline, then nests the authored `title` beneath that terminal topic.
 
 ## Lifecycle Rules
 
@@ -54,8 +56,8 @@ Minimal valid shape:
     "core_content_code": "2.3.1.6.2",
     "domain": "Clinical Aspects of EMS Medicine",
     "topic_group": "Medical Emergencies",
-    "topic": "Example terminal topic",
-    "title": "Short Descriptive Title",
+    "topic": "Example terminal Core Content topic",
+    "title": "Short authored question title",
     "stem": "Question stem text goes here.",
     "options": {
       "A": "Option A text.",
