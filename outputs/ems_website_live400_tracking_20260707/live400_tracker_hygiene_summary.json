@@ -1,0 +1,65 @@
+{
+  "created_at": "2026-07-07",
+  "assessment_type": "artifact_based_expected_live400_tracker_hygiene",
+  "actual_local_question_bank_counts": {
+    "server_data": 100,
+    "seed_data": 100
+  },
+  "live300_tracker_rows": 300,
+  "staged_301_400_rows": 100,
+  "expected_combined_rows": 400,
+  "expected_unique_question_ids": 398,
+  "exact_question_id_duplicate_count": 2,
+  "exact_question_id_duplicates": [
+    {
+      "question_id": "EMS2026-2-2-6-02",
+      "records": [
+        {
+          "review_order": 60,
+          "title": "Alkali Eye Burn Irrigation",
+          "source_label": "paramedic_next_action_50",
+          "content_id": "2.2.6"
+        },
+        {
+          "review_order": 380,
+          "title": "Ocular Chemical Burn Next Action",
+          "source_label": "primary_doctrine_uncovered100",
+          "content_id": "2.2.6"
+        }
+      ]
+    },
+    {
+      "question_id": "EMS2026-2-3-1-4-01",
+      "records": [
+        {
+          "review_order": 84,
+          "title": "CPAP For Pulmonary Edema",
+          "source_label": "paramedic_next_action_50",
+          "content_id": "2.3.1.4"
+        },
+        {
+          "review_order": 351,
+          "title": "Noninvasive Positive-Pressure Ventilation Candidate Selection",
+          "source_label": "primary_doctrine_uncovered100",
+          "content_id": "2.3.1.4"
+        }
+      ]
+    }
+  ],
+  "job_id_duplicate_count": 2,
+  "staged_content_overlap_count_vs_live300": 33,
+  "staged_exact_question_id_overlap_count_vs_live300": 2,
+  "content_ids_with_multiple_questions_expected_live400": 93,
+  "missing_live400_tracker_file": true,
+  "notes": [
+    "No live400 tracking artifact existed before this assessment.",
+    "Local web/server_data/question_bank.json contains only 100 records, so it is not synchronized with the artifact-based live300/live400 plan.",
+    "Use a website admin lifecycle/concept export from the actual running site as the source of truth before final release decisions."
+  ],
+  "files": {
+    "expected_review_order": "expected_live400_review_order_artifact_based.csv",
+    "duplicate_ids": "expected_live400_duplicate_question_or_job_ids.csv",
+    "content_usage": "expected_live400_content_area_usage_artifact_based.csv",
+    "staged_content_overlaps": "staged_301_400_content_overlaps_vs_live300.csv"
+  }
+}

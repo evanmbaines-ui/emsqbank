@@ -1,0 +1,297 @@
+content_id,question_count,question_ids,review_orders,titles,source_labels,topics,topic_groups
+1.1.1.1.1,2,EMS2026-1-1-1-1-1-05|EMS2026-1-1-1-1-1-07,13|206,Physician Field Procedure Governance|Physician Field Care Feedback Loop,first50_reviewed_website_push|second50_qi_review,Provision of direct patient care,Medical Oversight
+1.1.1.1.2,1,EMS2026-1-1-1-1-2-05,247,Online Orders Within A Written Exception Pathway,uncovered50_v3_source_hardened,Physician directed care by radio or phone,MEDICAL OVERSIGHT
+1.1.1.1.3,1,EMS2026-1-1-1-1-3-04,259,Physician Field Supervision Without Role Confusion,uncovered50_v3_source_hardened,Physician directed care in person,MEDICAL OVERSIGHT
+1.1.1.1.4,1,EMS2026-1-1-1-1-4-04,269,Telemedicine For A High-Risk Refusal,uncovered50_v3_source_hardened,Telemedicine,MEDICAL OVERSIGHT
+1.1.1.2.1,1,EMS2026-1-1-1-2-1-06,224,Protocol Rollout Quality Loop,second50_qi_review,Development of medical protocols,
+1.1.1.2.2,2,EMS2026-1-1-1-2-2-02|EMS2026-1-1-1-2-2-01,47|75,CQI Versus QA|QI Versus Discipline For A Process Defect,first50_reviewed_website_push|legacy_locked_priority_superset_100,Quality improvement programs,Medical Oversight
+1.1.1.2.3,3,EMS2026-1-1-1-2-3-06|EMS2026-1-1-1-2-3-01|EMS2026-1-1-1-2-3-05,188|201|360,Provider-Initiated Nontransport Oversight|Ambulance Medical Necessity|Safety Evidence For Nontransport Pathways,second50_qi_review|second50_qi_review|primary_doctrine_uncovered100,Determination of medical necessity in the field,MEDICAL OVERSIGHT
+1.1.1.3,2,EMS2026-1-1-1-3-05|EMS2026-1-1-1-3-04,238|239,Low-Frequency High-Risk Skill Maintenance|Competency Review Interval,second50_qi_review|second50_qi_review,Assessment of personnel competence and fitness for duty (initial and continued),
+1.1.1.4,1,EMS2026-1-1-1-4-07,267,Medical Director Role Boundary And Authority,uncovered50_v3_source_hardened,Medical director qualifications,MEDICAL OVERSIGHT
+1.1.2.1,2,EMS2026-1-1-2-1-02|EMS2026-1-1-2-1-06,131|137,Public Duty Versus Special Duty|Capacity Versus Competence,legacy_locked_priority_superset_100|legacy_locked_priority_superset_100,Definition of a patient,
+1.1.2.2,1,EMS2026-1-1-2-2-09,229,Human Trafficking Training Package,second50_qi_review,Mandatory reporting,
+1.1.2.3,2,EMS2026-1-1-2-3-03|EMS2026-1-1-2-3-06,213|226,NAEMSP TOR Protocol Support|POLST Across Settings,second50_qi_review|second50_qi_review,Determination and/or pronouncement of death,
+1.1.2.4.1,1,EMS2026-1-1-2-4-1-05,279,Meaningful Online Oversight For Refusal,uncovered50_v3_source_hardened,Informed consent and informed refusal,MEDICAL OVERSIGHT
+1.1.2.4.2,1,EMS2026-1-1-2-4-2-03,136,Capacity Defect In A Refusal,legacy_locked_priority_superset_100,Difference between capacity and competence,
+1.1.2.5,1,EMS2026-1-1-2-5-03,16,Abandonment And Inadequate Assessment,first50_reviewed_website_push,Patient abandonment,Medical Oversight
+1.1.2.6,1,EMS2026-1-1-2-6-05,257,Due Process Thresholds After Practice Restriction,uncovered50_v3_source_hardened,Due process,MEDICAL OVERSIGHT
+1.1.2.7,1,EMS2026-1-1-2-7-06,88,Risk Management Applied To Crashes,legacy_locked_priority_superset_100,Risk management,
+1.2.1,1,EMS2026-1-2-1-07,273,All-Caller Interrogation Before Chief-Complaint Script,uncovered50_v3_source_hardened,Public Safety Answering Points,EMS SYSTEMS
+1.2.2.1,1,EMS2026-1-2-2-1-05,283,Agonal Breathing As A Dispatch Failure Mode,uncovered50_v3_source_hardened,Pre-arrival instructions,EMS SYSTEMS
+1.2.2.2,1,EMS2026-1-2-2-2-05,278,"Same Dispatch Code, Different Local Response",uncovered50_v3_source_hardened,"Prioritization of response (e.g., determining local needs based on local resources)",EMS SYSTEMS
+1.2.2.3,1,EMS2026-1-2-2-3-05,250,Determinants That Matter Only If Response Changes,uncovered50_v3_source_hardened,Tiered response,EMS SYSTEMS
+1.2.2.4,1,EMS2026-1-2-2-4-04,202,EMAC Mutual Aid Function,second50_qi_review,Mutual aid response,
+1.2.3,1,EMS2026-1-2-3-07,275,Lights-And-Siren Reassessment With Wake-Effect Risk,uncovered50_v3_source_hardened,Use of Lights and Siren,EMS SYSTEMS
+1.2.4.1,1,EMS2026-1-2-4-1-05,242,Vehicle Capability Versus Ambulance Count,uncovered50_v3_source_hardened,Response and transport vehicles,EMS SYSTEMS
+1.2.4.2,2,EMS2026-1-2-4-2-01|EMS2026-1-2-4-2-06,98|361,National EMS Clinician Levels|Licensure After National Certification,legacy_locked_priority_superset_100|primary_doctrine_uncovered100,"EMS clinician levels (EMR, EMT, AEMT, Paramedic)",EMS SYSTEMS
+1.2.4.3,2,EMS2026-1-2-4-3-06|EMS2026-1-2-4-3-02,337|362,Public Utility Model Distinguishing Feature|Choosing An EMS Delivery Model,primary_doctrine_uncovered100|primary_doctrine_uncovered100,Service delivery models,EMS SYSTEMS
+1.2.4.4,1,EMS2026-1-2-4-4-02,301,Monitor Procurement Lifecycle Assessment,primary_doctrine_uncovered100,Equipment design and supply issues,EMS SYSTEMS
+1.2.5.1,1,EMS2026-1-2-5-1-02,372,Urban Overlap And Coordination,primary_doctrine_uncovered100,Urban EMS,EMS SYSTEMS
+1.2.5.10,1,EMS2026-1-2-5-10-02,348,Tribal EMS Workload Accounting,primary_doctrine_uncovered100,Tribal EMS,EMS SYSTEMS
+1.2.5.11,1,EMS2026-1-2-5-11-02,320,Physician-Staffed International EMS Model,primary_doctrine_uncovered100,International EMS,EMS SYSTEMS
+1.2.5.12,1,EMS2026-1-2-5-12-01,237,In-Flight Chest Pain Coordination,second50_qi_review,"Airline, cruise ship, and resort medical support",
+1.2.5.2,1,EMS2026-1-2-5-2-02,388,Suburban First Response Design,primary_doctrine_uncovered100,Suburban EMS,EMS SYSTEMS
+1.2.5.3,1,EMS2026-1-2-5-3-01,375,Rural Ambulance Coverage Tradeoff,primary_doctrine_uncovered100,Rural and frontier EMS,EMS SYSTEMS
+1.2.5.4,1,EMS2026-1-2-5-4-05,205,Wilderness Protocol Difference,second50_qi_review,Wilderness EMS,
+1.2.5.5,1,EMS2026-1-2-5-5-02,344,Volunteer System Outgrowing Capacity,primary_doctrine_uncovered100,Volunteer EMS,EMS SYSTEMS
+1.2.5.6,1,EMS2026-1-2-5-6-03,133,Interfacility Transport Responsibility,legacy_locked_priority_superset_100,Inter-facility transport,
+1.2.5.7,2,EMS2026-1-2-5-7-02|EMS2026-1-2-5-7-01,317|384,Military Medic Transition To Civilian EMS|Helicopter Emergency Medical Services Origins,primary_doctrine_uncovered100|primary_doctrine_uncovered100,Military EMS,EMS SYSTEMS
+1.2.5.8,1,EMS2026-1-2-5-8-06,152,Burn Transport Airway Before Departure,legacy_locked_priority_superset_100,Critical care and specialty care transport,
+1.2.5.9.1,1,EMS2026-1-2-5-9-1-02,332,Rotor-Wing Transport Utilization Decision,primary_doctrine_uncovered100,Rotor wing,EMS SYSTEMS
+1.2.5.9.2,1,EMS2026-1-2-5-9-2-02,308,Fixed-Wing Interfacility Evacuation,primary_doctrine_uncovered100,Fixed wing,EMS SYSTEMS
+1.2.6,1,EMS2026-1-2-6-03,381,Communications System Mission,primary_doctrine_uncovered100,Communications Systems,EMS SYSTEMS
+1.2.7,2,EMS2026-1-2-7-02|EMS2026-1-2-7-11,62|127,Emergency Medical Care System Scope|Diversion Rule With Time-Critical Exceptions,legacy_locked_priority_superset_100|legacy_locked_priority_superset_100,Regionalization of Care,
+1.3.1.1,2,EMS2026-1-3-1-1-01|EMS2026-1-3-1-1-07,151|166,Scope of Practice Authority|EMS Compact Authority,legacy_locked_priority_superset_100|legacy_locked_priority_superset_100,State vs. national,
+1.3.1.2,1,EMS2026-1-3-1-2-02,366,Clinician Level And Education Scope,primary_doctrine_uncovered100,Levels of EMS clinicians,EMS PERSONNEL
+1.3.1.3,2,EMS2026-1-3-1-3-02|EMS2026-1-3-1-3-05,357|400,Competence Beyond Skill Checkoffs|Local Credentialing Beyond Psychomotor Skills,primary_doctrine_uncovered100|primary_doctrine_uncovered100,Roles and psychomotor skills,EMS PERSONNEL
+1.3.2.1,1,EMS2026-1-3-2-1-02,370,Adult Learner Relevance,primary_doctrine_uncovered100,Theories of adult learning,EMS PERSONNEL
+1.3.2.2,1,EMS2026-1-3-2-2-01,87,Hybrid Education For A Psychomotor Skill,legacy_locked_priority_superset_100,Education delivery models,
+1.3.2.3,2,EMS2026-1-3-2-3-02|EMS2026-1-3-2-3-06,302|330,National EMS Core Content Versus Related National Documents|Medical Director Education Approval Standard,primary_doctrine_uncovered100|primary_doctrine_uncovered100,National EMS education standards,EMS PERSONNEL
+1.3.2.6,1,EMS2026-1-3-2-6-06,106,Remediation Matched To Defect Type,legacy_locked_priority_superset_100,Remediation and workforce re-entry,
+1.3.4.1.1,4,EMS2026-1-3-4-1-1-07|EMS2026-1-3-4-1-1-06|EMS2026-1-3-4-1-1-02|EMS2026-1-3-4-1-1-04,41|46|89|364,Tuberculosis Exposure Program|NFPA Department Physician Role|Needlestick Exposure First Actions|Ryan White Act Exposure Notification,first50_reviewed_website_push|first50_reviewed_website_push|legacy_locked_priority_superset_100|primary_doctrine_uncovered100,"Regulations and standards (e.g., National Fire Protection Association [NFPA] 1582, Ryan White Act, Occupational Safety and Health Administration [OSHA] requirements, National Institute for Occupational Safety and Health [NIOSH])",EMS PERSONNEL|EMS Personnel
+1.3.4.1.2,1,EMS2026-1-3-4-1-2-01,354,Ergonomic Risk In EMS,primary_doctrine_uncovered100,Ergonomic factors,EMS PERSONNEL
+1.3.4.3,2,EMS2026-1-3-4-3-03|EMS2026-1-3-4-3-08,177|391,Sleepiness Scale Interpretation|Emergency Medical Services Fatigue Risk Management,legacy_locked_priority_superset_100|primary_doctrine_uncovered100,Disordered sleep and work schedule,EMS PERSONNEL
+1.3.4.4,1,EMS2026-1-3-4-4-04,148,Immediate Stress Intervention,legacy_locked_priority_superset_100,Prevention and intervention for psychologically stressful events,
+1.3.6,2,EMS2026-1-3-6-08|EMS2026-1-3-6-10,83|203,Recruitment And Systemic Racism|Retention Beyond Pay,legacy_locked_priority_superset_100|second50_qi_review,Recruitment and Retention,
+1.3.7,2,EMS2026-1-3-7-08|EMS2026-1-3-7-04,79|197,"Race, Ethnicity, And EMS Care Differences|Workforce Equity Intervention Package",legacy_locked_priority_superset_100|second50_qi_review,Diverse and Inclusive Workforce,
+1.4.2.1,1,EMS2026-1-4-2-1-04,379,Marginal Cost At Capacity,primary_doctrine_uncovered100,Allocation of resources,EMS SYSTEM MANAGEMENT
+1.4.2.3,1,EMS2026-1-4-2-3-06,350,Treat-In-Place Break-Even Analysis,primary_doctrine_uncovered100,Reimbursement,EMS SYSTEM MANAGEMENT
+1.4.3.1,1,EMS2026-1-4-3-1-05,295,BLS Oversight When State Authority Is Silent,uncovered50_v3_source_hardened,Working with government and public health agencies,EMS SYSTEM MANAGEMENT
+1.4.3.4.4,1,EMS2026-1-4-3-4-4-01,94,Health Privacy At A Public Scene,legacy_locked_priority_superset_100,Health Insurance Portability and Accountability Act (HIPAA),
+1.4.4.1,2,EMS2026-1-4-4-1-04|EMS2026-1-4-4-1-03,39|191,Specialty Designation Authority|Certified Stroke Center With Operational Lapses,first50_reviewed_website_push|second50_qi_review,Specialty hospital designations and patient transport,EMS System Management
+1.4.4.2,3,EMS2026-1-4-4-2-04|EMS2026-1-4-4-2-03|EMS2026-1-4-4-2-07,119|172|378,Trauma Overtriage Tradeoff|Field Activation As Simultaneous Processing|Mass-Casualty Destination Decisions,legacy_locked_priority_superset_100|legacy_locked_priority_superset_100|primary_doctrine_uncovered100,Field triage to appropriate destination,EMS SYSTEM MANAGEMENT
+1.4.4.3,2,EMS2026-1-4-4-3-04|EMS2026-1-4-4-3-01,7|31,Public Access Defibrillation Law Variation|Community Intervention For CARES Outcomes,first50_reviewed_website_push|first50_reviewed_website_push,Public access defibrillation (PAD),EMS System Management
+1.4.4.4,1,EMS2026-1-4-4-4-04,245,Diversion Policy With Regional Harm Signal,uncovered50_v3_source_hardened,Hospital diversion and bypass,EMS SYSTEM MANAGEMENT
+1.4.4.5,2,EMS2026-1-4-4-5-06|EMS2026-1-4-4-5-01,8|32,Coalition Coordination During Surge|Public Health Functions In EMS Collaboration,first50_reviewed_website_push|first50_reviewed_website_push,"Integration of EMS, community public resources, mental health resources, and social services",EMS System Management
+1.4.5,1,EMS2026-1-4-5-05,159,System Status Management Tradeoff,legacy_locked_priority_superset_100,System Status Management,
+1.4.6.1,2,EMS2026-1-4-6-1-02|EMS2026-1-4-6-1-03,43|135,"Alternative Destination Legal Check|Emergency Triage, Treat, And Transport Model",first50_reviewed_website_push|legacy_locked_priority_superset_100,Alternative destinations,EMS System Management
+1.4.6.2,1,EMS2026-1-4-6-2-03,169,MIH Treatment-in-Place Design,legacy_locked_priority_superset_100,Treatment in place,
+1.4.7,2,EMS2026-1-4-7-07|EMS2026-1-4-7-02,266|373,Choosing The MIH Model For Senior Housing|Telephone Advice As Navigation,uncovered50_v3_source_hardened|primary_doctrine_uncovered100,Navigation to Healthcare Resources,EMS SYSTEM MANAGEMENT
+1.4.8,1,EMS2026-1-4-8-09,385,Advocacy Framed For The Audience,primary_doctrine_uncovered100,Advocacy for EMS Systems,EMS SYSTEM MANAGEMENT
+1.5.1,3,EMS2026-1-5-1-12|EMS2026-1-5-1-09|EMS2026-1-5-1-10,76|170|195,Public Reporting Without Misleading|Risk Communication Without Repeating Rumor|Patient Condition Language,legacy_locked_priority_superset_100|legacy_locked_priority_superset_100|second50_qi_review,Public information and interacting with the media,
+1.5.2,1,EMS2026-1-5-2-10,215,Special Event Communications Matrix,second50_qi_review,Crisis communication,
+1.5.3,3,EMS2026-1-5-3-01|EMS2026-1-5-3-05|EMS2026-1-5-3-08,21|161|165,Emergency Risk Communication Statement|Repeating Risk Messages|Avoiding Overreassurance,first50_reviewed_website_push|legacy_locked_priority_superset_100|legacy_locked_priority_superset_100,Emergency risk communication,Crisis and Emergency Risk Communication
+1.5.4,2,EMS2026-1-5-4-10|EMS2026-1-5-4-04,101|219,FirstNet And Voice Interoperability|PSAP Quality Beyond Answer Time,legacy_locked_priority_superset_100|second50_qi_review,Communication lifecycle,
+2.1.1.1,1,EMS2026-2-1-1-1-04,290,Compression Pauses On Defibrillator Review,uncovered50_v3_source_hardened,General management and field resuscitation,RESUSCITATION
+2.1.1.2,2,EMS2026-2-1-1-2-06|EMS2026-2-1-1-2-02,181|214,Refractory Arrest Transport Capability|Exceptional CPR Transport,second50_qi_review|second50_qi_review,Transport decisions,
+2.1.1.3,1,EMS2026-2-1-1-3-04,277,Post-ROSC Cold Saline Trap,uncovered50_v3_source_hardened,Post-resuscitation care,RESUSCITATION
+2.1.1.4,1,EMS2026-2-1-1-4-04,183,TOR Family Acceptability,second50_qi_review,Termination of resuscitation in the field,
+2.1.1.5,2,EMS2026-2-1-1-5-04|EMS2026-2-1-1-5-02,298|326,Mechanical CPR At A Staffed Arrest|Mechanical CPR Deployment Decision,uncovered50_v3_source_hardened|primary_doctrine_uncovered100,Mechanical CPR and real-time feedback devices,RESUSCITATION
+2.1.1.6,2,EMS2026-2-1-1-6-03|EMS2026-2-1-1-6-01,184|311,POLST As Actionable Orders|Withholding Resuscitation With Two Independent Grounds,second50_qi_review|primary_doctrine_uncovered100,Withholding resuscitation (including determination of death and applying advanced directives),RESUSCITATION
+2.1.2.1.2,2,EMS2026-2-1-2-1-2-04|EMS2026-2-1-2-1-2-03,280|315,Oxygen Saturation Is Not Ventilation|Airway Adjunct During Bag-Mask Ventilation,uncovered50_v3_source_hardened|primary_doctrine_uncovered100,Oropharyngeal and nasopharyngeal airways,RESUSCITATION
+2.1.2.1.3,2,EMS2026-2-1-2-1-3-03|EMS2026-2-1-2-1-3-04,6|220,Correcting A Failing BVM Seal|BVM Complication And Cricoid Pressure,paramedic_next_action_50|second50_qi_review,Bag-valve-mask ventilation,RESUSCITATION
+2.1.2.2.1,2,EMS2026-2-1-2-2-1-03|EMS2026-2-1-2-2-1-05,142|339,Continuous Tube Confirmation|Handoff After Supraglottic Airway Placement,legacy_locked_priority_superset_100|primary_doctrine_uncovered100,Devices for securing airway,RESUSCITATION
+2.1.2.2.2,1,EMS2026-2-1-2-2-2-04,281,Airway Quality Measures Beyond Success,uncovered50_v3_source_hardened,Airway management adjuncts,RESUSCITATION
+2.1.2.2.3,2,EMS2026-2-1-2-2-3-01|EMS2026-2-1-2-2-3-05,116|314,Direct Laryngoscopy Blade Technique|Airway Dashboard Attempt Definitions,legacy_locked_priority_superset_100|primary_doctrine_uncovered100,Direct laryngoscopy,RESUSCITATION
+2.1.2.2.4,1,EMS2026-2-1-2-2-4-04,69,Video Laryngoscopy For Team Performance,legacy_locked_priority_superset_100,Video laryngoscopy,
+2.1.2.2.5,1,EMS2026-2-1-2-2-5-04,272,Sedation-Only Intubation Proposal,uncovered50_v3_source_hardened,Drug assisted airway management,RESUSCITATION
+2.1.2.2.6,2,EMS2026-2-1-2-2-6-03|EMS2026-2-1-2-2-6-01,12|207,Airway Choice After CPR Pauses|Supraglottic Airway System Role,paramedic_next_action_50|second50_qi_review,Supraglottic/extraglottic airways,RESUSCITATION
+2.1.2.2.7,1,EMS2026-2-1-2-2-7-04,299,Maintaining Nasotracheal Intubation In Scope,uncovered50_v3_source_hardened,Nasal intubation,RESUSCITATION
+2.1.2.2.8,1,EMS2026-2-1-2-2-8-01,44,Prehospital Surgical Airway Indication,first50_reviewed_website_push,Cricothyroidotomy,Resuscitation
+2.1.2.3,2,EMS2026-2-1-2-3-04|EMS2026-2-1-2-3-03,292|383,Low-Light Airway Failure As Readiness Failure|Trapped Upright Airway Priority,uncovered50_v3_source_hardened|primary_doctrine_uncovered100,"Airway management in challenging conditions (e.g., low light, atypical position)",RESUSCITATION
+2.1.2.4,1,EMS2026-2-1-2-4-01,2,Bariatric Airway Reserve,first50_reviewed_website_push,Airway management in bariatric patients,Resuscitation
+2.1.2.5,1,EMS2026-2-1-2-5-03,268,Ventilating A Tracheostomy Patient From Above,uncovered50_v3_source_hardened,Tracheostomy complications,RESUSCITATION
+2.1.2.6,2,EMS2026-2-1-2-6-03|EMS2026-2-1-2-6-02,18|261,Post-Tonsillectomy Airway Priority|Controlled Pressure For Post-Tonsillectomy Bleeding,paramedic_next_action_50|uncovered50_v3_source_hardened,Control of post-tonsillectomy hemorrhage,RESUSCITATION
+2.1.3.1,1,EMS2026-2-1-3-1-03,24,Compensated Shock With Bleeding,paramedic_next_action_50,Recognition of shock and hypotension,RESUSCITATION
+2.1.3.2,2,EMS2026-2-1-3-2-03|EMS2026-2-1-3-2-02,30|153,Obstructive Shock From Chest Trauma|Anaphylactic Shock Without Rash,paramedic_next_action_50|legacy_locked_priority_superset_100,Management of hypotension and shock,RESUSCITATION
+2.1.3.3.3,4,EMS2026-2-1-3-3-3-02|EMS2026-2-1-3-3-3-04|EMS2026-2-1-3-3-3-05|EMS2026-2-1-3-3-3-03,36|110|179|342,Pediatric IO Site With Tibial Fracture|Intraosseous Medication Delivery|Intraosseous Infusion Flow|Pediatric IO After Failed IV Attempts,paramedic_next_action_50|legacy_locked_priority_superset_100|legacy_locked_priority_superset_100|primary_doctrine_uncovered100,Placement of intraosseous lines (adult and pediatric),RESUSCITATION
+2.1.3.4,1,EMS2026-2-1-3-4-01,171,Blood Product Program Readiness,legacy_locked_priority_superset_100,Blood product transfusion,
+2.1.4,1,EMS2026-2-1-4-03,42,Airway First In Altered Mental Status,paramedic_next_action_50,Altered Mental Status,RESUSCITATION
+2.2.1.1,2,EMS2026-2-2-1-1-02|EMS2026-2-2-1-1-04,5|86,Penetrating Trauma Fluid Timing|Scene Time Versus Hemorrhage Control,first50_reviewed_website_push|legacy_locked_priority_superset_100,Goal of minimizing scene time for severe trauma,Trauma
+2.2.1.2,2,EMS2026-2-2-1-2-05|EMS2026-2-2-1-2-03,15|48,Permissive Hypotension Boundary|Trauma Tension Pneumothorax Priority,first50_reviewed_website_push|paramedic_next_action_50,Management and resuscitation of multi-trauma patient,TRAUMA|Trauma
+2.2.1.3,1,EMS2026-2-2-1-3-03,147,Unstable Pelvis Field Triage,legacy_locked_priority_superset_100,Field trauma triage criteria,
+2.2.1.4.1,1,EMS2026-2-2-1-4-1-03,271,Motorcycle Mechanism At The Triage Margin,uncovered50_v3_source_hardened,Motor vehicle collisions,TRAUMA
+2.2.1.4.2,1,EMS2026-2-2-1-4-2-04,61,Spinal Restriction In Gunshot Wounds,legacy_locked_priority_superset_100,Gunshot wounds and ballistics,
+2.2.1.5,2,EMS2026-2-2-1-5-03|EMS2026-2-2-1-5-05,54|149,Junctional Hemorrhage Packing|Anticoagulants Without Losing Hemorrhage Priorities,paramedic_next_action_50|legacy_locked_priority_superset_100,Control of life-threatening hemorrhage,TRAUMA
+2.2.1.6,1,EMS2026-2-2-1-6-01,231,Open Pneumothorax Dressing Choice,second50_qi_review,Wound care management,
+2.2.2.1,1,EMS2026-2-2-2-1-05,253,Finger Thoracostomy Program Boundaries,uncovered50_v3_source_hardened,"Thoracostomy (including needle, simple, or tube)",TRAUMA
+2.2.3.1,1,EMS2026-2-2-3-1-01,193,Spinal Motion Restriction Indication,second50_qi_review,Spinal motion restriction,
+2.2.3.2,1,EMS2026-2-2-3-2-04,256,Active Extrication Boundary For Spinal Motion Devices,uncovered50_v3_source_hardened,Application of backboard as extrication device,TRAUMA
+2.2.4.1,1,EMS2026-2-2-4-1-02,335,Burn Eschar Monitoring,primary_doctrine_uncovered100,Escharotomy,TRAUMA
+2.2.5.1.1,1,EMS2026-2-2-5-1-1-03,117,Improvised Splint Construction,legacy_locked_priority_superset_100,"Splinting, including use of nontraditional materials",
+2.2.5.1.2,1,EMS2026-2-2-5-1-2-05,100,Reduction Deferred For Analgesia,legacy_locked_priority_superset_100,Joint reduction without anesthetics,
+2.2.5.1.3,2,EMS2026-2-2-5-1-3-04|EMS2026-2-2-5-1-3-05,208|217,Femoral Shaft Fracture Splint Choice|Femoral Fracture Protocol Update,second50_qi_review|second50_qi_review,Application of traction devices,
+2.2.5.1.4,2,EMS2026-2-2-5-1-4-05|EMS2026-2-2-5-1-4-02,382|390,Open Fracture Antibiotics After Stabilization|Severe Open Fracture Antibiotic Coverage,primary_doctrine_uncovered100|primary_doctrine_uncovered100,Administration of antibiotics,TRAUMA
+2.2.6,2,EMS2026-2-2-6-02|EMS2026-2-2-6-05,60|398,Alkali Eye Burn Irrigation|Protruding Globe Foreign Body Next Action,paramedic_next_action_50|primary_doctrine_uncovered100,Facial and Ocular Trauma,TRAUMA
+2.2.7.1,1,EMS2026-2-2-7-1-03,14,Severe TBI Airway Quality Dependency,first50_reviewed_website_push,Severe head injury management,Trauma
+2.2.7.2,1,EMS2026-2-2-7-2-02,316,Concussion Symptom Pattern,primary_doctrine_uncovered100,Concussion management,TRAUMA
+2.2.8.1,1,EMS2026-2-2-8-1-04,74,Traumatic Amputation Stump Care,legacy_locked_priority_superset_100,Field limb amputation,
+2.2.8.2,2,EMS2026-2-2-8-2-03|EMS2026-2-2-8-2-02,66|340,Crush Release Preparation|Crush Syndrome Risk Estimation,paramedic_next_action_50|primary_doctrine_uncovered100,Crush injuries,TRAUMA
+2.3.1.1,1,EMS2026-2-3-1-1-03,34,Dyspnea Anchoring Trap,first50_reviewed_website_push,Determination of causes,Medical Emergencies
+2.3.1.2,3,EMS2026-2-3-1-2-04|EMS2026-2-3-1-2-02|EMS2026-2-3-1-2-05,52|72|185,Sepsis Low End-Tidal Carbon Dioxide Response|Capnography Drop During Ventilation|Capnography For Ventilation Monitoring,first50_reviewed_website_push|paramedic_next_action_50|second50_qi_review,Use of capnometry and capnography waveforms in diagnosis and management,MEDICAL EMERGENCIES|Medical Emergencies
+2.3.1.3,2,EMS2026-2-3-1-3-02|EMS2026-2-3-1-3-01,78|163,Ventilatory Support In COPD Exhaustion|Oxygen Targeting Instead Of Comfort Oxygen,paramedic_next_action_50|legacy_locked_priority_superset_100,Management of respiratory distress or shortness of breath,MEDICAL EMERGENCIES
+2.3.1.4,1,EMS2026-2-3-1-4-01,84,CPAP For Pulmonary Edema,paramedic_next_action_50,Non-invasive positive pressure ventilation,MEDICAL EMERGENCIES
+2.3.1.5,1,EMS2026-2-3-1-5-01,377,Portable Ventilator Indication,primary_doctrine_uncovered100,Portable ventilator management,MEDICAL EMERGENCIES
+2.3.1.6.1,1,EMS2026-2-3-1-6-1-05,77,Pneumothorax During Air Transport,legacy_locked_priority_superset_100,Clinical diagnosis,
+2.3.1.6.2,2,EMS2026-2-3-1-6-2-01|EMS2026-2-3-1-6-2-03,90|97,Recurrent Tension Pneumothorax|Finger Thoracostomy System Requirements,paramedic_next_action_50|legacy_locked_priority_superset_100,Management and related devices,MEDICAL EMERGENCIES
+2.3.10.1,2,EMS2026-2-3-10-1-03|EMS2026-2-3-10-1-02,168|345,Recognizing Prehospital Septic Shock|Septic Shock Mixed Physiology,paramedic_next_action_50|primary_doctrine_uncovered100,Early recognition,MEDICAL EMERGENCIES
+2.3.10.2,3,EMS2026-2-3-10-2-05|EMS2026-2-3-10-2-01|EMS2026-2-3-10-2-03,143|155|174,Septic Shock Perfusion Target|Prehospital Antibiotics in Septic Shock|Oxygenation In Septic Shock,legacy_locked_priority_superset_100|legacy_locked_priority_superset_100|paramedic_next_action_50,"Management (e.g., care bundles)",MEDICAL EMERGENCIES
+2.3.11.1.1,1,EMS2026-2-3-11-1-1-02,22,Bloodborne Exposure Route,first50_reviewed_website_push,"Contact (e.g., Norovirus, MRSA, Hep B, C)",Medical Emergencies
+2.3.11.1.2,1,EMS2026-2-3-11-1-2-01,334,Droplet Precaution Boundary,primary_doctrine_uncovered100,"Droplet (e.g., Influenza, mumps, meningococcal)",MEDICAL EMERGENCIES
+2.3.11.1.3,2,EMS2026-2-3-11-1-3-04|EMS2026-2-3-11-1-3-02,118|180,Measles Precautions|Tuberculosis Airborne Precautions,legacy_locked_priority_superset_100|paramedic_next_action_50,"Airborne (e.g., measles, COVID-19, varicella, tuberculosis)",MEDICAL EMERGENCIES
+2.3.11.2,1,EMS2026-2-3-11-2-02,322,MDRO Transport Precaution Category,primary_doctrine_uncovered100,Multi-Drug-Resistant Organisms (MDROs),MEDICAL EMERGENCIES
+2.3.11.3.1,1,EMS2026-2-3-11-3-1-02,11,Stable Returned Traveler With Suspected VHF PPE,first50_reviewed_website_push,Viral hemorrhagic fevers,Medical Emergencies
+2.3.11.3.2,1,EMS2026-2-3-11-3-2-01,346,Single Suspected Smallpox Case,primary_doctrine_uncovered100,Smallpox,MEDICAL EMERGENCIES
+2.3.11.3.3,1,EMS2026-2-3-11-3-3-01,305,Pneumonic Plague Recognition,primary_doctrine_uncovered100,Plague,MEDICAL EMERGENCIES
+2.3.11.3.4,2,EMS2026-2-3-11-3-4-02|EMS2026-2-3-11-3-4-01,300|307,Suspected MPox Source Control|Mpox Lesion Suspicion,paramedic_next_action_50|primary_doctrine_uncovered100,MPox,MEDICAL EMERGENCIES
+2.3.11.4.1,1,EMS2026-2-3-11-4-1-01,376,Avian Influenza Exposure Context,primary_doctrine_uncovered100,"Novel respiratory viruses (e.g., H5N1, MERS, COVID-19)",MEDICAL EMERGENCIES
+2.3.11.4.2,1,EMS2026-2-3-11-4-2-02,363,Pandemic Threat Transition,primary_doctrine_uncovered100,Pandemics,MEDICAL EMERGENCIES
+2.3.11.5.2,1,EMS2026-2-3-11-5-2-02,248,Task-Based Personal Protective Equipment,uncovered50_v3_source_hardened,Standard precautions,MEDICAL EMERGENCIES
+2.3.11.5.4.4,1,EMS2026-2-3-11-5-4-4-01,186,Early Infectious-Disease Notification,paramedic_next_action_50,Alerting public health/receiving facility,MEDICAL EMERGENCIES
+2.3.11.6.1,1,EMS2026-2-3-11-6-1-05,209,Tuberculosis Postexposure Testing Window,second50_qi_review,"Health monitoring, post-exposure prophylaxis, and testing",
+2.3.11.6.2,2,EMS2026-2-3-11-6-2-02|EMS2026-2-3-11-6-2-01,141|194,Meningococcal Exposure Follow-Up|Ryan White Infection Control Structure,legacy_locked_priority_superset_100|second50_qi_review,Infection control liaison between hospital and EMS agency,
+2.3.11.6.3,1,EMS2026-2-3-11-6-3-01,386,Isolation Versus Quarantine,primary_doctrine_uncovered100,Quarantine and isolation,MEDICAL EMERGENCIES
+2.3.11.7,1,EMS2026-2-3-11-7-03,38,Ambulance Decontamination PPE,first50_reviewed_website_push,Cleaning and disinfection of the ambulance,Medical Emergencies
+2.3.12.1.1,1,EMS2026-2-3-12-1-1-02,192,Direct Suicide Risk Questions,paramedic_next_action_50,Mood disorders,MEDICAL EMERGENCIES
+2.3.12.1.2,2,EMS2026-2-3-12-1-2-04|EMS2026-2-3-12-1-2-02,254|395,Psychosis De-Escalation With Safety Boundary|Violence Risk In Psychosis,uncovered50_v3_source_hardened|primary_doctrine_uncovered100,Psychosis,MEDICAL EMERGENCIES
+2.3.12.1.3,1,EMS2026-2-3-12-1-3-02,198,Panic Mimic Assessment,paramedic_next_action_50,"Anxiety, panic disorder, hyperventilation syndrome",MEDICAL EMERGENCIES
+2.3.12.2,1,EMS2026-2-3-12-2-03,204,Weapon Risk In Suicidal Patient,paramedic_next_action_50,Suicidal ideation,MEDICAL EMERGENCIES
+2.3.12.3.1,1,EMS2026-2-3-12-3-1-04,104,De-Escalation By Room Setup,legacy_locked_priority_superset_100,De-escalation techniques,
+2.3.12.3.4,1,EMS2026-2-3-12-3-4-02,210,Agitated Delirium As Medical Emergency,paramedic_next_action_50,Delirium with agitated behavior,MEDICAL EMERGENCIES
+2.3.13.1.1,1,EMS2026-2-3-13-1-1-02,216,Urban Hypothermia Assessment,paramedic_next_action_50,Hypothermia,MEDICAL EMERGENCIES
+2.3.13.1.2,1,EMS2026-2-3-13-1-2-01,304,Trench Foot Versus Frostbite,primary_doctrine_uncovered100,Localized cold injuries (e.g. frostbite),MEDICAL EMERGENCIES
+2.3.13.1.3,1,EMS2026-2-3-13-1-3-02,222,Gentle Handling In Moderate Hypothermia,paramedic_next_action_50,Protection from injury vs. re-warming,MEDICAL EMERGENCIES
+2.3.13.2.1,2,EMS2026-2-3-13-2-1-02|EMS2026-2-3-13-2-1-03,182|228,Heat Exhaustion Versus Heat Stroke|Cool First In Exertional Heat Stroke,second50_qi_review|paramedic_next_action_50,Exertional heat stroke,MEDICAL EMERGENCIES
+2.3.13.3.1,2,EMS2026-2-3-13-3-1-03|EMS2026-2-3-13-3-1-04,105|196,Acute Mountain Sickness Recognition|High-Altitude Cerebral Edema Temporizing Medication,legacy_locked_priority_superset_100|second50_qi_review,Protection from high altitude injury,
+2.3.13.3.3,1,EMS2026-2-3-13-3-3-02,93,Mild Acute Mountain Sickness,legacy_locked_priority_superset_100,Field prophylaxis and treatment,
+2.3.13.4.1,1,EMS2026-2-3-13-4-1-03,234,Ventilation Priority In Drowning Arrest,paramedic_next_action_50,Initial management in water,MEDICAL EMERGENCIES
+2.3.13.4.2,1,EMS2026-2-3-13-4-2-01,49,Decompression Sickness Mechanism,first50_reviewed_website_push,Decompression illness,Medical Emergencies
+2.3.13.4.4,1,EMS2026-2-3-13-4-4-01,95,Nitrogen Narcosis Mechanism,legacy_locked_priority_superset_100,Nitrogen narcosis,
+2.3.13.4.5,1,EMS2026-2-3-13-4-5-02,380,Seizure During Deep Technical Dive,live400_duplicate_replacement_20260707,Oxygen toxicity,MEDICAL EMERGENCIES
+2.3.13.5.1,1,EMS2026-2-3-13-5-1-01,111,Lightning Reverse Triage,legacy_locked_priority_superset_100,Reverse triage,
+2.3.2.1.3,1,EMS2026-2-3-2-1-3-02,140,STEMI Reperfusion Strategy At The Margin,legacy_locked_priority_superset_100,Prehospital administration of thrombolytics for STEMI,
+2.3.2.2.1,1,EMS2026-2-3-2-2-1-02,227,Volume-Overload Heart Failure Pattern,second50_qi_review,Field identification of heart failure (acute or chronic),
+2.3.2.2.2,1,EMS2026-2-3-2-2-2-01,145,Severe Cardiogenic Pulmonary Edema,legacy_locked_priority_superset_100,Heart failure management,
+2.3.2.3,1,EMS2026-2-3-2-3-03,351,Hypertensive Pulmonary Edema Treatment Escalation,live400_duplicate_replacement_20260707,Sympathetic crashing acute pulmonary edema (SCAPE),MEDICAL EMERGENCIES
+2.3.2.5,1,EMS2026-2-3-2-5-02,347,Field Tamponade Assessment,primary_doctrine_uncovered100,Pericardiocentesis with or without ultrasound or other guidance device,MEDICAL EMERGENCIES
+2.3.2.6.1,1,EMS2026-2-3-2-6-1-03,187,IABP Transport Precheck,second50_qi_review,Intra-aortic balloon pump management,
+2.3.2.6.2,2,EMS2026-2-3-2-6-2-02|EMS2026-2-3-2-6-2-03,96|331,LVAD Alarm Troubleshooting|Low-Flow Ventricular Assist Device Alarm,paramedic_next_action_50|primary_doctrine_uncovered100,Ventricular assist devices (surgical and percutaneous),MEDICAL EMERGENCIES
+2.3.2.7,1,EMS2026-2-3-2-7-02,58,Wearable Defibrillator During CPR,first50_reviewed_website_push,Wearable cardioverter defibrillator,Medical Emergencies
+2.3.3.1.1,2,EMS2026-2-3-3-1-1-05|EMS2026-2-3-3-1-1-04,4|394,Stroke Mimic Glucose Check|Prehospital Large Vessel Occlusion Screen,first50_reviewed_website_push|primary_doctrine_uncovered100,Prehospital stroke identification and severity scales,MEDICAL EMERGENCIES|Medical Emergencies
+2.3.4.1,1,EMS2026-2-3-4-1-07,287,Antithrombotic Detail In Bleeding Handoff,uncovered50_v3_source_hardened,Gastrointestinal hemorrhage,MEDICAL EMERGENCIES
+2.3.4.2,1,EMS2026-2-3-4-2-02,289,Jejunal Feeding Port Implication,uncovered50_v3_source_hardened,Gastrointestinal tube displacement,MEDICAL EMERGENCIES
+2.3.5.2,1,EMS2026-2-3-5-2-04,25,Hypoglycemia Treat-And-Release Criteria,first50_reviewed_website_push,Protocols for treat and release,Medical Emergencies
+2.3.5.4,2,EMS2026-2-3-5-4-04|EMS2026-2-3-5-4-01,102|255,Insulin Pump Hypoglycemia|Insulin Pump And Route-Specific Hypoglycemia Care,paramedic_next_action_50|uncovered50_v3_source_hardened,Insulin pumps,MEDICAL EMERGENCIES
+2.3.5.5,1,EMS2026-2-3-5-5-02,108,CGM Conflict With EMS Glucose,paramedic_next_action_50,Wearable glucose monitors,MEDICAL EMERGENCIES
+2.3.6.1.2,1,EMS2026-2-3-6-1-2-02,114,Dialysis Fistula Hemorrhage,paramedic_next_action_50,Uncontrolled hemorrhage from shunt site,MEDICAL EMERGENCIES
+2.3.6.2,2,EMS2026-2-3-6-2-03|EMS2026-2-3-6-2-01,120|167,Hyperkalemia With ECG Changes|Missed Dialysis With Wide-Complex Bradycardia,paramedic_next_action_50|legacy_locked_priority_superset_100,Evaluation and treatment of hyperkalemia,MEDICAL EMERGENCIES
+2.3.7.1.2,1,EMS2026-2-3-7-1-2-02,126,Eclamptic Seizure Priorities,paramedic_next_action_50,Preeclampsia and eclampsia,MEDICAL EMERGENCIES
+2.3.7.1.4,2,EMS2026-2-3-7-1-4-02|EMS2026-2-3-7-1-4-01,132|323,Placenta Previa Exam Avoidance|Placenta Previa Versus Abruption,paramedic_next_action_50|primary_doctrine_uncovered100,Placenta previa,MEDICAL EMERGENCIES
+2.3.7.1.5,1,EMS2026-2-3-7-1-5-01,263,First-Trimester Bleeding With Shock,uncovered50_v3_source_hardened,Spontaneous or threatened abortion,MEDICAL EMERGENCIES
+2.3.7.2.2,2,EMS2026-2-3-7-2-2-03|EMS2026-2-3-7-2-2-02,53|160,High-Risk Delivery Resources|Temporizing High-Risk Delivery,first50_reviewed_website_push|legacy_locked_priority_superset_100,"High-risk delivery of a fetus (e.g., preterm delivery)",Medical Emergencies
+2.3.7.3.2,1,EMS2026-2-3-7-3-2-02,138,Shoulder Dystocia First Maneuver,paramedic_next_action_50,Shoulder dystocia,MEDICAL EMERGENCIES
+2.3.7.3.4,2,EMS2026-2-3-7-3-4-04|EMS2026-2-3-7-3-4-02,19|189,Postpartum Hemorrhage Adjuncts|Uterine Atony Recognition,first50_reviewed_website_push|second50_qi_review,Post-partum hemorrhage,Medical Emergencies
+2.3.7.3.6,1,EMS2026-2-3-7-3-6-02,144,Neonatal Positive-Pressure Ventilation,paramedic_next_action_50,Neonatal resuscitation,MEDICAL EMERGENCIES
+2.3.7.6,1,EMS2026-2-3-7-6-01,230,Pregnant Trauma Monitoring Destination,second50_qi_review,Trauma in pregnancy,
+2.3.7.7,1,EMS2026-2-3-7-7-01,367,Gynecologic Complaint In A Child,primary_doctrine_uncovered100,"Gynecologic emergencies (e.g., ovarian torsion)",MEDICAL EMERGENCIES
+2.3.7.8,1,EMS2026-2-3-7-8-05,68,Resuscitative Hysterotomy,legacy_locked_priority_superset_100,Systems of care (including destination decisions),
+2.3.8.2.2,1,EMS2026-2-3-8-2-2-04,336,Cyanide Gas Decontamination,primary_doctrine_uncovered100,Cyanide,MEDICAL EMERGENCIES
+2.3.8.2.5,1,EMS2026-2-3-8-2-5-03,156,Atropine Endpoint In Organophosphate Poisoning,paramedic_next_action_50,Organophosphates,MEDICAL EMERGENCIES
+2.3.8.2.6,1,EMS2026-2-3-8-2-6-02,368,Phosgene Latent Pulmonary Edema,primary_doctrine_uncovered100,Phosgene,MEDICAL EMERGENCIES
+2.3.8.3,2,EMS2026-2-3-8-3-05|EMS2026-2-3-8-3-01,63|150,Antidote Matching in Toxic Shock|Ventilation Before Naloxone,legacy_locked_priority_superset_100|paramedic_next_action_50,Treatment with antidotes,MEDICAL EMERGENCIES
+2.3.8.4,1,EMS2026-2-3-8-4-05,223,Caustic Ingestion Oral Exam Trap,second50_qi_review,Caustic substance ingestion (including airway management),
+2.3.8.5.1,1,EMS2026-2-3-8-5-1-02,162,Toxicologic Seizure Treatment,paramedic_next_action_50,Treatment of suspected overdose,MEDICAL EMERGENCIES
+2.3.8.6,1,EMS2026-2-3-8-6-05,122,Envenomation Destination Planning,legacy_locked_priority_superset_100,"Bites, stings, and envenomation",
+2.3.9.5,1,EMS2026-2-3-9-5-02,294,Blast Scene Secondary-Device Safety,paramedic_next_action_50,Explosive/Blast,MEDICAL EMERGENCIES
+2.4.1,1,EMS2026-2-4-1-02,28,Field-Relevant POC Testing,first50_reviewed_website_push,Point of Care Testing,Special Clinical Considerations
+2.4.12.1,1,EMS2026-2-4-12-1-02,82,Lift Assist Refusal Risk,legacy_locked_priority_superset_100,Lift assist calls,
+2.4.13,2,EMS2026-2-4-13-03|EMS2026-2-4-13-05,71|113,Names and Pronouns in Prehospital Care|Clinically Relevant Gender-Affirming History,legacy_locked_priority_superset_100|legacy_locked_priority_superset_100,Gender-based Health Issues,
+2.4.4.1,2,EMS2026-2-4-4-1-06|EMS2026-2-4-4-1-04,284|319,Fixed-Wing Motion And Fracture Pain|Air Transport Cuff Pressure,uncovered50_v3_source_hardened|primary_doctrine_uncovered100,Effect of altitude on patient management,SPECIAL CLINICAL CONSIDERATIONS
+2.4.5.1,3,EMS2026-2-4-5-1-05|EMS2026-2-4-5-1-04|EMS2026-2-4-5-1-03,23|157|240,Pediatric Airway Program Metrics|Pediatric Airway Program Threshold|Croup Treatment Without Agitation,first50_reviewed_website_push|legacy_locked_priority_superset_100|paramedic_next_action_50,Pediatric airway management,SPECIAL CLINICAL CONSIDERATIONS|Special Clinical Considerations
+2.4.5.4,1,EMS2026-2-4-5-4-03,246,Concerning Pediatric Refusal,paramedic_next_action_50,Unique issues related to consent,SPECIAL CLINICAL CONSIDERATIONS
+2.4.5.5,1,EMS2026-2-4-5-5-01,20,BRUE Definition Boundary,first50_reviewed_website_push,Brief resolved unexplained event (BRUE),Special Clinical Considerations
+2.4.5.6,2,EMS2026-2-4-5-6-04|EMS2026-2-4-5-6-01,107|369,Technology-Dependent Child Deterioration|Special Health Care Needs Beyond Technology,legacy_locked_priority_superset_100|primary_doctrine_uncovered100,"Children with special healthcare needs (e.g., technology dependent)",SPECIAL CLINICAL CONSIDERATIONS
+2.4.5.7,1,EMS2026-2-4-5-7-03,252,Safe Pediatric Ambulance Restraint,paramedic_next_action_50,Safe transport of pediatric patients,SPECIAL CLINICAL CONSIDERATIONS
+2.4.6.1,2,EMS2026-2-4-6-1-05|EMS2026-2-4-6-1-03,139|258,Geriatric Trauma Packaging|Geriatric Head Injury Undertriage,legacy_locked_priority_superset_100|paramedic_next_action_50,"Geriatric trauma (e.g., falls)",SPECIAL CLINICAL CONSIDERATIONS
+2.4.6.3,1,EMS2026-2-4-6-3-04,264,Acute Delirium In Dementia,paramedic_next_action_50,Dementia or delirium,SPECIAL CLINICAL CONSIDERATIONS
+2.4.7.1,2,EMS2026-2-4-7-1-01|EMS2026-2-4-7-1-03,313|327,Bariatric Blood Pressure Miscuffing|Bariatric-Specific Access Equipment Sizing,primary_doctrine_uncovered100|primary_doctrine_uncovered100,Equipment,SPECIAL CLINICAL CONSIDERATIONS
+2.4.7.2,1,EMS2026-2-4-7-2-02,270,Bariatric Respiratory Positioning,paramedic_next_action_50,Procedure challenges,SPECIAL CLINICAL CONSIDERATIONS
+2.4.8.1,1,EMS2026-2-4-8-1-03,276,Hospice Dyspnea Goals Of Care,paramedic_next_action_50,Hospice care,SPECIAL CLINICAL CONSIDERATIONS
+2.4.9.1,1,EMS2026-2-4-9-1-05,154,Quarantine And Family Accompaniment,legacy_locked_priority_superset_100,Social isolation,
+2.4.9.2,1,EMS2026-2-4-9-2-02,282,Caregiver Input For Home Ventilator Alarm,paramedic_next_action_50,Family centered care,SPECIAL CLINICAL CONSIDERATIONS
+2.4.9.3,1,EMS2026-2-4-9-3-02,288,Bystander History During Ongoing Care,paramedic_next_action_50,Management of bystanders while caring for patient,SPECIAL CLINICAL CONSIDERATIONS
+2.4.9.4,1,EMS2026-2-4-9-4-05,393,Death Notification Statement,primary_doctrine_uncovered100,Delivering bad news,SPECIAL CLINICAL CONSIDERATIONS
+2.4.9.6,2,EMS2026-2-4-9-6-01|EMS2026-2-4-9-6-04,51|324,Housing Status Documentation|Housing Instability Program Metrics,first50_reviewed_website_push|primary_doctrine_uncovered100,Housing instability,SPECIAL CLINICAL CONSIDERATIONS|Special Clinical Considerations
+3.1.1,1,EMS2026-3-1-1-07,9,PDSA Small Test Of Change,first50_reviewed_website_push,Quality Improvement Methodology Frameworks,Quality Management
+3.1.2.1,2,EMS2026-3-1-2-1-02|EMS2026-3-1-2-1-08,3|129,System 1 Reasoning Trap|Nonconveyance Oversight,first50_reviewed_website_push|legacy_locked_priority_superset_100,Clinical decision making,Quality Management
+3.1.2.2,1,EMS2026-3-1-2-2-04,29,Human Factors Safer Default,first50_reviewed_website_push,Cognitive biases,Quality Management
+3.1.2.3,1,EMS2026-3-1-2-3-06,158,Why EMS Adverse Events Are Missed,legacy_locked_priority_superset_100,Adverse events,
+3.1.2.4,1,EMS2026-3-1-2-4-05,243,Just Culture Versus Disciplinary Contamination,uncovered50_v3_source_hardened,Just culture,QUALITY MANAGEMENT
+3.1.3.1.1,1,EMS2026-3-1-3-1-1-05,265,Driver Diagram Parts After Fishbone Work,uncovered50_v3_source_hardened,Causal tools (fishbone and driver diagram),QUALITY MANAGEMENT
+3.1.3.1.2,1,EMS2026-3-1-3-1-2-05,249,Control Chart Versus Run Chart After Intervention,uncovered50_v3_source_hardened,Graphic display tools (run chart and control chart),QUALITY MANAGEMENT
+3.1.3.2,1,EMS2026-3-1-3-2-02,27,QI Infrastructure And Trust,first50_reviewed_website_push,Quality improvement programs,Quality Management
+3.1.4.1,1,EMS2026-3-1-4-1-04,128,Utstein Cardiac Arrest Dataset,legacy_locked_priority_superset_100,"Local, state, and national EMS data sources (including registries and databases)",
+3.1.4.2,2,EMS2026-3-1-4-2-05|EMS2026-3-1-4-2-06,291|341,ePCR Architecture And Workflow Burden|EMS Information-System Linkage,uncovered50_v3_source_hardened|primary_doctrine_uncovered100,Information system design,QUALITY MANAGEMENT
+3.1.4.3,1,EMS2026-3-1-4-3-05,274,Outcome Linkage Versus Event Metrics,uncovered50_v3_source_hardened,Performance measures,QUALITY MANAGEMENT
+3.1.5.1,2,EMS2026-3-1-5-1-02|EMS2026-3-1-5-1-01,325|389,Reproducible Systematic Review|Systematic Review Versus Narrative Review,primary_doctrine_uncovered100|primary_doctrine_uncovered100,Systematic literature reviews with or without meta-analyses,QUALITY MANAGEMENT
+3.1.5.2,1,EMS2026-3-1-5-2-02,349,Guideline Applicability Domain,primary_doctrine_uncovered100,Evidence-based guidelines,QUALITY MANAGEMENT
+3.1.6,1,EMS2026-3-1-6-08,73,Equity Monitoring During Implementation,legacy_locked_priority_superset_100,Implementation Science,
+3.2.1.1,1,EMS2026-3-2-1-1-07,80,The Common Rule,legacy_locked_priority_superset_100,"Ethical frameworks (e.g., Belmont Report, Common Rule, Final Rule)",
+3.2.1.2,2,EMS2026-3-2-1-2-05|EMS2026-3-2-1-2-07,70|125,Exempt Review in EMS Research|IRB Review For Emergency Research,legacy_locked_priority_superset_100|legacy_locked_priority_superset_100,Role of the Institutional Review Board,
+3.2.1.3,1,EMS2026-3-2-1-3-02,358,Consent Pressure During EMS Research,primary_doctrine_uncovered100,Informed consent,RESEARCH
+3.2.1.4.1,1,EMS2026-3-2-1-4-1-01,306,Exception From Informed Consent Community Consultation Timing,primary_doctrine_uncovered100,Community consultation,RESEARCH
+3.2.1.5,1,EMS2026-3-2-1-5-03,225,EFIC Eligibility Boundary,second50_qi_review,Human subjects research and vulnerable populations,
+3.2.2,2,EMS2026-3-2-2-05|EMS2026-3-2-2-08,26|232,Interventional Study Identification|Cohort Study Direction,first50_reviewed_website_push|second50_qi_review,Epidemiology,Research
+3.2.3.1,2,EMS2026-3-2-3-1-08|EMS2026-3-2-3-1-02,178|338,Confidence Interval Interpretation|Alternative Hypothesis,legacy_locked_priority_superset_100|primary_doctrine_uncovered100,Hypothesis testing,RESEARCH
+3.2.3.2,1,EMS2026-3-2-3-2-07,164,Sensitivity And Specificity,legacy_locked_priority_superset_100,Statistical tests,
+3.2.3.3,1,EMS2026-3-2-3-3-01,33,Intention-To-Treat Analysis,first50_reviewed_website_push,Data analysis,Research
+3.2.4.1,2,EMS2026-3-2-4-1-02|EMS2026-3-2-4-1-06,352|365,Cluster Randomization In EMS|Multi-Arm Clinical Trial Design,primary_doctrine_uncovered100|primary_doctrine_uncovered100,"Clinical trials (e.g., randomized controlled trial)",RESEARCH
+3.2.4.2,1,EMS2026-3-2-4-2-02,329,Case Series Causal Inference,primary_doctrine_uncovered100,"Observational studies (e.g., cohort, case control, case series, case report)",RESEARCH
+3.2.4.3,1,EMS2026-3-2-4-3-02,175,Outcome Measure That Matters,legacy_locked_priority_superset_100,Outcome measures,
+3.2.4.4,1,EMS2026-3-2-4-4-02,235,CONSORT For Randomized Trials,second50_qi_review,"Reporting guidelines (e.g., PRISMA, CONSORT, STROBE)",
+3.2.4.5,1,EMS2026-3-2-4-5-05,40,Cost-Minimization Analysis,first50_reviewed_website_push,Cost analysis research,Research
+4.1.1.1,1,EMS2026-4-1-1-1-03,233,ESF 8 Scope,second50_qi_review,IS-800,
+4.1.2.1,1,EMS2026-4-1-2-1-05,251,NIMS Component Behind The Information Failure,uncovered50_v3_source_hardened,IS-700,DISASTER MANAGEMENT
+4.1.3.1,2,EMS2026-4-1-3-1-02|EMS2026-4-1-3-1-03,321|371,Incident Command Logistics Section|When To Create An EMS Branch,primary_doctrine_uncovered100|primary_doctrine_uncovered100,Integration of medical operations,DISASTER MANAGEMENT
+4.1.3.2,2,EMS2026-4-1-3-2-02|EMS2026-4-1-3-2-04,356|399,Escalating Beyond Local Resources|Incident Action Plan Objective Linkage,primary_doctrine_uncovered100|primary_doctrine_uncovered100,"Local, state, federal assets",DISASTER MANAGEMENT
+4.1.3.3,1,EMS2026-4-1-3-3-02,121,EMS Branch Span Of Control,legacy_locked_priority_superset_100,Regional resource allocation and management,
+4.1.3.5,1,EMS2026-4-1-3-5-02,1,ICS-200 For Initial Incident Command,first50_reviewed_website_push,IS-100 and IS-200,Disaster Management
+4.1.4.1,1,EMS2026-4-1-4-1-03,146,Stafford Act Disaster Declaration,legacy_locked_priority_superset_100,State and federal criteria for disaster declaration,
+4.1.4.2,2,EMS2026-4-1-4-2-05|EMS2026-4-1-4-2-06,92|176,Emergency Management Assistance Compact Licensure|Mutual Aid and Self-Deployment,legacy_locked_priority_superset_100|legacy_locked_priority_superset_100,State emergency mutual aid compacts,
+4.1.5.1,1,EMS2026-4-1-5-1-04,293,NDMS Patient Movement Through A Federal Coordinating Center,uncovered50_v3_source_hardened,National Disaster Medical System (NDMS),DISASTER MANAGEMENT
+4.1.5.2,1,EMS2026-4-1-5-2-04,285,Title 32 Civil Support Team Command Status,uncovered50_v3_source_hardened,Specialized teams,DISASTER MANAGEMENT
+4.1.5.3,1,EMS2026-4-1-5-3-04,262,NGO Mass-Care Role Versus Medical Assets,uncovered50_v3_source_hardened,Non-governmental agencies,DISASTER MANAGEMENT
+4.1.5.4,2,EMS2026-4-1-5-4-04|EMS2026-4-1-5-4-02,297|374,MRC Integration Versus Walk-In Volunteers|Medical Reserve Corps Role,uncovered50_v3_source_hardened|primary_doctrine_uncovered100,Medical Reserve Corps,DISASTER MANAGEMENT
+4.1.5.5,1,EMS2026-4-1-5-5-02,211,Strategic Caches And Stockpiles,second50_qi_review,State and federal assets,
+4.1.6.1,2,EMS2026-4-1-6-1-04|EMS2026-4-1-6-1-05,260|312,Likelihood Of Benefit In Scarce Antidote Allocation|Resource Allocation Across Jurisdictions,uncovered50_v3_source_hardened|primary_doctrine_uncovered100,Allocation of scene resources,DISASTER MANAGEMENT
+4.1.6.2,1,EMS2026-4-1-6-2-02,333,NIMS Credentialing Deployment Authorization,primary_doctrine_uncovered100,Personnel credentialing issues,DISASTER MANAGEMENT
+4.1.6.3,1,EMS2026-4-1-6-3-02,37,Crisis Standards Legal Boundary,first50_reviewed_website_push,Contingency and crisis standards of care,Disaster Management
+4.1.6.4,1,EMS2026-4-1-6-4-04,244,Regional Resource Request Spillover,uncovered50_v3_source_hardened,Regional Medical Operations Coordination Centers,DISASTER MANAGEMENT
+4.1.6.5,2,EMS2026-4-1-6-5-04|EMS2026-4-1-6-5-02,296|359,Alternate Care Facility Authority And Credentialing|External Clinicians At Alternate Care Sites,uncovered50_v3_source_hardened|primary_doctrine_uncovered100,Alternate care facilities,DISASTER MANAGEMENT
+4.1.7.1,1,EMS2026-4-1-7-1-01,212,When MCI Triage Is Needed,second50_qi_review,Triage,
+4.1.7.2.1,2,EMS2026-4-1-7-2-1-02|EMS2026-4-1-7-2-1-04,56|59,Treatment Sector Function|Nontransporting ALS In Treatment Areas,first50_reviewed_website_push|first50_reviewed_website_push,Life-saving interventions and on-site treatment,Disaster Management
+4.1.7.2.2,1,EMS2026-4-1-7-2-2-04,241,Early Redundant Tracking For Family Reunification,uncovered50_v3_source_hardened,Patient reunification,DISASTER MANAGEMENT
+4.1.7.3.1,1,EMS2026-4-1-7-3-1-04,286,Nontraditional Transport For Walking Wounded,uncovered50_v3_source_hardened,Transport modes,DISASTER MANAGEMENT
+4.1.7.3.2,1,EMS2026-4-1-7-3-2-01,387,Mass-Casualty Incident Destination Distribution,primary_doctrine_uncovered100,Destination,DISASTER MANAGEMENT
+4.1.7.3.3,1,EMS2026-4-1-7-3-3-01,109,Dynamic Triage Categories,legacy_locked_priority_superset_100,Patient tracking,
+4.1.8.1.3,1,EMS2026-4-1-8-1-3-01,99,Decontamination Before Leaving the Exposure Site,legacy_locked_priority_superset_100,Personnel and patient decontamination,
+4.1.8.2,1,EMS2026-4-1-8-2-01,397,Overt Chemical Incident Priorities,primary_doctrine_uncovered100,Chemical incidents,DISASTER MANAGEMENT
+4.1.8.3,1,EMS2026-4-1-8-3-01,309,Delayed Cluster After Event,primary_doctrine_uncovered100,Biological incidents,DISASTER MANAGEMENT
+4.1.8.4,1,EMS2026-4-1-8-4-04,123,Radiological Contamination and Lifesaving Care,legacy_locked_priority_superset_100,Radiological incidents,
+4.1.8.5,1,EMS2026-4-1-8-5-01,396,Nuclear Detonation Early Casualty Pattern,primary_doctrine_uncovered100,Nuclear incidents,DISASTER MANAGEMENT
+4.1.8.6.3,1,EMS2026-4-1-8-6-3-04,328,USAR Hazard Control Plus Crush Risk,primary_doctrine_uncovered100,Integration with search and rescue,DISASTER MANAGEMENT
+4.2.1.3,1,EMS2026-4-2-1-3-02,50,Event Treatment Facility Design,first50_reviewed_website_push,Design of event treatment facilities,Mass Gathering
+4.2.1.5,2,EMS2026-4-2-1-5-05|EMS2026-4-2-1-5-01,57|115,Mass Gathering Initial Resource Report|Mass Gathering Escalation Risk,first50_reviewed_website_push|legacy_locked_priority_superset_100,MCI preparedness within mass gathering,Mass Gathering
+4.2.2.2,1,EMS2026-4-2-2-2-05,355,Mobile Physician At Large Event,primary_doctrine_uncovered100,Physician role,MASS GATHERING
+4.2.3,1,EMS2026-4-2-3-05,55,Mass Gathering Drill Participation,first50_reviewed_website_push,Training and Drills,Mass Gathering
+4.2.5.1,1,EMS2026-4-2-5-1-03,17,Event Dispatch Responsibilities,first50_reviewed_website_push,Onsite public safety answering point and dispatch,Mass Gathering
+4.3.1,1,EMS2026-4-3-1-07,103,Emergency Incident Rehabilitation Trigger,legacy_locked_priority_superset_100,Personnel rehabilitation,
+4.4.4,2,EMS2026-4-4-4-04|EMS2026-4-4-4-05,10|35,Tactical Field Care Tradeoff|Tactical Extraction Versus Routine Care,first50_reviewed_website_push|first50_reviewed_website_push,Phases of care,Tactical
+4.4.5.2,1,EMS2026-4-4-5-2-03,200,Airway Care Without Light,second50_qi_review,Sensory-deprived or sensory-overload physical assessment,
+4.4.6.1,2,EMS2026-4-4-6-1-05|EMS2026-4-4-6-1-02,130|173,Tactical Medical Threat Assessment|Tactical Medical Threat Across Mission Phases,legacy_locked_priority_superset_100|legacy_locked_priority_superset_100,Medical threat assessment,
+4.4.6.4,1,EMS2026-4-4-6-4-01,303,Nerve-Agent Care Under Fire,primary_doctrine_uncovered100,Hazardous materials/clandestine drug labs,TACTICAL
+4.5.1.1,1,EMS2026-4-5-1-1-04,65,High-Angle Rescue Equipment Planning,legacy_locked_priority_superset_100,Rope rescue,
+4.5.1.2,1,EMS2026-4-5-1-2-03,134,Confined-Space Atmospheric Testing,legacy_locked_priority_superset_100,Confined space rescue,
+4.5.1.5,1,EMS2026-4-5-1-5-04,85,Medical Advice During Machinery Disentanglement,legacy_locked_priority_superset_100,Vehicle and machinery rescue,
+4.5.5,1,EMS2026-4-5-5-01,64,Equipment Staging Before Access,legacy_locked_priority_superset_100,Operational considerations,
+4.5.7,1,EMS2026-4-5-7-02,310,US&R Medical Team Manager Responsibilities,primary_doctrine_uncovered100,Health and medical support of a task force team,TECHNICAL RESCUE AND URBAN SEARCH AND RESCUE
+4.6.1,1,EMS2026-4-6-1-06,353,Wilderness Oversight For Prolonged Field Care,primary_doctrine_uncovered100,Patient care in an austere setting,WILDERNESS
+4.6.2.1,1,EMS2026-4-6-2-1-03,318,Longer Wilderness Resuscitation Exceptions,primary_doctrine_uncovered100,Care and reassessment during prolonged evacuation,WILDERNESS
+4.6.2.2,1,EMS2026-4-6-2-2-04,199,Impaled Object During Wilderness Evacuation,second50_qi_review,Advanced wound care,
+4.6.2.3,2,EMS2026-4-6-2-3-01|EMS2026-4-6-2-3-03,45|112,Wilderness Joint Reduction Tradeoff|Wilderness Shoulder Reduction,first50_reviewed_website_push|legacy_locked_priority_superset_100,"Field reduction of dislocations, subluxations, or fractures",Wilderness
+4.6.2.4,2,EMS2026-4-6-2-4-02|EMS2026-4-6-2-4-04,81|91,Hypothermia Handling Priority|Field Thawing of Frostbite,legacy_locked_priority_superset_100|legacy_locked_priority_superset_100,Patient temperature management,
+4.7.2,1,EMS2026-4-7-2-06,218,MIH Heart-Failure Education Need,second50_qi_review,Expanded role/scope of practice,
+4.7.3,1,EMS2026-4-7-3-05,124,Point-Of-Care Testing In Mobile Integrated Health,legacy_locked_priority_superset_100,"Resources (e.g., equipment, medications, or point-of-care testing)",
+4.7.4,2,EMS2026-4-7-4-05|EMS2026-4-7-4-02,67|236,Mobile Integrated Health Medical Direction|MIH Regulation Without Stifling Innovation,legacy_locked_priority_superset_100|second50_qi_review,Medical oversight models,
+4.7.5,3,EMS2026-4-7-5-03|EMS2026-4-7-5-05|EMS2026-4-7-5-02,221|343|392,MIH Competency Evaluation|Certification Is Not An Outcome Measure|Training Scope For Mobile Integrated Health Care,second50_qi_review|primary_doctrine_uncovered100|primary_doctrine_uncovered100,"Personnel education, certification, and credentialing",MOBILE INTEGRATED HEALTHCARE / COMMUNITY PARAMEDICINE
+4.7.6.2,1,EMS2026-4-7-6-2-06,190,In-Home MIH With Transport Backup,second50_qi_review,Patient care navigation,

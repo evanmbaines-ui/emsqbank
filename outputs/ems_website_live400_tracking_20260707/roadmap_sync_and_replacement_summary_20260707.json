@@ -1,0 +1,59 @@
+{
+  "created_at": "2026-07-07",
+  "purpose": "Synchronize generation roadmap/candidate queue against artifact-based live400 tracker and generate unused-code replacements for exact duplicate staged questions.",
+  "source_of_truth_used": "Artifact-based provisional tracker: live300 tracker plus staged 301-400 packet, because local website server_data contains only 100 records.",
+  "archived_redundant_candidates": [
+    {
+      "review_order": 351,
+      "question_id": "EMS2026-2-3-1-4-01",
+      "job_id": "JOB-2-3-1-4-01",
+      "reason": "Staged review-order duplicate of existing live300 question/job."
+    },
+    {
+      "review_order": 380,
+      "question_id": "EMS2026-2-2-6-02",
+      "job_id": "JOB-2-2-6-02",
+      "reason": "Staged review-order duplicate of existing live300 question/job."
+    }
+  ],
+  "replacement_candidates": [
+    {
+      "review_order": 351,
+      "question_id": "EMS2026-2-3-2-3-03",
+      "job_id": "JOB-2-3-2-3-03",
+      "content_id": "2.3.2.3",
+      "title": "Hypertensive Pulmonary Edema Treatment Escalation",
+      "answer": "D"
+    },
+    {
+      "review_order": 380,
+      "question_id": "EMS2026-2-3-13-4-5-02",
+      "job_id": "JOB-2-3-13-4-5-02",
+      "content_id": "2.3.13.4.5",
+      "title": "Seizure During Deep Technical Dive",
+      "answer": "B"
+    }
+  ],
+  "rejected_replacement_candidate": {
+    "question_id": "EMS2026-2-2-4-1-05",
+    "content_id": "2.2.4.1",
+    "reason": "Rejected after validation because content code 2.2.4.1 already appears at review order 335 in the staged live400 tracker."
+  },
+  "answer_balance_note": "Replacement answers preserve archived slot answers: D for review order 351 and B for review order 380.",
+  "post_replacement_tracker": {
+    "row_count": 400,
+    "unique_question_id_count": 400,
+    "unique_job_id_count": 400,
+    "remaining_duplicate_question_ids": [],
+    "remaining_duplicate_job_ids": [],
+    "unique_content_area_count": 296
+  },
+  "files": {
+    "replacement_json": "outputs/ems_website_live400_tracking_20260707/replacement_questions_unused_codes_20260707.json",
+    "replacement_md": "outputs/ems_website_live400_tracking_20260707/replacement_questions_unused_codes_20260707.md",
+    "candidate_status_overlay": "outputs/ems_website_live400_tracking_20260707/candidate_question_status_overlay_20260707.csv",
+    "roadmap_candidate_status_overlay": "outputs/ems_question_production_plan_2026/roadmap_candidate_status_overlay_20260707.csv",
+    "active_400_tracker_after_replacements": "outputs/ems_website_live400_tracking_20260707/live400_review_order_after_replacements_20260707.csv",
+    "content_area_usage_after_replacements": "outputs/ems_website_live400_tracking_20260707/live400_content_area_usage_after_replacements_20260707.csv"
+  }
+}

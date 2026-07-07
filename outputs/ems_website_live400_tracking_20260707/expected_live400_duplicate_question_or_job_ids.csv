@@ -1,0 +1,9 @@
+duplicate_type,duplicate_key,review_order,question_id,job_id,content_id,core_content_code,title,source_label,topic,topic_group,domain
+question_id,EMS2026-2-2-6-02,60,EMS2026-2-2-6-02,JOB-2-2-6-02,2.2.6,2.2.6,Alkali Eye Burn Irrigation,paramedic_next_action_50,Facial and Ocular Trauma,TRAUMA,CLINICAL ASPECTS OF EMS MEDICINE
+question_id,EMS2026-2-2-6-02,380,EMS2026-2-2-6-02,JOB-2-2-6-02,2.2.6,2.2.6,Ocular Chemical Burn Next Action,primary_doctrine_uncovered100,Facial and Ocular Trauma,TRAUMA,CLINICAL ASPECTS OF EMS MEDICINE
+question_id,EMS2026-2-3-1-4-01,84,EMS2026-2-3-1-4-01,JOB-2-3-1-4-01,2.3.1.4,2.3.1.4,CPAP For Pulmonary Edema,paramedic_next_action_50,Non-invasive positive pressure ventilation,MEDICAL EMERGENCIES,CLINICAL ASPECTS OF EMS MEDICINE
+question_id,EMS2026-2-3-1-4-01,351,EMS2026-2-3-1-4-01,JOB-2-3-1-4-01,2.3.1.4,2.3.1.4,Noninvasive Positive-Pressure Ventilation Candidate Selection,primary_doctrine_uncovered100,Non-invasive positive pressure ventilation,MEDICAL EMERGENCIES,CLINICAL ASPECTS OF EMS MEDICINE
+job_id_only,JOB-2-2-6-02,60,EMS2026-2-2-6-02,JOB-2-2-6-02,2.2.6,2.2.6,Alkali Eye Burn Irrigation,paramedic_next_action_50,Facial and Ocular Trauma,TRAUMA,CLINICAL ASPECTS OF EMS MEDICINE
+job_id_only,JOB-2-2-6-02,380,EMS2026-2-2-6-02,JOB-2-2-6-02,2.2.6,2.2.6,Ocular Chemical Burn Next Action,primary_doctrine_uncovered100,Facial and Ocular Trauma,TRAUMA,CLINICAL ASPECTS OF EMS MEDICINE
+job_id_only,JOB-2-3-1-4-01,84,EMS2026-2-3-1-4-01,JOB-2-3-1-4-01,2.3.1.4,2.3.1.4,CPAP For Pulmonary Edema,paramedic_next_action_50,Non-invasive positive pressure ventilation,MEDICAL EMERGENCIES,CLINICAL ASPECTS OF EMS MEDICINE
+job_id_only,JOB-2-3-1-4-01,351,EMS2026-2-3-1-4-01,JOB-2-3-1-4-01,2.3.1.4,2.3.1.4,Noninvasive Positive-Pressure Ventilation Candidate Selection,primary_doctrine_uncovered100,Non-invasive positive pressure ventilation,MEDICAL EMERGENCIES,CLINICAL ASPECTS OF EMS MEDICINE

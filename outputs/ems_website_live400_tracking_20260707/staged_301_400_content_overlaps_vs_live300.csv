@@ -1,0 +1,34 @@
+new_review_order,new_question_id,new_job_id,content_id,new_title,existing_count,existing_review_orders,existing_question_ids,existing_titles,exact_question_id_duplicate
+307,EMS2026-2-3-11-3-4-01,JOB-2-3-11-3-4-01,2.3.11.3.4,Mpox Lesion Suspicion,1,300,EMS2026-2-3-11-3-4-02,Suspected MPox Source Control,no
+311,EMS2026-2-1-1-6-01,JOB-2-1-1-6-01,2.1.1.6,Withholding Resuscitation With Two Independent Grounds,1,184,EMS2026-2-1-1-6-03,POLST As Actionable Orders,no
+312,EMS2026-4-1-6-1-05,JOB-4-1-6-1-05,4.1.6.1,Resource Allocation Across Jurisdictions,1,260,EMS2026-4-1-6-1-04,Likelihood Of Benefit In Scarce Antidote Allocation,no
+314,EMS2026-2-1-2-2-3-05,JOB-2-1-2-2-3-05,2.1.2.2.3,Airway Dashboard Attempt Definitions,1,116,EMS2026-2-1-2-2-3-01,Direct Laryngoscopy Blade Technique,no
+315,EMS2026-2-1-2-1-2-03,JOB-2-1-2-1-2-03,2.1.2.1.2,Airway Adjunct During Bag-Mask Ventilation,1,280,EMS2026-2-1-2-1-2-04,Oxygen Saturation Is Not Ventilation,no
+319,EMS2026-2-4-4-1-04,JOB-2-4-4-1-04,2.4.4.1,Air Transport Cuff Pressure,1,284,EMS2026-2-4-4-1-06,Fixed-Wing Motion And Fracture Pain,no
+323,EMS2026-2-3-7-1-4-01,JOB-2-3-7-1-4-01,2.3.7.1.4,Placenta Previa Versus Abruption,1,132,EMS2026-2-3-7-1-4-02,Placenta Previa Exam Avoidance,no
+324,EMS2026-2-4-9-6-04,JOB-2-4-9-6-04,2.4.9.6,Housing Instability Program Metrics,1,51,EMS2026-2-4-9-6-01,Housing Status Documentation,no
+326,EMS2026-2-1-1-5-02,JOB-2-1-1-5-02,2.1.1.5,Mechanical CPR Deployment Decision,1,298,EMS2026-2-1-1-5-04,Mechanical CPR At A Staffed Arrest,no
+331,EMS2026-2-3-2-6-2-03,JOB-2-3-2-6-2-03,2.3.2.6.2,Low-Flow Ventricular Assist Device Alarm,1,96,EMS2026-2-3-2-6-2-02,LVAD Alarm Troubleshooting,no
+338,EMS2026-3-2-3-1-02,JOB-3-2-3-1-02,3.2.3.1,Alternative Hypothesis,1,178,EMS2026-3-2-3-1-08,Confidence Interval Interpretation,no
+339,EMS2026-2-1-2-2-1-05,JOB-2-1-2-2-1-05,2.1.2.2.1,Handoff After Supraglottic Airway Placement,1,142,EMS2026-2-1-2-2-1-03,Continuous Tube Confirmation,no
+340,EMS2026-2-2-8-2-02,JOB-2-2-8-2-02,2.2.8.2,Crush Syndrome Risk Estimation,1,66,EMS2026-2-2-8-2-03,Crush Release Preparation,no
+341,EMS2026-3-1-4-2-06,JOB-3-1-4-2-06,3.1.4.2,EMS Information-System Linkage,1,291,EMS2026-3-1-4-2-05,ePCR Architecture And Workflow Burden,no
+342,EMS2026-2-1-3-3-3-03,JOB-2-1-3-3-3-03,2.1.3.3.3,Pediatric IO After Failed IV Attempts,3,36|110|179,EMS2026-2-1-3-3-3-02|EMS2026-2-1-3-3-3-04|EMS2026-2-1-3-3-3-05,Pediatric IO Site With Tibial Fracture|Intraosseous Medication Delivery|Intraosseous Infusion Flow,no
+343,EMS2026-4-7-5-05,JOB-4-7-5-05,4.7.5,Certification Is Not An Outcome Measure,1,221,EMS2026-4-7-5-03,MIH Competency Evaluation,no
+345,EMS2026-2-3-10-1-02,JOB-2-3-10-1-02,2.3.10.1,Septic Shock Mixed Physiology,1,168,EMS2026-2-3-10-1-03,Recognizing Prehospital Septic Shock,no
+351,EMS2026-2-3-1-4-01,JOB-2-3-1-4-01,2.3.1.4,Noninvasive Positive-Pressure Ventilation Candidate Selection,1,84,EMS2026-2-3-1-4-01,CPAP For Pulmonary Edema,yes
+359,EMS2026-4-1-6-5-02,JOB-4-1-6-5-02,4.1.6.5,External Clinicians At Alternate Care Sites,1,296,EMS2026-4-1-6-5-04,Alternate Care Facility Authority And Credentialing,no
+360,EMS2026-1-1-1-2-3-05,JOB-1-1-1-2-3-05,1.1.1.2.3,Safety Evidence For Nontransport Pathways,2,188|201,EMS2026-1-1-1-2-3-06|EMS2026-1-1-1-2-3-01,Provider-Initiated Nontransport Oversight|Ambulance Medical Necessity,no
+361,EMS2026-1-2-4-2-06,JOB-1-2-4-2-06,1.2.4.2,Licensure After National Certification,1,98,EMS2026-1-2-4-2-01,National EMS Clinician Levels,no
+364,EMS2026-1-3-4-1-1-04,JOB-1-3-4-1-1-04,1.3.4.1.1,Ryan White Act Exposure Notification,3,41|46|89,EMS2026-1-3-4-1-1-07|EMS2026-1-3-4-1-1-06|EMS2026-1-3-4-1-1-02,Tuberculosis Exposure Program|NFPA Department Physician Role|Needlestick Exposure First Actions,no
+369,EMS2026-2-4-5-6-01,JOB-2-4-5-6-01,2.4.5.6,Special Health Care Needs Beyond Technology,1,107,EMS2026-2-4-5-6-04,Technology-Dependent Child Deterioration,no
+373,EMS2026-1-4-7-02,JOB-1-4-7-02,1.4.7,Telephone Advice As Navigation,1,266,EMS2026-1-4-7-07,Choosing The MIH Model For Senior Housing,no
+374,EMS2026-4-1-5-4-02,JOB-4-1-5-4-02,4.1.5.4,Medical Reserve Corps Role,1,297,EMS2026-4-1-5-4-04,MRC Integration Versus Walk-In Volunteers,no
+378,EMS2026-1-4-4-2-07,JOB-1-4-4-2-07,1.4.4.2,Mass-Casualty Destination Decisions,2,119|172,EMS2026-1-4-4-2-04|EMS2026-1-4-4-2-03,Trauma Overtriage Tradeoff|Field Activation As Simultaneous Processing,no
+380,EMS2026-2-2-6-02,JOB-2-2-6-02,2.2.6,Ocular Chemical Burn Next Action,1,60,EMS2026-2-2-6-02,Alkali Eye Burn Irrigation,yes
+383,EMS2026-2-1-2-3-03,JOB-2-1-2-3-03,2.1.2.3,Trapped Upright Airway Priority,1,292,EMS2026-2-1-2-3-04,Low-Light Airway Failure As Readiness Failure,no
+391,EMS2026-1-3-4-3-08,JOB-1-3-4-3-08,1.3.4.3,Emergency Medical Services Fatigue Risk Management,1,177,EMS2026-1-3-4-3-03,Sleepiness Scale Interpretation,no
+392,EMS2026-4-7-5-02,JOB-4-7-5-02,4.7.5,Training Scope For Mobile Integrated Health Care,1,221,EMS2026-4-7-5-03,MIH Competency Evaluation,no
+394,EMS2026-2-3-3-1-1-04,JOB-2-3-3-1-1-04,2.3.3.1.1,Prehospital Large Vessel Occlusion Screen,1,4,EMS2026-2-3-3-1-1-05,Stroke Mimic Glucose Check,no
+395,EMS2026-2-3-12-1-2-02,JOB-2-3-12-1-2-02,2.3.12.1.2,Violence Risk In Psychosis,1,254,EMS2026-2-3-12-1-2-04,Psychosis De-Escalation With Safety Boundary,no
+398,EMS2026-2-2-6-05,JOB-2-2-6-05,2.2.6,Protruding Globe Foreign Body Next Action,1,60,EMS2026-2-2-6-02,Alkali Eye Burn Irrigation,no
