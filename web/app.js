@@ -91,6 +91,21 @@
     "4.7": "Mobile Integrated Healthcare / Community Paramedicine"
   };
 
+  const STAGED_IMPORT_BATCHES = [
+    {
+      id: "primary_doctrine_uncovered100",
+      title: "Primary doctrine uncovered 100",
+      description: "Imports 100 staged questions into the evaluator voting pool.",
+      sourcePath: "outputs/ems_uncovered_100q_primary_20260706/primary_doctrine_uncovered100_all100_WEB_READY_20260706.json",
+      sourceLabel: "primary_doctrine_uncovered100",
+      batchId: "20260707_primary_doctrine_uncovered100",
+      questionCount: 100,
+      questionRange: "301-400",
+      activate: true,
+      notes: "Primary-doctrine uncovered 100-question package staged from WEB_READY_REVIEW markdown; imported for evaluator voting."
+    }
+  ];
+
   const app = document.getElementById("app");
 
   const state = {
@@ -436,6 +451,7 @@
       ${renderAdminAlerts(summary)}
       ${renderEvaluationModeControl(summary.environment || {})}
       ${renderReviewerNotificationPanel(summary)}
+      ${renderAdminImportPanel()}
       <section class="menu-grid">
         <div class="panel mode-panel">
           <h2>Pool Status</h2>
@@ -500,6 +516,36 @@
               <span>Core section</span>
             </div>
             ${(summary.questions || []).map(renderAdminRow).join("")}
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
+  function renderAdminImportPanel() {
+    return `
+      <section class="panel admin-import-panel">
+        <div class="panel-body">
+          <h2 class="section-title">Staged Imports</h2>
+          <div class="notification-grid">
+            ${STAGED_IMPORT_BATCHES.map((batch) => `
+              <form class="notification-form" data-form="staged-import">
+                <input type="hidden" name="importId" value="${escapeAttr(batch.id)}">
+                <div class="notification-field">
+                  <label>Batch</label>
+                  <span><strong>${escapeHTML(batch.title)}</strong> ${escapeHTML(batch.description)}</span>
+                </div>
+                <div class="notification-field">
+                  <label>Questions</label>
+                  <span>${escapeHTML(String(batch.questionCount))} questions, evaluator order ${escapeHTML(batch.questionRange)}</span>
+                </div>
+                <div class="notification-field">
+                  <label>Target</label>
+                  <span>${batch.activate ? "Voting pool" : "Paused pool"}</span>
+                </div>
+                <button class="primary" type="submit">Import batch</button>
+              </form>
+            `).join("")}
           </div>
         </div>
       </section>
@@ -2005,6 +2051,8 @@
         await adminLogin(data);
       } else if (formType === "evaluation-mode") {
         await saveEvaluationMode(data);
+      } else if (formType === "staged-import") {
+        await importStagedBatch(data);
       } else if (formType === "notify-qualified-reviewers") {
         await notifyQualifiedReviewers(data);
       } else if (formType === "review") {
@@ -2431,6 +2479,27 @@
     const response = await adminPost("/api/admin/set-evaluation-mode", { evaluationMode });
     state.adminSummary = response.summary;
     setMessage("success", `Evaluation mode set to ${evaluationModeLabel(response.environment?.evaluation_mode || evaluationMode)}.`);
+    render();
+  }
+
+  async function importStagedBatch(data) {
+    const importId = String(data.get("importId") || "");
+    const batch = STAGED_IMPORT_BATCHES.find((candidate) => candidate.id === importId);
+    if (!batch) {
+      throw new Error("Staged import was not found.");
+    }
+    const response = await adminPost("/api/admin/import-questions", {
+      sourcePath: batch.sourcePath,
+      sourceLabel: batch.sourceLabel,
+      activate: batch.activate,
+      batchId: batch.batchId,
+      notes: batch.notes
+    });
+    await loadAdmin();
+    const added = Number(response.added || 0);
+    const skipped = Number(response.skipped || 0);
+    const revised = Number(response.revised_as_new_records || 0);
+    setMessage("success", `Import complete: ${added} added, ${skipped} skipped, ${revised} revised as new records.`);
     render();
   }
 
