@@ -1922,6 +1922,7 @@ def concept_registry_summary(
                 "record_ids": [],
                 "question_ids": [],
                 "content_hashes": [],
+                "active_content_hashes": [],
                 "intake_batch_ids": [],
                 "state_counts": {state: 0 for state in sorted(VALID_POOL_STATES)},
                 "qualified_accept": 0,
@@ -1930,13 +1931,18 @@ def concept_registry_summary(
                 "learner_attempts": 0,
                 "duplicate_warning_count": 0,
                 "duplicate_warning_types": {},
+                "active_duplicate_warning_count": 0,
+                "active_duplicate_warning_types": {},
             },
         )
         pool_state = question.get("pool_state", "voting")
+        active_state = pool_state in {"voting", "accepted", "paused", "tiebreaker"}
         row["state_counts"][pool_state] = row["state_counts"].get(pool_state, 0) + 1
         row["record_ids"].append(record_id)
         row["question_ids"].append(question.get("question_id", ""))
         row["content_hashes"].append(question.get("content_hash", ""))
+        if active_state:
+            row["active_content_hashes"].append(question.get("content_hash", ""))
         if question.get("intake_batch_id"):
             row["intake_batch_ids"].append(question.get("intake_batch_id", ""))
         tally = tally_for_question(record_id, reviews, qualified_ids)
@@ -1948,6 +1954,9 @@ def concept_registry_summary(
             warning_type = warning.get("type", "duplicate_warning")
             row["duplicate_warning_count"] += 1
             row["duplicate_warning_types"][warning_type] = row["duplicate_warning_types"].get(warning_type, 0) + 1
+            if active_state:
+                row["active_duplicate_warning_count"] += 1
+                row["active_duplicate_warning_types"][warning_type] = row["active_duplicate_warning_types"].get(warning_type, 0) + 1
 
     rows = []
     counts_by_status: dict[str, int] = {}
@@ -1955,10 +1964,15 @@ def concept_registry_summary(
         row["record_count"] = len(row["record_ids"])
         row["question_count"] = len(set(row["question_ids"]))
         row["content_hash_count"] = len(set(filter(None, row["content_hashes"])))
+        row["active_content_hash_count"] = len(set(filter(None, row["active_content_hashes"])))
         row["intake_batch_ids"] = sorted(set(filter(None, row["intake_batch_ids"])))
         row["status"] = concept_lifecycle_status(row["state_counts"])
-        row["active_record_count"] = sum(row["state_counts"].get(state, 0) for state in ("voting", "accepted", "paused"))
-        row["duplicate_risk"] = row["active_record_count"] > 1 or row["content_hash_count"] > 1 or row["duplicate_warning_count"] > 0
+        row["active_record_count"] = sum(row["state_counts"].get(state, 0) for state in ("voting", "accepted", "paused", "tiebreaker"))
+        row["duplicate_risk"] = (
+            row["active_record_count"] > 1
+            or row["active_content_hash_count"] > 1
+            or row["active_duplicate_warning_count"] > 0
+        )
         counts_by_status[row["status"]] = counts_by_status.get(row["status"], 0) + 1
         rows.append(row)
 
