@@ -1,0 +1,40 @@
+{
+  "batch_id": "20260707_primary_doctrine_uncovered100",
+  "source_label": "primary_doctrine_uncovered100",
+  "intended_pool_state": "voting",
+  "website_json": "outputs/ems_uncovered_100q_primary_20260706/primary_doctrine_uncovered100_all100_WEB_READY_20260706.json",
+  "review_markdown": "outputs/ems_uncovered_100q_primary_20260706/primary_doctrine_uncovered100_all100_WEB_READY_REVIEW_20260706.md",
+  "website_json_sha256": "8701fe54d12985edab6f1f720c166e3c9d863c6a02c98683e97be07cc8fe0b1e",
+  "review_markdown_sha256": "9c16f85497b6b91c60b09a102959591cdee811b3d5b0313d64cb319a92e30a9c",
+  "question_count": 100,
+  "question_number_min": 301,
+  "question_number_max": 400,
+  "local_import_qc": {
+    "added": 100,
+    "skipped": 0,
+    "revised_as_new_records": 0,
+    "manifest_path": "/private/tmp/emsqbank_import_qc_20260707/intake_manifests/20260707_primary_doctrine_uncovered100.json"
+  },
+  "known_live300_overlap_count": 2,
+  "known_live300_overlaps": [
+    {
+      "question_id": "EMS2026-2-3-1-4-01",
+      "job_id": "JOB-2-3-1-4-01",
+      "new_title": "Noninvasive Positive-Pressure Ventilation Candidate Selection",
+      "new_question_number": 351,
+      "existing_review_order": "84",
+      "existing_batch_id": "20260706_paramedic_next_action_50",
+      "existing_title": "CPAP For Pulmonary Edema"
+    },
+    {
+      "question_id": "EMS2026-2-2-6-02",
+      "job_id": "JOB-2-2-6-02",
+      "new_title": "Ocular Chemical Burn Next Action",
+      "new_question_number": 380,
+      "existing_review_order": "60",
+      "existing_batch_id": "20260706_paramedic_next_action_50",
+      "existing_title": "Alkali Eye Burn Irrigation"
+    }
+  ],
+  "notes": "Staged for Render admin import. Live import should be run after this file is deployed; duplicate warnings will be generated against the live persistent question bank."
+}
