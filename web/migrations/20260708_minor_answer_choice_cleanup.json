@@ -1,0 +1,35 @@
+{
+  "created_at": "2026-07-08",
+  "description": "Apply minor answer-choice wording cleanup to two existing live question records in place while preserving record IDs, pool states, reviews, and learner history.",
+  "migration_id": "20260708_minor_answer_choice_cleanup",
+  "source_package": "manual_request_20260708",
+  "update_count": 2,
+  "updates": [
+    {
+      "change_type": "minor_answer_choice_cleanup",
+      "fields": {
+        "options": {
+          "A": "A root-cause analysis, because any medication delay should be investigated only after a sentinel event.",
+          "B": "A final policy implementation, because one positive station trial proves system-wide effectiveness.",
+          "C": "A disciplinary audit, because medication timing is primarily an individual compliance issue.",
+          "D": "A Plan-Do-Study-Act cycle using a small test of change before broader adoption."
+        }
+      },
+      "question_id": "EMS2026-3-1-1-07",
+      "reason": "Remove parenthetical acronym cue from the correct answer choice while keeping the full method name."
+    },
+    {
+      "change_type": "minor_answer_choice_cleanup",
+      "fields": {
+        "options": {
+          "A": "Per-protocol analysis.",
+          "B": "As-treated analysis.",
+          "C": "Case-control analysis.",
+          "D": "Intention-to-treat analysis."
+        }
+      },
+      "question_id": "EMS2026-3-2-3-3-01",
+      "reason": "Remove because-style explanatory clauses from all answer choices so only the analysis type is shown."
+    }
+  ]
+}
