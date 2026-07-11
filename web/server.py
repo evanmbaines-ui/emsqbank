@@ -1194,12 +1194,26 @@ def user_from_token(token: str | None) -> tuple[str, dict] | tuple[None, None]:
     return email_hash, user
 
 
+def profile_training_status(profile: dict | None) -> str:
+    if not isinstance(profile, dict):
+        return ""
+    return str(profile.get("trainingStatus", "")).strip().lower()
+
+
+def profile_is_qualified_voter(profile: dict | None) -> bool:
+    if not isinstance(profile, dict):
+        return False
+    if profile_training_status(profile) == "other":
+        return False
+    return profile.get("previousBoard") == "yes"
+
+
 def safe_user(user: dict) -> dict:
     profile = user.get("profile", {})
     return {
         "anonymousUserId": user.get("anonymous_user_id", ""),
         "profile": profile,
-        "qualifiedVoter": profile.get("previousBoard") == "yes",
+        "qualifiedVoter": profile_is_qualified_voter(profile),
         "createdAt": user.get("created_at", ""),
     }
 
@@ -1208,7 +1222,7 @@ def qualified_reviewer_ids() -> set[str]:
     users = load_json(USERS_FILE, {"users": {}})
     qualified = set()
     for user in users.get("users", {}).values():
-        if user.get("profile", {}).get("previousBoard") == "yes":
+        if profile_is_qualified_voter(user.get("profile", {})):
             qualified.add(user.get("anonymous_user_id"))
     return qualified
 
@@ -1217,7 +1231,7 @@ def qualified_contactable_reviewers(users: dict | None = None) -> list[dict]:
     users = users or load_json(USERS_FILE, {"users": {}})
     reviewers = []
     for email_hash, user in users.get("users", {}).items():
-        if user.get("profile", {}).get("previousBoard") != "yes":
+        if not profile_is_qualified_voter(user.get("profile", {})):
             continue
         email = contact_email_for_user(user)
         if email:
@@ -1230,11 +1244,11 @@ def reviewer_profile_snapshot(user: dict) -> dict:
 
 
 def review_qualified_at_submission(anonymous_id: str, review: dict, qualified_ids: set[str]) -> bool:
-    if "qualifiedAtSubmission" in review:
-        return bool(review.get("qualifiedAtSubmission"))
     profile = review.get("profileAtSubmission")
     if isinstance(profile, dict) and "previousBoard" in profile:
-        return profile.get("previousBoard") == "yes"
+        return profile_is_qualified_voter(profile)
+    if "qualifiedAtSubmission" in review:
+        return bool(review.get("qualifiedAtSubmission"))
     return anonymous_id in qualified_ids
 
 
@@ -2064,7 +2078,7 @@ def admin_summary() -> dict:
 
     reviewer_count = len(users.get("users", {}))
     qualified_reviewer_count = sum(
-        1 for user in users.get("users", {}).values() if user.get("profile", {}).get("previousBoard") == "yes"
+        1 for user in users.get("users", {}).values() if profile_is_qualified_voter(user.get("profile", {}))
     )
     contactable_qualified_count = len(qualified_contactable_reviewers(users))
     learner_total_attempts = sum(tally.get("total_attempts", 0) for tally in learner_tallies.values())
@@ -2479,7 +2493,7 @@ class RequestHandler(BaseHTTPRequestHandler):
         if question_count <= 0:
             question_count = available_count
         users = load_json(USERS_FILE, {"users": {}})
-        qualified_total = sum(1 for user in users.get("users", {}).values() if user.get("profile", {}).get("previousBoard") == "yes")
+        qualified_total = sum(1 for user in users.get("users", {}).values() if profile_is_qualified_voter(user.get("profile", {})))
         contactable = qualified_contactable_reviewers(users)
         sent = 0
         failed = 0
@@ -2738,6 +2752,7 @@ class RequestHandler(BaseHTTPRequestHandler):
             reviews.setdefault("reviews", {}).setdefault(record_id, {})
             anonymous_id = user["anonymous_user_id"]
             profile_at_submission = reviewer_profile_snapshot(user)
+            qualified_at_submission = profile_is_qualified_voter(profile_at_submission)
             environment = evaluation_environment_payload()
             evaluation_mode = environment.get("evaluation_mode", "sandbox")
             live_evaluation = bool(environment.get("live_evaluation"))
@@ -2771,7 +2786,7 @@ class RequestHandler(BaseHTTPRequestHandler):
                 "comments": str(payload.get("comments", "")).strip(),
                 "profileAtSubmission": profile_at_submission,
                 "profileLastUpdatedAtSubmission": user.get("profile_updated_at", ""),
-                "qualifiedAtSubmission": profile_at_submission.get("previousBoard") == "yes",
+                "qualifiedAtSubmission": qualified_at_submission,
                 "evaluationEnvironment": environment.get("evaluation_env", "sandbox"),
                 "evaluationMode": evaluation_mode,
                 "countsTowardDecision": counts_toward_decision,
@@ -2789,7 +2804,7 @@ class RequestHandler(BaseHTTPRequestHandler):
                 intake_batch_id=question.get("intake_batch_id", ""),
                 disposition=disposition,
                 vote_bucket=verdict,
-                qualified_at_submission=profile_at_submission.get("previousBoard") == "yes",
+                qualified_at_submission=qualified_at_submission,
                 evaluation_environment=environment.get("evaluation_env", "sandbox"),
                 evaluation_mode=environment.get("evaluation_mode", "sandbox"),
                 counts_toward_decision=counts_toward_decision,
@@ -3034,12 +3049,13 @@ class RequestHandler(BaseHTTPRequestHandler):
             flags = load_json(LEARNER_FLAGS_FILE, {"flags": {}})
             anonymous_id = user["anonymous_user_id"]
             profile_at_submission = reviewer_profile_snapshot(user)
+            qualified_at_submission = profile_is_qualified_voter(profile_at_submission)
             record = {
                 "generationIssueFlags": generation_issue_flags,
                 "comments": comments,
                 "profileAtSubmission": profile_at_submission,
                 "profileLastUpdatedAtSubmission": user.get("profile_updated_at", ""),
-                "qualifiedAtSubmission": profile_at_submission.get("previousBoard") == "yes",
+                "qualifiedAtSubmission": qualified_at_submission,
                 "questionPoolStateAtSubmission": question.get("pool_state", ""),
                 "status": "open",
                 "updatedAt": utc_now(),
@@ -3054,7 +3070,7 @@ class RequestHandler(BaseHTTPRequestHandler):
                 question_id=question.get("question_id", ""),
                 intake_batch_id=question.get("intake_batch_id", ""),
                 profile_at_submission=profile_at_submission,
-                qualified_at_submission=profile_at_submission.get("previousBoard") == "yes",
+                qualified_at_submission=qualified_at_submission,
                 generation_issue_flags=generation_issue_flags,
                 has_comments=bool(comments),
             )

@@ -25,6 +25,13 @@
     ["other", "Other"]
   ];
 
+  const TRAINING_STATUS_OPTIONS = [
+    ["board_certified", "Board certified"],
+    ["board_eligible", "Board eligible"],
+    ["fellow", "Fellow"],
+    ["other", "Other"]
+  ];
+
   const REVIEW_DISPOSITIONS = [
     ["accept_as_is", "Accept as is"],
     ["accept_with_revisions", "Accept with revisions"],
@@ -1144,9 +1151,7 @@
             <label for="training-status">Training status</label>
             <select id="training-status" name="trainingStatus" required>
               ${selectOption("", "Select one", "")}
-              ${selectOption("board_certified", "Board certified", "")}
-              ${selectOption("board_eligible", "Board eligible", "")}
-              ${selectOption("fellow", "Fellow", "")}
+              ${TRAINING_STATUS_OPTIONS.map(([value, label]) => selectOption(value, label, "")).join("")}
             </select>
           </div>
           <div class="field">
@@ -1828,9 +1833,7 @@
                 <div class="field">
                   <label for="profile-training-status">Training status</label>
                   <select id="profile-training-status" name="trainingStatus" required>
-                    ${selectOption("board_certified", "Board certified", profile.trainingStatus || "")}
-                    ${selectOption("board_eligible", "Board eligible", profile.trainingStatus || "")}
-                    ${selectOption("fellow", "Fellow", profile.trainingStatus || "")}
+                    ${TRAINING_STATUS_OPTIONS.map(([value, label]) => selectOption(value, label, profile.trainingStatus || "")).join("")}
                   </select>
                 </div>
                 <div class="field">

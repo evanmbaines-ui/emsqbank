@@ -30,6 +30,7 @@ EMS2026-PILOT
 - Learners can flag accepted questions for admin review with the same issue labels used by evaluators.
 - Each evaluator review stores the evaluator profile snapshot at submission, including board-status answer, training state, and practice state.
 - Only reviews whose submission-time profile says the evaluator previously took the board exam count as qualified votes.
+- `Other` training-status profiles are recorded as feedback-only and do not count as qualified votes.
 - Sandbox and beta-test reviews are recorded but do not count toward accept/reject decisions.
 - Each evaluator review stores `evaluationMode` as `sandbox`, `beta`, or `live`, plus `countsTowardDecision`.
 - Evaluators choose one disposition: `Accept as is`, `Accept with revisions`, `Major revisions needed`, or `Reject`.
