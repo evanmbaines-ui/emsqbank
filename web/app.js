@@ -2075,7 +2075,7 @@
     }
   }
 
-  function handleClick(event) {
+  async function handleClick(event) {
     const modalCard = event.target.closest(".modal-card");
     const backdropAction = event.target.classList.contains("modal-backdrop") ? event.target.dataset.action : "";
     if (backdropAction && !modalCard) {
@@ -2158,8 +2158,43 @@
     }
     const action = actionElement?.dataset.action;
     if (action) {
+      if (action === "evaluator-next") {
+        await saveEvaluatorReviewOrMoveNext(actionElement);
+        return;
+      }
       runAction(action);
     }
+  }
+
+  async function saveEvaluatorReviewOrMoveNext(actionElement) {
+    const form = actionElement?.closest('form[data-form="review"]');
+    if (!form || !evaluatorReviewHasInput(form)) {
+      moveQuestion("evaluator", 1);
+      render();
+      return;
+    }
+    if (!form.reportValidity()) {
+      return;
+    }
+    clearMessage();
+    try {
+      await saveReview(new FormData(form));
+    } catch (error) {
+      setMessage("error", error.message || "Something went wrong.");
+      render();
+    }
+  }
+
+  function evaluatorReviewHasInput(form) {
+    const data = new FormData(form);
+    return Boolean(
+      String(data.get("disposition") || "") ||
+      String(data.get("difficulty") || "") ||
+      String(data.get("quality") || "") ||
+      String(data.get("confidence") || "") ||
+      data.getAll("generationIssueFlags").length ||
+      String(data.get("comments") || "").trim()
+    );
   }
 
   function handleKeyDown(event) {
